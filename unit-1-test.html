@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الدرس الثالث - الوحدة الأولى 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #0d9488;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --success: #16a34a;
+            --error: #dc2626;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        .designer-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Enrichment & Summary Section */
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-right: 5px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            text-align: right;
+        }
+
+        .comparison-table th {
+            background-color: #eff6ff;
+            color: var(--primary);
+        }
+
+        /* Question Box Styling */
+        .q-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .q-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        /* Multiple Choice Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        @media(min-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: #f8fafc;
+            border: 2px solid var(--border);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: right;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .option-btn.selected {
+            border-color: var(--primary);
+            background: #dbeafe;
+        }
+
+        /* Short Answer Inputs */
+        .text-input, .textarea-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .text-input:focus, .textarea-input:focus {
+            border-color: var(--primary-light);
+        }
+
+        /* Feedback Section */
+        .feedback {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .feedback.correct {
+            background-color: #dcfce7;
+            color: var(--success);
+            border: 1px solid #86efac;
+        }
+
+        .feedback.incorrect {
+            background-color: #fee2e2;
+            color: var(--error);
+            border: 1px solid #fca5a5;
+        }
+
+        .explanation {
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #475569;
+            display: none;
+        }
+
+        /* Controls & Submit */
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Score Display */
+        #score-board {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border: 2px solid var(--primary);
+        }
+
+        #score-board h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 25px 0 15px 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <h1>اختبار الدرس الثالث - الوحدة الأولى 2026</h1>
+        <h2>دوسية علوم الأرض والبيئة: الوقود الأحفوري والبيئة</h2>
+        <div class="designer-tag">إعداد وتصميم المعلم: محمد ملكاوي</div>
+    </header>
+
+    <!-- Score Board -->
+    <div id="score-board">
+        <h3>نتيجة الاختبار الذاتي</h3>
+        <h2 id="score-text">0 / 0</h2>
+        <p id="score-message"></p>
+    </div>
+
+    <!-- Enrichment Material -->
+    <div class="info-card">
+        <h3>إثراء وتوسّع: الضباب الدخاني (Smog)</h3>
+        <p>جاءت تسمية الضباب الدخاني (الضّبخن) من دمج كلمتَي (Smoke) و(Fog). وهو شكل من ملوّثات الهواء الناتجة عن أنشطة الإنسان في المناطق الصناعية المكتظّة بالسكان ذات الهواء الساكن.</p>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>وجه المقارنة</th>
+                    <th>الضباب الدخاني الشتوي</th>
+                    <th>الضباب الدخاني الصيفي</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>الفصل</td>
+                    <td>الشتاء</td>
+                    <td>الصيف</td>
+                </tr>
+                <tr>
+                    <td>المصدر الرئيس</td>
+                    <td>احتراق النفط أو الفحم الحجري</td>
+                    <td>تفاعل ضوئي بين ضوء الشمس وغازات الاحتراق</td>
+                </tr>
+                <tr>
+                    <td>الملوّثات الرئيسة</td>
+                    <td>أكاسيد الكبريت والهيدروكربونات</td>
+                    <td>الأوزون، حمض النيتريك، NO2، HC، CO</td>
+                </tr>
+                <tr>
+                    <td>الاسم الآخر</td>
+                    <td>الضّبخن الكبريتي</td>
+                    <td>الضّبخن الكيميائي الضوئي</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form id="quiz-form">
+        <div class="section-header">السؤال الأول: اختر رمز الإجابة الصحيحة</div>
+
+        <!-- MCQ 1 -->
+        <div class="q-card" data-correct="0">
+            <div class="q-title">1. نسبة تركيز غازات الدفيئة المتكوّنة بفعل الأنشطة البشرية في الغلاف الجوي تشكّل تقريبًا:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. 5%</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. 20%</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. 45%</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. 70%</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: تشكّل الإضافة البشرية لتركيز غازات الدفيئة نسبة صغيرة نسبيًا مقارنة بإجمالي مكوّنات الغلاف الجوي.</div>
+        </div>
+
+        <!-- MCQ 2 -->
+        <div class="q-card" data-correct="0">
+            <div class="q-title">2. أكثر القطاعات إنتاجًا لغازات الدفيئة هو قطاع:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. الطاقة</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. النفايات</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. الصناعة</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. الزراعة</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: قطاع الطاقة يمثّل النسبة الأعلى (نحو 73.2%) من إجمالي انبعاثات غازات الدفيئة.</div>
+        </div>
+
+        <!-- MCQ 3 -->
+        <div class="q-card" data-correct="2">
+            <div class="q-title">3. إذا علمت أن معامل انبعاث CO2 للبنزين يساوي 2.31 kg CO2/L، فإن كمية الغاز المنبعثة من احتراق 500 L تساوي:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. 0.00462 kg</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. 216.45 kg</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. 1155 kg</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. 2310 kg</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: E = EF × A = 2.31 × 500 = 1155 kg CO2.</div>
+        </div>
+
+        <!-- MCQ 4 -->
+        <div class="q-card" data-correct="1">
+            <div class="q-title">4. تمتلك غازات الدفيئة القدرة على امتصاص الأشعة:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. السينية</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. تحت الحمراء</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. غاما</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. فوق البنفسجية</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: تمتصّ غازات الدفيئة الأشعة تحت الحمراء طويلة الموجة المنبعثة من سطح الأرض.</div>
+        </div>
+
+        <!-- MCQ 5 -->
+        <div class="q-card" data-correct="0">
+            <div class="q-title">5. تزداد الأشعة فوق البنفسجية التي تصل إلى سطح الأرض بسبب استنزاف:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. الأوزون</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. الميثان</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. بخار الماء</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. ثاني أكسيد الكربون</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: استنزاف طبقة الأوزون الواقية يسمح بوصول كمية أكبر من الأشعة فوق البنفسجية.</div>
+        </div>
+
+        <!-- MCQ 6 -->
+        <div class="q-card" data-correct="1">
+            <div class="q-title">6. المسؤول الأول عن التآكل الذي أصاب الأوزون في طبقة الستراتوسفير هو:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. بخار الماء</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. الكلوروفلوروكربون</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. أول أكسيد الكربون</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. ثاني أكسيد الكربون</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: مركّبات الكلوروفلوروكربون (CFCs) هي المسؤول الأول عن استنزاف الأوزون.</div>
+        </div>
+
+        <!-- MCQ 7 -->
+        <div class="q-card" data-correct="0">
+            <div class="q-title">7. يوجد غاز الأوزون في الغلاف الجوي على ارتفاع يُقدَّر ما بين:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. (20-30) km</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. (40-50) km</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. (50-60) km</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. (60-70) km</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: يوجد الأوزون بصورة رئيسة على ارتفاع (20-30) km.</div>
+        </div>
+
+        <!-- MCQ 8 -->
+        <div class="q-card" data-correct="1">
+            <div class="q-title">8. من أشكال تلوّث الهواء الناتج من تفاعل ضوء الشمس مع غازات احتراق الوقود الأحفوري:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. الأشعة فوق البنفسجية</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. الضباب الدخاني</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. المطر الحمضي</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. الأوزون</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: الضباب الدخاني الكيميائي الضوئي ينتج من تفاعل ضوء الشمس مع غازات الاحتراق.</div>
+        </div>
+
+        <!-- MCQ 9 -->
+        <div class="q-card" data-correct="1">
+            <div class="q-title">9. ينتج غاز الأوزون من تفاعل كيميائي بين ضوء الشمس وغاز:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. الميثان</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. الأكسجين</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. أول أكسيد الكربون</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. ثاني أكسيد الكربون</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: يتكوّن الأوزون أساسًا من تفاعل جزيئات الأكسجين مع الأشعة فوق البنفسجية.</div>
+        </div>
+
+        <!-- MCQ 10 -->
+        <div class="q-card" data-correct="0">
+            <div class="q-title">10. المعادلة الصحيحة الموزونة لاحتراق الأوكتان في محرّك السيارة هي:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. 2C8H18(g) + 25O2(g) → 16CO2(g) + 18H2O(g)</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. C6H8(g) + O2(g) → 2CO2(g) + 3H2O(g)</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. C4H12(g) + 6O2(g) → 3CO2(g) + 8H2O(g)</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. 4C6H8(g) + 6O2(g) → 5CO2(g) + 12H2O(g)</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: خيار أ يُظهر معادلة احتراق الأوكتان الموزونة تمامًا.</div>
+        </div>
+
+        <!-- MCQ 11 -->
+        <div class="q-card" data-correct="3">
+            <div class="q-title">11. يُتوقّع أن يرتفع منسوب مستوى سطح البحر بمقدار (0.4-0.63) m بحلول عام:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. 2030م</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. 2050م</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. 2070م</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. 2100م</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: هذا الارتفاع المتوقع مذكور بحلول عام 2100م.</div>
+        </div>
+
+        <!-- MCQ 12 -->
+        <div class="q-card" data-correct="3">
+            <div class="q-title">12. يوجد الأوزون بصورة رئيسة ضمن طبقة:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. الثيرموسفير</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. الأيونوسفير</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. التروبوسفير</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. الستراتوسفير</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: يتواجد الأوزون في الستراتوسفير بحوالي 90%.</div>
+        </div>
+
+        <!-- MCQ 13 -->
+        <div class="q-card" data-correct="0">
+            <div class="q-title">13. أكثر غازات الدفيئة التي تساعد على ارتفاع درجة حرارة سطح الأرض هو:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. ثاني أكسيد الكربون</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. ثاني أكسيد الكبريت</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. بخار الماء</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. الميثان</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: CO2 هو الأكثر تراكمًا وتأثيرًا إجماليًا نتيجًة للنشاط البشري.</div>
+        </div>
+
+        <!-- MCQ 14 -->
+        <div class="q-card" data-correct="1">
+            <div class="q-title">14. جميع الغازات الآتية تسبّب تكوّن الهطل الحمضي ما عدا:</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. ثاني أكسيد النيتروجين</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. أول أكسيد الكربون</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. ثاني أكسيد الكبريت</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. أكسيد النيتروز</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: أول أكسيد الكربون (CO) لا يدخل في تفاعلات الهطل الحمضي.</div>
+        </div>
+
+        <!-- MCQ 15 -->
+        <div class="q-card" data-correct="2">
+            <div class="q-title">15. إذا افترضت عدم وجود ظاهرة الاحتباس الحراري على الأرض، فأي العبارات صحيحة؟</div>
+            <div class="options-grid">
+                <button type="button" class="option-btn" onclick="selectOption(this)">أ. تتساوى درجات الحرارة على سطح الأرض</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">ب. ترتفع درجة حرارة سطح الأرض</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">جـ. تنخفض درجة حرارة سطح الأرض</button>
+                <button type="button" class="option-btn" onclick="selectOption(this)">د. ينصهر الغطاء الجليدي في القطبين</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="explanation">التفسير: بدون الاحتباس الحراري لن تُحتجز الحرارة وتنخفض درجات الحرارة بشدة.</div>
+        </div>
+
+        <div class="section-header">السؤال الثاني: أملأ الفراغات وقارن بين المفاهيم</div>
+
+        <!-- Fill in Blanks -->
+        <div class="q-card text-q">
+            <div class="q-title">أ. تُعرَف الزيادة التدريجية في معدّلات درجات الحرارة العالمية الناجمة عن النشاطات الطبيعية والإنسانية بـ:</div>
+            <input type="text" class="text-input" data-answer="الاحترار العالمي" placeholder="اكتب إجابتك هنا...">
+            <div class="feedback"></div>
+            <div class="explanation">الإجابة النموذجية: الاحترار العالمي (Global Warming).</div>
+        </div>
+
+        <div class="q-card text-q">
+            <div class="q-title">ب. تفاعل كيميائي يحدث فيه اتّحاد الأكسجين مع عناصر الكربون والهيدروجين هو:</div>
+            <input type="text" class="text-input" data-answer="الاحتراق" placeholder="اكتب إجابتك هنا...">
+            <div class="feedback"></div>
+            <div class="explanation">الإجابة النموذجية: الاحتراق (Combustion).</div>
+        </div>
+
+        <div class="q-card text-q">
+            <div class="q-title">جـ. أذكر معادلتي تكوّن غاز الأوزون قرب سطح الأرض (طبقة التروبوسفير):</div>
+            <textarea class="textarea-input" rows="2" placeholder="اكتب المعادلتين هنا..."></textarea>
+            <div class="feedback"></div>
+            <div class="explanation">الإجابة الصحيحة: 1) NO2 + UV → NO + O &nbsp;&nbsp;&nbsp; 2) O + O2 → O3</div>
+        </div>
+
+        <div class="controls">
+            <button type="button" class="submit-btn" onclick="gradeQuiz()">اعتماد وإنهاء الاختبار</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function selectOption(btn) {
+        const parent = btn.closest('.options-grid');
+        parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+    }
+
+    function gradeQuiz() {
+        let score = 0;
+        let total = 0;
+
+        // Grade Multiple Choice
+        const mcqCards = document.querySelectorAll('.q-card[data-correct]');
+        mcqCards.forEach(card => {
+            total++;
+            const correctIndex = parseInt(card.getAttribute('data-correct'));
+            const options = card.querySelectorAll('.option-btn');
+            const feedback = card.querySelector('.feedback');
+            const explanation = card.querySelector('.explanation');
+            
+            let selectedIndex = -1;
+            options.forEach((opt, idx) => {
+                if(opt.classList.contains('selected')) selectedIndex = idx;
+                opt.style.pointerEvents = 'none'; // Disable further clicking
+            });
+
+            if (selectedIndex === correctIndex) {
+                score++;
+                feedback.className = 'feedback correct';
+                feedback.innerText = 'إجابة صحيحة!';
+                if (options[selectedIndex]) options[selectedIndex].style.background = '#bbf7d0';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerText = 'إجابة خاطئة.';
+                if (selectedIndex !== -1) options[selectedIndex].style.background = '#fecaca';
+                if (options[correctIndex]) options[correctIndex].style.background = '#bbf7d0';
+            }
+            
+            feedback.style.display = 'block';
+            if (explanation) explanation.style.display = 'block';
+        });
+
+        // Grade Text Inputs
+        const textCards = document.querySelectorAll('.q-card.text-q');
+        textCards.forEach(card => {
+            const input = card.querySelector('input[type="text"]');
+            const feedback = card.querySelector('.feedback');
+            const explanation = card.querySelector('.explanation');
+
+            if (input) {
+                total++;
+                const expected = input.getAttribute('data-answer').trim();
+                const userVal = input.value.trim();
+
+                if (userVal === expected) {
+                    score++;
+                    feedback.className = 'feedback correct';
+                    feedback.innerText = 'إجابة صحيحة!';
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerText = 'إجابة تحتاج لمراجعة.';
+                }
+                feedback.style.display = 'block';
+            }
+            if (explanation) explanation.style.display = 'block';
+        });
+
+        // Display Score Board
+        const scoreBoard = document.getElementById('score-board');
+        const scoreText = document.getElementById('score-text');
+        const scoreMsg = document.getElementById('score-message');
+        
+        scoreText.innerText = `${score} / ${total}`;
+        const percentage = (score / total) * 100;
+
+        if (percentage >= 85) {
+            scoreMsg.innerText = 'ممتاز! أداء استثنائي وإتقان كامل للمادة العلمية.';
+            scoreMsg.style.color = 'var(--success)';
+        } else if (percentage >= 65) {
+            scoreMsg.innerText = 'جيد جدًا! لديك استيعاب ممتاز للمفاهيم ويمكنك تحسين النتيجة بمراجعة الأخطاء.';
+            scoreMsg.style.color = '#d97706';
+        } else {
+            scoreMsg.innerText = 'يرجى مراجعة المادة والمفاهيم العلمية مرة أخرى وتكرار الاختبار.';
+            scoreMsg.style.color = 'var(--error)';
+        }
+
+        scoreBoard.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
