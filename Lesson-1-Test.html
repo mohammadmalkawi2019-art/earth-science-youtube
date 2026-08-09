@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة التقييم الذاتي الرقمية | إعداد المعلم محمد ملكاوي</title>
+    
+    <!-- Tailwind CSS for high-fidelity responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for educational iconography -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tajawal Font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- MathJax for rendering chemical formulas dynamically -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        gold: {
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        .glow-emerald {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+        .correct-pulse {
+            animation: correctAnim 0.4s ease-out;
+        }
+        @keyframes correctAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Branded Header -->
+    <header class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-2xl">
+                    <i class="fa-solid fa-fire-flame-simple text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-md sm:text-lg font-black text-slate-900 dark:text-white leading-tight flex items-center gap-2">
+                        بوابة التقييم الذاتي لغازات الدفيئة
+                        <span class="hidden sm:inline-block px-2.5 py-0.5 text-[10px] bg-gold-100 text-gold-600 rounded-full font-bold">بإشراف المعلم محمد ملكاوي</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">منصة مستكشف غازات الدفيئة ومعاملات الانبعاث ومكافئ التلوث</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all" title="تبديل المظهر">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+                </button>
+                
+                <!-- Reset Stats Button -->
+                <button id="reset-storage" class="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-all" title="إعادة تهيئة الإحصائيات">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col justify-center">
+        
+        <!-- Welcome Screen (Quiz Selector) -->
+        <div id="welcome-view" class="space-y-8 max-w-5xl mx-auto w-full">
+            
+            <!-- Teacher Tribute / Greeting Banner -->
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-6 md:p-8 shadow-md relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-3 text-center md:text-right">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-white/20 text-white uppercase tracking-wider">التعليم من أجل المستقبل</span>
+                        <h2 class="text-2xl md:text-3xl font-black">بوابة التقييم للمبحث البيئي والمناخي</h2>
+                        <p class="text-emerald-50 max-w-xl text-sm leading-relaxed">
+                            نرحب بكم في هذه المنصة التفاعلية المخصصة لتمكين الطلبة من مهارات التحليل البيئي والحسابات الكيميائية لغازات الدفيئة والاحترار العالمي.
+                        </p>
+                    </div>
+                    <!-- Teacher Badge Card -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 w-full md:w-auto min-w-[280px]">
+                        <div class="w-12 h-12 rounded-full bg-gold-100 text-gold-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-emerald-200">إعداد وتصميم المعلم القدير</p>
+                            <p class="text-lg font-black text-white">محمد ملكاوي</p>
+                            <span class="text-[10px] text-white/80">خبير علوم الأرض والبيئة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Dashboard overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 rounded-xl">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">بنك غازات الدفيئة الاحترافي</p>
+                        <p class="text-lg font-black text-slate-800 dark:text-white" id="stat-pro-score">-</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-purple-100 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 rounded-xl">
+                        <i class="fa-solid fa-rotate text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">اختبار نهاية الدرس الشامل</p>
+                        <p class="text-lg font-black text-slate-800 dark:text-white" id="stat-lesson-score">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Selection Cards (Two Choices) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Card 1: Greenhouse Gas Professional Quiz -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-6 flex flex-col justify-between shadow-sm hover:shadow-lg group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">أكاديمي متميز</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-list-numeric ml-1"></i> 30 سؤالاً</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">بنك غازات الدفيئة الاحترافي</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            يقيس حسابات معاملات انبعاث غازات الدفيئة ($CO_2$, $CH_4$, $N_2O$)، وقيم مكافئات الكربون الفعالة وقطاعات الطاقة المختلفة، مع تعليلات كاملة لكافة البدائل.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30">8 سهلة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 dark:bg-blue-950/30">12 متوسطة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-50 text-red-700 dark:bg-red-950/30">8 صعبة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 dark:bg-purple-950/30">2 متميزة</span>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz('pro')" class="mt-8 w-full bg-slate-900 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                        ابدأ البنك الاحترافي <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2: Quick Lesson Quiz -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-6 flex flex-col justify-between shadow-sm hover:shadow-lg group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300">تقويم نهائي</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-list-numeric ml-1"></i> 20 سؤالاً</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">اختبار نهاية الدرس الشامل</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            تقييم ختامي شامل لمدى تحقيق الأهداف والمفاهيم الكتلية لدرس الوقود وغازات الدفيئة، تم بناؤه ذاتي التصحيح لتسجيل أثر التعلم ومراجعته.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">أهداف درس غازات الدفيئة بالكامل</span>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz('lesson')" class="mt-8 w-full bg-slate-900 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                        ابدأ التقويم السريع <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Play View -->
+        <div id="quiz-view" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl w-full mx-auto">
+            
+            <!-- Questions Sidebar Grid (Fast jump logic) -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col h-[calc(100vh-12rem)] sticky top-24 shadow-sm">
+                <div class="mb-4">
+                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">جدول تتبع الأسئلة</h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">انقر للتبديل الفوري بين الأسئلة</p>
+                </div>
+                <div id="questions-grid" class="grid grid-cols-5 gap-2 overflow-y-auto custom-scrollbar flex-grow pr-1">
+                    <!-- Dynamic Nav Items created by Javascript -->
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md bg-emerald-500"></span> إجابة صحيحة
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md bg-red-500"></span> إجابة خاطئة
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md border border-amber-500 bg-amber-50 dark:bg-amber-950/30"></span> للمراجعة لاحقاً
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Content and Workspace area -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status Bar -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <button onclick="exitQuiz()" class="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-all" title="خروج للرئيسية">
+                            <i class="fa-solid fa-arrow-right-to-bracket rotate-180"></i>
+                        </button>
+                        <div>
+                            <span id="quiz-title-badge" class="font-black text-slate-800 dark:text-white text-sm sm:text-base">اسم الاختبار</span>
+                            <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">إعداد المعلم محمد ملكاوي</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold">
+                            السؤال <span id="current-question-num" class="text-emerald-600 dark:text-emerald-400 font-bold">1</span> من <span id="total-questions-num" class="font-bold">30</span>
+                        </div>
+                        <div id="timer-box" class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs sm:text-sm font-bold">
+                            <i class="fa-regular fa-clock"></i> <span id="timer-text">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Question Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="q-difficulty-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300">سهل</span>
+                        <span id="q-bloom-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300">تذكر</span>
+                        <button id="bookmark-btn" onclick="toggleBookmark()" class="mr-auto p-2 text-slate-400 hover:text-amber-500 transition-all" title="مراجعة هذا السؤال لاحقاً">
+                            <i id="bookmark-icon" class="fa-regular fa-bookmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Question Text -->
+                    <h3 id="question-text" class="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-relaxed"></h3>
+
+                    <!-- Target Learning Outcome Box -->
+                    <div id="learning-outcome-box" class="p-3.5 bg-emerald-50 dark:bg-emerald-950/20 border-r-4 border-emerald-500 rounded-l-xl text-xs text-emerald-800 dark:text-emerald-300">
+                        <span class="font-black block mb-1">ناتج التعلم المستهدف:</span>
+                        <p id="learning-outcome-text"></p>
+                    </div>
+
+                    <!-- Choices Container -->
+                    <div id="options-container" class="grid grid-cols-1 gap-4 pt-4">
+                        <!-- Instantiated option buttons -->
+                    </div>
+
+                    <!-- Feedback explanations drawer -->
+                    <div id="feedback-box" class="hidden p-5 rounded-2xl border-2 transition-all space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div id="feedback-icon-container" class="p-1.5 rounded-lg text-white"></div>
+                            <h4 id="feedback-title" class="font-bold"></h4>
+                        </div>
+                        <div id="feedback-explain-area" class="text-xs sm:text-sm space-y-2 leading-relaxed">
+                            <!-- Detailed analysis -->
+                        </div>
+                        <div id="feedback-concept-box" class="pt-2 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+                            <strong>الفكرة العلمية المقاسة:</strong> <span id="feedback-concept-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controllers -->
+                <div class="flex items-center justify-between gap-4">
+                    <button id="prev-btn" onclick="prevQuestion()" class="flex items-center gap-2 bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 px-6 py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-50">
+                        <i class="fa-solid fa-arrow-right"></i> السابق
+                    </button>
+                    
+                    <button id="submit-quiz-btn" onclick="finishQuiz()" class="hidden bg-red-600 hover:bg-red-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        تسليم وإنهاء الاختبار <i class="fa-solid fa-square-check mr-1"></i>
+                    </button>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        التالي <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results View -->
+        <div id="results-view" class="hidden max-w-5xl mx-auto w-full space-y-8">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 shadow-lg text-center space-y-6">
+                <div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center text-4xl mx-auto">
+                    🏆
+                </div>
+                <div class="space-y-2">
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">أحسنت! أتممت التقييم الذاتي بنجاح</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+                        تحت إشراف المعلم محمد ملكاوي، نقدم لك هذا التحليل المتقدم كأداة تشخيصية لقياس نقاط القوة والضعف والمهارات الذهنية.
+                    </p>
+                </div>
+
+                <!-- Academic Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النتيجة الإجمالية</p>
+                        <p class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1" id="res-score">0/0</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النسبة المئوية</p>
+                        <p class="text-2xl font-black text-blue-600 dark:text-blue-400 mt-1" id="res-percent">0%</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">الزمن المستهلك</p>
+                        <p class="text-2xl font-black text-purple-600 dark:text-purple-400 mt-1" id="res-time">00:00</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">التقدير الأكاديمي</p>
+                        <p class="text-xl font-black text-amber-600 dark:text-amber-400 mt-1.5" id="res-rank">-</p>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Charts -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto text-right">
+                    <div class="bg-slate-50 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-800 p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-white"><i class="fa-solid fa-gauge-high text-emerald-500 ml-1"></i> دقة الأداء حسب درجات صعوبة الأسئلة</h4>
+                        <div class="space-y-2 text-xs" id="res-difficulty-bars">
+                            <!-- Generated progressbars -->
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-800 p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-white"><i class="fa-solid fa-brain text-purple-500 ml-1"></i> تصنيف الأداء العلمي وفق هرم بلوم</h4>
+                        <div class="space-y-2 text-xs" id="res-bloom-bars">
+                            <!-- Generated progressbars -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="goToHome()" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-all">
+                        العودة لبوابة المعلم محمد ملكاوي الرئيسية <i class="fa-solid fa-house mr-1"></i>
+                    </button>
+                    <button id="retry-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-all shadow-md">
+                        إعادة التقييم الذاتي للتحسين <i class="fa-solid fa-rotate-right mr-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Answer Logs for Student Review -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                <h3 class="text-xl font-black text-slate-900 dark:text-white text-right"><i class="fa-solid fa-list-check text-emerald-500 ml-2"></i> مراجعة تفصيلية للإجابات مع التفسير الأكاديمي</h3>
+                <div id="reviewed-answers-log" class="space-y-6">
+                    <!-- Reviewed cards generated dynamically -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Branded Footer -->
+    <footer class="bg-white dark:bg-slate-900 py-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 space-y-2">
+        <p class="font-black text-emerald-600 dark:text-emerald-400">بوابة التقييم والتمكين البيئي والمناخي الشاملة</p>
+        <p>تصميم وإعداد المعلم القدير: محمد ملكاوي © 2026. كافة الحقوق العلمية محفوظة.</p>
+    </footer>
+
+    <!-- Web Audio Synthesizer Engine -->
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playSynthSound(freqs, type = 'sine', duration = 0.15) {
+            try {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                freqs.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+                    
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + duration);
+                    
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + (idx * 0.08));
+                    osc.stop(audioCtx.currentTime + (idx * 0.08) + duration);
+                });
+            } catch (e) {
+                console.log('Audio Engine bypass', e);
+            }
+        }
+        
+        function playCorrectSound() { playSynthSound([523.25, 659.25], 'triangle', 0.2); }
+        function playIncorrectSound() { playSynthSound([293.66, 220.00], 'sawtooth', 0.25); }
+        function playCompleteSound() { playSynthSound([523.25, 659.25, 783.99, 1046.50], 'triangle', 0.4); }
+    </script>
+
+    <script>
+        // Quiz 1: Professional Greenhouse Gas Quiz (30 items)
+        const quiz1Questions = [
+            {
+                text: "غاز الدفيئة الذي يُعدّ المصدر الرئيس لانبعاثات قطاع الطاقة هو غاز:",
+                options: [
+                    { text: "ثاني أكسيد الكربون", isCorrect: true, rationale: "قطاع الطاقة يعتمد كلياً على احتراق الوقود الأحفوري، وناتجه الرئيس هو ثاني أكسيد الكربون." },
+                    { text: "الميثان", isCorrect: false, rationale: "الميثان ينشأ بصورة أساسية من قطاع الزراعة ومطامر النفايات." },
+                    { text: "أكسيد النيتروز", isCorrect: false, rationale: "أكسيد النيتروز مرتبط بالصناعات المتخصصة والأسمدة الزراعية." },
+                    { text: "الأوزون", isCorrect: false, rationale: "الأوزون ينشأ من تفاعلات ثانوية عابرة قرب الأرض ولا يطلق مباشرة كوقود عادم لقطاع الطاقة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر", concept: "ربط الغازات بقطاعات الانبعاث العالمية.",
+                outcome: "أستنتج الفروق in انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "أعلى القطاعات نسبة في إنتاج غازات الدفيئة هو قطاع:",
+                options: [
+                    { text: "الزراعة", isCorrect: false, rationale: "يمثل قطاع الزراعة 18.4% وهي مرتبة ثانية بعد الطاقة." },
+                    { text: "الطاقة", isCorrect: true, rationale: "قطاع الطاقة هو الملوث الأكبر والمحرك للأبنية والمصانع بنسبة 73.2%." },
+                    { text: "الصناعة", isCorrect: false, rationale: "العمليات الصناعية المباشرة المشمولة تمثل 5.2% فقط." },
+                    { text: "النفايات", isCorrect: false, rationale: "تمثل 3.2% وهي النسبة الأقل المذكورة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر", concept: "مقارنة الحجوم النسبية لمساهمات القطاعات.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "ناتج التفاعل العام لاحتراق الوقود الأحفوري في الهواء هو:",
+                options: [
+                    { text: "ثاني أكسيد الكربون وبخار ماء وطاقة", isCorrect: true, rationale: "الاحتراق الكامل للوقود الأحفوري يدمج الهيدروكربون مع الأكسجين منتجاً $CO_2$ وبخار ماء بالإضافة لطاقة حرارية." },
+                    { text: "أكسجين ونيتروجين وطاقة", isCorrect: false, rationale: "الأكسجين يدخل كمتفاعل حارق وليس ناتجاً نهائياً." },
+                    { text: "ميثان وهيدروجين وطاقة", isCorrect: false, rationale: "الميثان هو وقود يحترق ذاتياً ولا ينتج عن الاحتراق الكامل." },
+                    { text: "أوزون وبخار ماء فقط", isCorrect: false, rationale: "الأوزون ليس ناتجاً كلاسيكياً مباشراً لمعادلات الاحتراق الهيدروكربونية." }
+                ],
+                difficulty: "سهل", bloom: "فهم", concept: "كيمياء الاحتراق الكامل للهيدروكربونات.",
+                outcome: "أشرح كيفية تشكّل الغازات الناتجة من عملية احتراق الوقود الأحفوري مع معادلاتها الكيميائية."
+            },
+            {
+                text: "الغاز الناتج من الاحتراق غير الكامل للوقود الأحفوري هو:",
+                options: [
+                    { text: "ثاني أكسيد الكربون", isCorrect: false, rationale: "ثاني أكسيد الكربون ينتج حصراً في الاحتراق الكامل بوفرة الأكسجين." },
+                    { text: "أول أكسيد الكربون", isCorrect: true, rationale: "ينتج أول أكسيد الكربون ($CO$) نتيجة شح الأكسجين وعدم كفاية التأكسد العضوي، وهو غاز شديد السمية." },
+                    { text: "أكسيد النيتروز", isCorrect: false, rationale: "ينتج بفعل الحرارة العالية التي تحفز تفاعل النيتروجين مع أكسجين الجو." },
+                    { text: "ثالث أكسيد الكبريت", isCorrect: false, rationale: "مصدره الشوائب الكبريتية المدمجة بالوقود الصلب أو السائل." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر", concept: "كيمياء الاحتراق غير الكامل والغازات السامة.",
+                outcome: "أعدّد الغازات الناتجة من عملية احتراق الوقود الأحفوري."
+            },
+            {
+                text: "مدة مكوث غاز الميثان التقريبية في الغلاف الجوي هي:",
+                options: [
+                    { text: "11.8 سنة", isCorrect: true, rationale: "تتفكك جزيئات الميثان كيميائياً في الغلاف الجوي بسرعة نسبية بمتوسط مكوث يقارب الـ 11.8 سنة." },
+                    { text: "200 سنة", isCorrect: false, rationale: "يمثل هذا الرقم الحد الأدنى لمكوث غاز ثاني أكسيد الكربون الأكثر استقراراً." },
+                    { text: "1000 سنة", isCorrect: false, rationale: "رقم مبالغ فيه ولا يمثل مكوث غاز الميثان الجوي." },
+                    { text: "273 سنة", isCorrect: false, rationale: "هذه هي قيمة إمكانية إحداث الاحترار العالمي $GWP$ لأكسيد النيتروز." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر", concept: "المدد الزمنية لبقاء الغازات في النظام البيئي الجوي.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "يُعرَّف معامل الانبعاث بأنه:",
+                options: [
+                    { text: "قيمة عددية تمثّل كمية انبعاثات غاز دفيئة محدَّد ناتج من نشاط معيّن", isCorrect: true, rationale: "يمثل معامل الانبعاث ($EF$) العلاقة النسبية المباشرة بين حجم النشاط وكتلة التلوث المنبعث منه." },
+                    { text: "مقياس لشدة تأثير الغاز على الاحترار العالمي مقارنة بثاني أكسيد الكربون", isCorrect: false, rationale: "هذا هو التعريف الحرفي لمفهوم إمكانية إحداث الاحترار العالمي ($GWP$)." },
+                    { text: "النسبة المئوية لغاز دفيئة من إجمالي غازات الغلاف الجوي", isCorrect: false, rationale: "هذا المفهوم يمثل التركيز الغازي النسبي وليس معامل الانبعاث المرجعي للنشاط." },
+                    { text: "مدة بقاء الغاز في الغلاف الجوي بالسنوات", isCorrect: false, rationale: "هذه تمثل مدة المكوث الكيميائي الطبيعي للغاز." }
+                ],
+                difficulty: "سهل", bloom: "فهم", concept: "التعريف العلمي لمعاملات الانبعاث التقيمية.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "قيمة إمكانية إحداث الاحترار العالمي (GWP) لغاز ثاني أكسيد الكربون تساوي:",
+                options: [
+                    { text: "0", isCorrect: false, rationale: "صفر تعني انعدام القدرة على حبس الحرارة مطلقاً." },
+                    { text: "1", isCorrect: true, rationale: "تم اتخاذ غاز ثاني أكسيد الكربون كمرجع قياسي أساسي لحساب $GWP$ ولذلك تبلغ قيمته (1) تعريفيّاً." },
+                    { text: "27", isCorrect: false, rationale: "هذه قيمة $GWP$ لغاز الميثان." },
+                    { text: "273", isCorrect: false, rationale: "هذه قيمة $GWP$ لغاز أكسيد النيتروز." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر", concept: "الوحدة المرجعية لمقاييس الاحترار العالمي.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "سبب تصنيف الوقود الأحفوري ضمن مصادر الطاقة غير المتجددة هو:",
+                options: [
+                    { text: "أنه لا يحترق بسهولة", isCorrect: false, rationale: "الوقود الأحفوري سريع وممتاز الاحتراق تجارياً." },
+                    { text: "أن تكوّنه يستغرق ملايين السيين", isCorrect: true, rationale: "معدل تجدده عبر ملايين السنين بطيء للغاية مقارنة بمعدلات استهلاكه الحالية الجائرة مما يجعله ناضباً." },
+                    { text: "أنه لا يُستخدَم في توليد الكهرباء", isCorrect: false, rationale: "بل هو المورد الأساسي لتوليد الكهرباء حول العالم حالياً." },
+                    { text: "أنه لا ينتج غازات دفيئة", isCorrect: false, rationale: "تعد هذه معلومة مغلوطة؛ إذ إن احتراقه هو المسبب الأول للغازات الدفيئة المسببة للاحترار." }
+                ],
+                difficulty: "سهل", bloom: "فهم", concept: "مفهوم التجدد الجيولوجي لموارد الطاقة.",
+                outcome: "أوضّح بأرقام معتمدة عالميًا كمية استهلاك محتوى الطاقة من استخدام الوقود الأحفوري."
+            },
+            {
+                text: "استهلكت سيارة 500 L من البنزين. إذا كان معامل انبعاث ثاني أكسيد الكربون الناتج من احتراق البنزين يساوي 2.31 kg CO2/L، فإن كمية ثاني أكسيد الكربون المنبعثة تساوي:",
+                options: [
+                    { text: "1155 kg", isCorrect: true, rationale: "بتطبيق القانون المباشر: $E = EF \times A = 2.31 \times 500 = 1155\text{ kg CO}_2$." },
+                    { text: "231 kg", isCorrect: false, rationale: "ناتج خاطئ يتجاهل حجم الاستهلاك الإجمالي للوقود." },
+                    { text: "2310 kg", isCorrect: false, rationale: "ناتج خطأ في الفاصلة الحسابية العشرية." },
+                    { text: "500 kg", isCorrect: false, rationale: "هذا يمثل كمية الحجم السائل للبنزين قبل التفاعل الحارق." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق", concept: "حساب كتلة الغاز المنبعث بناءً على حجم النشاط ومعامله.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "إذا انبعث من أحد المصادر 300 kg من غاز الميثان، وكانت إمكانية إحداث الاحترار العالمي للميثان تساوي 27، فإن مكافئ ثاني أكسيد الكربون لهذا الانبعاث يساوي:",
+                options: [
+                    { text: "327 kg", isCorrect: false, rationale: "خطأ ناتج عن عملية جمع غير رياضية للمعامل والكتلة." },
+                    { text: "8100 kg", isCorrect: true, rationale: "بتطبيق قانون مكافئ الكربون: $\text{CO}_2\text{e} = GWP \times E = 27 \times 300 = 8100\text{ kg CO}_2\text{e}$." },
+                    { text: "11.1 kg", isCorrect: false, rationale: "ناتج قسمة خاطئة للمقادير بدلاً من مضاعفتها." },
+                    { text: "810 kg", isCorrect: false, rationale: "خطأ حسابي في رتب الأصفار العشرية." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق", concept: "تحويل كتل الغازات إلى مكافئات الاحترار النسبي.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "ترتيب القطاعات تنازليًا حسب نسبة مساهمتها في انبعاثات غازات الدفيئة هو:",
+                options: [
+                    { text: "الطاقة، الصناعة، الزراعة، النفايات", isCorrect: false, rationale: "هذا الترتيب يضع الصناعة (5.2%) متقدمة على الزراعة (18.4%) وهو غير صحيح." },
+                    { text: "الطاقة، الزراعة، الصناعة، النفايات", isCorrect: true, rationale: "النسب هي: الطاقة 73.2%، الزراعة 18.4%، الصناعة 5.2%، النفايات 3.2%." },
+                    { text: "الزراعة، الطاقة، النفايات، الصناعة", isCorrect: false, rationale: "يضع هذا الترتيب الزراعة بالمرتبة الأولى متجاوزاً قطاع الطاقة الأضخم." },
+                    { text: "الطاقة، النفايات، الزراعة، الصناعة", isCorrect: false, rationale: "يضع النفايات متقدمة على الزراعة والصناعة وهي الأصغر مساهمة كلياً." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل", concept: "تنظيم وجدولة النسب الإحصائية للقطاعات التنموية.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "الغاز المسؤول بصورة رئيسة عن تكوّن كل من الهطل الحمضي وأوزون طبقة التروبوسفير معًا هو أحد غازات:",
+                options: [
+                    { text: "أكاسيد الكربون", isCorrect: false, rationale: "أكاسيد الكربون تسبب الاحترار بشكل رئيسي وليست المسببة للأمطار الحمضية السامة." },
+                    { text: "أكاسيد النيتروجين", isCorrect: true, rationale: "أكاسيد النيتروجين تتفاعل مع بخار ماء السحب لإنشاء الهطل النيتريكي، وتتفاعل ضوئياً مع الأكسجين لإنتاج الأوزون التروبوسفيري الأرضي السام." },
+                    { text: "الغازات المفلورة", isCorrect: false, rationale: "الغازات المفلورة متخصصة باحتباس الحرارة واستنزاف أوزون الطبقات العليا." },
+                    { text: "بخار الماء", isCorrect: false, rationale: "بخار الماء وسط تفاعل طبيعي وليس ملوثاً كيميائياً باعثاً للمشكلة." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل", concept: "الآثار البيئية المتشعبة للملوثات النيتروجينية.",
+                outcome: "أعدّد الغازات الناتجة من عملية احتراق الوقود الأحفوري."
+            },
+            {
+                text: "الفرق الجوهري بين غاز أول أكسيد الكربون (CO) وغاز ثاني أكسيد الكربون (CO2) هو:",
+                options: [
+                    { text: "CO سامّ وناتج احتراق غير كامل، وCO2 غير سامّ وناتج احتراق كامل", isCorrect: true, rationale: "غاز $CO$ ذو سمية حيوية عالية لربطه مع الهيموجلوبين وينتج بالاحتراق غير الكامل، بينما $CO_2$ ناتج احتراق كامل ولا يعد ساماً عضوياً مباشراً بل مسبباً احتباسياً." },
+                    { text: "CO غير سامّ، وCO2 سامّ", isCorrect: false, rationale: "مفهوم خاطئ تماماً؛ إذ إن أول أكسيد الكربون غاز قاتل صامت وخانق." },
+                    { text: "كلاهما ناتج من الاحتراق الكامل فقط", isCorrect: false, rationale: "أول أكسيد الكربون يتطلب نقصاً حاداً بالأكسجين ليتشكل كاحتراق غير كامل." },
+                    { text: "لا فرق بينهما في التأثير الصحي", isCorrect: false, rationale: "الفوارق الصحية والبيئية بينهما جوهرية وشاسعة كيميائياً." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل", concept: "كيمياء وسيكولوجية غازات الكربون الناتجة عن النقل والصناعة.",
+                outcome: "أعدّد الغازات الناتجة من عملية احتراق الوقود الأحفوري."
+            },
+            {
+                text: "سبب مكوث غاز ثاني أكسيد الكربون في الغلاف الجوي مدة أطول بكثير من غاز الميثان هو:",
+                options: [
+                    { text: "أن CO2 أثقل من CH4 فيسقط ببطء", isCorrect: false, rationale: "لا علاقة للوزن الجزيئي النسبي بسقوط الغازات الجوية بل بالتيارات الكلية." },
+                    { text: "خصائص كيميائية وطبيعية تجعل تحلل CO2 أو إزالته من الغلاف الجوي أبطأ بكثير", isCorrect: true, rationale: "ثاني أكسيد الكربون مستقر كيميائياً ودورات امتصاصه عبر المحيطات والأشجار تتطلب مئات السنين بعكس الميثان الذي يتفكك سريعاً بسنوات معدودة." },
+                    { text: "أن الميثان لا ينبعث من مصادر بشرية", isCorrect: false, rationale: "الميثان ينطلق بغزارة من تربية الماشية والمناجم ومطامر النفايات البشرية." },
+                    { text: "أن ثاني أكسيد الكربون لا يتفاعل مع أي مكوّن في الغلاف الجوي", isCorrect: false, rationale: "بل يتفاعل ببطء شديد ويذوب بمياه الأمطار والمحيطات مسبباً ظاهرة التحمض المائي." }
+                ],
+                difficulty: "متوسط", bloom: "فهم", concept: "العلاقة الطبيعية بين الهيكل كيميائي ومدة المكوث.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "احترقت محطة كهرباء واستهلكت 6,000,000 L من الغاز الطبيعي، وكان معامل الانبعاث 1.88 kg CO2/1000L، فإن كمية ثاني أكسيد الكربون الناتجة تساوي:",
+                options: [
+                    { text: "11280 kg", isCorrect: true, rationale: "يجب أولاً تكييف النشاط ليتطابق مع مقام وحدة المعامل بالقسمة على 1000 لتر: $6000000 / 1000 = 6000$ وحدة، ثم الضرب: $6000 \times 1.88 = 11280\text{ kg}$." },
+                    { text: "1128000 kg", isCorrect: false, rationale: "هذا ناتج الضرب العشوائي المباشر دون قسمة وتعديل وحدة حجم النشاط." },
+                    { text: "6000 kg", isCorrect: false, rationale: "هذا هو عدد وحدات النشاط المرجعي المستعمل للضرب كخطوة وسيطة." },
+                    { text: "1880 kg", isCorrect: false, rationale: "رقم خاطئ ومبني على حسابات كتلية غير تامة." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق", concept: "توحيد وتحويل الوحدات قبل تطبيق قانون معاملات الانبعاث.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "الاعتماد الأردني على استيراد الوقود الأحفوري يفرض تحديات اقتصادية؛ لأن:",
+                options: [
+                    { text: "الإنتاج المحلي من النفط الخام يغطي معظم الاحتياجات", isCorrect: false, rationale: "لو كان الإنتاج المحلي وفيراً لما تطلب ذلك استيراداً وعجزاً اقتصادياً." },
+                    { text: "الإنتاج المحلي يشكّل نسبة ضئيلة من الكميات المستهلكة، ما يرفع كلفة الاستيراد", isCorrect: true, rationale: "ينتج الأردن كميات قليلة جداً محلياً ويستورد الجزء الأكبر من احتياجات الطاقة، مما يشكل عبئاً مالياً يتأثر بالأسعار العالمية." },
+                    { text: "الأردن لا يستخدم أي نوع من الوقود الأحفوري", isCorrect: false, rationale: "يعتمد الأردن بشكل رئيسي على الوقود الأحفوري لتوليد الطاقة والكهرباء بمحطاته." },
+                    { text: "أسعار النفط العالمية ثابتة دائمًا", isCorrect: false, rationale: "أسعار النفط وموارد الطاقة العالمية متقلبة جداً وتخضع لمؤثرات جيوسياسية قوية." }
+                ],
+                difficulty: "متوسط", bloom: "فهم", concept: "الاقتصاديات والواقع الجغرافي لقطاع الطاقة الأردني.",
+                outcome: "أوضّح بأرقام معتمدة عالميًا كمية استهلاك محتوى الطاقة من استخدام الوقود الأحفوري."
+            },
+            {
+                text: "إذا كان استهلاك دولة ما من محتوى الطاقة يساوي 5 TWh، فإن هذه الكمية تساوي بوحدة الواط.ساعة (Wh):",
+                options: [
+                    { text: "5 × 10¹² Wh", isCorrect: true, rationale: "حيث إن بادئة القياس الكبرى (تيرا - $Tera$) تساوي رياضياً المقدار الهندسي الضخم $10^{12}$." },
+                    { text: "5 × 10⁹ Wh", isCorrect: false, rationale: "القوة $10^9$ تمثل البادئة جيجا ($Giga$)." },
+                    { text: "5 × 10⁶ Wh", isCorrect: false, rationale: "القوة $10^6$ تمثل البادئة ميجا ($Mega$)." },
+                    { text: "5 × 10¹⁵ Wh", isCorrect: false, rationale: "القوة $10^{15}$ تمثل البادئة بيتا ($Peta$)." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق", concept: "البادئات الفيزيائية لتحويل وحدات الطاقة الفائقة.",
+                outcome: "أوضّح بأرقام معتمدة عالميًا كمية استهلاك محتوى الطاقة من استخدام الوقود الأحفوري."
+            },
+            {
+                text: "القطاع الذي ينتج عنه غاز الميثان بصورة رئيسة من بين القطاعات الآتية هو:",
+                options: [
+                    { text: "الصناعة والطاقة", isCorrect: false, rationale: "الصناعة تنتج ثاني أكسيد الكربون، والطاقة كذلك عبر احتراق الهيدروكربونات." },
+                    { text: "الزراعة والنفايات", isCorrect: true, rationale: "الماشية والتحلل العضوي بالزراعة والتحلل اللاهوائي في مطامر النفايات ومحطات المياه العادمة هما المصدر الرئيس لغاز الميثان." },
+                    { text: "النقل والأبنية", isCorrect: false, rationale: "النقل والأبنية تندرج تحت قطاع الطاقة بإنتاج غاز $CO_2$ بشكل أساسي." },
+                    { text: "الصحة والطاقة", isCorrect: false, rationale: "الصحة قطاع خدمي يتبع استهلاكه المباشر لمخرجات قطاع الطاقة بإنتاج $CO_2$." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل", concept: "ربط الغازات النوعية بمساراتها البشرية والبيئية.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "سبب اعتبار الغازات المفلورة (مثل CH2F2 وCCl3F) خطيرة رغم انبعاثها بكميات صغيرة نسبيًا هو:",
+                options: [
+                    { text: "أنها لا تُصنَّف من غازات الدفيئة أساسًا", isCorrect: false, rationale: "بل هي من غازات الدفيئة الفائقة والمدرجة ببروتوكولات البيئة والمناخ الدولية." },
+                    { text: "أن قيم GWP الخاصة بها مرتفعة جدًا مقارنة بغازات الدفيئة الأخرى", isCorrect: true, rationale: "تتصف الغازات المفلورة بقدرة تدميرية هائلة في امتصاص الحرارة وحبس الأشعة تفوق $CO_2$ بآلاف المرات." },
+                    { text: "أنها تبقى في الغلاف الجوي أقل من سنة واحدة", isCorrect: false, rationale: "روابطها الفلورية تجعلها مستقرة بالجو لمدد طويلة جداً تصل لقرون." },
+                    { text: "أنها الأكثر تركيزًا في الغلاف الجوي بين كل غازات الدفيئة", isCorrect: false, rationale: "هي الأقل تركيزاً لكن فاعليتها الحرارية مرتفعة جداً." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل", concept: "تحليل العلاقة غير الطردية بين التركيز والقدرة الاحتباسية.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "نتج عن نشاط أحد المصانع: 80000 kg من CO2، و600 g من CH4، و200 g من N2O. إذا كانت قيم GWP على التوالي 1 و27 و273، فإن مجموع مكافئ ثاني أكسيد الكربون (بالكيلوغرام) يساوي تقريبًا:",
+                options: [
+                    { text: "80070.8 kg", isCorrect: true, rationale: "يجب أولاً تحويل الغرامات إلى كيلوغرامات بالقسمة على 1000: $600\text{g} = 0.6\text{ kg}$ و $200\text{g} = 0.2\text{ kg}$. ثم الحساب: $\text{CO}_2\text{e} = (80000 \times 1) + (0.6 \times 27) + (0.2 \times 273) = 80000 + 16.2 + 54.6 = 80070.8\text{ kg}$." },
+                    { text: "80800 kg", isCorrect: false, rationale: "هذا ناتج عن جمع الأرقام مباشرة دون تحويل الغرامات لكيلوغرامات." },
+                    { text: "80016.2 kg", isCorrect: false, rationale: "هذا يمثل حساب انبعاث الميثان فقط مهملاً أثر أكسيد النيتروز." },
+                    { text: "107000 kg", isCorrect: false, rationale: "قيمة مبالغ فيها ناتجة عن حسابات غير علمية للكتل." }
+                ],
+                difficulty: "صعب", bloom: "تحليل", concept: "العمليات الحسابية لمكافئات الكربون مع فوارق الكتل والوحدات الفيزيائية.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "استخدم مصنع الديزل (3000 L، EF = 2.68 kg CO2/L) والبنزين (1500 L، EF = 2.31 kg CO2/L) لتشغيل مولّداته. فإن إجمالي كمية ثاني أكسيد الكربون المنبعثة من المصدرين معًا تساوي:",
+                options: [
+                    { text: "11505 kg", isCorrect: true, rationale: "$E(\text{ديزل}) = 3000 \times 2.68 = 8040\text{ kg}$. $E(\text{بنزين}) = 1500 \times 2.31 = 3465\text{ kg}$. المجموع الكلي = $8040 + 3465 = 11505\text{ kg}$." },
+                    { text: "8040 kg", isCorrect: false, rationale: "يمثل هذا الناتج المنفرد للديزل فقط." },
+                    { text: "3465 kg", isCorrect: false, rationale: "يمثل هذا الناتج المنفرد للبنزين فقط." },
+                    { text: "10950 kg", isCorrect: false, rationale: "ناتج خاطئ ينشأ عند تبديل معاملات انبعاث الديزل والبنزين بالخطأ." }
+                ],
+                difficulty: "صعب", bloom: "تحليل", concept: "الحساب المجمع للانبعاثات الكلية لمصانع متعددة الوقود.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "إذا كان مكافئ ثاني أكسيد الكربون الناتج من كمية معيّنة من غاز الميثان يساوي 2700 kg، وكانت قيمة GWP للميثان تساوي 27، فإن الكمية الفعلية (E) من غاز الميثان المنبعثة تساوي:",
+                options: [
+                    { text: "100 kg", isCorrect: true, rationale: "باستعمال القانون معكوساً: $E = \text{CO}_2\text{e} / GWP \Rightarrow E = 2700 / 27 = 100\text{ kg}$." },
+                    { text: "72900 kg", isCorrect: false, rationale: "خطأ ناتج عن ضرب قيمة المكافئ بالمعامل بدلاً من القسمة العكسية." },
+                    { text: "10 kg", isCorrect: false, rationale: "خطأ رياضي في القسمة وإهمال الصفر الكتلّي." },
+                    { text: "2727 kg", isCorrect: false, rationale: "جمع المعامل مع المكافئ بطريقة غير صحيحة علمياً." }
+                ],
+                difficulty: "صعب", bloom: "تحليل", concept: "الاشتقاق والاستنتاج العكسي للكتل المنبعثة.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "أثنائ تشغيل محطة كهرباء تعمل بالفحم الحجري، يمرّ التحوّل من الطاقة الكيميائية إلى الطاقة الكهربائية بالتسلسل الصحيح الآتي:",
+                options: [
+                    { text: "كيميائية ← حرارية ← حركية ← كهربائية", isCorrect: true, rationale: "كيميائية (الفحم) تتحول لحرارية بالاحتراق لتسخين المياه، لتنتج طاقة حركية للبخار تدير التوربين، ثم تتحول لكهربائية في المولد." },
+                    { text: "كيميائية ← كهربائية ← حرارية ← حركية", isCorrect: false, rationale: "تسلسل خاطئ يضع إنتاج الكهرباء بالبداية قبل المولد وحركة البخار الحركية." },
+                    { text: "حرارية ← كيميائية ← كهربائية ← حركية", isCorrect: false, rationale: "الفحم يحتوي على طاقة كيميائية مخزنة كبداية للتفاعل وليس طاقة حرارية مجردة." },
+                    { text: "كيميائية ← حركية ← حرارية ← كهربائية", isCorrect: false, rationale: "تسلسل معكوس؛ فالطاقة الحرارية للاحتراق هي التي تنشئ حركة البخار." }
+                ],
+                difficulty: "صعب", bloom: "تحليل", concept: "مبادئ حفظ وتحولات الطاقة في المحطات الحرارية الصناعية.",
+                outcome: "أشرح كيفية تشكّل الغازات الناتجة من عملية احتراق الوقود الأحفوري مع معادلاتها الكيميائية."
+            },
+            {
+                text: "أي المقارنتين الآتيتين توضّح بدقة أكبر أثر الغاز الحقيقي على الاحترار العالمي: مقارنة قائمة على الكمية المنبعثة (E) فقط، أم مقارنة قائمة على قيمة مكافئ ثاني أكسيد الكربون (CO2e)؟ ولماذا؟",
+                options: [
+                    { text: "الكمية المنبعثة (E) فقط؛ لأنها الأدق لكل الحالات", isCorrect: false, rationale: "الوزن وحده مضلل كمعيار احتباسي؛ فطن واحد من غاز صناعي قد يعادل آلاف الأطنان من ثاني أكسيد الكربون." },
+                    { text: "مكافئ ثاني أكسيد الكربون (CO2e)؛ لأنه يجمع بين الكمية الفعلية وشدة تأثير الغاز (GWP) معًا", isCorrect: true, rationale: "لأنه يدمج البعد الكتلي للغاز والقدرة الجزيئية النسبية على امتصاص الحرارة والاشعاع معاً." },
+                    { text: "كلتاهما متكافئتان تمامًا في كل الحالات", isCorrect: false, rationale: "مقياسان مختلفان تماماً؛ لتفاوت قيم $GWP$ تفاوتًا كبيرًا بين الغازات." },
+                    { text: "لا يمكن تحديد ذلك دون معرفة مصدر الغاز", isCorrect: false, rationale: "الخصائص الفيزيائية الجوهرية للغاز مستقلة عن المصدر التفصيلي له." }
+                ],
+                difficulty: "صعب", bloom: "تقويم", concept: "تقييم أدوات ومقاييس الأثر البيئي والمناخي.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "قطاعا الصناعة والنفايات متقاربان في بعض الأحيان من حيث الأثر البيئي رغم اختلاف نسبتيهما (5.2% مقابل 3.2%)؛ فسّر ذلك بالاعتماد على نوع الغاز الرئيس الناتج من كل منهما:",
+                options: [
+                    { text: "كلاهما ينتج ثاني أكسيد الكربون فقط، وهو غاز منخفض التأثير", isCorrect: false, rationale: "النفايات تطلق غاز الميثان كمنتج رئيسي ناتج عن التحلل اللاهوائي." },
+                    { text: "الصناعة تنتج CO2 (منخفض GWP)، بينما النفايات تنتج CH4 (أعلى GWP)، فقد يقترب تأثيرهما الفعلي رغم اختلاف الكمية والنسبة", isCorrect: true, rationale: "مكافئ غاز الميثان المرتفع ($GWP=27$) المنبعث من النفايات يجعل لكتلته المحدودة وزناً احتباسياً كبيراً يقارب الأثر الكلي لقطاع الصناعة الباعث لـ $CO_2$ ($GWP=1$)." },
+                    { text: "النفايات لا تنتج أي غازات دفيئة أساسًا", isCorrect: false, rationale: "النفايات هي المصدر البشري الرئيس لغاز الميثان الحابس للحرارة بقوة." },
+                    { text: "الصناعة تنتج غازات مفلورة فقط", isCorrect: false, rationale: "الصناعة تطلق كتل تلوث هائلة من غاز ثاني أكسيد الكربون عبر صناعات الحديد والأسمنت." }
+                ],
+                difficulty: "صعب", bloom: "تحليل", concept: "الربط التحليلي بين كتل الانبعاث والخطورة الاحتباسية الفعلية.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "احترق في مصنع أسمنت 8000 kg من المواد الخام، وكان معامل انبعاث ثاني أكسيد الكربون من صناعة الأسمنت 0.9 kg CO2/kg، فإن كمية ثاني أكسيد الكربون الناتجة تساوي:",
+                options: [
+                    { text: "7200 kg", isCorrect: true, rationale: "بتطبيق القانون: $E = EF \times A = 0.9 \times 8000 = 7200\text{ kg}$." },
+                    { text: "8900 kg", isCorrect: false, rationale: "خطأ ناتج عن عملية جمع غير رياضية للكتل والنسبة." },
+                    { text: "800 kg", isCorrect: false, rationale: "طرح عشوائي للكتل المكونة للمسألة." },
+                    { text: "72000 kg", isCorrect: false, rationale: "تكبير رياضي خاطئ للنتيجة بإهمال الفاصلة العشرية بالضرب." }
+                ],
+                difficulty: "صعب", bloom: "تطبيق", concept: "حسابات الانبعاثات في العمليات الكيميائية التحويلية غير الاحتراقية.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "إذا تضاعفت كمية الوقود الأحفوري المستهلكة عالميًا خلال عقد من الزمن، فإن أكثر النتائج توقّعًا بالاستناد إلى مفاهيم هذا الدرس هي:",
+                options: [
+                    { text: "انخفاض تركيز غازات الدفيئة في الغلاف الجوي", isCorrect: false, rationale: "بالتأكيد سيرتفع بشكل حاد وتراكمي بفعل زيادة غازات الاحتراق." },
+                    { text: "زيادة انبعاثات ثاني أكسيد الكربون بصورة رئيسة، وزيادة احتمالية نضوب مخزون الوقود الأحفوري", isCorrect: true, rationale: "التضاعف يزيد تسارع تراكم $CO_2$ كما يعجل بنضوب موارد الوقود غير المتجددة التي تطلبت ملايين السنين للتكون." },
+                    { text: "عدم تأثّر مخزون الوقود الأحفوري لأنه مصدر متجدد", isCorrect: false, rationale: "الوقود الأحفوري طاقة ناضبة وغير متجددة بيئياً." },
+                    { text: "زيادة إنتاج الأكسجين في الغلاف الجوي", isCorrect: false, rationale: "الاحتراق يستهلك الأكسجين كمتفاعل كيميائي حاد ولا يطلقه أبداً." }
+                ],
+                difficulty: "صعب", bloom: "تحليل", concept: "المستقبل المناخي والجيولوجي في ضوء تسارع استهلاك الهيدروكربونات.",
+                outcome: "أرسم بيانيًا تزايد كميات الوقود الأحفوري المستهلك في السنوات العشر الماضية."
+            },
+            {
+                text: "استُهلك في أحد المصانع 3000 L من الديزل (EF = 2.68 kg CO2/L)، و5,000,000 L من الغاز الطبيعي (EF = 1.88 kg CO2/1000L)، ونتج عن مخلفاته العضوية 200 kg تحلّلت (EF = 0.5 kg CH4/kg). إذا كانت قيمة GWP لغاز CH4 تساوي 27، فإن إجمالي مكافئ ثاني أكسيد الكربون (CO2e) الناتج من المصادر الثلاثة معًا يساوي:",
+                options: [
+                    { text: "20140 kg", isCorrect: true, rationale: "1) ديزل: $3000 \times 2.68 = 8040\text{ kg CO}_2$. 2) غاز طبيعي: $(5,000,000 / 1000) \times 1.88 = 9400\text{ kg CO}_2$. 3) ميثان: $200 \times 0.5 \times 27 = 2700\text{ kg CO}_2\text{e}$. المجموع الكلي = $8040 + 9400 + 2700 = 20140\text{ kg CO}_2\text{e}$." },
+                    { text: "17540 kg", isCorrect: false, rationale: "يهمل هذا الحساب ضرب كتلة الميثان المنبعثة بـ $GWP=27$ ويجمعها مباشرة." },
+                    { text: "12100 kg", isCorrect: false, rationale: "هذا يهمل حساب انبعاثات وقود الديزل من المجموع تماماً." },
+                    { text: "9400 kg", isCorrect: false, rationale: "يمثل فقط ناتج الغاز الطبيعي منفرداً." }
+                ],
+                difficulty: "متميز", bloom: "تركيب/تقويم", concept: "مسألة كيميائية مجمعة لعدة وقود وغازات دفيئة مختلفة.",
+                outcome: "أحسب كميات غازات الدفيئة المنبعثة من القطاعات المختلفة."
+            },
+            {
+                text: "أراد بلد تخفيف أثره في الاحترار العالمي بأقل جهد ممكن، ولديه خياران لتخفيض الانبعاثات بمقدار 10 طن من كل غاز: إما من غاز الميثان (الناتج من قطاع الزراعة)، أو من غاز ثاني أكسيد الكربون (الناتج من قطاع الطاقة). أي الخيارين يحقق أثرًا أكبر في خفض مكافئ ثاني أكسيد الكربون الكلي، ولماذا؟",
+                options: [
+                    { text: "ثاني أكسيد الكربون؛ لأن قطاع الطاقة أكبر مصدر للانبعاثات عمومًا", isCorrect: false, rationale: "حجم القطاع الإجمالي لا يغير الأثر الفردي للكتلة المحددة المستهدفة للخفض." },
+                    { text: "الميثان؛ لأن قيمة إمكانية إحداث الاحترار العالمي (GWP) له أعلى من ثاني أكسيد الكربون (27 مقابل 1)", isCorrect: true, rationale: "بما أن $GWP$ للميثان = 27، فإن خفض 10 طن ميثان يوفر أثراً حرارياً يعادل 270 طن كربوني، بينما خفض 10 طن $CO_2$ يوفر 10 طن فقط من التأثير الحراري، فالأول أكثر كفاءة بـ 27 ضعفاً." },
+                    { text: "كلاهما يحقق الأثر نفسه؛ لأن الكمية المخفَّضة متساوية (10 طن في الحالتين)", isCorrect: false, rationale: "تتساوى الأوزان لكن تتفاوت الفاعلية الاحترارية لتفاوت قيمة $GWP$ تفاوتاً كبيراً." },
+                    { text: "ثاني أكسيد الكربون؛ لأنه يبقى مدة أطول في الغلاف الجوي", isCorrect: false, rationale: "الاستقرار ميزة مكوث، لكن المقياس الفوري لحبس الاشعاع يحدده $GWP$ وهو الموجه لاتخاذ القرار في هذه الحالة." }
+                ],
+                difficulty: "متميز", bloom: "تقويم", concept: "اتخاذ القرار البيئي والسياسي بناءً على معايير $CO_2e$.",
+                outcome: "أستنتج الفروق in انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            },
+            {
+                text: "تخيّل تضاعف عدد السيارات الكهربائية بالكامل في مدينة ما مقابل تراجع السيارات التقليدية بنسبة 50%. بناءً على مفاهيم معاملات الانبعاث بالدرس، فإن النتيجة المباشرة هي:",
+                options: [
+                    { text: "انخفاض فوري في انبعاثات غازات الدفيئة المباشرة وأول أكسيد الكربون بقطاع النقل بالمدينة", isCorrect: true, rationale: "تراجع السيارات الهيدروكربونية يقلل حرق البنزين والديزل مباشرة مما يخفض انبعاثات $CO_2$ و $CO$ عوادم الشوارع." },
+                    { text: "ارتفاع انبعاثات قطاع النقل بالمدن بسبب بطاريات الليثيوم", isCorrect: false, rationale: "البطاريات تخزن الطاقة ولا تحرق وقوداً يطلق الغازات أثناء السير." },
+                    { text: "انخفاض انبعاثات محطات توليد الطاقة الكهربائية المعتمدة على الفحم فوراً", isCorrect: false, rationale: "بل قد ترتفع انبعاثات المحطات مؤقتاً لتغطية زيادة الطلب على شحن السيارات الكهربائية." },
+                    { text: "تلاشي غاز الأكسجين من هواء المدينة", isCorrect: false, rationale: "تراجع الاحتراق يوفر الأكسجين الجوي ولا يلاشيه." }
+                ],
+                difficulty: "متميز", bloom: "تركيب/تقويم", concept: "تحليل تكنولوجيا النقل النظيف والتحول البيئي لمصادر الطاقة.",
+                outcome: "أستنتج الفروق في انبعاثات غازات الدفيئة من القطاعات المختلفة وأبررها."
+            }
+        ];
+
+        // Quiz 2: End of Lesson Quick Evaluation Quiz (20 items)
+        const quiz2Questions = [
+            {
+                text: "غاز الدفيئة الأكثر شيوعًا وتراكمًا في الغلاف الجوي هو:",
+                options: [
+                    { text: "الميثان", isCorrect: false, rationale: "الميثان أقل تركزًا بالبقاء في نظام التوزيع مقارنة بكتلة ثاني أكسيد الكربون الضخمة." },
+                    { text: "ثاني أكسيد الكربون", isCorrect: true, rationale: "CO2 هو الغاز الأساسي والأكثر شيوعاً وتراكماً نتيجة الانبعاثات الكربونية الضخمة من قطاعات الوقود الأحفوري." },
+                    { text: "أكسيد النيتروز", isCorrect: false, rationale: "أكسيد النيتروز يتواجد بكميات صغيرة جداً ولا يقارن بكتلة تراكم الكربون." },
+                    { text: "الأوزون", isCorrect: false, rationale: "الأوزون غاز عابر ونسب تراكمه في التروبوسفير محدودة كملوث ثانوي." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "نسبة انبعاثات قطاع الطاقة من إجمالي غازات الدفيئة تُقدَّر بـ:",
+                options: [
+                    { text: "18.4%", isCorrect: false, rationale: "هذه تمثل مساهمة القطاع الزراعي والحيواني." },
+                    { text: "5.2%", isCorrect: false, rationale: "هذه النسبة تعبر عن العمليات الصناعية كإنتاج المعادن والأسمنت." },
+                    { text: "73.2%", isCorrect: true, rationale: "قطاع الطاقة الكهربائية والحرارية والنقل هو الملوث الأكبر بنسبة 73.2% من الانبعاثات العالمية." },
+                    { text: "3.2%", isCorrect: false, rationale: "هذه النسبة تعبر عن قطاع النفايات ومطامر التحلل العضوي." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "القطاع الذي يشمل إزالة الغابات والماشية هو قطاع:",
+                options: [
+                    { text: "الصناعة", isCorrect: false, rationale: "الصناعة تهتم بالبناء والتجهيز والعمليات التحويلية." },
+                    { text: "الزراعة", isCorrect: true, rationale: "قطاع الزراعة وإدارة الأراضي يشمل الأنشطة الحيوانية والماشية وقطع الأشجار وإزالة الغطاء النباتي." },
+                    { text: "النفايات", isCorrect: false, rationale: "النفايات تعني معالجة مياه الصرف الصحي والمطامر." },
+                    { text: "الطاقة", isCorrect: false, rationale: "الطاقة ترتبط باحتراق الوقود لإنتاج الكهرباء والنقل والتصنيع الحراري." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "ناتج الاحتراق الكامل للوقود الأحفوري بصورة رئيسة هو:",
+                options: [
+                    { text: "أول أكسيد الكربون", isCorrect: false, rationale: "ينتج أول أكسيد الكربون بالاحتراق غير الكامل فقط." },
+                    { text: "ثاني أكسيد الكربون", isCorrect: true, rationale: "ثاني أكسيد الكربون وبخار الماء هما المنتجان الكلاسيكيان لعمليات احتراق الهيدروكربونات الكاملة." },
+                    { text: "الميثان", isCorrect: false, rationale: "الميثان يمثل الوقود الداخل بالتفاعل نفسه ولا ينتج كعادم." },
+                    { text: "الأوزون", isCorrect: false, rationale: "الأوزون لا علاقة له بعوادم الاحتراق المباشرة للمحركات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الغاز السامّ الذي يرتبط بالهيموجلوبين ويمنع نقل الأكسجين في خلايا الجسم هو غاز:",
+                options: [
+                    { text: "CO2", isCorrect: false, rationale: "ثاني أكسيد الكربون غير سام بحد ذاته بل خانق بتركيزات فائقة." },
+                    { text: "CO", isCorrect: true, rationale: "أول أكسيد الكربون يرتبط بقوة بهيموجلوبين الدم معطلاً نقل الأكسجين للأعضاء وهو غاز خانق وقاتل صامت." },
+                    { text: "N2O", isCorrect: false, rationale: "أكسيد النيتروز غاز طبي أو مضحك ولا يعطل الهيموجلوبين بهذا الشكل." },
+                    { text: "SO2", isCorrect: false, rationale: "ثاني أكسيد الكبريت غاز مخرش للجهاز التنفسي وليس خانقاً حيوياً للدم." }
+                ],
+                difficulty: "متوسط", bloom: "تذكّر"
+            },
+            {
+                text: "الغازات المسؤولة بصورة رئيسة عن الهطل الحمضي هي:",
+                options: [
+                    { text: "أكاسيد الكربون", isCorrect: false, rationale: "أكاسيد الكربون مرتبطة بالاحترار العالمي." },
+                    { text: "أكاسيد النيتروجين والكبريت", isCorrect: true, rationale: "أكاسيد الكبريت ($SO_x$) والنيتروجين ($NO_x$) تتفاعل كيميائياً مع بخار ماء السحب لإنتاج حمضي الكبريتيك والنيتريك المكونين للهطل الحمضي." },
+                    { text: "الغازات المفلورة فقط", isCorrect: false, rationale: "الغازات المفلورة خاملة تجاه مياه السحاب وتصعد للأعلى لحبس الحرارة." },
+                    { text: "بخار الماء", isCorrect: false, rationale: "بخار الماء هو المذيب والوسط الحاضن للتفاعل وليس الغاز الباعث للحموضة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "مصدر أكاسيد الكبريت الرئيس هو:",
+                options: [
+                    { text: "محطات الطاقة الحرارية ومحطات تكرير البترول", isCorrect: true, rationale: "حرق الفحم الحجري المحتوي على شوائب كبريتية وتكرير النفط هما المصدر الصناعي والبيئي الأكبر لانبعاث أكاسيد الكبريت." },
+                    { text: "الزراعة فقط", isCorrect: false, rationale: "الزراعة تطلق النيتروجين والميثان ولا ترتبط بالكبريت." },
+                    { text: "النفايات فقط", isCorrect: false, rationale: "مطامر النفايات تطلق غاز الميثان العضوي." },
+                    { text: "التبريد فقط", isCorrect: false, rationale: "التبريد يطلق الغازات المفلورة وCFCs." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الوقود الأحفوري مصدر طاقة غير متجدد لأن:",
+                options: [
+                    { text: "لا يمكن حرقه", isCorrect: false, rationale: "بل يمتاز بقوة احتراقه الكبيرة." },
+                    { text: "تكوّنه يستغرق ملايين السنين ومعدل استهلاكه جائر", isCorrect: true, rationale: "يتطلب تشكله دورات جيولوجية تمتد لملايين السنين في باطن الأرض مما يجعله قابلاً للنضوب والنفاد السريع." },
+                    { text: "لا يُستخدم في توليد الكهرباء", isCorrect: false, rationale: "بل هو العصب والمورد الرئيس لتوليد الكهرباء حول العالم حالياً." },
+                    { text: "لا ينضب أبدًا", isCorrect: false, rationale: "معلومة خاطئة؛ فهو طاقة ناضبة وغير متجددة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "يستخدم الأردن في توليد الطاقة الكهربائية بصورة رئيسة وعلمية:",
+                options: [
+                    { text: "الفحم الحجري فقط", isCorrect: false, rationale: "الأردن لا يعتمد على الفحم الحجري بمحطاته الكهربائية الكبرى." },
+                    { text: "الغاز الطبيعي والصخر الزيتي", isCorrect: true, rationale: "يعتمد الأردن بمزيج طاقته الوطنية على الغاز الطبيعي بالإضافة للاستثمار المحلي بمحطة الصخر الزيتي." },
+                    { text: "الطاقة النووية فقط", isCorrect: false, rationale: "لا توجد محطات نووية لتوليد الطاقة الكهربائية التجارية بالأردن." },
+                    { text: "لا يستخدم أي وقود أحفوري", isCorrect: false, rationale: "يعتمد الأردن على الغاز الطبيعي المستورد كمورد هيدروكربوني أحفوري كباقي دول العالم." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "معامل الانبعاث (EF) يُعبَّر عنه بوحدة قياسية توضح:",
+                options: [
+                    { text: "كمية الانبعاثات لكل وحدة نشاط", isCorrect: true, rationale: "يوضح العلاقة الحسابية المباشرة بين حجم النشاط البشري والكتلة الملوثة المنبعثة منه." },
+                    { text: "درجة حرارة الغلاف الجوي", isCorrect: false, rationale: "الحرارة تقاس بالدرجات المئوية وليس بمعاملات التلوث." },
+                    { text: "النسبة المئوية للغاز في الهواء", isCorrect: false, rationale: "النسب المئوية تصف التركيز الغازي النسبي." },
+                    { text: "عدد سنوات المكوث", isCorrect: false, rationale: "مدة المكوث تقاس بوحدات الزمن كالسنوات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "القانون الصحيح لحساب كمية انبعاثات غاز دفيئة هو:",
+                options: [
+                    { text: "E = EF ÷ A", isCorrect: false, rationale: "القسمة تلغي التناسب الطردي للنشاط." },
+                    { text: "E = EF × A", isCorrect: true, rationale: "تُحسب كتلة الغاز المنبعث بضرب معامل الانبعاث المخصص للوقود في حجم النشاط الكلي المستهلك." },
+                    { text: "E = GWP ÷ EF", isCorrect: false, rationale: "لا يعطي علاقة صحيحة بكتلة الغاز." },
+                    { text: "E = GWP + EF", isCorrect: false, rationale: "جمع المعايير المختلفة غير جائز رياضياً في هذا السياق." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "احترقت آلية واستهلكت 800 L من الديزل (EF = 2.68 kg CO2/L)، فإن كمية CO2 الناتجة تساوي:",
+                options: [
+                    { text: "2144 kg", isCorrect: true, rationale: "بحساب رياضي مباشر: $E = 800 \times 2.68 = 2144\text{ kg CO}_2$." },
+                    { text: "1340 kg", isCorrect: false, rationale: "خطأ رياضي في عملية ضرب الأرقام العشرية." },
+                    { text: "800 kg", isCorrect: false, rationale: "يمثل حجم سائل الوقود قبل التفاعل الكيميائي." },
+                    { text: "2680 kg", isCorrect: false, rationale: "قيمة حسابية خاطئة للرتب الكتلية." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق"
+            },
+            {
+                text: "مكافئ ثاني أكسيد الكربون (CO2e) يُحسب من القانون الرياضي الآتي:",
+                options: [
+                    { text: "CO2e = EF × A", isCorrect: false, rationale: "هذا القانون يحسب كمية انبعاث الغاز المنفرد." },
+                    { text: "CO2e = GWP × E", isCorrect: true, rationale: "يتم احتساب المكافئ بضرب معامل القدرة النسبية للغاز على حبس الحرارة $GWP$ في كتلته المنبعثة فعلياً." },
+                    { text: "CO2e = GWP ÷ E", isCorrect: false, rationale: "القسمة تلغي تكافؤ نسب التلوث الحراري." },
+                    { text: "CO2e = E ÷ EF", isCorrect: false, rationale: "علاقة خاطئة رياضياً وبيئياً." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "قيمة GWP لغاز الميثان (CH4) تساوي:",
+                options: [
+                    { text: "1", isCorrect: false, rationale: "الرقم المرجعي المخصص لغاز ثاني أكسيد الكربون." },
+                    { text: "27", isCorrect: true, rationale: "الميثان أقوى من ثاني أكسيد الكربون بـ 27 ضعفاً في حبس الحرارة والاشعاع الجوي." },
+                    { text: "273", isCorrect: false, rationale: "هذه القيمة تعبر عن غاز أكسيد النيتروز." },
+                    { text: "6230", isCorrect: false, rationale: "قيمة احترار فائقة خاصة بالمركبات الصناعية الفلورية." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "قيمة GWP لغاز أكسيد النيتروز (N2O) تساوي:",
+                options: [
+                    { text: "1", isCorrect: false, rationale: "القيمة المرجعية الكتلية لـ $CO_2$." },
+                    { text: "27", isCorrect: false, rationale: "القيمة المحددة لـ $CH_4$." },
+                    { text: "273", isCorrect: true, rationale: "أكسيد النيتروز أقوى بـ 273 ضعفاً من ثاني أكسيد الكربون في امتصاص وحبس الأشعة تحت الحمراء بالجو." },
+                    { text: "771", isCorrect: false, rationale: "قيمة احترار مرتبطة بالغازات المفلورة المتخصصة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "انبعث من مصدر ما 400 kg من غاز الميثان (GWP=27)، فإن مكافئ ثاني أكسيد الكربون له يساوي:",
+                options: [
+                    { text: "10800 kg", isCorrect: true, rationale: "بتطبيق القانون: $\text{CO}_2\text{e} = 400 \times 27 = 10800\text{ kg CO}_2\text{e}$." },
+                    { text: "427 kg", isCorrect: false, rationale: "خطأ ناتج عن جمع الكتلة مع المعامل بدلاً من ضربهما." },
+                    { text: "14.8 kg", isCorrect: false, rationale: "قسمة خاطئة للمقادير البيئية الحاكمة للمسألة." },
+                    { text: "1080 kg", isCorrect: false, rationale: "خطأ حسابي في الرتب العشرية." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق"
+            },
+            {
+                text: "الغازات المفلورة (مثل CFC وHFC) تتميّز بيئياً وصناعياً بأن:",
+                options: [
+                    { text: "قيم GWP لها منخفضة جدًا", isCorrect: false, rationale: "بل هي الأعلى تدميراً احتباسياً بآلاف الأضعاف." },
+                    { text: "قيم GWP لها مرتفعة جدًا مقارنة بغيرها من غازات الدفيئة الكلاسيكية", isCorrect: true, rationale: "تتراوح قيمها بآلاف المرات تفوقاً واحتجازاً للحرارة مقارنة بثاني أكسيد الكربون." },
+                    { text: "لا تُصنَّف من غازات الدفيئة", isCorrect: false, rationale: "هي غازات دفيئة صناعية حادة الخطورة والمكافأة الكربونية." },
+                    { text: "مصدرها الرئيس قطاعات الزراعة والتربية", isCorrect: false, rationale: "مصدرها صناعي تركيبي بالكامل بمنتجات التبريد والتكييف والغازات المانعة للاحتكاك." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "في محطة كهرباء تعمل بالفحم، يحوّل المولّد الكهربائي الطاقة:",
+                options: [
+                    { text: "الكيميائية إلى حرارية", isCorrect: false, rationale: "هذا يتم بغرفة الاحتراق والمراجل المائية." },
+                    { text: "الحركية إلى كهربائية", isCorrect: true, rationale: "المولد في نهاية سلسلة المحطة يستغل حركة بخار الماء الدافعة للتوربين لإنشاء وتوليد تيار كهربائي جاهز للشبكة." },
+                    { text: "الكهربائية إلى حركية", isCorrect: false, rationale: "هذه وظيفة المحركات الكهربائية كالمراوح والرافعات وليس المولد بمحطة التوليد." },
+                    { text: "الحرارية إلى كيميائية", isCorrect: false, rationale: "لا يصف كيمياء وميكانيكية عمل محطات الطاقة الحرارية الكبرى." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "إذا كان مكافئ ثاني أكسيد الكربون لغاز ما يساوي 5460 kg، وGWP له يساوي 273، فإن الكمية الفعلية للغاز (E) تساوي:",
+                options: [
+                    { text: "20 kg", isCorrect: true, rationale: "الحساب العكسي للكتلة: $E = \text{CO}_2\text{e} / GWP \Rightarrow E = 5460 / 273 = 20\text{ kg}$." },
+                    { text: "1490580 kg", isCorrect: false, rationale: "مضاعفة فادحة للمقادير بدلاً من قسمتها العكسية." },
+                    { text: "273 kg", isCorrect: false, rationale: "يمثل فقط قيمة معامل القدرة الاحتباسية للغاز." },
+                    { text: "5460 kg", isCorrect: false, rationale: "يمثل القيمة المجمعة لمكافئ الكربون الإجمالي للغاز." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق"
+            },
+            {
+                text: "أي العبارات الآتية تصف بدقة كيمياء الغازات والمكافئات الاحترارية؟",
+                options: [
+                    { text: "معامل الانبعاث وإمكانية إحداث الاحترار العالمي مفهومان مترادفان تمامًا", isCorrect: false, rationale: "مفهومان مختلفان كلياً لقياس حجم التلوث والفاعلية الاشعاعية للغاز." },
+                    { text: "قطاع النفايات هو الأعلى نسبة في انبعاثات غازات الدفيئة العالمية", isCorrect: false, rationale: "قطاع النفايات يمثل النسبة الأقل بـ 3.2% من الإجمالي." },
+                    { text: "الكمية الفعلية المنبعثة من الغاز وحدها كافية لتحديد خطورته على المناخ والبيئة", isCorrect: false, rationale: "الحساب يتطلب دوماً معرفة فاعلية جزيئاته على حبس الحرارة $GWP$ بجانب الكتلة." },
+                    { text: "غاز صغير الكمية قد يكون له تأثير احتراري كبير إذا كانت قيمة GWP الخاصة به مرتفعة", isCorrect: true, rationale: "هذه هي المعادلة العلمية الأهم؛ فالكميات الضئيلة للغازات المفلورة ذات $GWP$ الفائق تملك وزناً احترارياً خطيراً يضاهي كتل ضخمة من غازات أخرى." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل"
+            }
+        ];
+    </script>
+
+    <script>
+        let activeQuizType = 'pro'; 
+        let activeQuestions = [];
+        let currentQuestionIdx = 0;
+        let userAnswers = {}; 
+        let bookmarkedQuestions = new Set();
+        let timerInterval = null;
+        let secondsElapsed = 0;
+
+        // On Boot Setup
+        window.addEventListener('load', () => {
+            initializeStats();
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('reset-storage').addEventListener('click', clearStatsData);
+            
+            // Adjust system theme defaults
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // STATS MANAGEMENT
+        function initializeStats() {
+            const proScore = localStorage.getItem('highest_pro_score_malkawi');
+            const proTotal = localStorage.getItem('highest_pro_total_malkawi');
+            const lessonScore = localStorage.getItem('highest_lesson_score_malkawi');
+            const lessonTotal = localStorage.getItem('highest_lesson_total_malkawi');
+
+            document.getElementById('stat-pro-score').innerText = proScore ? `${proScore}/${proTotal}` : 'لم يُجتز بعد';
+            document.getElementById('stat-lesson-score').innerText = lessonScore ? `${lessonScore}/${lessonTotal}` : 'لم يُجتز بعد';
+        }
+
+        function clearStatsData() {
+            localStorage.removeItem('highest_pro_score_malkawi');
+            localStorage.removeItem('highest_pro_total_malkawi');
+            localStorage.removeItem('highest_lesson_score_malkawi');
+            localStorage.removeItem('highest_lesson_total_malkawi');
+            initializeStats();
+            showStatusToast("تمت إعادة تعيين جميع إحصائيات المعلم محمد ملكاوي.", "success");
+        }
+
+        function showStatusToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-5 left-5 px-6 py-3.5 rounded-2xl shadow-xl text-white font-bold text-sm z-50 transition-all transform translate-y-10 opacity-0 ${type === 'success' ? 'bg-emerald-600' : 'bg-slate-800'}`;
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 50);
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function startQuiz(type) {
+            activeQuizType = type;
+            if (type === 'pro') {
+                activeQuestions = quiz1Questions;
+                document.getElementById('quiz-title-badge').innerText = "بنك غازات الدفيئة الاحترافي (30 سؤالاً)";
+            } else {
+                activeQuestions = quiz2Questions;
+                document.getElementById('quiz-title-badge').innerText = "اختبار نهاية الدرس الشامل (20 سؤالاً)";
+            }
+
+            currentQuestionIdx = 0;
+            userAnswers = {};
+            bookmarkedQuestions.clear();
+            secondsElapsed = 0;
+
+            document.getElementById('total-questions-num').innerText = activeQuestions.length;
+
+            // View management
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+
+            buildSidebarGrid();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            secondsElapsed = 0;
+            document.getElementById('timer-text').innerText = "00:00";
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer-text').innerText = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function buildSidebarGrid() {
+            const grid = document.getElementById('questions-grid');
+            grid.innerHTML = '';
+            activeQuestions.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.id = `side-btn-${idx}`;
+                btn.className = "w-full h-10 rounded-xl font-bold border text-xs flex items-center justify-center transition-all bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-500";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
+
+        function loadQuestion(idx) {
+            currentQuestionIdx = idx;
+            const q = activeQuestions[idx];
+
+            document.getElementById('current-question-num').innerText = idx + 1;
+            document.getElementById('question-text').innerText = q.text;
+
+            // Setup Difficulty / Bloom badges
+            const diffBadge = document.getElementById('q-difficulty-badge');
+            diffBadge.innerText = q.difficulty || "متوسط";
+            diffBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${getDifficultyBadgeStyles(q.difficulty)}`;
+
+            const bloomBadge = document.getElementById('q-bloom-badge');
+            bloomBadge.innerText = q.bloom || "فهم";
+            bloomBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${getBloomBadgeStyles(q.bloom)}`;
+
+            // Handle bookmarks
+            const bookmarkIcon = document.getElementById('bookmark-icon');
+            if (bookmarkedQuestions.has(idx)) {
+                bookmarkIcon.className = "fa-solid fa-bookmark text-amber-500 text-lg";
+            } else {
+                bookmarkIcon.className = "fa-regular fa-bookmark text-slate-400 text-lg";
+            }
+
+            // Learning Outcome Display
+            const outcomeBox = document.getElementById('learning-outcome-box');
+            if (q.outcome) {
+                outcomeBox.classList.remove('hidden');
+                document.getElementById('learning-outcome-text').innerText = q.outcome;
+            } else {
+                outcomeBox.classList.add('hidden');
+            }
+
+            renderOptions(q, idx);
+            updateFeedbackBoxAndButtons(q, idx);
+
+            // Highlight current active question in sidebar grid
+            activeQuestions.forEach((_, gridIdx) => {
+                const b = document.getElementById(`side-btn-${gridIdx}`);
+                if (gridIdx === idx) {
+                    b.classList.add('ring-2', 'ring-emerald-500', 'border-transparent');
+                } else {
+                    b.classList.remove('ring-2', 'ring-emerald-500', 'border-transparent');
+                }
+            });
+
+            // Re-render MathJax formula markup
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function getDifficultyBadgeStyles(difficulty) {
+            switch(difficulty) {
+                case 'سهل': return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300';
+                case 'متوسط': return 'bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300';
+                case 'صعب': return 'bg-red-100 text-red-800 dark:bg-red-950/40 dark:text-red-300';
+                case 'متميز': return 'bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300';
+                default: return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+            }
+        }
+
+        function getBloomBadgeStyles(bloom) {
+            switch(bloom) {
+                case 'تذكر':
+                case 'تذكّر': return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950/40 dark:text-indigo-300';
+                case 'فهم': return 'bg-sky-100 text-sky-800 dark:bg-sky-950/40 dark:text-sky-300';
+                case 'تطبيق': return 'bg-teal-100 text-teal-800 dark:bg-teal-950/40 dark:text-teal-300';
+                case 'تحليل': return 'bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300';
+                case 'تركيب/تقويم':
+                case 'تقويم': return 'bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300';
+                default: return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+            }
+        }
+
+        function renderOptions(q, qIdx) {
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const alphaMapping = ['أ', 'ب', 'جـ', 'د'];
+            const alreadyAnswered = userAnswers.hasOwnProperty(qIdx);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-right p-4 border rounded-2xl flex items-start gap-3 transition-all duration-200 outline-none ";
+                
+                if (!alreadyAnswered) {
+                    btn.className += "bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-slate-700/50";
+                } else {
+                    btn.disabled = true;
+                    const isSelected = userAnswers[qIdx] === optIdx;
+                    if (opt.isCorrect) {
+                        btn.className += "bg-emerald-100 dark:bg-emerald-950/40 border-emerald-500 text-emerald-900 dark:text-emerald-300 font-semibold correct-pulse";
+                    } else if (isSelected && !opt.isCorrect) {
+                        btn.className += "bg-red-100 dark:bg-red-950/40 border-red-500 text-red-900 dark:text-red-300 font-semibold";
+                    } else {
+                        btn.className += "bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 opacity-60";
+                    }
+                }
+
+                // Bullet
+                const bullet = document.createElement('span');
+                bullet.className = "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300";
+                bullet.innerText = alphaMapping[optIdx];
+                btn.appendChild(bullet);
+
+                // Option Text content
+                const text = document.createElement('span');
+                text.className = "pt-0.5 leading-relaxed text-xs sm:text-sm md:text-base";
+                text.innerHTML = opt.text;
+                btn.appendChild(text);
+
+                if (!alreadyAnswered) {
+                    btn.onclick = () => selectOption(qIdx, optIdx);
+                }
+
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(qIdx, optIdx) {
+            if (userAnswers.hasOwnProperty(qIdx)) return; 
+            
+            userAnswers[qIdx] = optIdx;
+            const q = activeQuestions[qIdx];
+            const opt = q.options[optIdx];
+            const isCorrect = opt.isCorrect;
+
+            const sideBtn = document.getElementById(`side-btn-${qIdx}`);
+            if (isCorrect) {
+                playCorrectSound();
+                sideBtn.className += " !bg-emerald-500 !text-white !border-transparent";
+            } else {
+                playIncorrectSound();
+                sideBtn.className += " !bg-red-500 !text-white !border-transparent";
+            }
+
+            renderOptions(q, qIdx);
+            updateFeedbackBoxAndButtons(q, qIdx);
+        }
+
+        function updateFeedbackBoxAndButtons(q, qIdx) {
+            const hasAnswered = userAnswers.hasOwnProperty(qIdx);
+            const feedbackBox = document.getElementById('feedback-box');
+
+            if (hasAnswered) {
+                const selectedOptIdx = userAnswers[qIdx];
+                const selectedOpt = q.options[selectedOptIdx];
+                const correctOpt = q.options.find(o => o.isCorrect);
+
+                feedbackBox.classList.remove('hidden');
+                
+                const iconContainer = document.getElementById('feedback-icon-container');
+                const titleText = document.getElementById('feedback-title');
+                const explainArea = document.getElementById('feedback-explain-area');
+
+                if (selectedOpt.isCorrect) {
+                    feedbackBox.className = "p-5 rounded-3xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-300 space-y-3";
+                    iconContainer.className = "p-1.5 rounded-lg bg-emerald-600 text-white";
+                    iconContainer.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                    titleText.innerText = "إجابة صحيحة كلياً! أحسنت العمل.";
+                    explainArea.innerHTML = `<p><strong>التفسير العلمي المعتمد:</strong> ${selectedOpt.rationale}</p>`;
+                } else {
+                    feedbackBox.className = "p-5 rounded-3xl border-2 border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-300 space-y-3";
+                    iconContainer.className = "p-1.5 rounded-lg bg-red-600 text-white";
+                    iconContainer.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                    titleText.innerText = "إجابة خاطئة.";
+
+                    let reasonHTML = `<p class="mb-2"><strong>سبب استبعاد البديل المُختار:</strong> ${selectedOpt.rationale || 'البديل غير متسق علمياً مع بنية المسألة.'}</p>`;
+                    reasonHTML += `<p class="text-emerald-700 dark:text-emerald-400 font-medium"><strong>التفسير الصحيح المعتمد:</strong> ${correctOpt.rationale}</p>`;
+                    explainArea.innerHTML = reasonHTML;
+                }
+
+                if (q.concept) {
+                    document.getElementById('feedback-concept-box').classList.remove('hidden');
+                    document.getElementById('feedback-concept-text').innerText = q.concept;
+                } else {
+                    document.getElementById('feedback-concept-box').classList.add('hidden');
+                }
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            document.getElementById('prev-btn').disabled = qIdx === 0;
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-quiz-btn');
+
+            if (qIdx === activeQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        function toggleBookmark() {
+            const qIdx = currentQuestionIdx;
+            const bIcon = document.getElementById('bookmark-icon');
+            const sideBtn = document.getElementById(`side-btn-${qIdx}`);
+
+            if (bookmarkedQuestions.has(qIdx)) {
+                bookmarkedQuestions.delete(qIdx);
+                bIcon.className = "fa-regular fa-bookmark text-slate-400 text-lg";
+                if (!userAnswers.hasOwnProperty(qIdx)) {
+                    sideBtn.className = sideBtn.className.replace(' !border-amber-500 !bg-amber-50 dark:!bg-amber-950/30', '');
+                }
+            } else {
+                bookmarkedQuestions.add(qIdx);
+                bIcon.className = "fa-solid fa-bookmark text-amber-500 text-lg";
+                if (!userAnswers.hasOwnProperty(qIdx)) {
+                    sideBtn.className += " !border-amber-500 !bg-amber-50 dark:!bg-amber-950/30";
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIdx < activeQuestions.length - 1) {
+                loadQuestion(currentQuestionIdx + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIdx > 0) {
+                loadQuestion(currentQuestionIdx - 1);
+            }
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            initializeStats();
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            playCompleteSound();
+
+            const totalQ = activeQuestions.length;
+            let correctCount = 0;
+
+            activeQuestions.forEach((q, idx) => {
+                if (userAnswers.hasOwnProperty(idx)) {
+                    const selectedIdx = userAnswers[idx];
+                    if (q.options[selectedIdx].isCorrect) {
+                        correctCount++;
+                    }
+                }
+            });
+
+            const percent = Math.round((correctCount / totalQ) * 100);
+            
+            // Build Time String
+            const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+            const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+            const timeStr = `${mins}:${secs}`;
+
+            // Save Stats to LocalStorage
+            if (activeQuizType === 'pro') {
+                const prevHigh = parseInt(localStorage.getItem('highest_pro_score_malkawi') || '0');
+                if (correctCount > prevHigh) {
+                    localStorage.setItem('highest_pro_score_malkawi', correctCount);
+                    localStorage.setItem('highest_pro_total_malkawi', totalQ);
+                }
+            } else {
+                const prevHigh = parseInt(localStorage.getItem('highest_lesson_score_malkawi') || '0');
+                if (correctCount > prevHigh) {
+                    localStorage.setItem('highest_lesson_score_malkawi', correctCount);
+                    localStorage.setItem('highest_lesson_total_malkawi', totalQ);
+                }
+            }
+
+            // View Management Swap
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+
+            document.getElementById('res-score').innerText = `${correctCount}/${totalQ}`;
+            document.getElementById('res-percent').innerText = `${percent}%`;
+            document.getElementById('res-time').innerText = timeStr;
+            document.getElementById('res-rank').innerText = getAcademicRank(percent);
+            document.getElementById('res-rank').className = `text-xl sm:text-2xl font-black mt-2 ${getRankColorStyle(percent)}`;
+
+            buildDetailedResultsDashboard(correctCount, totalQ);
+            buildReviewedAnswersLog();
+
+            document.getElementById('retry-btn').onclick = () => startQuiz(activeQuizType);
+        }
+
+        function getAcademicRank(percent) {
+            if (percent >= 90) return "متميز جداً 🌟";
+            if (percent >= 75) return "جيد جداً 👍";
+            if (percent >= 50) return "مقبول";
+            return "بحاجة لمراجعة دقيقة للدرس 📚";
+        }
+
+        function getRankColorStyle(percent) {
+            if (percent >= 90) return "text-emerald-600 dark:text-emerald-400";
+            if (percent >= 75) return "text-blue-600 dark:text-blue-400";
+            if (percent >= 50) return "text-amber-600 dark:text-amber-400";
+            return "text-red-600 dark:text-red-400";
+        }
+
+        function buildDetailedResultsDashboard(correctCount, totalQ) {
+            const diffStats = {}; 
+            const bloomStats = {}; 
+
+            activeQuestions.forEach((q, idx) => {
+                const diff = q.difficulty || 'متوسط';
+                const bloom = q.bloom || 'فهم';
+                const isCorrect = userAnswers.hasOwnProperty(idx) && q.options[userAnswers[idx]].isCorrect;
+
+                if (!diffStats[diff]) diffStats[diff] = { correct: 0, total: 0 };
+                if (!bloomStats[bloom]) bloomStats[bloom] = { correct: 0, total: 0 };
+
+                diffStats[diff].total++;
+                bloomStats[bloom].total++;
+
+                if (isCorrect) {
+                    diffStats[diff].correct++;
+                    bloomStats[bloom].correct++;
+                }
+            });
+
+            // Difficulty bars populate
+            const diffContainer = document.getElementById('res-difficulty-bars');
+            diffContainer.innerHTML = '';
+            for (const [diffName, val] of Object.entries(diffStats)) {
+                const pct = Math.round((val.correct / val.total) * 100);
+                diffContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold">${diffName}</span>
+                            <span>${val.correct} من ${val.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Bloom bars populate
+            const bloomContainer = document.getElementById('res-bloom-bars');
+            bloomContainer.innerHTML = '';
+            for (const [bloomName, val] of Object.entries(bloomStats)) {
+                const pct = Math.round((val.correct / val.total) * 100);
+                bloomContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold">${bloomName}</span>
+                            <span>${val.correct} من ${val.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function buildReviewedAnswersLog() {
+            const container = document.getElementById('reviewed-answers-log');
+            container.innerHTML = '';
+
+            activeQuestions.forEach((q, idx) => {
+                const userSelIdx = userAnswers[idx];
+                const hasAnswered = userAnswers.hasOwnProperty(idx);
+                const selectedOpt = hasAnswered ? q.options[userSelIdx] : null;
+                const correctOpt = q.options.find(o => o.isCorrect);
+                const isCorrect = selectedOpt && selectedOpt.isCorrect;
+
+                const card = document.createElement('div');
+                card.className = `p-6 rounded-2xl border-2 text-right space-y-4 ${isCorrect ? 'border-emerald-100 bg-emerald-50/20 dark:border-emerald-950/20' : 'border-red-100 bg-red-50/20 dark:border-red-950/20'}`;
+
+                let badgeHTML = `
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-bold">سؤال ${idx + 1}</span>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${getDifficultyBadgeStyles(q.difficulty)}">${q.difficulty || 'متوسط'}</span>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${getBloomBadgeStyles(q.bloom)}">${q.bloom || 'تحليل'}</span>
+                `;
+
+                if (isCorrect) {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-white"><i class="fa-solid fa-check"></i> صحيح</span>`;
+                } else if (hasAnswered) {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-500 text-white"><i class="fa-solid fa-xmark"></i> خطأ</span>`;
+                } else {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-500 text-white"><i class="fa-regular fa-eye-slash"></i> غير مجاب</span>`;
+                }
+
+                badgeHTML += `</div>`;
+
+                card.innerHTML = `
+                    ${badgeHTML}
+                    <h4 class="font-bold text-slate-900 dark:text-white leading-relaxed text-sm sm:text-base">${q.text}</h4>
+                    <div class="space-y-2 text-xs sm:text-sm pt-2 border-t border-slate-200/50 dark:border-slate-800">
+                        <p class="text-slate-600 dark:text-slate-400">
+                            <strong class="text-slate-800 dark:text-white">إجابتك المسجلة:</strong> 
+                            ${hasAnswered ? selectedOpt.text : '<span class="text-red-500">متروك دون خيار</span>'}
+                        </p>
+                        ${!isCorrect ? `<p class="text-emerald-700 dark:text-emerald-400"><strong>البديل الصحيح المعتمد:</strong> ${correctOpt.text}</p>` : ''}
+                        
+                        <div class="p-3.5 bg-white dark:bg-slate-900/50 rounded-xl text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                            <p class="font-black text-slate-700 dark:text-slate-300">التفسير الأكاديمي والتعليل المنهجي:</p>
+                            <p class="leading-relaxed">${correctOpt.rationale}</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function goToHome() {
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            initializeStats();
+        }
+    </script>
+</body>
+</html>
