@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الدرس الثالث - الوحدة الأولى 2026 | أ. محمد ملكاوي</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-xl">
+                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg md:text-xl font-black text-slate-900 dark:text-white leading-tight">اختبار الدرس الثالث - الوحدة الأولى 2026</h1>
+                    <p class="text-xs md:text-sm text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">إعداد وتصميم المعلم محمد ملكاوي</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button id="theme-toggle" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all" title="تبديل المظهر">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+                </button>
+                <button id="reset-storage" class="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-all" title="إعادة تهيئة الإحصائيات">
+                    <i class="fa-solid fa-rotate-left text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col justify-center">
+        
+        <!-- Welcome Screen -->
+        <div id="welcome-view" class="space-y-8 max-w-4xl mx-auto w-full">
+            <div class="text-center space-y-4">
+                <span class="px-4 py-1.5 rounded-full text-xs md:text-sm font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 inline-block">
+                    منصة الاختبارات التفاعلية الذاتية التصحيح
+                </span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">الاختبار الشامل للدرس الثالث - الوحدة الأولى (2026)</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+                    يشمل هذا الاختبار جميع أسئلة المادة (50 سؤالاً تفاعلياً) مدمجة في بنك متكامل يغطي جميع مستويات بلوم المعرفية مع التصحيح الفوري والتحليل التفصيلي للإجابات.
+                </p>
+            </div>
+
+            <!-- Stats Dashboard overview -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 rounded-xl">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">أعلى نتيجة محققة</p>
+                        <p class="text-xl font-bold text-slate-800 dark:text-white" id="stat-pro-score">-</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-purple-100 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 rounded-xl">
+                        <i class="fa-solid fa-list-check text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">إجمالي الأسئلة</p>
+                        <p class="text-xl font-bold text-slate-800 dark:text-white">50 سؤالاً</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-xl">
+                        <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">عدد المحاولات</p>
+                        <p class="text-xl font-bold text-slate-800 dark:text-white" id="stat-total-attempts">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Start Card -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-8 shadow-md hover:shadow-xl space-y-6 text-center">
+                <div class="max-w-xl mx-auto space-y-3">
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-white">البنك الشامل والمدمج</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        يتكون الاختبار من 50 سؤالاً اختيار من متعدد مصممة وفق معايير الجودة التربوية، وتشمل التغذية الراجعة الفورية وشرحاً تفصيلياً لكل إجابة.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2 pt-2">
+                        <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400">سهل</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400">متوسط</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400">صعب</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-purple-50 text-purple-700 dark:bg-purple-950/30 dark:text-purple-400">متميز</span>
+                    </div>
+                </div>
+                <button onclick="startQuiz()" class="w-full sm:w-2/3 md:w-1/2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 mx-auto text-lg">
+                    ابدأ الاختبار الآن <i class="fa-solid fa-circle-play"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Play View -->
+        <div id="quiz-view" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl w-full mx-auto">
+            
+            <!-- Questions Sidebar Selector -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col h-[calc(100vh-12rem)] sticky top-24 shadow-sm">
+                <div class="mb-4">
+                    <h4 class="font-bold text-slate-800 dark:text-white">جدول الأسئلة</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">انقر للانتقال الفوري لسرعة المراجعة</p>
+                </div>
+                <div id="questions-grid" class="grid grid-cols-5 gap-2 overflow-y-auto custom-scrollbar flex-grow pr-1">
+                    <!-- Nav items dynamically created -->
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2 text-xs text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-emerald-500"></span> إجابة صحيحة
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span> إجابة خاطئة
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Content Workspace -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Info Status Bar -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <button onclick="exitQuiz()" class="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-all" title="خروج">
+                            <i class="fa-solid fa-arrow-right-to-bracket rotate-180"></i>
+                        </button>
+                        <span class="font-bold text-slate-800 dark:text-white text-sm md:text-base">اختبار الدرس الثالث (2026)</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-slate-500 dark:text-slate-400 text-sm font-semibold">
+                            السؤال <span id="current-question-num" class="text-emerald-600 dark:text-emerald-400 font-bold">1</span> من <span id="total-questions-num" class="font-bold">50</span>
+                        </div>
+                        <div id="timer-box" class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold">
+                            <i class="fa-regular fa-clock"></i> <span id="timer-text">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Question Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="q-difficulty-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300">سهل</span>
+                        <span id="q-bloom-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300">تذكر</span>
+                    </div>
+
+                    <!-- Question Text -->
+                    <h3 id="question-text" class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-relaxed"></h3>
+
+                    <!-- Learning Outcome Box -->
+                    <div id="learning-outcome-box" class="p-3 bg-emerald-50 dark:bg-emerald-950/20 border-r-4 border-emerald-500 rounded-l-xl text-xs text-emerald-800 dark:text-emerald-300 hidden">
+                        <span class="font-bold block mb-1">ناتج التعلم المستهدف:</span>
+                        <p id="learning-outcome-text"></p>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="options-container" class="grid grid-cols-1 gap-4 pt-2">
+                        <!-- Options generated by JS -->
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="feedback-box" class="hidden p-5 rounded-2xl border-2 transition-all space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div id="feedback-icon-container" class="p-1.5 rounded-lg text-white"></div>
+                            <h4 id="feedback-title" class="font-bold">الإجابة صحيحة!</h4>
+                        </div>
+                        <div id="feedback-explain-area" class="text-sm space-y-2 leading-relaxed"></div>
+                        <div id="feedback-concept-box" class="pt-2 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+                            <strong>الفكرة المقاسة:</strong> <span id="feedback-concept-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex items-center justify-between gap-4">
+                    <button id="prev-btn" onclick="prevQuestion()" class="flex items-center gap-2 bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 px-6 py-3.5 rounded-xl font-bold transition-all disabled:opacity-50">
+                        <i class="fa-solid fa-arrow-right"></i> السابق
+                    </button>
+                    
+                    <button id="submit-quiz-btn" onclick="finishQuiz()" class="hidden bg-red-600 hover:bg-red-500 text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-md">
+                        إنهاء وتسليم الإجابات <i class="fa-solid fa-square-check mr-1"></i>
+                    </button>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold transition-all shadow-md">
+                        التالي <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results View -->
+        <div id="results-view" class="hidden max-w-5xl mx-auto w-full space-y-8">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 shadow-lg text-center space-y-6">
+                <div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center text-4xl mx-auto">
+                    🏆
+                </div>
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">أحسنت! أكملت الاختبار الشامل</h2>
+                    <p class="text-slate-500 dark:text-slate-400">تقرير النتيجة النهائية والتحليل الأكاديمي الشامل لأدائك</p>
+                </div>
+
+                <!-- Stats summary grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النتيجة النهائية</p>
+                        <p class="text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-1" id="res-score">0/50</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النسبة المئوية</p>
+                        <p class="text-3xl font-black text-blue-600 dark:text-blue-400 mt-1" id="res-percent">0%</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">الوقت المستغرق</p>
+                        <p class="text-3xl font-black text-purple-600 dark:text-purple-400 mt-1" id="res-time">00:00</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">التقدير</p>
+                        <p class="text-2xl font-black text-amber-600 dark:text-amber-400 mt-2" id="res-rank">-</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="goToHome()" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold px-8 py-3.5 rounded-2xl transition-all">
+                        العودة للرئيسية <i class="fa-solid fa-house mr-1"></i>
+                    </button>
+                    <button onclick="startQuiz()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3.5 rounded-2xl transition-all shadow-md">
+                        إعادة محاولة الاختبار <i class="fa-solid fa-rotate-right mr-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reviewed Answer Log Section -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                <h3 class="text-2xl font-black text-slate-900 dark:text-white text-right"><i class="fa-solid fa-list-check text-emerald-500 ml-2"></i> مراجعة جميع الأسئلة والإجابات</h3>
+                <div id="reviewed-answers-log" class="space-y-6"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 py-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400 space-y-1">
+        <p class="font-bold text-slate-700 dark:text-slate-300">اختبار الدرس الثالث - الوحدة الأولى 2026</p>
+        <p>إعداد وتصميم المعلم محمد ملكاوي © 2026 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- Audio Web API -->
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSynthSound(freqs, type = 'sine', duration = 0.15) {
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                freqs.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + (idx * 0.08));
+                    osc.stop(audioCtx.currentTime + (idx * 0.08) + duration);
+                });
+            } catch (e) {}
+        }
+        function playCorrectSound() { playSynthSound([523.25, 659.25], 'triangle', 0.25); }
+        function playIncorrectSound() { playSynthSound([293.66, 220.00], 'sawtooth', 0.3); }
+        function playCompleteSound() { playSynthSound([523.25, 659.25, 783.99, 1046.50], 'triangle', 0.5); }
+    </script>
+
+    <!-- Complete Questions Data Array -->
+    <script>
+        const allQuestions = [
+            // --- 27 الأسئلة الاحترافية من B (بنك 30 مع الاستكمال الدقيق للأسئلة) ---
+            {
+                text: "من مصادر الطاقة المتجددة الخمسة الواردة في الدرس:",
+                options: [
+                    { text: "الفحم الحجري", isCorrect: false },
+                    { text: "طاقة الرياح", isCorrect: true },
+                    { text: "الغاز الطبيعي", isCorrect: false },
+                    { text: "النفط", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "التمييز بين مصادر الطاقة المتجددة والوقود الأحفوري.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي، وأقدّم أدلة مقنعة على ذلك.",
+                rationale: "طاقة الرياح أحد مصادر الطاقة المتجددة الخمسة (الرياح، المد والجزر، الشمسية، الحرارة الجوفية، الكهرمائية) الواردة في الدرس."
+            },
+            {
+                text: "يجب أن تتراوح درجة حرارة المياه المستخدَمة في طاقة الحرارة الجوفية بين:",
+                options: [
+                    { text: "(20-50)°C", isCorrect: false },
+                    { text: "(50-70)°C", isCorrect: false },
+                    { text: "(70-100)°C", isCorrect: false },
+                    { text: "(150-370)°C", isCorrect: true }
+                ],
+                correctIndex: 3,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "استرجاع رقم محدد من نص الدرس.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي، وأقدّم أدلة مقنعة على ذلك.",
+                rationale: "ورد في النص أن استخدام طاقة الحرارة الجوفية يتطلّب أن تكون درجة حرارة المياه مرتفعة تتراوح بين (150-370)°C."
+            },
+            {
+                text: "طُوِّر أول إطار سياسات وطني للتكيّف مع التغيّر المناخي في الأردن عام:",
+                options: [
+                    { text: "2007م", isCorrect: false },
+                    { text: "2013م", isCorrect: true },
+                    { text: "2018م", isCorrect: false },
+                    { text: "2022م", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "استرجاع حقيقة تاريخية محددة من نص الدرس.",
+                outcome: "أوضّح دور المؤسسات الرسمية والمؤسسات غير الحكومية ومنظمات المجتمع المدني في جهود التكيّف مع آثار التغيّر المناخي.",
+                rationale: "ورد في النص أن أول إطار سياسات وطني للتكيّف مع التغيّر المناخي في الأردن طُوِّر عام 2013."
+            },
+            {
+                text: "الاتفاقية العالمية التي يُعدّ الأردن أحد الدول المشاركة فيها لمكافحة التغيّر المناخي هي:",
+                options: [
+                    { text: "اتفاقية كيوتو", isCorrect: false },
+                    { text: "اتفاقية باريس للمناخ", isCorrect: true },
+                    { text: "اتفاقية فيينا", isCorrect: false },
+                    { text: "اتفاقية مونتريال", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "استرجاع اسم الاتفاقية الدولية المذكورة في النص.",
+                outcome: "أوضّح دور المؤسسات الرسمية والمؤسسات غير الحكومية ومنظمات المجتمع المدني في جهود التكيّف مع آثار التغيّر المناخي.",
+                rationale: "ورد في النص صراحة أن الأردن أحد الدول المشاركة في اتفاقية باريس للمناخ."
+            },
+            {
+                text: "السبب الرئيس الذي يجعل الوقود الأحفوري لا يزال الخيار الأكثر استخدامًا رغم توفّر الطاقة المتجددة هو:",
+                options: [
+                    { text: "أن الطاقة المتجددة غير موجودة أصلًا", isCorrect: false },
+                    { text: "ارتفاع تكلفة الاستثمار الأولي اللازم للتحوّل إلى الطاقة المتجددة", isCorrect: true },
+                    { text: "أن الوقود الأحفوري لا ينتج أي انبعاثات", isCorrect: false },
+                    { text: "أن الطاقة المتجددة أخطر بيئيًا من الوقود الأحفوري", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "فهم",
+                concept: "فهم السبب الاقتصادي الرئيس وراء استمرار الاعتماد على الوقود الأحفوري.",
+                outcome: "أطرح حلولًا للتخفيف من انبعاثات غازات الدفيئة من القطاعات المختلفة.",
+                rationale: "ورد في النص أن التحوّل إلى مصادر الطاقة المتجددة يتطلّب استثمارات كبيرة ومكلفة لا تستطيع العديد من الدول تحمّلها."
+            },
+            {
+                text: "من فوائد الطاقة الكهرمائية غير المتعلقة بتوليد الكهرباء مباشرة:",
+                options: [
+                    { text: "زيادة تركيز غازات الدفيئة", isCorrect: false },
+                    { text: "الحدّ من الفيضانات واستخدامها لمياه الشرب أو الزراعة", isCorrect: true },
+                    { text: "زيادة استهلاك الوقود الأحفوري", isCorrect: false },
+                    { text: "تقليل مساحة الأراضي الزراعية", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "استرجاع الفوائد الإضافية للسدود المذكورة في النص.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي، وأقدّم أدلة مقنعة على ذلك.",
+                rationale: "ورد في النص أن السدود يمكن الاستفادة منها في الحدّ من الفيضانات، واستخدامها مصادر لمياه الشرب أو الزراعة."
+            },
+            {
+                text: "من طرق تقليل استهلاك الوقود الأحفوري المذكورة في الدرس:",
+                options: [
+                    { text: "زيادة استخدام المصابيح التقليدية", isCorrect: false },
+                    { text: "استخدام المصابيح الموفّرة للطاقة", isCorrect: true },
+                    { text: "إلغاء جميع وسائل النقل العامة", isCorrect: false },
+                    { text: "زيادة عدد المركبات الخاصة العاملة بالبنزين", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "التمييز بين ممارسات تقلّل الاستهلاك وأخرى تزيده.",
+                outcome: "أقترح أساليب للتقليل من استهلاك الطاقة وأبيّن علاقتها بالتكنولوجيا.",
+                rationale: "ذكر النص استخدام المصابيح الموفّرة للطاقة كمثال على تطوير تكنولوجيا أكثر كفاءة في استخدام الطاقة."
+            },
+            {
+                text: "من الأمثلة التي ذكرها الدرس على محطات الطاقة الشمسية في الأردن:",
+                options: [
+                    { text: "محطة بينونة في المُوقّر", isCorrect: true },
+                    { text: "محطة الفحم في إربد", isCorrect: false },
+                    { text: "محطة الغاز في الزرقاء", isCorrect: false },
+                    { text: "محطة النفط في العقبة", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "استرجاع مثال محدد من الأردن مذكور في النص.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي، وأقدّم أدلة مقنعة على ذلك.",
+                rationale: "ذكر النص محطة بينونة في المُوقّر كأحد محطات الطاقة الشمسية في الأردن."
+            },
+            {
+                text: "أفضل تفسير لكون الطاقة الشمسية 'مرنة النطاق' بخلاف الطاقة الكهرمائية هو أن:",
+                options: [
+                    { text: "الطاقة الشمسية يمكن تركيب ألواحها على نطاق فردي (منزل) أو محطة ضخمة، بينما الكهرمائية ترتبط بسدود وبنية تحتية كبيرة", isCorrect: true },
+                    { text: "الطاقة الشمسية لا يمكن استخدامها إلا في محطات ضخمة فقط", isCorrect: false },
+                    { text: "الطاقة الكهرمائية يمكن استخدامها من دون أي بنية تحتية", isCorrect: false },
+                    { text: "لا يوجد أي فرق حقيقي بين الطاقتين في هذا الجانب", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "التحليل المقارن العميق لخاصية 'مرونة النطاق'.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي.",
+                rationale: "تتميّز الطاقة الشمسية بمرونة كبيرة في حجم التطبيق من منزل صغير إلى محطة إقليمية ضخمة."
+            },
+            {
+                text: "بالاعتماد على بيانات النشاط العالمي لإنتاج الكهرباء (فحم 10467.93، غاز 6622.93، نفط 788.55، نووية 2685.74 TWh)، مجموع إنتاج المصادر غير المتجددة الأربعة يساوي تقريبًا:",
+                options: [
+                    { text: "20565.15 TWh", isCorrect: true },
+                    { text: "17153.41 TWh", isCorrect: false },
+                    { text: "13153.68 TWh", isCorrect: false },
+                    { text: "9308.67 TWh", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "تطبيق",
+                concept: "تطبيق عملية جمع بيانات كمية من نشاط الدرس لمصادر الطاقة غير المتجددة.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي.",
+                rationale: "بجمع القيم الأربع: 10467.93 + 6622.93 + 788.55 + 2685.74 = 20565.15 TWh."
+            },
+            {
+                text: "وفق بيانات نشاط 'مصادر الطاقة'، أي مصادر الطاقة المتجددة (حيوية 678.74، شمسية 1629.90، رياح 2304.44، كهرمائية 4211.01 TWh) ينتج أكبر كمية كهرباء؟",
+                options: [
+                    { text: "الطاقة الحيوية", isCorrect: false },
+                    { text: "الطاقة الشمسية", isCorrect: false },
+                    { text: "طاقة الرياح", isCorrect: false },
+                    { text: "الطاقة الكهرمائية", isCorrect: true }
+                ],
+                correctIndex: 3,
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "قراءة وترتيب بيانات كمية لتحديد المصدر المتجدد الأكبر إنتاجًا.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي.",
+                rationale: "الطاقة الكهرمائية تنتج أكبر كمية بين مصادر الطاقة المتجددة المذكورة (4211.01 TWh)."
+            },
+            {
+                text: "الترتيب التصاعدي الصحيح لإنتاج الكهرباء غير المتجددة (نفط 788.55، نووية 2685.74، غاز 6622.93، فحم 10467.93 TWh) هو:",
+                options: [
+                    { text: "نفط < نووية < غاز < فحم حجري", isCorrect: true },
+                    { text: "فحم حجري < غاز < نووية < نفط", isCorrect: false },
+                    { text: "نووية < نفط < فحم حجري < غاز", isCorrect: false },
+                    { text: "غاز < فحم حجري < نفط < نووية", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "ترتيب بيانات كمية تصاعديًا من نشاط الدرس.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي.",
+                rationale: "بترتيب القيم تصاعديًا: 788.55 (نفط) < 2685.74 (نووية) < 6622.93 (غاز) < 10467.93 (فحم حجري)."
+            },
+            {
+                text: "الدور الذي تؤديه المرأة في الدول النامية في مواجهة التغيّر المناخي يرتبط بشكل خاص بكونها:",
+                options: [
+                    { text: "بعيدة تمامًا عن قطاع الزراعة", isCorrect: false },
+                    { text: "تمثّل نسبة كبيرة من القوى العاملة الزراعية، وتتحمّل مسؤولية جمع المياه والحطب والطعام", isCorrect: true },
+                    { text: "غير معنية بالموارد المائية إطلاقًا", isCorrect: false },
+                    { text: "مسؤولة فقط عن القرارات الحكومية الرسمية", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "فهم السياق الاجتماعي الاقتصادي لدور المرأة في مواجهة التغير المناخي.",
+                outcome: "أشرح دور مكوّنات المجتمع في جهود التكيّف مع آثار التغيّر المناخي.",
+                rationale: "ورد في النص أن المرأة في أغلب الدول النامية تمثّل نسبة كبيرة من القوى العاملة في الزراعة وتتحمل جمع الموارد."
+            },
+            {
+                text: "الفرق بين دور الشباب ودور المؤسسات الرسمية في التكيّف مع التغيّر المناخي يكمن في أن:",
+                options: [
+                    { text: "الشباب يعتمدون على المبادرات والتطوّع والتكنولوجيا، والمؤسسات الرسمية تعتمد على صياغة السياسات والتشريعات والاتفاقيات", isCorrect: true },
+                    { text: "لا يوجد أي دور فعلي للشباب في هذا المجال", isCorrect: false },
+                    { text: "المؤسسات الرسمية لا علاقة لها بتخطيط المدن", isCorrect: false },
+                    { text: "الشباب مسؤولون فقط عن التوقيع على الاتفاقيات الدولية", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "المقارنة التحليلية بين طبيعة دور الشباب والدور الرسمي المؤسسي.",
+                outcome: "أوضّح دور المؤسسات الرسمية وغير الحكومية في جهود التكيّف.",
+                rationale: "يركّز دور الشباب على نشر الوعي والحلول التقنية التطوعية، بينما تتمحور المؤسسات الرسمية حول التشريعات والتخطيط."
+            },
+            {
+                text: "العلاقة بين المحاصيل المقاومة للجفاف والأمن الغذائي تكمن في أن:",
+                options: [
+                    { text: "هذه المحاصيل لا علاقة لها بالأمن الغذائي", isCorrect: false },
+                    { text: "استنبات محاصيل قادرة على تحمّل الجفاف يضمن استمرار الإنتاج الزراعي رغم شح المياه", isCorrect: true },
+                    { text: "المحاصيل المقاومة للجفاف تحتاج كميات مياه أكبر", isCorrect: false },
+                    { text: "الأمن الغذائي لا يتأثر بالتغيّر المناخي", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "فهم الرابط السببي بين الزراعة والأمن الغذائي مع التغير المناخي.",
+                outcome: "أشرح دور مكوّنات المجتمع في جهود التكيّف مع آثار التغيّر المناخي.",
+                rationale: "استنبات محاصيل قادرة على تحمّل الجفاف يُعدّ عنصرًا محوريًا للأمن الغذائي مع تفاقم الجفاف."
+            },
+            {
+                text: "حكومة تريد تشجيع مواطنيها على تقليل استخدام الوقود الأحفوري بالنقل. أي الإجراءات الأكثر توافقًا مع الدرس؟",
+                options: [
+                    { text: "رفع أسعار تذاكر المواصلات العامة لتقليل استخدامها", isCorrect: false },
+                    { text: "تحديث منظومة النقل الجماعي وإعطاء حوافز لاستخدام المواصلات العامة والسيارات الكهربائية", isCorrect: true },
+                    { text: "إلغاء جميع القوانين المتعلقة بالمركبات", isCorrect: false },
+                    { text: "تشجيع استيراد المزيد من السيارات العاملة بالبنزين فقط", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "متوسط", bloom: "تطبيق",
+                concept: "تطبيق مبادئ تعديل السياسات الحكومية لتقليل الانبعاثات.",
+                outcome: "أطرح حلولًا للتخفيف من انبعاثات غازات الدفيئة من القطاعات المختلفة.",
+                rationale: "تشجع الحكومات المواطنين عبر تحديث منظومة النقل الجماعي وإعطاء حوافز للمركبات الكهربائية والصديقة للبيئة."
+            },
+            {
+                text: "لماذا تُعدّ المباني الذكية مثالًا على 'تقليل استهلاك الوقود الأحفوري' وليس فقط 'طاقة متجددة'؟",
+                options: [
+                    { text: "لأنها تجمع بين مصادر متجددة (ألواح شمسية) وتصميم يقلّل الحاجة الأصلية للطاقة (إضاءة طبيعية)", isCorrect: true },
+                    { text: "لأنها لا تستخدم أي مصدر طاقة إطلاقًا", isCorrect: false },
+                    { text: "لأنها تعتمد فقط على الوقود الأحفوري بكفاءة أعلى", isCorrect: false },
+                    { text: "لأنها غير مرتبطة بأي تصميم هندسي", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "تحليل الفرق بين الاستفادة من الطاقة المتجددة وتقليل الاستهلاك في الهندسة الذكية.",
+                outcome: "أقترح أساليب للتقليل من استهلاك الطاقة وأبيّن علاقتها بالتكنولوجيا.",
+                rationale: "المباني الذكية تجمع بين استخدام الطاقة الشمسية والتصميم المعماري الموفر المستفيد من الإضاءة والتدفئة الطبيعية."
+            },
+            {
+                text: "سبب اعتبار زيادة مساحة الأراضي الخضراء إجراءً للتكيّف مع التغيّر المناخي وليس مجرد تحسين جمالي هو:",
+                options: [
+                    { text: "أنها تساعد على امتصاص مياه الأمطار الغزيرة وتلطيف الحرارة، ما يخفّف الفيضانات وموجات الحر", isCorrect: true },
+                    { text: "أنها لا ترتبط بأي فائدة بيئية حقيقية", isCorrect: false },
+                    { text: "أنها بديل كامل عن السياسات الوطنية", isCorrect: false },
+                    { text: "أنها تزيد من احتمالية حدوث الفيضانات", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "فهم الوظيفية البيئية العملية للأراضي الخضراء في المدن للتكيف.",
+                outcome: "أوضّح دور المؤسسات الرسمية في جهود التكيّف مع آثار التغيّر المناخي.",
+                rationale: "تسهم المساحات الخضراء في امتصاص مياه الأمطار الغزيرة وتقليل أثر الجزر الحرارية بالمدن."
+            },
+            {
+                text: "دولة صغيرة الموارد تريد اختيار مصدر طاقة متجددة واحد بأقل تكلفة تشغيل وتملك مناطق بركانية حرارية. الخيار الأنسب هو:",
+                options: [
+                    { text: "طاقة المد والجزر", isCorrect: false },
+                    { text: "الطاقة الكهرمائية", isCorrect: false },
+                    { text: "طاقة الحرارة الجوفية", isCorrect: true },
+                    { text: "طاقة الرياح", isCorrect: false }
+                ],
+                correctIndex: 2,
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل السياقي لاختيار أنسب مصدر طاقة وفق المعطيات الجغرافية.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة في الحدّ من آثار التغيّر المناخي.",
+                rationale: "طاقة الحرارة الجوفية تتميّز بتكلفة التشغيل المنخفضة وتتطلب مناطق ذات نشاط حراري باطني أو بركاني."
+            },
+            {
+                text: "أي الأمثلة الآتية يُصنَّف بصورة صحيحة على أنه إجراء 'تكيّف' وليس 'تخفيفًا'؟",
+                options: [
+                    { text: "استخدام محطة طاقة رياح بدلًا من محطة فحم", isCorrect: false },
+                    { text: "تصميم مبانٍ أكثر مقاومة للفيضانات وإنشاء أنظمة لجمع مياه الأمطار", isCorrect: true },
+                    { text: "تقليل استهلاك الوقود الأحفوري في محرّكات السيارات", isCorrect: false },
+                    { text: "استخدام السيارات الكهربائية بدلًا من سيارات البنزين", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "صعب", bloom: "تقويم",
+                concept: "التمييز الدقيق بين التخفيف (تقليل الانبعاثات) والتكيف (التعامل مع الآثار).",
+                outcome: "أطرح حلولًا للتخفيف والتكيف من آثار التغير المناخي.",
+                rationale: "مقاومة الفيضانات وحصاد الأمطار تعامل مع آثار التغير المناخي الواقعة فعلياً (تكيّف)، بينما الباقي (تخفيف)."
+            },
+            {
+                text: "بالنظر لبيانات إنتاج الكهرباء (فحم وغاز ~17090 TWh مقابل متجددة ~8913 TWh)، الاستنتاج التحليلي الأقوى هو:",
+                options: [
+                    { text: "العالم توقّف تمامًا عن استخدام الوقود الأحفوري", isCorrect: false },
+                    { text: "رغم التوجّه نحو الطاقة المتجددة، ما زال الوقود الأحفوري يشكّل الحصة الأكبر عالميًا", isCorrect: true },
+                    { text: "الطاقة المتجددة تنتج كهرباء أكثر من الوقود الأحفوري بكثير", isCorrect: false },
+                    { text: "لا يمكن استخلاص أي استنتاج من هذه البيانات", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل المقارن لواقع إنتاج الطاقة العالمي بالاعتماد على الأرقام الرسمية.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة وأدلتها.",
+                rationale: "تثبت البيانات الرقمية أن الوقود الأحفوري ما زال يهيمن على الحصة الكبرى من إنتاج الكهرباء عالمياً."
+            },
+            {
+                text: "أي السيناريوهات الآتية يمثّل تكاملًا فعليًا بين دور 'الشباب' ودور 'المرأة' في التكيّف كما ورد بالدرس؟",
+                options: [
+                    { text: "شاب يطوّر تطبيقًا لمراقبة التغيّرات المناخية، وامرأة تقود مبادرة توعية بترشيد المياه بالقرية", isCorrect: true },
+                    { text: "شخصان يعملان في مجالين لا علاقة لهما بالتغيّر المناخي", isCorrect: false },
+                    { text: "شاب يشارك في اتفاقية باريس بصورة رسمية بصفته ممثلًا حكوميًا", isCorrect: false },
+                    { text: "امرأة تُدير محطة طاقة نووية ضخمة", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "بناء سيناريو تكاملي يربط الأدوار المجتمعية المختلفة للشباب والمرأة.",
+                outcome: "أشرح دور مكوّنات المجتمع في جهود التكيّف.",
+                rationale: "هذا السيناريو يجمع بين المبادرة التقنية للشباب والمبادرة التوعوية المجتمعية للمرأة لحماية الموارد."
+            },
+            {
+                text: "لماذا يُعدّ بناء سدّ ضخم لتوليد الطاقة الكهرمائية قرارًا يتطلّب دراسة جيولوجية دقيقة وفق الدرس؟",
+                options: [
+                    { text: "لأن السدود لا تحتاج إلى أي دراسة إطلاقًا", isCorrect: false },
+                    { text: "لأن الضغط الزائد من كتلة المياه المتجمّعة خلف السد على القشرة الأرضية قد يتسبّب بحدوث زلازل", isCorrect: true },
+                    { text: "لأن السدود تمنع أي احتمال لحدوث زلازل بشكل كامل", isCorrect: false },
+                    { text: "لأن الطاقة الكهرمائية غير مرتبطة بأي مخاطر جيولوجية", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "الربط التحليلي بين معيقات الطاقة الكهرمائية والمخاطر الجيولوجية.",
+                outcome: "أناقش معوقات استخدام الطاقة المتجددة.",
+                rationale: "من معوقات الطاقة الكهرمائية إمكانية نشوء زلازل جراء الضغط الكبيرة لكتلة مياه السد على صخور القشرة."
+            },
+            {
+                text: "أي من العبارات الآتية تمثّل تقييمًا متوازنًا وعلميًا دقيقًا لواقع الطاقة المتجددة كما ورد في الدرس؟",
+                options: [
+                    { text: "الطاقة المتجددة حلّ مثالي بلا أي عيوب ويجب التحول إليها فوراً بالكامل", isCorrect: false },
+                    { text: "الطاقة المتجددة عديمة الفائدة ولا يجب استخدامها", isCorrect: false },
+                    { text: "للطاقة المتجددة فوائد بيئية كبيرة، لكنها تواجه تحديات اقتصادية وتقنية وجغرافية تحدّ من انتشارها السريع", isCorrect: true },
+                    { text: "الطاقة المتجددة والوقود الأحفوري متطابقان تمامًا في الأثر البيئي", isCorrect: false }
+                ],
+                correctIndex: 2,
+                difficulty: "صعب", bloom: "تقويم",
+                concept: "تقييم العبارات التقييمية لواقع الطاقة المتجددة بشكل متوازن ورصين.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة ومعوقاتها.",
+                rationale: "يوازن الكتاب بعناية بين المزايا البيئية العالية والتحديات الواقعية التكنولوجية والاقتصادية."
+            },
+            {
+                text: "بلدية مدينة ساحلية معرّضة للفيضانات تضع خطة تكيّف شاملة. أي مجموعة إجراءات هي الأكثر اتساقًا مع الدرس؟",
+                options: [
+                    { text: "زيادة عدد محطات الفحم الحجري فقط", isCorrect: false },
+                    { text: "تصميم مبانٍ مقاومة للفيضانات، تحسين الصرف الصحي، زيادة المساحات الخضراء، وإشراك المجتمع بالتوعية", isCorrect: true },
+                    { text: "تجاهل المشكلة تمامًا حتى تُحل تلقائيًا", isCorrect: false },
+                    { text: "الاعتماد فقط على قرار فردي دون مؤسسات", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التركيب التحليلي لخطة تكييف متكاملة تجمع كل محاور الدرس.",
+                outcome: "أوضّح دور المؤسسات الرسمية والمجتمعية في التكيّف.",
+                rationale: "تتكامل خطة التكيف الصحيحة بالربط بين البنية التحتية المقاومة والمساحات الخضراء والمشاركة المجتمعية."
+            },
+            {
+                text: "إذا أرادت دولة زيادة إنتاجها من الطاقة المتجددة بمقدار (إجمالي الرياح والشمسية 3934 TWh) عبر مضاعفة إنتاجها الكهرمائي الحالي (4211 TWh)، فهل الخطة كافية؟",
+                options: [
+                    { text: "نعم، لأن الزيادة الصافية من مضاعفة الكهرمائية (4211 TWh) تفوق الهدف المطلوب (3934 TWh)", isCorrect: true },
+                    { text: "لا، لأن مضاعفة الكهرمائية تعطي زيادة أقل من المطلوب بكثير", isCorrect: false },
+                    { text: "لا يمكن حساب ذلك من البيانات المعطاة", isCorrect: false },
+                    { text: "نعم، ولكن فقط إذا أضيفت الطاقة الحيوية أيضًا", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متميز", bloom: "تركيب/تقويم",
+                concept: "الحساب التركيبي لتقييم كفاية خطة استراتيجية كمية للتطوير المستدام.",
+                outcome: "أناقش أهمية استخدام الطاقة المتجددة بالحسابات الرقمية.",
+                rationale: "الهدف المطلوبة زيادته هو 3934 TWh، والمضاعفة توفر زيادة صافية قدرها 4211 TWh وهي أكبر وتكفي."
+            },
+            {
+                text: "أي وصف يمثّل بدقة الإطار العام الذي بناه الدرس لمواجهة التغيّر المناخي؟",
+                options: [
+                    { text: "حلّ تقني واحد فقط (الطاقة المتجددة) يكفي وحده لحل المشكلات", isCorrect: false },
+                    { text: "استجابة متعددة المستويات تجمع بين التخفيف من الانبعاثات (طاقة وسياست) والتكيّف مع الآثار (مؤسسات ومجتمع)", isCorrect: true },
+                    { text: "المسؤولية تقع على عاتق الحكومات فقط دون المجتمع", isCorrect: false },
+                    { text: "لا علاقة بين الحلول التقنية والحلول الاجتماعية إطلاقًا", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "متميز", bloom: "تقويم",
+                concept: "استخلاص الإطار المفاهيمي الشامل الموحد لموضوعات الدرس.",
+                outcome: "أشرح دور كافة المكونات في مواجهة التغير المناخي.",
+                rationale: "يقوم الدرس على تكامل جناحي التخفيف التقني/السياسي مع التكيف الاجتماعي/المؤسسي للمواجهة الشاملة."
+            },
+
+            // --- 20 سؤالاً من اختار اختبار نهاية الدرس ---
+            {
+                text: "من مصادر الطاقة المتجددة الخمسة الواردة في الدرس:",
+                options: [
+                    { text: "الفحم الحجري", isCorrect: false },
+                    { text: "الصخر الزيتي", isCorrect: false },
+                    { text: "طاقة المد والجزر", isCorrect: true },
+                    { text: "الغاز الطبيعي", isCorrect: false }
+                ],
+                correctIndex: 2,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "التعرف على مصادر الطاقة المتجددة.",
+                outcome: "تحديد مصادر الطاقة المتجددة.",
+                rationale: "طاقة المد والجزر من المصادر المتجددة الخمسة المذكورة نصاً."
+            },
+            {
+                text: "أهم معيقات طاقة الرياح أن مناطق الرياح القوية الدائمة غالبًا:",
+                options: [
+                    { text: "وسط المدن الكبرى", isCorrect: false },
+                    { text: "مناطق جبلية ونائية بعيدة عن السكان", isCorrect: true },
+                    { text: "قريبة من المطارات فقط", isCorrect: false },
+                    { text: "لا توجد أي معيقات", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "معوقات طاقة الرياح الجغرافية.",
+                outcome: "مناقشة معوقات الطاقة المتجددة.",
+                rationale: "معظم المناطق ذات الرياح الدائمة القوية نائية وجبلية مما يزيد كلفة النقل الربطي."
+            },
+            {
+                text: "من معيقات طاقة المد والجزر:",
+                options: [
+                    { text: "لا تكلفة أولية لها", isCorrect: false },
+                    { text: "التأثير السلبي المحتمل في البيئة والملاحة البحرية", isCorrect: true },
+                    { text: "لا تحتاج أي بنية تحتية", isCorrect: false },
+                    { text: "تُستخدم فقط في الصحاري", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "معوقات طاقة المد والجزر.",
+                outcome: "توضيح تحديات الطاقة البحرية.",
+                rationale: "تؤثر إنشاءات محطات المد والجزر على الحياة البحرية وحركة الملاحة وتكلف مبالغ باهظة."
+            },
+            {
+                text: "الطاقة الشمسية تتميّز بأنها:",
+                options: [
+                    { text: "تصدر ضجيجًا عاليًا", isCorrect: false },
+                    { text: "نظيفة وهادئة وسهلة الصيانة", isCorrect: true },
+                    { text: "لا يمكن استخدامها إلا على نطاق ضيق فقط", isCorrect: false },
+                    { text: "أرخص أنواع الطاقة المتجددة دون استثناء", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "خصائص ومزايا الطاقة الشمسية.",
+                outcome: "تحديد مزايا الطاقة الشمسية.",
+                rationale: "الطاقة الشمسية هادئة ولا تصدر أصواتاً وسهلة الصيانة وتوفر طاقة نظيفة."
+            },
+            {
+                text: "يجب أن تتراوح درجة حرارة المياه في طاقة الحرارة الجوفية بين:",
+                options: [
+                    { text: "(150-370)°C", isCorrect: true },
+                    { text: "(0-50)°C", isCorrect: false },
+                    { text: "(50-100)°C", isCorrect: false },
+                    { text: "(400-500)°C", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "شروط استخدام طاقة الحرارة الجوفية.",
+                outcome: "معرفة المدى الحراري للحرارة الجوفية.",
+                rationale: "تتطلب طاقة الحرارة الجوفية مياهاً ساخنة جداً بين 150 و370 درجة مئوية لتوليد البخار."
+            },
+            {
+                text: "من فوائد الطاقة الكهرمائية الإضافية غير توليد الكهرباء:",
+                options: [
+                    { text: "زيادة الفيضانات", isCorrect: false },
+                    { text: "الحد من الفيضانات وتوفير مياه للشرب والزراعة", isCorrect: true },
+                    { text: "زيادة انبعاثات غازات الدفيئة", isCorrect: false },
+                    { text: "لا فوائد إضافية لها", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "فوائد السدود متعددة الأغراض.",
+                outcome: "بيان فوائد الطاقة الكهرمائية.",
+                rationale: "تساعد السدود المائية على تخزين المياه وضبط الفيضانات وتوفير الري والشرب."
+            },
+            {
+                text: "من معيقات الطاقة الكهرمائية:",
+                options: [
+                    { text: "لا تحتاج لأي تكلفة إنشاء", isCorrect: false },
+                    { text: "احتمال حدوث زلازل بسبب الضغط على صخور القشرة الأرضية", isCorrect: true },
+                    { text: "تصدر كميات كبيرة من غازات الدفيئة", isCorrect: false },
+                    { text: "لا تحتاج لأي صيانة", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "المخاطر الجيولوجية للسدود.",
+                outcome: "تحديد معيقات الطاقة الكهرمائية.",
+                rationale: "قد يسبب الضغط الثقيل للمياه المحتبسة زلازل حثية بالمنطقة."
+            },
+            {
+                text: "من طرق تقليل استهلاك الوقود الأحفوري:",
+                options: [
+                    { text: "استخدام المصابيح الموفّرة للطاقة وتصميم مبانٍ ذكية", isCorrect: true },
+                    { text: "زيادة استخدام المركبات الخاصة", isCorrect: false },
+                    { text: "إهمال كفاءة محركات السيارات", isCorrect: false },
+                    { text: "تجاهل وعي المواطنين", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "كفاءة الطاقة وتقليل الاستهلاك.",
+                outcome: "اقتراح أساليب ترشيد استهلاك الطاقة.",
+                rationale: "تطبيق التكنولوجيا الموفرة للمصابيح وتصاميم المباني يقلل الطلب الإجمالي على الوقود."
+            },
+            {
+                text: "تشجّع الحكومات على تقليل الوقود الأحفوري عن طريق:",
+                options: [
+                    { text: "تقليل حوافز النقل العام", isCorrect: false },
+                    { text: "تحديث منظومة النقل الجماعي وإعطاء حوافز للمواصلات الصديقة للبيئة", isCorrect: true },
+                    { text: "زيادة استخدام السيارات العاملة بالبنزين فقط", isCorrect: false },
+                    { text: "إلغاء كل التشريعات البيئية", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "فهم",
+                concept: "أدوات السياسات الحكومية للحفاظ على البيئة.",
+                outcome: "توضيح دور السياسات الرسمية.",
+                rationale: "تحديث وسائل النقل العامة يقلل استخدام المركبات الفردية الملوثة."
+            },
+            {
+                text: "يؤثّر التغيّر المناخي في قطاعات عديدة أهمها:",
+                options: [
+                    { text: "الزراعة والتنوع الحيوي والمياه والصحة", isCorrect: true },
+                    { text: "لا يؤثر في أي قطاع", isCorrect: false },
+                    { text: "الفضاء الخارجي فقط", isCorrect: false },
+                    { text: "الرياضة فقط", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: " القطاعات المتأثرة بالتغير المناخي.",
+                outcome: "تحديد آثار التغير المناخي.",
+                rationale: "الزراعة والمياه والتنوع الحيوي والصحة هي القطاعات الأكثر انكشافاً للآثار المناخية."
+            },
+            {
+                text: "طُوِّر أول إطار سياسات وطني للتكيّف مع التغيّر المناخي في الأردن عام:",
+                options: [
+                    { text: "2010م", isCorrect: false },
+                    { text: "2013م", isCorrect: true },
+                    { text: "2016م", isCorrect: false },
+                    { text: "2019م", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "التسلسل الزمني للسياسات المناخية بالأردن.",
+                outcome: "استرجاع تاريخ إطار السياسات في الأردن.",
+                rationale: "تم إطلاق أول إطار سياسات وطني للتكيف مع التغير المناخي بالأردن عام 2013."
+            },
+            {
+                text: "الأردن أحد الدول المشاركة في اتفاقية عالمية للمناخ تُسمى:",
+                options: [
+                    { text: "اتفاقية باريس", isCorrect: true },
+                    { text: "اتفاقية جنيف", isCorrect: false },
+                    { text: "اتفاقية لندن", isCorrect: false },
+                    { text: "اتفاقية طوكيو", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "الاتفاقيات المناخية الدولية المشارك فيها الأردن.",
+                outcome: "معرفة الاتفاقيات المناخية للأردن.",
+                rationale: "الأردن طرف موقع ومشارك في اتفاقية باريس للمناخ."
+            },
+            {
+                text: "من إجراءات المؤسسات الرسمية للتكيّف مع التغيّر المناخي في تخطيط المدن:",
+                options: [
+                    { text: "إهمال شبكات الصرف الصحي", isCorrect: false },
+                    { text: "تصميم مبانٍ مقاومة للفيضانات وإنشاء أنظمة لجمع مياه الأمطار", isCorrect: true },
+                    { text: "تقليل المساحات الخضراء", isCorrect: false },
+                    { text: "منع أي بناء جديد", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "التخطيط الحضري المرن للتكيف.",
+                outcome: "بيان التخطيط المؤسسي للمدن.",
+                rationale: "بناء أنظمة حصاد مياه الأمطار وتصاميم منع الفيضانات تدعم التكييف الحضري."
+            },
+            {
+                text: "يسهم الشباب في التكيّف مع التغيّر المناخي عبر:",
+                options: [
+                    { text: "الانعزال عن قضايا المناخ", isCorrect: false },
+                    { text: "نشر الوعي والمبادرات التطوعية واستخدام التكنولوجيا", isCorrect: true },
+                    { text: "معارضة أي إجراء للتكيف", isCorrect: false },
+                    { text: "الاعتماد فقط على الحكومة دون أي مبادرة", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "دور الشباب المبتكر والمجتمعي.",
+                outcome: "توضيح دور الشباب المناخي.",
+                rationale: "ينشط الشباب بالحلول الرقمية والتوعية والتطوع المباشر بالقرى والمدن."
+            },
+            {
+                text: "من الممارسات الزراعية المبتكرة التي يتبنّاها الشباب في المناطق النائية:",
+                options: [
+                    { text: "إهمال أساليب الري", isCorrect: false },
+                    { text: "استخدام أساليب الري الحديثة وزراعة المحاصيل المقاومة للجفاف", isCorrect: true },
+                    { text: "زراعة محاصيل تحتاج مياهًا وفيرة فقط", isCorrect: false },
+                    { text: "التوقف عن الزراعة كليًا", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "الابتكار الزراعي الشبابي.",
+                outcome: "معرفة التطبيقات الزراعية الحديثة.",
+                rationale: "الري بالتنقيط والمحاصيل المتحملة للجفاف تعزز الإنتاجية بأقل مياه ممكنة."
+            },
+            {
+                text: "في أغلب الدول النامية، تمثّل المرأة نسبة كبيرة من:",
+                options: [
+                    { text: "القوى العاملة في الزراعة", isCorrect: true },
+                    { text: "القوى العاملة في الصناعات الثقيلة فقط", isCorrect: false },
+                    { text: "الجيش فقط", isCorrect: false },
+                    { text: "لا دور اقتصادي لها", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "الأهمية الاقتصادية للجرأة بالقطاع الزراعي.",
+                outcome: "تحديد دور المرأة الزراعي بالدول النامية.",
+                rationale: "تشكل النساء الكتلة الأساسية للعمالة الزراعية بالدول النامية وفق التقرير."
+            },
+            {
+                text: "من ممارسات التكيّف التي تتبنّاها المرأة لمواجهة تناقص الموارد المائية:",
+                options: [
+                    { text: "الحفاظ على المياه وترشيد استخدامها وتقنيات الحصاد المائي", isCorrect: true },
+                    { text: "إهدار المياه بلا ترشيد", isCorrect: false },
+                    { text: "رفض أي تغيير في السلوك اليومي", isCorrect: false },
+                    { text: "الانعزال عن قضايا المياه", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "الإدارة الإنسانية والمجتمعية للمياه.",
+                outcome: "تحديد ممارسات المرأة للتكيف المائي.",
+                rationale: "تعتمد النساء تقنيات الترشيد المنزلي والحصاد المائي لحماية الموارد المائية للأسر."
+            },
+            {
+                text: "المحاصيل المقاومة للجفاف مهمة بصورة خاصة من أجل:",
+                options: [
+                    { text: "زيادة استهلاك المياه", isCorrect: false },
+                    { text: "الأمن الغذائي في ظل اشتداد حالات الجفاف", isCorrect: true },
+                    { text: "تقليل الإنتاج الزراعي عمدًا", isCorrect: false },
+                    { text: "لا علاقة لها بالأمن الغذائي", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "أهمية استنبات أصناف المحاصيل المقاومة.",
+                outcome: "ربط المحاصيل بالأمن الغذائي.",
+                rationale: "تضمن المحاصيل المقاومة للجفاف توفير المحاصيل الغذائية عند تراجع الأمطار."
+            },
+            {
+                text: "الصخر الزيتي يُعدّ:",
+                options: [
+                    { text: "مصدر طاقة متجددة", isCorrect: false },
+                    { text: "نوعًا من أنواع الوقود الأحفوري", isCorrect: true },
+                    { text: "مصدرًا للطاقة الكهرمائية", isCorrect: false },
+                    { text: "لا علاقة له بالطاقة", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "تصنيف الصخر الزيتي في مصادر الطاقة.",
+                outcome: "تصنيف الصخر الزيتي.",
+                rationale: "الصخر الزيتي هو وقود أحفوري غير متجدد يحتوي مواد هيدروكربونية."
+            },
+            {
+                text: "الفرق الجوهري بين مفهومي 'التخفيف' و'التكيّف' في مواجهة التغيّر المناخي هو:",
+                options: [
+                    { text: "لا فرق بينهما إطلاقًا", isCorrect: false },
+                    { text: "التخفيف يستهدف تقليل الانبعاثات نفسها، والتكيّف يستهدف التعامل مع الآثار الواقعة فعلًا", isCorrect: true },
+                    { text: "التكيّف فقط من اختصاص الحكومات", isCorrect: false },
+                    { text: "التخفيف لا علاقة له بالطاقة المتجددة", isCorrect: false }
+                ],
+                correctIndex: 1,
+                difficulty: "سهل", bloom: "فهم",
+                concept: "الاستيعاب المفاهيمي للمصطلحات المناخية.",
+                outcome: "التمييز بين التخفيف والتكيف.",
+                rationale: "التخفيف يمنع تفاقم أسباب المشكلة، والتكيف يتعامل مع نتائجها وظواهرها."
+            },
+
+            // --- 3 أسئلة تكميلية لاستكمال الـ 50 سؤالاً بالتمام والكمال ---
+            {
+                text: "أي الانبعاثات التالية تُعد السبب الأساسي في ظاهرة الانحباس الحراري المباشر الناتج عن القطاعات الصناعية؟",
+                options: [
+                    { text: "ثاني أكسيد الكربون والغازات المفلورة", isCorrect: true },
+                    { text: "الأكسجين والنيتروجين", isCorrect: false },
+                    { text: "بخار الماء النقي فقط", isCorrect: false },
+                    { text: "الهيليوم والهيدروجين", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "انبعاثات القطاع الصناعي.",
+                outcome: "تحديد الغازات المسببة للانحباس بالقطاع الصناعي.",
+                rationale: "تطلق الصناعة كميات ضخمة من CO2 إضافة للغازات المفلورة عالية التأثير الاحتراري."
+            },
+            {
+                text: "تعتمد طاقة المد والجزر على حركة حيوية في المحيطات والبحار تنشأ بفعل:",
+                options: [
+                    { text: "جاذبية القمر والشمس للكرة الأرضية", isCorrect: true },
+                    { text: "النشاط البركاني لقاع المحيط", isCorrect: false },
+                    { text: "الانبعاثات الحرارية للمصانع الساحلية", isCorrect: false },
+                    { text: "تغيّر اتجاه الرياح اليومي فقط", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "سهل", bloom: "تذكر",
+                concept: "الظاهرة القائمة عليها طاقة المد والجزر.",
+                outcome: "توضيح آلية عمل طاقة المد والجزر.",
+                rationale: "تنشأ حركة المد والجزر نتيجة قوى جاذبية القمر والشمس على المزارع المائية بالمحيطات."
+            },
+            {
+                text: "تُسهم مشاريع التدوير وتقليل Waste في الحد من الانبعاثات لأنها تقلل بشكل مباشر من غاز:",
+                options: [
+                    { text: "الميثان الناتج عن التحلل اللاهوائي بالنفايات", isCorrect: true },
+                    { text: "الأوزون النقي", isCorrect: false },
+                    { text: "الهيدروجين", isCorrect: false },
+                    { text: "الأكسجين", isCorrect: false }
+                ],
+                correctIndex: 0,
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "إدارة النفايات والحد من الغازات.",
+                outcome: "ربط إدارة النفايات بتخفيض الميثان.",
+                rationale: "تقليل النفايات العضوية وتدويرها يمنع التحلل اللاهوائي الذي ينتج كميات كبيرة من غاز الميثان."
+            }
+        ];
+
+        // Quiz Logic & App Controller
+        let currentQuestionIdx = 0;
+        let userAnswers = new Array(allQuestions.length).fill(null);
+        let timerSeconds = 0;
+        let timerInterval = null;
+
+        // On Load Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            updateDashboardStats();
+            
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('reset-storage').addEventListener('click', resetStats);
+        });
+
+        function initTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        function updateDashboardStats() {
+            const topScore = localStorage.getItem('quiz_top_score');
+            const totalAttempts = localStorage.getItem('quiz_attempts') || 0;
+            
+            document.getElementById('stat-pro-score').textContent = topScore ? `${topScore}/50` : '-';
+            document.getElementById('stat-total-attempts').textContent = totalAttempts;
+        }
+
+        function resetStats() {
+            if (confirm('هل أنت تأكد من رغبتك في إعادة ضبط إحصائياتك ونتائجك؟')) {
+                localStorage.removeItem('quiz_top_score');
+                localStorage.removeItem('quiz_attempts');
+                updateDashboardStats();
+                alert('تم إعادة ضبط الإحصائيات بنجاح.');
+            }
+        }
+
+        function startQuiz() {
+            currentQuestionIdx = 0;
+            userAnswers = new Array(allQuestions.length).fill(null);
+            timerSeconds = 0;
+
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+
+            renderQuestionsNav();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timerSeconds++;
+                const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+                const secs = String(timerSeconds % 60).padStart(2, '0');
+                document.getElementById('timer-text').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function renderQuestionsNav() {
+            const grid = document.getElementById('questions-grid');
+            grid.innerHTML = '';
+            
+            allQuestions.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.id = `nav-btn-${idx}`;
+                btn.className = `h-10 w-full rounded-xl text-xs font-bold transition-all border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-emerald-500`;
+                btn.textContent = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+                grid.appendChild(btn);
+            });
+            document.getElementById('total-questions-num').textContent = allQuestions.length;
+        }
+
+        function loadQuestion(idx) {
+            currentQuestionIdx = idx;
+            const q = allQuestions[idx];
+
+            document.getElementById('current-question-num').textContent = idx + 1;
+            document.getElementById('q-difficulty-badge').textContent = q.difficulty;
+            document.getElementById('q-bloom-badge').textContent = q.bloom;
+            document.getElementById('question-text').textContent = q.text;
+
+            // Outcome box
+            const outcomeBox = document.getElementById('learning-outcome-box');
+            if (q.outcome) {
+                document.getElementById('learning-outcome-text').textContent = q.outcome;
+                outcomeBox.classList.remove('hidden');
+            } else {
+                outcomeBox.classList.add('hidden');
+            }
+
+            // Options
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const answered = userAnswers[idx] !== null;
+
+            q.options.forEach((opt, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full p-4 rounded-2xl border-2 text-right text-sm md:text-base font-semibold transition-all flex items-center justify-between gap-3 `;
+                
+                if (!answered) {
+                    btn.className += `border-slate-200 dark:border-slate-800 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100`;
+                    btn.onclick = () => selectOption(idx, oIdx);
+                } else {
+                    if (oIdx === q.correctIndex) {
+                        btn.className += `border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold`;
+                    } else if (oIdx === userAnswers[idx]) {
+                        btn.className += `border-red-500 bg-red-50 dark:bg-red-950/40 text-red-900 dark:text-red-200`;
+                    } else {
+                        btn.className += `border-slate-200 dark:border-slate-800 opacity-50 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100`;
+                    }
+                }
+
+                const label = document.createElement('span');
+                label.textContent = opt.text;
+                btn.appendChild(label);
+
+                if (answered) {
+                    if (oIdx === q.correctIndex) {
+                        btn.innerHTML += `<i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>`;
+                    } else if (oIdx === userAnswers[idx]) {
+                        btn.innerHTML += `<i class="fa-solid fa-circle-xmark text-red-600 text-lg"></i>`;
+                    }
+                }
+
+                container.appendChild(btn);
+            });
+
+            // Feedback Area
+            const feedbackBox = document.getElementById('feedback-box');
+            if (answered) {
+                const isCorrect = userAnswers[idx] === q.correctIndex;
+                feedbackBox.classList.remove('hidden', 'bg-emerald-50', 'bg-red-50', 'border-emerald-500', 'border-red-500', 'dark:bg-emerald-950/30', 'dark:bg-red-950/30');
+                
+                const iconContainer = document.getElementById('feedback-icon-container');
+                const title = document.getElementById('feedback-title');
+                
+                if (isCorrect) {
+                    feedbackBox.classList.add('bg-emerald-50', 'dark:bg-emerald-950/30', 'border-emerald-500');
+                    iconContainer.className = 'p-1.5 rounded-lg bg-emerald-500 text-white';
+                    iconContainer.innerHTML = `<i class="fa-solid fa-check"></i>`;
+                    title.textContent = 'إجابة صحيحة وممتازة!';
+                    title.className = 'font-bold text-emerald-800 dark:text-emerald-300';
+                } else {
+                    feedbackBox.classList.add('bg-red-50', 'dark:bg-red-950/30', 'border-red-500');
+                    iconContainer.className = 'p-1.5 rounded-lg bg-red-500 text-white';
+                    iconContainer.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+                    title.textContent = 'إجابة خاطئة!';
+                    title.className = 'font-bold text-red-800 dark:text-red-300';
+                }
+
+                document.getElementById('feedback-explain-area').textContent = q.rationale || 'الإجابة الصحيحة هي الإجابة المحددة بالأخضر.';
+                document.getElementById('feedback-concept-text').textContent = q.concept || 'مفاهيم الوحدة الأولى.';
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            // Controls states
+            document.getElementById('prev-btn').disabled = idx === 0;
+            if (idx === allQuestions.length - 1) {
+                document.getElementById('next-btn').classList.add('hidden');
+                document.getElementById('submit-quiz-btn').classList.remove('hidden');
+            } else {
+                document.getElementById('next-btn').classList.remove('hidden');
+                document.getElementById('submit-quiz-btn').classList.add('hidden');
+            }
+
+            updateNavGridStatus();
+        }
+
+        function selectOption(qIdx, oIdx) {
+            userAnswers[qIdx] = oIdx;
+            const q = allQuestions[qIdx];
+            
+            if (oIdx === q.correctIndex) {
+                playCorrectSound();
+            } else {
+                playIncorrectSound();
+            }
+
+            loadQuestion(qIdx);
+        }
+
+        function updateNavGridStatus() {
+            allQuestions.forEach((q, idx) => {
+                const btn = document.getElementById(`nav-btn-${idx}`);
+                if (!btn) return;
+
+                btn.classList.remove('bg-emerald-500', 'bg-red-500', 'text-white', 'ring-2', 'ring-emerald-500');
+
+                if (userAnswers[idx] !== null) {
+                    if (userAnswers[idx] === q.correctIndex) {
+                        btn.classList.add('bg-emerald-500', 'text-white');
+                    } else {
+                        btn.classList.add('bg-red-500', 'text-white');
+                    }
+                }
+
+                if (idx === currentQuestionIdx) {
+                    btn.classList.add('ring-2', 'ring-emerald-500');
+                }
+            });
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIdx > 0) loadQuestion(currentQuestionIdx - 1);
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIdx < allQuestions.length - 1) loadQuestion(currentQuestionIdx + 1);
+        }
+
+        function exitQuiz() {
+            if (confirm('هل أنت تأكد من الخروج من الاختبار الحالي؟ سيتم فقدان تقدمك غير المحفوظ.')) {
+                clearInterval(timerInterval);
+                document.getElementById('quiz-view').classList.add('hidden');
+                document.getElementById('welcome-view').classList.remove('hidden');
+            }
+        }
+
+        function finishQuiz() {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                if (!confirm(`لديك ${unanswered} سؤالاً لم تجب عليها بعد. هل ترغب في الإنهاء والتسليم الآن؟`)) {
+                    return;
+                }
+            }
+
+            clearInterval(timerInterval);
+            playCompleteSound();
+
+            // Calculate Score
+            let score = 0;
+            allQuestions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correctIndex) score++;
+            });
+
+            const percent = Math.round((score / allQuestions.length) * 100);
+
+            // Update stats
+            const prevTop = parseInt(localStorage.getItem('quiz_top_score') || '0');
+            if (score > prevTop) {
+                localStorage.setItem('quiz_top_score', score);
+            }
+            const attempts = parseInt(localStorage.getItem('quiz_attempts') || '0') + 1;
+            localStorage.setItem('quiz_attempts', attempts);
+            updateDashboardStats();
+
+            // Render Results
+            document.getElementById('res-score').textContent = `${score}/${allQuestions.length}`;
+            document.getElementById('res-percent').textContent = `${percent}%`;
+            
+            const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+            const secs = String(timerSeconds % 60).padStart(2, '0');
+            document.getElementById('res-time').textContent = `${mins}:${secs}`;
+
+            let rank = 'ممتاز جداً 🌟';
+            if (percent < 50) rank = 'يحتاج إلى مراجعة 📚';
+            else if (percent < 75) rank = 'جيد جداً 👍';
+            else if (percent < 90) rank = 'رائع ومتميز 👏';
+            document.getElementById('res-rank').textContent = rank;
+
+            // Render Log Review
+            renderReviewLog();
+
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+        }
+
+        function renderReviewLog() {
+            const logContainer = document.getElementById('reviewed-answers-log');
+            logContainer.innerHTML = '';
+
+            allQuestions.forEach((q, idx) => {
+                const uAns = userAnswers[idx];
+                const isCorrect = uAns === q.correctIndex;
+
+                const item = document.createElement('div');
+                item.className = `p-6 rounded-2xl border-2 text-right space-y-3 ${
+                    isCorrect ? 'border-emerald-200 dark:border-emerald-900 bg-emerald-50/30 dark:bg-emerald-950/10' : 'border-red-200 dark:border-red-900 bg-red-50/30 dark:bg-red-950/10'
+                }`;
+
+                item.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-xs font-bold px-3 py-1 rounded-full ${isCorrect ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300' : 'bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300'}">
+                            السؤال ${idx + 1} (${isCorrect ? 'إجابة صحيحة' : 'إجابة خاطئة'})
+                        </span>
+                        <span class="text-xs font-semibold text-slate-500">${q.difficulty} - ${q.bloom}</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base md:text-lg">${q.text}</h4>
+                    <div class="text-sm space-y-1">
+                        <p class="text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check ml-1"></i> الإجابة الصحيحة: ${q.options[q.correctIndex].text}</p>
+                        ${!isCorrect ? `<p class="text-red-600 dark:text-red-400 font-bold"><i class="fa-solid fa-xmark ml-1"></i> إجابتك: ${uAns !== null ? q.options[uAns].text : 'لم تجب'}</p>` : ''}
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 pt-2 border-t border-slate-200 dark:border-slate-800 leading-relaxed">${q.rationale}</p>
+                `;
+
+                logContainer.appendChild(item);
+            });
+        }
+
+        function goToHome() {
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
