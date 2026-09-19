@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار علوم الأرض - الدرس الثالث الوحدة الثانية (2026)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent-color: #0d9488;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --correct-color: #10b981;
+            --correct-bg: #ecfdf5;
+            --wrong-color: #ef4444;
+            --wrong-bg: #fef2f2;
+            --border-radius: 16px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Area */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .header-content h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .teacher-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-top: 10px;
+            backdrop-filter: blur(5px);
+            font-weight: 700;
+        }
+
+        /* Container Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stats-card h3, .grid-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timer-box {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .timer-box .time {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .score-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .score-item {
+            padding: 10px;
+            border-radius: 10px;
+            background: #f8fafc;
+        }
+
+        .score-item.correct { background: var(--correct-bg); color: var(--correct-color); }
+        .score-item.wrong { background: var(--wrong-bg); color: var(--wrong-color); }
+
+        .score-item .num {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .score-item .label {
+            font-size: 0.85rem;
+        }
+
+        /* Navigation Grid */
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .grid-btn {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 1px solid #cbd5e1;
+            background: white;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-btn:hover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .grid-btn.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .grid-btn.answered-correct {
+            background: var(--correct-color) !important;
+            color: white !important;
+            border-color: var(--correct-color) !important;
+        }
+
+        .grid-btn.answered-wrong {
+            background: var(--wrong-color) !important;
+            color: white !important;
+            border-color: var(--wrong-color) !important;
+        }
+
+        /* Main Quiz Area */
+        .quiz-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-light));
+            transition: width 0.3s ease;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .question-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .question-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            text-align: right;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            border-color: var(--primary-light);
+            background: #f8fafc;
+        }
+
+        .option-btn.correct-choice {
+            border-color: var(--correct-color);
+            background: var(--correct-bg);
+            color: #065f46;
+        }
+
+        .option-btn.wrong-choice {
+            border-color: var(--wrong-color);
+            background: var(--wrong-bg);
+            color: #991b1b;
+        }
+
+        .explanation-box {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            border-radius: 12px;
+            background: #f8fafc;
+            border-right: 4px solid var(--primary-light);
+            display: none;
+        }
+
+        .explanation-box.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .explanation-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .explanation-details {
+            margin-top: 8px;
+            font-size: 0.88rem;
+            color: #64748b;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+
+        /* Modal Area */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>اختبار الدرس الثالث - الوحدة الثانية (2026)</h1>
+            <p>تعدين الخامات المعدنية وأثره في البيئة - بنك الأسئلة الإلكتروني التفاعلي</p>
+            <div class="teacher-badge">
+                <i class="fa-solid fa-user-graduate"></i> إعداد وتصميم: المعلم محمد ملكاوي
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation & Score -->
+        <div class="sidebar">
+            <div class="card stats-card">
+                <h3><i class="fa-solid fa-chart-pie"></i> لوحة الأداء والتوقيت</h3>
+                <div class="timer-box">
+                    <i class="fa-regular fa-clock"></i> الوقت المنقضي: <span id="timer" class="time">00:00</span>
+                </div>
+                <div class="score-info">
+                    <div class="score-item correct">
+                        <div class="num" id="correct-count">0</div>
+                        <div class="label">إجابات صحيحة</div>
+                    </div>
+                    <div class="score-item wrong">
+                        <div class="num" id="wrong-count">0</div>
+                        <div class="label">إجابات خاطئة</div>
+                    </div>
+                </div>
+                <!-- زر إنهاء الاختبار -->
+                <button class="btn btn-danger" style="width: 100%; margin-top: 15px; justify-content: center;" onclick="finishQuiz()">
+                    <i class="fa-solid fa-paper-plane"></i> إنهاء الاختبار وتسليم الإجابات
+                </button>
+            </div>
+
+            <div class="card grid-card">
+                <h3><i class="fa-solid fa-th"></i> جدول الأسئلة السريع</h3>
+                <div class="question-grid" id="question-grid">
+                    <!-- Buttons generated via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Question Display -->
+        <div class="quiz-area">
+            <div class="card">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+
+                <div class="question-header" style="margin-top: 15px;">
+                    <span class="question-badge" id="question-number">سؤال 1 من 30</span>
+                    <span class="question-badge" id="difficulty-badge" style="background:#fef3c7; color:#92400e;">سهل</span>
+                </div>
+
+                <div class="question-title" id="question-text">
+                    جاري تحميل السؤال...
+                </div>
+
+                <div class="options-list" id="options-container">
+                    <!-- Options generated via JS -->
+                </div>
+
+                <div class="explanation-box" id="explanation-box">
+                    <div class="explanation-title">
+                        <i class="fa-solid fa-circle-info"></i> الشرح والتغذية الراجعة التفصيلية:
+                    </div>
+                    <div class="explanation-text" id="explanation-text"></div>
+                    <div class="explanation-details" id="explanation-details"></div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-secondary" id="prev-btn" onclick="navigate(-1)"><i class="fa-solid fa-arrow-right"></i> السابق</button>
+                    <button class="btn btn-primary" id="next-btn" onclick="navigate(1)">التالي <i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Report Container -->
+    <div class="modal-overlay" id="result-modal">
+        <div class="modal-content">
+            <h2 style="color:var(--primary-color); margin-bottom:0.5rem;">
+                <i class="fa-solid fa-trophy" style="color:#f59e0b;"></i> التقرير النهائي للاختبار
+            </h2>
+            <p style="font-size:1rem; color:var(--text-muted); margin-bottom:1.5rem;">إشراف المعلم: <b>محمد ملكاوي</b></p>
+            
+            <div style="background:#f8fafc; padding:20px; border-radius:12px; margin-bottom:1.5rem; text-align:right; font-size:1rem; line-height:2; border:1px solid #e2e8f0;">
+                <p><i class="fa-regular fa-clock" style="color:var(--primary-light);"></i> <b>الوقت المستغرق:</b> <span id="final-time">00:00</span></p>
+                <p><i class="fa-solid fa-circle-check" style="color:var(--correct-color);"></i> <b>الإجابات الصحيحة:</b> <span id="final-correct" style="color:var(--correct-color); font-weight:bold;">0</span> من 30</p>
+                <p><i class="fa-solid fa-circle-xmark" style="color:var(--wrong-color);"></i> <b>الإجابات الخاطئة:</b> <span id="final-wrong" style="color:var(--wrong-color); font-weight:bold;">0</span> من 30</p>
+                <p><i class="fa-solid fa-circle-question" style="color:#f59e0b;"></i> <b>أسئلة لم يتم حلها:</b> <span id="final-unanswered" style="color:#f59e0b; font-weight:bold;">0</span></p>
+                <hr style="margin:12px 0; border:0; border-top:1px solid #e2e8f0;">
+                <p style="font-size:1.2rem; text-align:center;">🏆 <b>النتيجة النهائية:</b> <span id="final-score" style="color:var(--primary-color); font-weight:800; font-size:1.6rem;">0%</span></p>
+                <p style="text-align:center; font-weight:bold; margin-top:5px; font-size:1.1rem;" id="final-grade"></p>
+            </div>
+
+            <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="closeModal()">مراجعة الإجابات / إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        // Data Questions Bank (30 Questions)
+        const questions = [
+            {
+                id: 1, difficulty: "سهل", bloom: "تذكر",
+                title: "عملية استخراج الخامات المعدنية التي توجد بكميات اقتصادية من الصخور تُسمّى:",
+                options: ["التنقيب", "التعدين", "الاستكشاف", "الترميم"],
+                correct: 1,
+                explanation: "هذا هو التعريف الحرفي للتعدين (Mining) كما ورد في الدرس.",
+                details: "أسباب خطأ البدائل: (أ) التنقيب مرحلة سابقة من الاستكشاف. (جـ) الاستكشاف مرحلة بحث. (د) الترميم إجراء بيئي لاحق."
+            },
+            {
+                id: 2, difficulty: "سهل", bloom: "تذكر",
+                title: "يُستخدَم التعدين السطحي فقط عندما تكون الخامات المعدنية:",
+                options: ["على أعماق كبيرة جدًا", "قريبة من سطح الأرض والمنطقة غير مأهولة", "تحت طبقات صخرية سميكة جدًا", "داخل الجبال فقط"],
+                correct: 1,
+                explanation: "يُستخدَم التعدين السطحي عندما يكون جسم الخام قريبًا من سطح الأرض والمنطقة غير مأهولة بالسكان.",
+                details: "الأعماق والطبقات السميكة والأنفاق الجبلية تتطلب تعدينًا تحت سطحي."
+            },
+            {
+                id: 3, difficulty: "سهل", bloom: "تذكر",
+                title: "يُطلَق على التعدين السطحي اسم آخر هو:",
+                options: ["التعدين المفتوح", "التعدين المغلق", "التعدين العمودي", "التعدين الأفقي"],
+                correct: 0,
+                explanation: "ورد في الدرس أن التعدين السطحي يُسمّى أيضًا التعدين المفتوح.",
+                details: "التعدين العمودي والأفقي هي طرائق من طرائق التعدين تحت السطحي."
+            },
+            {
+                id: 4, difficulty: "سهل", bloom: "تذكر",
+                title: "يُستخدَم التعدين تحت السطحي لاستخراج خامات توجد على أعماق تزيد على:",
+                options: ["5 m", "50 m", "500 m", "5000 m"],
+                correct: 1,
+                explanation: "ورد في الدرس أن التعدين تحت السطحي يُستخدَم للخامات الموجودة على أعماق تزيد على 50m تقريبًا.",
+                details: "عمق 5m يعتبر ضحلاً، بينما 500m و 5000m مبالغ فيها مقارنة مع الحد المذكر بالمنهج."
+            },
+            {
+                id: 5, difficulty: "سهل", bloom: "تذكر",
+                title: "من طرائق التعدين تحت السطحي المذكورة في الدرس:",
+                options: ["الأنفاق المائلة", "الحفر السطحي فقط", "إزالة التربة الكاملة", "استخدام الجرافات فقط"],
+                correct: 0,
+                explanation: "الأنفاق المائلة إحدى طرائق التعدين تحت السطحي الثلاث (مع الأعمدة الرأسية والأنفاق الأفقية).",
+                details: "الحفر وإزالة التربة والجرافات مرتبطة بالتعدين السطحي."
+            },
+            {
+                id: 6, difficulty: "سهل", bloom: "فهم",
+                title: "من أبرز مصادر تلوّث المياه المرتبطة بالتعدين استخدام عناصر كيميائية سامّة مثل:",
+                options: ["الأكسجين والنيتروجين", "الرصاص والسيانيد والزرنيخ", "الماء والملح فقط", "الهيليوم والنيون"],
+                correct: 1,
+                explanation: "الرصاص والسيانيد والزرنيخ تُستخدَم في عمليات فصل المعادن عن الصخور، وقد تلوّث المياه السطحية والجوفية.",
+                details: "الغازات والأملاح العادية لا تندرج تحت الملوثات السامة لفصل المعادن."
+            },
+            {
+                id: 7, difficulty: "سهل", bloom: "تذكر",
+                title: "استخراج معدن البيريت (FeS2) للحصول على الكبريت يؤدي إلى تلوّث الهواء بإطلاق:",
+                options: ["الأكسجين والهيدروجين", "الحديد والكبريت", "النحاس والذهب", "اليورانيوم والرادون"],
+                correct: 1,
+                explanation: "استخراج معدن البيريت يؤدي إلى إطلاق كميات كبيرة من الحديد والكبريت إلى الهواء.",
+                details: "صيغة البيريت Chemical Formula هي FeS2 والتي تتكون أساسًا من الحديد والكبريت."
+            },
+            {
+                id: 8, difficulty: "سهل", bloom: "تذكر",
+                title: "من مراحل إدارة تأثير استخراج الصخور والمعادن:",
+                options: ["التأهيل البيئي، والترميم، وإعادة الاستخدام", "الحفر فقط", "زيادة الإنتاج فقط", "بيع المعدّات فقط"],
+                correct: 0,
+                explanation: "حدّد الدرس صراحة هذه المراحل الثلاث كأساس لإدارة الأثر البيئي لاستخراج الصخور والمعادن.",
+                details: "الخيارات الأخرى إجراءات تشغيلية أو اقتصادية وليست مراحل إدارة الأثر البيئي."
+            },
+            {
+                id: 9, difficulty: "متوسط", bloom: "فهم",
+                title: "الفرق الجوهري بين 'التأهيل البيئي' و'الترميم' كمرحلتين من مراحل إدارة أثر التعدين هو:",
+                options: [
+                    "لا فرق بينهما إطلاقًا؛ فهما مسمّيان لنفس الإجراء",
+                    "التأهيل يركّز على أمان الموقع (هدم، إزالة معدّات)، بينما الترميم يهدف لإعادة بناء النظام البيئي",
+                    "الترميم يحدث قبل بدء التعدين، والتأهيل البيئي يحدث أثناءه",
+                    "التأهيل البيئي مخصَّص فقط للتعدين تحت السطحي"
+                ],
+                correct: 1,
+                explanation: "التأهيل البيئي (Remediation) إجراء يركّز على السلامة الأساسية للموقع، بينما الترميم (Restoration) يهدف لإعادة بناء النظام البيئي الطبيعي بالكامل.",
+                details: "كلا الإجراءين يتمان بعد انتهاء عمليات التعدين."
+            },
+            {
+                id: 10, difficulty: "متوسط", bloom: "تحليل",
+                title: "في منطقة جبلية، يوجد خام حديد على عمق كبير جدًا يتعذّر معه حفر أنفاق مائلة اقتصاديًا. الطريقة الأنسب هي:",
+                options: ["التعدين السطحي", "التعدين بالأنفاق الأفقية", "التعدين بالأعمدة الرأسية", "ترك الخام دون استخراج"],
+                correct: 2,
+                explanation: "تُستخدَم الأعمدة الرأسية (الأنفاق العمودية) تحديدًا عند وجود الخامات على أعماق كبيرة جدًا يتعذّر معها حفر الأنفاق المائلة.",
+                details: "التعدين السطحي لا يناسب الأعماق، والأنفاق الأفقية تتبع الامتداد الجانبي فقط."
+            },
+            {
+                id: 11, difficulty: "متوسط", bloom: "تحليل",
+                title: "إذا انخفض الطلب العالمي على خام معين بشكل كبير، فإن أثر ذلك على الجدوى الاقتصادية للمشروع سيكون:",
+                options: [
+                    "لا تأثير إطلاقًا؛ فالطلب لا علاقة له بالجدوى",
+                    "تنخفض الجدوى الاقتصادية؛ لأن مستوى الطلب أحد العوامل الرئيسة المؤثرة فيها",
+                    "تزداد الجدوى الاقتصادية دائمًا بغض النظر عن الطلب",
+                    "يتحوّل المشروع تلقائيًا إلى تعدين سطحي"
+                ],
+                correct: 1,
+                explanation: "تصبح الخامات المعدنية ذات جدوى اقتصادية بزيادة الطلب عليها؛ فانخفاض الطلب يعني انخفاض الجدوى.",
+                details: "تأثير الطلب مباشر ومهم في التقييم الاقتصادي لمشاريع الاستخراج."
+            },
+            {
+                id: 12, difficulty: "متوسط", bloom: "تحليل",
+                title: "لوحظ ازدياد ملحوظ في سُمك الرسوبيات في نهر يمر بالقرب من منجم مفتوح وزيادة الفيضانات. السبب هو:",
+                options: [
+                    "لا علاقة بين عمليات التعدين وهاتين الملاحظتين",
+                    "إزالة التربة تجعلها عرضة للانجراف للنهر فيزداد سُمك الرسوبيات وتزيد الفيضانات",
+                    "الفيضانات هي السبب في وجود منجم التعدين",
+                    "زيادة الرسوبيات تقلّل دائمًا من احتمالية الفيضانات"
+                ],
+                correct: 1,
+                explanation: "التسلسل السببي: إزالة التربة ← انجراف الأمطار ← ترسّب في النهر ← زيادة سُمك الرسوبيات ← تقليل سعة النهر ← زيادة الفيضانات.",
+                details: "هذا يوضح الترابط الوثيق بين انجراف التربة وتدهور النظم المائية."
+            },
+            {
+                id: 13, difficulty: "متوسط", bloom: "فهم",
+                title: "سبب اعتبار المعالجة البيولوجية (Bioremediation) بديلًا آمنًا وليس حلًا كاملًا لتلوث المياه هو:",
+                options: [
+                    "لأنها تتخلّص من كل أنواع الملوِّثات دون استثناء",
+                    "لأنها لا يمكن أن تتخلّص من بعض الملوِّثات السامّة مثل الكادميوم",
+                    "لأنها مكلفة جدًا مقارنة بالحرق أو الطمر",
+                    "لأنها لا تُستخدَم إطلاقًا في مواقع التعدين"
+                ],
+                correct: 1,
+                explanation: "على الرغم من أنها أقل تكلفة وآمنة، إلا أنها تعجز عن التخلص من بعض العناصر الثقيلة والسامة كالكادميوم.",
+                details: "تعد المعالجة البيولوجية حلاً فعالاً للعديد من المواد لكنها محدودة أمام عناصر محددة."
+            },
+            {
+                id: 14, difficulty: "متوسط", bloom: "تحليل",
+                title: "تعتبر حدائق بوتشارت (محجر صخر جيري تحول لحديقة) ومنجم هوميز (مشروع زراعي سياحي) تطبيقًا لمفهوم:",
+                options: ["التأهيل البيئي فقط", "الترميم فقط دون بعد اقتصادي", "إعادة الاستخدام (Re-Use)", "لا علاقة بينهما"],
+                correct: 2,
+                explanation: "كلا المثالين يمثّلان تطبيقًا لمفهوم إعادة الاستخدام (Re-Use) بتحويل موقع التعدين لنفع اقتصادي أو ترفيهي جديد.",
+                details: "يتجاوز التأهيل الأمني البسيط إلى الاستثمار طويل الأمد للأنشطة السياحية والتنموية."
+            },
+            {
+                id: 15, difficulty: "متوسط", bloom: "تطبيق",
+                title: "شركة تعدين تستخدم الأنفاق الأفقية لاستخراج خام من جانب أحد الجبال. هذا يعني أنها تتّبع الخام بصورة:",
+                options: ["رأسية عمودية إلى أسفل", "أفقية عبر جانب الجبل بدلاً من الحفر العمودي", "سطحية بإزالة التربة بالكامل", "عشوائية دون نمط"],
+                correct: 1,
+                explanation: "الأنفاق الأفقية تُحفَر في جانب التلال أو الجبال وتتُبع طبقات الخام أفقيًا.",
+                details: "تستخدم هذه الطريقة لتفادي الحفر العمودي المكلف في البيئات الجبلية."
+            },
+            {
+                id: 16, difficulty: "متوسط", bloom: "تحليل",
+                title: "موقع تعدين متوقف يحتوي تربة غير ملوثة ويقع بمنطقة سياحية جذابة. أنسب استراتيجية إدارة هي:",
+                options: [
+                    "الاكتفاء بالتأهيل البيئي فقط",
+                    "الجمع بين الترميم وإعادة الاستخدام (تحويله لمحمية أو مقصد سياحي)",
+                    "ترك الموقع دون تدخل",
+                    "استخدامه كمكب للنفايات"
+                ],
+                correct: 1,
+                explanation: "الجمع بين الترميم (إعادة الغطاء النباتي) وإعادة الاستخدام (تحويله لمرفق سياحي) يحقق أقصى فائدة بيئية واقتصادية.",
+                details: "يشبه هذا النموذج تجربة حدائق بوتشارت الناجحة."
+            },
+            {
+                id: 17, difficulty: "متوسط", bloom: "فهم",
+                title: "لماذا يُعدّ إعطاء الإذن ببدء عمليات التعدين مشروطًا بإجراء تقييم للآثار البيئية المحتملة أولاً؟",
+                options: [
+                    "لأنه إجراء شكلي بلا فائدة",
+                    "لتحديد الأضرار التوقعة مسبقًا والتخطيط لإدارتها استباقيًا قبل وقوع الضرر",
+                    "لأن القانون يمنع التعدين نهائيًا",
+                    "لزيادة تكلفة المشروع فقط"
+                ],
+                correct: 1,
+                explanation: "الهدف وقائي واستباقي لحصر الأضرار ووضع خطط التأهيل والترميم قبل البدء بالأنشطة الاستخراجية.",
+                details: "التقييم البيئي شرط إلزامي لمنح التراخيص في التشريعات الحديثة."
+            },
+            {
+                id: 18, difficulty: "متوسط", bloom: "تحليل",
+                title: "أي نوعي التعدين أكثر تدميرًا مباشرًا وواسع النطاق للغطاء النباتي السطحي؟ ولماذا؟",
+                options: [
+                    "التعدين تحت السطحي؛ لأنه يزيل التربة والصخور العلوية",
+                    "التعدين السطحي؛ لأنه يتطلب إزالة كامل التربة والصخور التي تعلو الخام على مساحات واسعة",
+                    "كلاهما يحدثان الأثر نفسه تمامًا",
+                    "لا علاقة لهما بالغطاء النباتي"
+                ],
+                correct: 1,
+                explanation: "التعدين السطحي يتطلب تجريف كامل الطبقة السطحية العلوية للوصول للخام بخلاف التعدين تحت السطحي.",
+                details: "التعدين تحت السطحي يعتمد على الأنفاق المنفصلة وبالتالي أثره السطحي المباشر أقل مساحة."
+            },
+            {
+                id: 19, difficulty: "متوسط", bloom: "تطبيق",
+                title: "عند تصميم الأنفاق المائلة لخام في منطقة جبلية كثيرة الصدوع، أهم عامل يجب مراعاته هو:",
+                options: ["لون الصخور السطحية", "التراكيب الجيولوجية السائدة (الطيّات والصدوع) لتحديد زوايا الحفر", "درجة حرارة الجو الخارجي", "عدد السكان بالمدينة المجاورة"],
+                correct: 1,
+                explanation: "الأنفاق المائلة تُحفَر بزوايا مختلفة تعتمد على الظروف والتراكيب الجيولوجية كالملامح البنائية والصدوع.",
+                details: "تضمن مراعاة التراكيب سلامة الأنفاق وتفادي الانهيارات."
+            },
+            {
+                id: 20, difficulty: "صعب", bloom: "تقويم",
+                title: "الشركة (أ) اختارت التعدين السطحي قرب منطقة مأهولة، بينما الشركة (ب) اختارت الأنفاق المائلة لنفس العمق (45m). أي القرارين أصوب؟",
+                options: [
+                    "الشركة (أ)؛ لأن التعدين السطحي أرخص",
+                    "الشركة (ب)؛ لأن شرط التعدين السطحي أن تكون المنطقة غير مأهولة بالسكان",
+                    "كلتا الشركتين اتخذتا القرار الصحيح",
+                    "لا يمكن الحكم دون معرفة سعر الخام"
+                ],
+                correct: 1,
+                explanation: "التعدين السطحي يُشترط فيه عدم وجود سكان بالقرب من الموقع تجنبًا للمخاطر والأثر الضوضائي والبصري.",
+                details: "قرارات شركة (أ) تخالف الاشتراطات الاجتماعية والبيئية لتراخيص التعدين السطحي."
+            },
+            {
+                id: 21, difficulty: "صعب", bloom: "تحليل",
+                title: "أي الآثار البيئية التالية للتعدين يعتبر الأكثر إحداثًا لآثار متسلسلة مترابطة وفق الدرس؟",
+                options: [
+                    "التلوث البصري والضوضائي",
+                    "تعرية التربة وترسيبها في الأنهار مما يؤثر على الملاحة والفيضانات والتنوع الحيوي",
+                    "تلوث الهواء بحد ذاته",
+                    "جميع الآثار منفصلة تمامًا"
+                ],
+                correct: 1,
+                explanation: "تعرية التربة تؤدي لتدهور الأنهار وزيادة سمك الرسوبيات وفقدان الكائنات المائية وتفاقم الفيضانات.",
+                details: "تعتبر تعرية التربة سلسلة متتابعة تحفز مشاكل بيئية مائية واقتصادية متعددة."
+            },
+            {
+                id: 22, difficulty: "صعب", bloom: "تقويم",
+                title: "موقع تعدين محتمل يقع فوق مصادر مياه جوفية تعتمد عليها بلدة مجاورة. ما التوصية البيئية الأنسب؟",
+                options: [
+                    "تجاهل المعلومة والبدء بالتعدين",
+                    "إجراء تقييم أثر بيئي دقيق لخطر تسرب السيانيد والزرنيخ للمياه الجوفية وتطبيق مراقبة صارمة",
+                    "الاعتماد على التأهيل البيئي بعد انتهاء المشروع فقط",
+                    "نقل السكان من البلدة"
+                ],
+                correct: 1,
+                explanation: "يجب إجراء تقييم الأثر المسبق لمنع تسرب العناصر السامة وحماية خزان المياه الجوفية الحيوي.",
+                details: "التصرف الوقائي المبكر أفضل حماية للموارد المائية السطحية والجوفية."
+            },
+            {
+                id: 23, difficulty: "صعب", bloom: "تحليل",
+                title: "عند تعارض الطلب العالمي المرتفع مع عمق الخام الكبير جدًا، كيف يتفاعل هذان العاملان في تحديد الجدوى؟",
+                options: [
+                    "الطلب المرتفع يضمن الجدوى دائمًا بغض النظر عن العمق",
+                    "ارتفاع الطلب يبرر تكلفة الحفر العميق لكن بحدود عملية قد تجعل التكلفة تتجاوز المردود",
+                    "الظروف الجيولوجية الصعبة تلغي التعدين دائمًا",
+                    "لا يوجد أي تفاعل بين العاملين"
+                ],
+                correct: 1,
+                explanation: "تزداد الجدوى بزيادة الطلب مما يغطي تكاليف الأعماق، لكن تجاوز التكاليف لحد معين يجعل المشروع غير اقتصادي.",
+                details: "الجدوى الاقتصادية تحسب بالموازنة الدقيقة بين سعر البيع والتكلفة التشغيلية للعمق."
+            },
+            {
+                id: 24, difficulty: "صعب", bloom: "تحليل",
+                title: "عند مقارنة نموذج يقتصر على 'التأهيل البيئي' بآخر يطبق 'الترميم الكامل'، أي الأضرار تبقى مرتفعة في الأول؟",
+                options: [
+                    "لا يوجد أي فرق",
+                    "فقدان مواطن الكائنات الحية والتنوع الحيوي لغياب إعادة غرس النباتات والأشجار",
+                    "تلوث الهواء فقط",
+                    "التلوث الضوضائي فقط"
+                ],
+                correct: 1,
+                explanation: "التأهيل يضمن الأمان وإزالة المخلفات، بينما الترميم هو الذي يعيد الغطاء النباتي والمواطن الطبيعية.",
+                details: "التنوع الحيوي لا يستعاد بدون عمليات ترميم حقيقية وإعادة زراعة للمنطقة."
+            },
+            {
+                id: 25, difficulty: "صعب", bloom: "تحليل",
+                title: "لماذا يُعد نموذج 'حدائق بوتشارت' جامعًا بين الترميم وإعادة الاستخدام معًا؟",
+                options: [
+                    "لأنه لا يحتوي على أي ترميم",
+                    "لأن إعادة التجميل والزراعة يمثل الترميم، واستغلاله كمقصد سياحي ربحي يمثل إعادة الاستخدام",
+                    "لأنه يقتصر على التأهيل فقط",
+                    "لا علاقة له بالمفاهيم المدروسة"
+                ],
+                correct: 1,
+                explanation: "الزراعة وإعادة بناء البيئة تعبر عن الترميم، والتشغيل كحديقة ترفيهية استثمارية يعبر عن إعادة الاستخدام.",
+                details: "هذا التكامل يعطي أفضل استدامة لمواقع المناجم المفتوحة السابقة."
+            },
+            {
+                id: 26, difficulty: "صعب", bloom: "تحليل",
+                title: "ما الفرق الأساسي في اتجاه الحفر والغرض بين الأنفاق المائلة والأنفاق الأفقية؟",
+                options: [
+                    "تُحفر كلاهما بالزاوية نفسها",
+                    "المائلة تُحفر بزوايا متفاوتة للوصول لأعماق مختلفة، بينما الأفقية تتبع امتداد الخام جانبيًا بالجبال",
+                    "الأنفاق الأفقية هي نفسها الأعمدة الرأسية",
+                    "لا تستخدم الأنفاق المائلة حديثًا"
+                ],
+                correct: 1,
+                explanation: "الأنفاق المائلة تغير زاويتها للوصول لأعماق متوسطة، بينما الأفقية تخترق الجبال أفقياً لتتبع امتداد الطبقات.",
+                details: "الاتجاه والغرض الهندسي يختلفان بحسب شكل الجرم المعدني وتضاريس الموقع."
+            },
+            {
+                id: 27, difficulty: "متميز", bloom: "تركيب",
+                title: "مشروع تعدين بنحاس على عمق 30m وتربة سطحية رقيقة ومنطقة غير مأهولة وطلب مرتفع. ما الخيار الهندسي الأفضل؟",
+                options: [
+                    "التعدين بالأعمدة الرأسية",
+                    "التعدين السطحي لتوفر شرط العمق القريب والتربة الرقيقة وغياب السكان والجدوى المرتفعة",
+                    "ترك المشروع كليًا",
+                    "الأنفاق الأفقية فقط"
+                ],
+                correct: 1,
+                explanation: "تكتمل كافة شروط التعدين السطحي: عمق أقل من 50m، تربة رقيقة، غياب التجمعات السكنية، مع طلب اقتصادي ممتازة.",
+                details: "يعتبر التعدين السطحي هنا الأكثر كفاءة واقتصادية مقارنة بالطرائق الأخرى."
+            },
+            {
+                id: 28, difficulty: "متميز", bloom: "تقويم",
+                title: "أي الجمل التالية تعبر بدقة عن الفلسفة المتوازنة للدرس بين التعدين والبيئة؟",
+                options: [
+                    "إيقاف جميع أنشطة التعدين للحفاظ على الطبيعة",
+                    "التعدين نشاط اقتصادي ضروري يتطلب إدارة مسؤولة بـ (تقييم مسبق + تأهيل وترميم وإعادة استخدام لاحقًا)",
+                    "التعدين لا يسبب أي ضرر بيئي مطلقًا",
+                    "ترك مواقع المناجم كما هي بدون أي تدخّل"
+                ],
+                correct: 1,
+                explanation: "يوازن الدرس بين الأهمية الاقتصادية للتعدين وضرورة حماية البيئة وإدارتها بأسلوب علمي ومستدام.",
+                details: "الهدف هو التنمية المستدامة وتقليل الآثار البيئية دون تعطيل النشاط الاقتصادي."
+            },
+            {
+                id: 29, difficulty: "متميز", bloom: "تحليل",
+                title: "يعتمد اختيار طرائق التعدين تحت السطحي (مائلة، أفقية، أعمدة) بشكل أساسي على:",
+                options: [
+                    "نوع وسُمك الغطاء النباتي فقط",
+                    "عمق الخام، وتضاريس الموقع، والتراكيب الجيولوجية الصخرية",
+                    "القرب من العاصمة فقط",
+                    "درجة التلوث البصري الناجم"
+                ],
+                correct: 1,
+                explanation: "تتحدد طريقة التعدين تحت السطحي بناءً على الملامح التضاريسية للسطح والعمق والخصائص البنائية للصخور.",
+                details: "تتحكم الهندسة الجيولوجية للموقع في سلامة وتكلفة خيار التعدين المختارف."
+            },
+            {
+                id: 30, difficulty: "متميز", bloom: "تركيب",
+                title: "أي الإجراءات التالية يمثل التسلسل الزمني والبيئي الصحيح للتعامل مع أثر منجم بعد إغلاقه؟",
+                options: [
+                    "إعادة الاستخدام ← التأهيل البيئي ← الترميم",
+                    "التأهيل البيئي (السلامة/الهدم) ← الترميم (النظام البيئي) ← إعادة الاستخدام (استثمار الموقع)",
+                    "الترميم ← إزالة التربة ← التعدين السطحي",
+                    "تجاهل الموقع ← التأهيل البيئي"
+                ],
+                correct: 1,
+                explanation: "التسلسل المنطقي: ضمان سلامة الموقع وإزالة الأخطار (تأهيل) ← زراعة واستعادة البيئة (ترميم) ← تشغيل الموقع لنفع جديد (إعادة استخدام).",
+                details: "هذا التسلسل هو المنهج العلمي المتبع عالميًا لإدارة أثر المنشآت التعدينية."
+            }
+        ];
+
+        // State Variables
+        let currentIndex = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+        let secondsElapsed = 0;
+        let timerInterval = null;
+
+        // Audio Effects via Web Audio API (No External Files Required)
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+                osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.1); // A5
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
+                osc.frequency.setValueAtTime(146.83, audioCtx.currentTime + 0.1); // D3
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.4);
+            }
+        }
+
+        // Init App
+        window.onload = function() {
+            renderGrid();
+            loadQuestion(0);
+            startTimer();
+        };
+
+        // Timer Function
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer').innerText = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        // Render Navigation Grid
+        function renderGrid() {
+            const grid = document.getElementById('question-grid');
+            grid.innerHTML = '';
+            questions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `grid-btn ${idx === currentIndex ? 'active' : ''}`;
+                btn.id = `grid-btn-${idx}`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
+
+        // Load Question View
+        function loadQuestion(index) {
+            currentIndex = index;
+
+            // Update Active Grid Button
+            document.querySelectorAll('.grid-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === currentIndex);
+            });
+
+            const q = questions[index];
+            document.getElementById('question-number').innerText = `سؤال ${index + 1} من ${questions.length}`;
+            document.getElementById('difficulty-badge').innerText = `${q.difficulty} (${q.bloom})`;
+            document.getElementById('question-text').innerText = q.title;
+
+            // Progress Bar
+            const progress = ((index + 1) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            // Options List
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const answered = userAnswers[index] !== null;
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                
+                let letter = ['أ', 'ب', 'جـ', 'د'][optIdx];
+                btn.innerHTML = `<span><b>${letter}.</b> ${opt}</span>`;
+
+                if (answered) {
+                    btn.disabled = true;
+                    if (optIdx === q.correct) {
+                        btn.classList.add('correct-choice');
+                        btn.innerHTML += ` <i class="fa-solid fa-circle-check"></i>`;
+                    }
+                    if (userAnswers[index] === optIdx && optIdx !== q.correct) {
+                        btn.classList.add('wrong-choice');
+                        btn.innerHTML += ` <i class="fa-solid fa-circle-xmark"></i>`;
+                    }
+                } else {
+                    btn.onclick = () => selectAnswer(optIdx);
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Navigation Controls
+            document.getElementById('prev-btn').disabled = index === 0;
+            document.getElementById('next-btn').disabled = index === questions.length - 1;
+
+            // Explanation Box
+            const expBox = document.getElementById('explanation-box');
+            if (answered) {
+                expBox.classList.add('active');
+                document.getElementById('explanation-text').innerText = q.explanation;
+                document.getElementById('explanation-details').innerText = q.details;
+            } else {
+                expBox.classList.remove('active');
+            }
+        }
+
+        // Select Answer Handler
+        function selectAnswer(optionIndex) {
+            if (userAnswers[currentIndex] !== null) return;
+
+            userAnswers[currentIndex] = optionIndex;
+            const q = questions[currentIndex];
+            const isCorrect = optionIndex === q.correct;
+
+            // Sound Effect
+            playSound(isCorrect ? 'correct' : 'wrong');
+
+            // Update Scores Grid State
+            const gridBtn = document.getElementById(`grid-btn-${currentIndex}`);
+            if (isCorrect) {
+                gridBtn.classList.add('answered-correct');
+            } else {
+                gridBtn.classList.add('answered-wrong');
+            }
+
+            updateScoreboard();
+            loadQuestion(currentIndex);
+        }
+
+        // Scoreboard Update
+        function updateScoreboard() {
+            let correct = 0;
+            let wrong = 0;
+
+            userAnswers.forEach((ans, idx) => {
+                if (ans !== null) {
+                    if (ans === questions[idx].correct) correct++;
+                    else wrong++;
+                }
+            });
+
+            document.getElementById('correct-count').innerText = correct;
+            document.getElementById('wrong-count').innerText = wrong;
+        }
+
+        // Navigation
+        function navigate(direction) {
+            const newIndex = currentIndex + direction;
+            if (newIndex >= 0 && newIndex < questions.length) {
+                loadQuestion(newIndex);
+            }
+        }
+
+        // Finish Quiz & Generate Final Report
+        function finishQuiz() {
+            clearInterval(timerInterval);
+
+            let correct = 0;
+            let wrong = 0;
+            let unanswered = 0;
+
+            userAnswers.forEach((ans, idx) => {
+                if (ans === null) {
+                    unanswered++;
+                } else if (ans === questions[idx].correct) {
+                    correct++;
+                } else {
+                    wrong++;
+                }
+            });
+
+            const percentage = Math.round((correct / questions.length) * 100);
+
+            document.getElementById('final-time').innerText = document.getElementById('timer').innerText;
+            document.getElementById('final-correct').innerText = correct;
+            document.getElementById('final-wrong').innerText = wrong;
+            document.getElementById('final-unanswered').innerText = unanswered;
+            document.getElementById('final-score').innerText = `${percentage}%`;
+
+            const gradeElem = document.getElementById('final-grade');
+            if (percentage >= 90) {
+                gradeElem.innerText = "ممتاز جداً! أداء رائع 🌟";
+                gradeElem.style.color = "var(--correct-color)";
+            } else if (percentage >= 75) {
+                gradeElem.innerText = "جيد جداً! عمل ممتاز 👍";
+                gradeElem.style.color = "var(--primary-light)";
+            } else if (percentage >= 50) {
+                gradeElem.innerText = "جيد - يمكنك تحسين النتيجة بالمراجعة 📘";
+                gradeElem.style.color = "#f59e0b";
+            } else {
+                gradeElem.innerText = "تحتاج إلى إعادة مراجعة الدرس بتركيز ⚠️";
+                gradeElem.style.color = "var(--wrong-color)";
+            }
+
+            document.getElementById('result-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

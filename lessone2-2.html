@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار علوم الأرض والبيئة - الدرس الثاني من الوحدة الثانية (2026)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --success: #10b981;
+            --success-bg: #ecfdf5;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #0369a1);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #bae6fd;
+            font-weight: 500;
+        }
+
+        .author-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #f0f9ff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -25px auto 0;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .dashboard {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .timer-box {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: #f1f5f9;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-container {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--success));
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .q-number {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .q-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.78rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .badge-easy { background: #dcfce7; color: #15803d; }
+        .badge-medium { background: #fef9c3; color: #a16207; }
+        .badge-hard { background: #ffedd5; color: #c2410c; }
+        .badge-expert { background: #f3e8ff; color: #6b21a8; }
+        .badge-info { background: #e0f2fe; color: #0369a1; }
+
+        .learning-outcome {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #f8fafc;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            border-right: 4px solid var(--accent);
+        }
+
+        .q-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .option-btn {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: right;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+            width: 100%;
+        }
+
+        .option-btn:not([disabled]):hover {
+            border-color: var(--accent);
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.correct {
+            border-color: var(--success) !important;
+            background: var(--success-bg) !important;
+            color: #065f46 !important;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.15);
+        }
+
+        .option-btn.wrong {
+            border-color: var(--danger) !important;
+            background: var(--danger-bg) !important;
+            color: #991b1b !important;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.15);
+        }
+
+        .option-prefix {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.9rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .correct .option-prefix {
+            background: var(--success);
+            color: white;
+        }
+
+        .wrong .option-prefix {
+            background: var(--danger);
+            color: white;
+        }
+
+        .explanation-box {
+            margin-top: 1.5rem;
+            padding: 1.4rem;
+            border-radius: 14px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            display: none;
+        }
+
+        .explanation-box.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .explanation-title {
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+            color: var(--accent);
+        }
+
+        .explanation-text {
+            font-size: 0.98rem;
+            color: #334155;
+            margin-bottom: 0.8rem;
+        }
+
+        .distractor-notes {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px dashed var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            font-size: 0.98rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-secondary { background: #e2e8f0; color: var(--text-main); }
+        .btn-secondary:hover { background: #cbd5e1; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-success:hover { background: #059669; }
+
+        .grid-card {
+            position: sticky;
+            top: 20px;
+        }
+
+        .grid-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .q-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.6rem;
+        }
+
+        .grid-btn {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-btn:hover { border-color: var(--accent); }
+        .grid-btn.active { border: 2.5px solid var(--accent); background: #f0f9ff; color: var(--accent); }
+        .grid-btn.correct-grid { background: var(--success); color: white; border-color: var(--success); }
+        .grid-btn.wrong-grid { background: var(--danger); color: white; border-color: var(--danger); }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .score-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #0284c7);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem auto;
+            font-weight: 800;
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+        }
+
+        .score-num { font-size: 2.5rem; line-height: 1; }
+        .score-total { font-size: 0.95rem; opacity: 0.9; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>اختبار علوم الأرض والبيئة - الوحدة الثانية (2026)</h1>
+        <p>الدرس الثاني: طرائق الاستكشاف الجيولوجي</p>
+        <div class="author-badge">إعداد وتصميم المعلم محمد ملكاوي</div>
+    </header>
+
+    <div class="container">
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <div class="timer-box">
+                ⏱️ <span id="timer">00:00</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>نسبة الإنجاز</span>
+                    <span id="progress-text">0 من 30 سؤالاً</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+            <button class="btn btn-success" id="submit-btn" onclick="finishExam()">إنهاء الاختبار والنتيجة</button>
+        </div>
+
+        <div class="main-layout">
+            <!-- Question Box -->
+            <div class="left-column">
+                <div class="card">
+                    <div class="q-header">
+                        <div class="q-number" id="q-number">سؤال 1 من 30</div>
+                        <div class="q-badges">
+                            <span class="badge badge-easy" id="q-level">سهل</span>
+                            <span class="badge badge-info" id="q-bloom">تذكر</span>
+                        </div>
+                    </div>
+                    <div class="learning-outcome" id="q-outcome">
+                        ناتج التعلم: أتعرف طرائق الاستكشاف الجيولوجي.
+                    </div>
+                    <div class="q-text" id="q-text">
+                        جاري تحميل السؤال...
+                    </div>
+                    <div class="options-list" id="options-container">
+                        <!-- Options injected via JS -->
+                    </div>
+
+                    <div class="explanation-box" id="explanation-box">
+                        <div class="explanation-title" id="exp-title">
+                            💡 التغذية الراجعة والشرح التفصيلي
+                        </div>
+                        <div class="explanation-text" id="exp-correct"></div>
+                        <div class="distractor-notes" id="exp-distractors"></div>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" id="prev-btn" onclick="prevQuestion()">السابق</button>
+                        <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()">التالي</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Navigation Grid -->
+            <div class="right-column">
+                <div class="card grid-card">
+                    <div class="grid-title">شبكة التنقل السريع بين الأسئلة</div>
+                    <div class="q-grid" id="q-grid">
+                        <!-- Grid buttons injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div class="modal-overlay" id="result-modal">
+        <div class="modal-content">
+            <h2>نتيجة الاختبار الذاتي</h2>
+            <p style="color: var(--text-muted); margin-top: 0.3rem;">الدرس الثاني من الوحدة الثانية - 2026</p>
+            <div class="score-circle">
+                <span class="score-num" id="final-score">0</span>
+                <span class="score-total">من 30</span>
+            </div>
+            <p id="feedback-msg" style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;"></p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="time-taken-msg"></p>
+            <button class="btn btn-primary" onclick="reviewExam()">مراجعة الإجابات والتفاصيل</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                question: "تُعرَّف الخامات المعدنية بأنها:",
+                options: [
+                    "تجمّعات معدنية بتراكيز تسمح باستثمارها اقتصاديًا",
+                    "أي صخر موجود في القشرة الأرضية بلا استثناء",
+                    "المياه الجوفية الموجودة تحت سطح الأرض",
+                    "الغازات المنبعثة من البراكين فقط"
+                ],
+                correct: 0,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "هذا هو التعريف الحرفي والدقيق للخامات المعدنية كما ورد في الدرس.",
+                expDistractors: "• (ب) خطأ: ليست كل الصخور خامات؛ فالخام يتطلب تركيزًا اقتصاديًا محددًا.<br>• (جـ) خطأ: المياه الجوفية موضوع مختلف عن الخامات المعدنية.<br>• (د) خطأ: الغازات البركانية ليست موضوع هذا التعريف."
+            },
+            {
+                id: 2,
+                question: "المرحلة الأولى من مراحل الاستكشاف الجيولوجي تُسمّى:",
+                options: [
+                    "الاستكشاف",
+                    "التنقيب",
+                    "التحليل الكيميائي",
+                    "المسح الزلزالي"
+                ],
+                correct: 1,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "التنقيب (Prospecting) هو المرحلة الأولى المباشرة وغير المباشرة لتحديد المناطق الواعدة.",
+                expDistractors: "• (أ) خطأ: الاستكشاف هو المرحلة الثانية.<br>• (جـ) خطأ: التحليل الكيميائي أداة وليس اسم المرحلة الأولى.<br>• (د) خطأ: المسح الزلزالي إحدى طرق الاستكشاف الجيوفيزيائي."
+            },
+            {
+                id: 3,
+                question: "المسح الذي يعتمد على الخاصية المغناطيسية للصخور والخامات هو المسح:",
+                options: [
+                    "الجاذبي",
+                    "الإشعاعي",
+                    "المغناطيسي",
+                    "الزلزالي"
+                ],
+                correct: 2,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "المسح المغناطيسي يعتمد تمامًا على الخاصية المغناطيسية للصخور الخافضة أو الواعدة.",
+                expDistractors: "• (أ) يعتمد على الكثافة.<br>• (ب) يعتمد على الخاصية الإشعاعية.<br>• (د) يعتمد على سرعة الموجات الزلزالية."
+            },
+            {
+                id: 4,
+                question: "القيمة التي تتغيّر عندها القيم الجيوكيميائية الطبيعية إلى قيم شاذّة تُسمّى:",
+                options: [
+                    "العتبة",
+                    "الشاذّة",
+                    "هالة التشتّت",
+                    "العنصر الدالّ"
+                ],
+                correct: 0,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "العتبة (Threshold) هي الحد الفاصل والمنتصف بين القيم الطبيعية والشاذة.",
+                expDistractors: "• (ب) الشاذة هي القيمة غير الطبيعية نفسها.<br>• (جـ) هالة التشتت تصف انتشار العناصر حول مصدر الخام.<br>• (د) العنصر الدال هو العنصر الكيميائي المشير للخام."
+            },
+            {
+                id: 5,
+                question: "من أمثلة الخامات المعدنية الفلزية الموجودة في الأردن:",
+                options: [
+                    "الفوسفات",
+                    "الصخر الزيتي",
+                    "خام النحاس",
+                    "الصخر الجيري النقي"
+                ],
+                correct: 2,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "خام النحاس مثال مباشر ورئيسي على الخامات الفلزية في جنوب الأردن.",
+                expDistractors: "• الفوسفات والصخر الزيتي والصخر الجيري خامات لافلزية."
+            },
+            {
+                id: 6,
+                question: "الشاذّة الجيوفيزيائية الموجبة هي القيمة التي تكون:",
+                options: [
+                    "مساوية للقيم الطبيعية",
+                    "أكبر من القيم الطبيعية في المنطقة",
+                    "أقل من القيم الطبيعية في المنطقة",
+                    "لا علاقة لها بالقيم الطبيعية"
+                ],
+                correct: 1,
+                level: "سهل",
+                bloom: "فهم",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "تكون الشاذة موجبة عندما تسجل أجهزة القياس قيمًا أعلى من النطاق الطبيعي المحيط.",
+                expDistractors: "• (أ) المساواة تعني قيمة طبيعية.<br>• (جـ) الأقل تعني شاذة سالبة."
+            },
+            {
+                id: 7,
+                question: "من طرائق الاستكشاف الجيوكيميائي:",
+                options: [
+                    "المسح المغناطيسي",
+                    "المسح الجاذبي",
+                    "استخدام عيّنات التربة",
+                    "المسح الزلزالي"
+                ],
+                correct: 2,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "جمع عينات التربة وتحليلها كيميائيًا هو أحد الأساليب المباشرة للاستكشاف الجيوكيميائي.",
+                expDistractors: "• البدائل الأخرى (مغناطيسي، جاذبي، زلزالي) طرق جيوفيزيائية."
+            },
+            {
+                id: 8,
+                question: "تحتوي صخور منطقة سواقة في وسط الأردن على خام:",
+                options: [
+                    "النحاس",
+                    "اليورانيوم",
+                    "الفوسفات",
+                    "الحديد"
+                ],
+                correct: 1,
+                level: "سهل",
+                bloom: "تذكّر",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "ورد في الكتاب أن الصخور الجيرية الجوراندية بوسط الأردن (سواقة) تحتوي خام اليورانيوم.",
+                expDistractors: "• النحاس بالجنوب، والفوسفات بوسط وجنوب المملكة في تكوينات أخرى."
+            },
+            {
+                id: 9,
+                question: "سبب اللجوء إلى الاستكشاف الجيوكيميائي للبحث عن بعض الخامات الفلزية هو:",
+                options: [
+                    "أن الاستكشاف الجيوكيميائي أرخص دائمًا بلا استثناء",
+                    "أن بعض الخامات الفلزية توجد بتراكيز قليلة لا يمكن الكشف عنها بالاستكشاف الجيوفيزيائي",
+                    "أن الاستكشاف الجيوفيزيائي محظور قانونيًا",
+                    "أن الاستكشاف الجيوكيميائي لا يحتاج إلى أي تحليل مخبري"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "فهم",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "الاستكشاف الجيوكيميائي ممتاز للخامات منخفضة التركيز الدقيقة التي لا تحدث تباينًا فيزيائيًا كبيرًا.",
+                expDistractors: "• (أ) ليس بالضرورة أرخص.<br>• (د) الجيوكيميائي يتطلب بالضرورة تحاليل مخبرية دقيقة."
+            },
+            {
+                id: 10,
+                question: "خام معدني يقع على عمق 15 km وله خاصية مغناطيسية قوية. أنسب طريقة مسح جيوفيزيائي هي:",
+                options: [
+                    "المسح الكهربائي (0-0.01 km)",
+                    "المسح الجاذبي (عدة مئات من الأمتار)",
+                    "المسح المغناطيسي (0-20 km)",
+                    "المسح الإشعاعي (0-0.30 km)"
+                ],
+                correct: 2,
+                level: "متوسط",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "المسح المغناطيسي يلائم الخاصية المغناطيسية ونطاق عمقه يصل إلى 20km مما يغطي عمق 15km.",
+                expDistractors: "• بقية الخيارات نطاقات أعماقها ضحلة جدًا ولا تتناسب مع عمق 15km."
+            },
+            {
+                id: 11,
+                question: "أظهر مسح مغناطيسي قيمًا (1000γ - 1500γ) باستثناء بقعة سجلت 200γ. نوع الشاذة هنا هو:",
+                options: [
+                    "شاذّة موجبة",
+                    "شاذّة سالبة",
+                    "لا توجد شاذّة",
+                    "قيمة طبيعية عادية"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "القيمة 200γ أقل بشكل ملحوظ عن النطاق السائد (1000-1500γ) لذا تصنف شاذة سالبة.",
+                expDistractors: "• الشاذة الموجبة تكون أكبر من المحيط."
+            },
+            {
+                id: 12,
+                question: "لوحظ ارتفاع تراكيز النحاس والكبريت والزئبق بقيم شاذة، هذا دليل جيوكيميائي على إمكانية وجود خام:",
+                options: [
+                    "الحديد",
+                    "الذهب",
+                    "الفوسفات",
+                    "اليورانيوم"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "النحاس والكبريت والزئبق هي عناصر دالة مشهورة على وجود خام الذهب.",
+                expDistractors: "• الرادون دال على اليورانيوم."
+            },
+            {
+                id: 13,
+                question: "الآلية الأولى لتشكّل هالات التشتّت الجيوكيميائي (المرتبطة بتشكّل الخام نفسه) تحدث عن طريق:",
+                options: [
+                    "المحاليل الحرمائية التي تتخلّل الصخور أثناء تشكّل الخام",
+                    "الانفجارات البركانية المباشرة فقط",
+                    "الرياح فقط دون أي عامل آخر",
+                    "التجمّد الكامل للصخور المحيطة"
+                ],
+                correct: 0,
+                level: "متوسط",
+                bloom: "فهم",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "تنتشر العناصر أثناء تخلل المحاليل الحرمائية للصخور المضيفة متناقصة في التركيز ابتداءً من المركز.",
+                expDistractors: "• التجوية والتعرية هي الآلية الثانية السطحية اللاحقة."
+            },
+            {
+                id: 14,
+                question: "ما الفرق الجوهري بين تشكّل هالات التشتت عبر المحاليل الحرمائية وتشكّلها عبر التجوية والتعرية؟",
+                options: [
+                    "لا فرق بينهما إطلاقًا",
+                    "الأولى تحدث أثناء تشكّل الخام (أوّلية)، والثانية تحدث لاحقًا بفعل عوامل السطح (سطحية)",
+                    "الثانية فقط تنتج هالات حقيقية",
+                    "الأولى فقط تنتج هالات حقيقية"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "المحاليل الحرمائية عملية تكوينية عميقة مصاحبة لتشكل الخام، بينما التجوية والتعرية عملية سطحية لاحقة.",
+                expDistractors: "• كلاهما ينتج هالات تشتت جيوكيميائية حقيقية."
+            },
+            {
+                id: 15,
+                question: "جيولوجي يريد الكشف عن خام على عمق 5 أمتار وموصلية كهربائية عالية. أنسب طريقتي مسح هما:",
+                options: [
+                    "المسح الزلزالي والمسح الإشعاعي",
+                    "المسح الكهرمغناطيسي والمسح الكهربائي",
+                    "المسح المغناطيسي فقط",
+                    "المسح الجاذبي فقط"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تطبيق",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "المسح الكهربائي والكهرمغناطيسي كلاهما يقيسان التوصيلية الكهربائية ويغطيان الأعماق الضحلة.",
+                expDistractors: "• الزلزالي والإشعاعي والجاذبي لا يقيسون التوصيلية الكهربائية."
+            },
+            {
+                id: 16,
+                question: "لماذا تُعدّ عملية 'التنقيب' خطوة ضرورية قبل الانتقال إلى 'الاستكشاف'؟",
+                options: [
+                    "لأنها تحدّد الأماكن المحتملة أولًا، ما يوفّر الوقت والجهد والتكلفة",
+                    "لأن القانون يمنع الاستكشاف المباشر",
+                    "لأن التنقيب لا علاقة له بالاستكشاف",
+                    "لأن الاستكشاف أرخص من التنقيب"
+                ],
+                correct: 0,
+                level: "متوسط",
+                bloom: "فهم",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "التنقيب يضيّق النطاق الشاسع إلى بؤر واعدة مما يمنع هدر الأموال في المسوح التفصيلية المكلفة.",
+                expDistractors: "• لا توجد موانع قانونية كسبب علمي، والاستكشاف التفصيلي هو الأكثر تكلفة."
+            },
+            {
+                id: 17,
+                question: "ينخفض تركيز عنصر دال من 5% في المركز إلى 0.5% عند 200m ويستقر عنده. هذا النمط يمثل:",
+                options: [
+                    "نمط غير منطقي للبيانات",
+                    "نمط هالة تشتّت نموذجية، حيث المركز هو الخام والـ 0.5% هي العتبة/القيمة الطبيعية",
+                    "دليل على عدم وجود خام إطلاقًا",
+                    "خطأ في أجهزة القياس"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "التناقص التدريجي من المركز باتجاه الخلفية الطبيعية (0.5%) هو التجسيد العلمي المباشر لهالة التشتت.",
+                expDistractors: "• التركيز العالي بالمركز مفتاح وجود الخام وليس العكس."
+            },
+            {
+                id: 18,
+                question: "استخدام الصور الجوية ثم إجراء مسح مغناطيسي وتحليل عينات صخرية يمثل تسلسلاً لـ:",
+                options: [
+                    "تنقيب غير مباشر أولًا، ثم استكشاف جيوفيزيائي وجيوكيميائي تفصيلي",
+                    "استكشاف جيوفيزيائي فقط",
+                    "تنقيب مباشر فقط",
+                    "استكشاف جيوكيميائي عشوائي"
+                ],
+                correct: 0,
+                level: "متوسط",
+                bloom: "تطبيق",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "الصور الجوية = تنقيب غير مباشر، المسح المغناطيسي = استكشاف جيوفيزيائي، العينات الصخرية = استكشاف جيوكيميائي.",
+                expDistractors: "• هذا تسلسل متكامل يجمع بين المرحلتين بأدواتهما."
+            },
+            {
+                id: 19,
+                question: "خامان: الأول على عمق 50m والثاني على عمق 15km. بالاعتماد على الجدول (1) أنسب طريقة مسح هي:",
+                options: [
+                    "المسح الجاذبي للأول (عمق ضحل)، والمسح المغناطيسي للثاني (عمق كبير)",
+                    "المسح الزلزالي فقط لكلا الخامين",
+                    "المسح الكهربائي لكلا الخامين",
+                    "المسح الإشعاعي لكلا الخامين"
+                ],
+                correct: 0,
+                level: "صعب",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "الجاذبي يغطي مئات الأمتار (يناسب 50m)، بينما المغناطيسي يصل إلى 20km (يناسب 15km).",
+                expDistractors: "• المسح الكهربائي والكتلي محدودان بأعماق ضحلة جدًا."
+            },
+            {
+                id: 20,
+                question: "مسح جاذبي أظهر شاذة سالبة قوية ومسح مغناطيسي أظهر قيمًا طبيعية. أفضل تفسير متكامل هو:",
+                options: [
+                    "لا يمكن الجمع بين النتائج",
+                    "المادة منخفضة الكثافة (كقبّة ملحية أو تجويف) وغير ذات خاصية مغناطيسية",
+                    "وجود خام حديد مغناطيسي كبير",
+                    "النتائج خاطئة بالكامل"
+                ],
+                correct: 1,
+                level: "صعب",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "الشاذة الجاذبية السالبة تشير لكثافة منخفضة، وغياب الشاذة المغناطيسية ينفي وجود معادن مغناطيسية كحديد الماغنيتيت.",
+                expDistractors: "• الجمع بين الطرق هو الأساس العلمي لتفسير التباينات الجيوفيزيائية."
+            },
+            {
+                id: 21,
+                question: "شركة استكشاف بميزانية محدودة لمساحة شاسعة (آلاف km²). أفضل استراتيجية كفؤة هي:",
+                options: [
+                    "إجراء استكشاف تفصيلي فوري لكامل المساحة",
+                    "البدء بالتنقيب غير المباشر لتضييق المساحة، ثم الاستكشاف التفصيلي على المناطق الواعدة فقط",
+                    "الاعتماد على المسح الزلزالي فقط",
+                    "الحفر العشوائي المباشر"
+                ],
+                correct: 1,
+                level: "صعب",
+                bloom: "تقويم",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "التدرج العلمي (تنقيب غير مباشر -> تحديد البؤر -> استكشاف تفصيلي) هو الحل الأمثل اقتصاديًا وعلميًا.",
+                expDistractors: "• الاستكشاف الشامل للمساحات الشاسعة استنزاف هائل للميزانية."
+            },
+            {
+                id: 22,
+                question: "لماذا يُعدّ ارتفاع غاز الرادون مؤشرًا خاصًّا على خام اليورانيوم تحديدًا؟",
+                options: [
+                    "لأنه غاز نادر في الطبيعة بصفة عامة",
+                    "لأن الرادون ناتج طبيعي ضمن سلسلة التحلّل الإشعاعي لليورانيوم",
+                    "لأن الرادون لا يتفاعل مع الهواء",
+                    "لأن كل الغازات تدل على اليورانيوم بنفس الدرجة"
+                ],
+                correct: 1,
+                level: "صعب",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "الرادون ينبعث كناتج واصل في سلسلة الاضمحلال الإشعاعي لعنصر اليورانيوم ويتسرب للسطح.",
+                expDistractors: "• الرادون يرتبط تحلليًا باليورانيوم وليس مجرد صدفة كيميائية."
+            },
+            {
+                id: 23,
+                question: "قورنت هالة تشتّت في منطقة جبلية شديدة التعرية بأخرى في منطقة مستوية. التوقع المنطقي هو:",
+                options: [
+                    "لا فرق بين الهالتين",
+                    "هالة المنطقة الجبلية أوسع انتشارًا لأن التجوية والتعرية تنقل العناصر لمسافات أبعد",
+                    "هالة المنطقة المستوية أوسع دائمًا",
+                    "التعرية لا تؤثر على الهالات"
+                ],
+                correct: 1,
+                level: "صعب",
+                bloom: "تحليل",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "زيادة حدة التجوية والانجراف بالمرتفعات تنقل عناصر الهالة السطحية لمسافات أكبر أفقيًا.",
+                expDistractors: "• التجوية والتعرية آلية حقيقية مسببة لنشر الهالات الثانوية."
+            },
+            {
+                id: 24,
+                question: "الفرق الجوهري بين الاستكشاف الجيوفيزيائي والجيوكيميائي هو:",
+                options: [
+                    "الجيوفيزيائي يقيس خصائص فيزيائية عن بُعد، بينما الجيوكيميائي يعتمد على تحليل كيميائي مخبري لعينات ملموسة",
+                    "لا يوجد أي فرق منهجي",
+                    "الجيوكيميائي فقط يستخدم خراط تساوي القيم",
+                    "الجيوفيزيائي يكشف الخامات منخفضة التركيز فقط"
+                ],
+                correct: 0,
+                level: "صعب",
+                bloom: "تحليل",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "القياس الجيوفيزيائي فيزيائي عن بعد (حقلي)، بينما الجيوكيميائي جمع عينات مخبرية وتعيين تراكيز دقيقة.",
+                expDistractors: "• الخراط الكنتورية تستخدم بكلا النوعين."
+            },
+            {
+                id: 25,
+                question: "العتبة لعنصر دال تساوي 2%. أربع عينات سجلت: 1.5%, 2.5%, 1.8%, 3.2%. عدد العينات الشاذة هو:",
+                options: [
+                    "واحدة",
+                    "اثنتان",
+                    "ثلاث",
+                    "أربع"
+                ],
+                correct: 1,
+                level: "صعب",
+                bloom: "تطبيق",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "العينات التي تتجاوز العتبة (أكبر من 2%) هي فقط: 2.5% و 3.2% (عددهما 2).",
+                expDistractors: "• 1.5% و 1.8% قيم ضمن الحدود الطبيعية تحت العتبة."
+            },
+            {
+                id: 26,
+                question: "منطقة (A) أظهرت شاذة مغناطيسية فقط، والمنطقتان (B, C) أظهرتا شواذ جيوكيميائية فوق العتبة فقط. أفضل تفسير:",
+                options: [
+                    "النتائج متناقضة ويجب إهمالها",
+                    "الخام في (A) مغناطيسي عالي التركيز، وفي (B, C) خامات فلزية منخفضة التركيز أو غير مغناطيسية، ويُوصى باستكمال الاستكشاف بكل منها بالطريقة المناسبة",
+                    "اعتماد المغناطيسي وإهمال الجيوكيميائي",
+                    "استبعاد المناطق الثلاث"
+                ],
+                correct: 1,
+                level: "متميز",
+                bloom: "تركيب/تقويم",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "تنوع الاستجابة يعكس تنوع الخصائص؛ فالخام المغناطيسي يظهر بالمسح المغناطيسي والخام اللامغناطيسي أو منخفض التركيز يستجيب للجيوكيميائي.",
+                expDistractors: "• لا تلغي نتيجة طريقة أخرى بل تكملها لتحديد طبيعة الخام."
+            },
+            {
+                id: 27,
+                question: "أي مما يلي يعبر بدقة عن الفلسفة العامة للاستكشاف الجيولوجي الحديث؟",
+                options: [
+                    "الحفر العشوائي",
+                    "منهجية متدرجة ومتكاملة تبدأ بتضييق النطاق (تنقيب) ثم أدوات متكاملة (جيوفيزياء وجيوكيمياء) لتقييم جدوى الخام قبل الاستخراج",
+                    "طريقة مسح واحدة تكفي لكل الحالات",
+                    "عدم الحاجة لأي دراسة علمية"
+                ],
+                correct: 1,
+                level: "متميز",
+                bloom: "تقويم",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "المنهج التكاملي العلمي المتدرج يضمن أعلى دقة واقل مخاطرة مالية قبل حفر وتعدين الخامات.",
+                expDistractors: "• الحفر العشوائي أو الاقتصار على أداة واحدة يرفع المخاطر الاقتصادية."
+            },
+            {
+                id: 28,
+                question: "هالة التشتت في مقاطعة أوتاوا تمتد حول الصخور المسجلة للخام بمسافة مقدرها:",
+                options: [
+                    "3 أمتار",
+                    "30 مترًا",
+                    "300 متر",
+                    "3000 متر"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تذكّر",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "ورد صراحة في الدرس أن هالة مقاطعة أوتاوا تمتد بحدود 30 متراً حول الصخور الحاوية للخام.",
+                expDistractors: "• 30 متراً هو الرقم الدقيق المذكور بحالة أوتاوا الكندية."
+            },
+            {
+                id: 29,
+                question: "كشف المسح الجيوكيميائي في الأردن عن تراكيز عالية للذهب في معالم:",
+                options: [
+                    "شمال الأردن فقط",
+                    "الطرف الشمالي من الدرع العربي النوبي جنوب الأردن (وادي أبو خشيبة، الحور، صبرا)",
+                    "وسط الأردن فقط",
+                    "البحر الميت"
+                ],
+                correct: 1,
+                level: "متوسط",
+                bloom: "تذكّر",
+                outcome: "أوضّح أهمية الطرائق الجيوفيزيائية والجيوكيميائية في البحث عن الخامات المعدنية.",
+                expCorrect: "تتركز الشواذ الجيوكيميائية للذهب جنوب الأردن بالدرع العربي النوبي (أبو خشيبة والحور وصبرا).",
+                expDistractors: "• يقع النطاق في الجنوب وليس الشمال أو البحر الميت."
+            },
+            {
+                id: 30,
+                question: "من طرائق تحليل البيانات الجيوكيميائية بعد جمعها وإجراء التحاليل المخبرية:",
+                options: [
+                    "الطريقة الإحصائية أو رسم خرائط تساوي القيم (Isopleth Maps)",
+                    "تجاهل البيانات كليًا",
+                    "الاعتماد على التخمين والتكهن",
+                    "المسح الزلزالي فقط"
+                ],
+                correct: 0,
+                level: "متوسط",
+                bloom: "تذكّر",
+                outcome: "أتعرّف طرائق الاستكشاف الجيولوجي: الجيوفيزيائية، والجيوكيميائية.",
+                expCorrect: "معالجة النتائج الجيوكيميائية تتم عبر التحليل الإحصائي أو رسم خرائط تساوي خطوط القيم الجيوكيميائية.",
+                expDistractors: "• المسح الزلزالي أداة كشف حقلية وليس أسلوب تحليل بيانات كيميائية."
+            }
+        ];
+
+        let currentIndex = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+        let isSubmitted = false;
+        let timerSeconds = 0;
+        let timerInterval;
+
+        // Web Audio API Synth for Custom Sounds
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(isCorrect) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const now = audioCtx.currentTime;
+
+            if (isCorrect) {
+                // Correct Sound: High Melody (Success Chime)
+                const osc1 = audioCtx.createOscillator();
+                const osc2 = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc1.type = 'sine';
+                osc2.type = 'triangle';
+
+                osc1.frequency.setValueAtTime(523.25, now); // C5
+                osc1.frequency.exponentialRampToValueAtTime(659.25, now + 0.1); // E5
+                osc1.frequency.exponentialRampToValueAtTime(783.99, now + 0.2); // G5
+
+                osc2.frequency.setValueAtTime(261.63, now);
+                osc2.frequency.exponentialRampToValueAtTime(392.00, now + 0.2);
+
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+                osc1.connect(gain);
+                osc2.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc1.start(now);
+                osc2.start(now);
+                osc1.stop(now + 0.45);
+                osc2.stop(now + 0.45);
+
+            } else {
+                // Wrong Sound: Low Buzz / Error Pitch
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(160, now);
+                osc.frequency.exponentialRampToValueAtTime(90, now + 0.3);
+
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(now);
+                osc.stop(now + 0.3);
+            }
+        }
+
+        function initQuiz() {
+            renderGrid();
+            loadQuestion(currentIndex);
+            startTimer();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timerSeconds++;
+                const mins = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+                const secs = (timerSeconds % 60).toString().padStart(2, '0');
+                document.getElementById('timer').innerText = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('q-grid');
+            grid.innerHTML = '';
+            questions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'grid-btn';
+                btn.id = `grid-btn-${idx}`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => jumpToQuestion(idx);
+                grid.appendChild(btn);
+            });
+            updateGridStatus();
+        }
+
+        function updateGridStatus() {
+            questions.forEach((q, idx) => {
+                const btn = document.getElementById(`grid-btn-${idx}`);
+                btn.className = 'grid-btn';
+                if (idx === currentIndex) btn.classList.add('active');
+
+                if (userAnswers[idx] !== null) {
+                    if (userAnswers[idx] === q.correct) {
+                        btn.classList.add('correct-grid');
+                    } else {
+                        btn.classList.add('wrong-grid');
+                    }
+                }
+            });
+
+            // Progress bar
+            const answeredCount = userAnswers.filter(a => a !== null).length;
+            const pct = (answeredCount / questions.length) * 100;
+            document.getElementById('progress-fill').style.width = `${pct}%`;
+            document.getElementById('progress-text').innerText = `${answeredCount} من ${questions.length} سؤالاً`;
+        }
+
+        function loadQuestion(index) {
+            currentIndex = index;
+            const q = questions[index];
+
+            document.getElementById('q-number').innerText = `سؤال ${index + 1} من ${questions.length}`;
+            document.getElementById('q-level').innerText = q.level;
+            
+            const levelBadge = document.getElementById('q-level');
+            levelBadge.className = 'badge ';
+            if(q.level === 'سهل') levelBadge.classList.add('badge-easy');
+            else if(q.level === 'متوسط') levelBadge.classList.add('badge-medium');
+            else if(q.level === 'صعب') levelBadge.classList.add('badge-hard');
+            else levelBadge.classList.add('badge-expert');
+
+            document.getElementById('q-bloom').innerText = q.bloom;
+            document.getElementById('q-outcome').innerText = `ناتج التعلم: ${q.outcome}`;
+            document.getElementById('q-text').innerText = q.question;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const prefixes = ['أ', 'ب', 'جـ', 'د'];
+
+            const hasAnswered = userAnswers[index] !== null;
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+
+                if (hasAnswered) {
+                    btn.disabled = true;
+                    if (optIdx === q.correct) {
+                        btn.classList.add('correct');
+                    } else if (userAnswers[index] === optIdx) {
+                        btn.classList.add('wrong');
+                    }
+                } else {
+                    btn.onclick = () => selectOption(optIdx);
+                }
+
+                btn.innerHTML = `
+                    <span class="option-prefix">${prefixes[optIdx]}</span>
+                    <span>${opt}</span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('prev-btn').disabled = (index === 0);
+            document.getElementById('next-btn').innerText = (index === questions.length - 1) ? 'السؤال الأخير' : 'التالي';
+
+            // Instant Explanation Display
+            const expBox = document.getElementById('explanation-box');
+            if (hasAnswered) {
+                expBox.classList.add('active');
+                document.getElementById('exp-correct').innerHTML = `<strong>السبب والتفسير:</strong> ${q.expCorrect}`;
+                document.getElementById('exp-distractors').innerHTML = `<strong>تحليل البدائل الأُخرى:</strong><br>${q.expDistractors}`;
+            } else {
+                expBox.classList.remove('active');
+            }
+
+            updateGridStatus();
+        }
+
+        function selectOption(optIdx) {
+            if (userAnswers[currentIndex] !== null) return; // Prevent changing answer
+
+            const q = questions[currentIndex];
+            userAnswers[currentIndex] = optIdx;
+
+            const isCorrect = (optIdx === q.correct);
+            playSound(isCorrect);
+
+            loadQuestion(currentIndex);
+        }
+
+        function nextQuestion() {
+            if (currentIndex < questions.length - 1) {
+                loadQuestion(currentIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                loadQuestion(currentIndex - 1);
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            loadQuestion(idx);
+        }
+
+        function finishExam() {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0 && !isSubmitted) {
+                if (!confirm(`لديك ${unanswered} سؤالاً لم تجب عنها بعد. هل أنت ألمتأكد من إنهاء الاختبار؟`)) {
+                    return;
+                }
+            }
+
+            isSubmitted = true;
+            clearInterval(timerInterval);
+
+            let score = 0;
+            questions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correct) {
+                    score++;
+                }
+            });
+
+            document.getElementById('final-score').innerText = score;
+            
+            const mins = Math.floor(timerSeconds / 60);
+            const secs = timerSeconds % 60;
+            document.getElementById('time-taken-msg').innerText = `الزمن المستغرق: ${mins} دقيقة و ${secs} ثانية`;
+
+            let msg = "";
+            const pct = (score / questions.length) * 100;
+            if (pct >= 90) msg = "ممتاز جداً! أداء استثنائي يظهر استيعاباً عميقاً لمادة الاستكشاف الجيولوجي. 🌟";
+            else if (pct >= 75) msg = "رائع جداً! مستوى ممتازة وفهم متماسك لمفاهيم الدرس. 👏";
+            else if (pct >= 50) msg = "جيد! قمت بعمل جيد، ويمكنك مراجعة الشروحات لتعزيز النقاط الضعيفة. 👍";
+            else msg = "يحتاج إلى مراجعة إضافية. يوصى بقراءة التغذية الراجعة والشروحات التفصيليّة بكل سؤال. 📚";
+
+            document.getElementById('feedback-msg').innerText = msg;
+            document.getElementById('result-modal').classList.add('active');
+        }
+
+        function reviewExam() {
+            document.getElementById('result-modal').classList.remove('active');
+            loadQuestion(0);
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

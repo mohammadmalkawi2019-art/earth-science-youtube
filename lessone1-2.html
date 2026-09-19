@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الدرس الأول - الوحدة الثانية (2026) | أ. محمد ملكاوي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-earth-americas text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 leading-tight">اختبار علوم الأرض والبيئة</h1>
+                    <p class="text-xs sm:text-sm font-semibold text-brand-600">الدرس الأول - الوحدة الثانية (2026)</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-4">
+                <div class="hidden md:flex flex-col text-left border-l border-slate-200 pl-4 ml-2">
+                    <span class="text-xs text-slate-500 font-medium">إعداد وتصميم</span>
+                    <span class="text-sm font-bold text-slate-800">أ. محمد ملكاوي</span>
+                </div>
+                <button id="toggle-fullscreen" onclick="toggleFullScreen()" class="p-2.5 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors" title="ملء الشاشة">
+                    <i class="fa-solid fa-expand text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow">
+
+        <!-- Welcome Screen -->
+        <section id="start-screen" class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden my-8">
+            <div class="bg-gradient-to-r from-brand-800 via-brand-700 to-brand-600 p-8 text-white text-center relative overflow-hidden">
+                <div class="relative z-10">
+                    <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-semibold tracking-wide uppercase mb-3 backdrop-blur-sm">اختبار إلكتروني تفاعلي ذاتي التصحيح</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">بنك الأسئلة الشامل والاحترافي</h2>
+                    <p class="text-brand-100 text-sm sm:text-base">الدرس الأول: الخرائط الجيولوجية والمقاطع العرضية (30 سؤالاً)</p>
+                </div>
+                <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                        <i class="fa-solid fa-list-check text-brand-600 text-xl mb-1"></i>
+                        <div class="text-xs text-slate-500 font-medium">عدد الأسئلة</div>
+                        <div class="text-lg font-bold text-slate-800">30 سؤالاً</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                        <i class="fa-regular fa-clock text-brand-600 text-xl mb-1"></i>
+                        <div class="text-xs text-slate-500 font-medium">الزمن المقترح</div>
+                        <div class="text-lg font-bold text-slate-800">45 دقيقة</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                        <i class="fa-solid fa-layer-group text-brand-600 text-xl mb-1"></i>
+                        <div class="text-xs text-slate-500 font-medium">المستويات</div>
+                        <div class="text-lg font-bold text-slate-800">مستويات بلوم</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                        <i class="fa-solid fa-graduation-cap text-brand-600 text-xl mb-1"></i>
+                        <div class="text-xs text-slate-500 font-medium">المنهج</div>
+                        <div class="text-lg font-bold text-slate-800">الأردني 2026</div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border-r-4 border-brand-500 p-4 rounded-r-lg">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-info text-brand-600 text-lg mt-0.5"></i>
+                        <div class="text-sm text-brand-900 leading-relaxed">
+                            <strong class="font-bold block mb-1">تعليمات الاختبار:</strong>
+                            يتكون الاختبار من 30 سؤالاً اختيار من متعدد تتنوع صعوبتها من السهل إلى المتميز. يحتوي كل سؤال على شرح تفصيلي متاح فور الاعتماد أو عند عرض النتائج النهائية.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-100 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-sm text-slate-600">
+                        إعداد المعلم القدير: <span class="font-bold text-slate-900">محمد ملكاوي</span>
+                    </div>
+                    <button onclick="startQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white font-bold rounded-xl shadow-lg shadow-brand-500/30 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        <span>ابدأ الاختبار الآن</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="hidden grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- Left Side / Top: Navigation & Progress Panel -->
+            <div class="lg:col-span-1 space-y-6 order-2 lg:order-1">
+                <!-- Info Box -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                    <!-- Timer -->
+                    <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                        <span class="text-sm font-semibold text-slate-500 flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-slate-400"></i> الوقت المتبقي
+                        </span>
+                        <span id="timer" class="font-mono text-xl font-bold text-slate-800 bg-slate-100 px-3 py-1 rounded-lg">45:00</span>
+                    </div>
+
+                    <!-- Progress -->
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1 text-slate-600">
+                            <span>نسبة الإنجاز</span>
+                            <span id="progress-percent">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                            <div id="progress-bar" class="bg-brand-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <div class="mt-2 text-xs text-slate-500 flex justify-between">
+                            <span>المجاب: <strong id="answered-count" class="text-slate-800">0</strong></span>
+                            <span>المتبقي: <strong id="remaining-count" class="text-slate-800">30</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions Quick Grid -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-border-all"></i> جدول الأسئلة السريع
+                    </h3>
+                    <div id="questions-grid" class="grid grid-cols-5 gap-2 custom-scrollbar max-h-64 overflow-y-auto p-1">
+                        <!-- Grid elements inserted dynamically -->
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-around text-[11px] text-slate-500">
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-200 inline-block"></span> لم يُجب</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-brand-600 inline-block"></span> مُجاب</span>
+                        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span> الحالية</span>
+                    </div>
+                </div>
+
+                <button onclick="confirmFinishQuiz()" class="w-full py-3 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-xl border border-red-200 transition-colors flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-flag-checkered"></i>
+                    <span>إنهاء الاختبار وتسليم الإجابات</span>
+                </button>
+            </div>
+
+            <!-- Right Side: Question Card -->
+            <div class="lg:col-span-3 order-1 lg:order-2 space-y-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 relative">
+                    
+                    <!-- Question Header Meta -->
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span id="question-badge-num" class="bg-brand-100 text-brand-800 font-extrabold px-3 py-1 rounded-lg text-sm">السؤال 1 من 30</span>
+                            <span id="difficulty-badge" class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md">سهل</span>
+                            <span id="bloom-badge" class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-1 rounded-md">تذكّر</span>
+                        </div>
+                        <div id="learning-outcome" class="text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-100 max-w-md truncate">
+                            ناتج التعلم: أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.
+                        </div>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div class="mb-6">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 leading-relaxed">
+                            جاري تحميل السؤال...
+                        </h3>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="options-container" class="space-y-3 mb-6">
+                        <!-- Options loaded dynamically -->
+                    </div>
+
+                    <!-- Explanation Box (Shows after answer or in review mode) -->
+                    <div id="explanation-box" class="hidden mt-6 p-5 bg-amber-50/70 border border-amber-200 rounded-xl space-y-2">
+                        <div class="flex items-center gap-2 text-amber-900 font-bold text-sm">
+                            <i class="fa-solid fa-lightbulb text-amber-600"></i>
+                            <span>الشرح والتغذية الراجعة:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-700 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Question Navigation Footer -->
+                    <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <button id="prev-btn" onclick="prevQuestion()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span>السابق</span>
+                        </button>
+
+                        <div class="flex gap-2">
+                            <button id="next-btn" onclick="nextQuestion()" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold rounded-xl shadow-md transition-all flex items-center gap-2">
+                                <span>التالي</span>
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="hidden max-w-4xl mx-auto space-y-6 my-6">
+            
+            <!-- Result Summary Card -->
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden text-center p-8">
+                <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-slate-50 border-4 border-brand-500 mb-4 shadow-inner">
+                    <span id="score-percentage" class="text-2xl font-black text-brand-700">0%</span>
+                </div>
+                <h2 id="result-title" class="text-2xl font-extrabold text-slate-900 mb-1">أحسنت! أكملت الاختبار بنجاح</h2>
+                <p id="result-subtitle" class="text-slate-500 text-sm mb-6">إليك تحليل لأدائك التفصيلي في أسئلة الدرس</p>
+
+                <!-- Detailed Stats Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
+                    <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl">
+                        <div class="text-xs font-semibold text-emerald-600 mb-1">الإجابات الصحيحة</div>
+                        <div id="correct-count" class="text-xl font-black text-emerald-700">0</div>
+                    </div>
+                    <div class="bg-rose-50 border border-rose-100 p-4 rounded-xl">
+                        <div class="text-xs font-semibold text-rose-600 mb-1">الإجابات الخاطئة</div>
+                        <div id="wrong-count" class="text-xl font-black text-rose-700">0</div>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-100 p-4 rounded-xl">
+                        <div class="text-xs font-semibold text-amber-600 mb-1">غير المجاب عنه</div>
+                        <div id="unanswered-count" class="text-xl font-black text-amber-700">0</div>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl">
+                        <div class="text-xs font-semibold text-blue-600 mb-1">الوقت المستغرق</div>
+                        <div id="time-spent" class="text-xl font-black text-blue-700">00:00</div>
+                    </div>
+                </div>
+
+                <!-- Level Performance Breakdown -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-right space-y-3 mb-8">
+                    <h3 class="font-bold text-slate-800 text-sm border-b border-slate-200 pb-2">التحليل حسب مستوى صعوبة الأسئلة:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <span class="text-slate-600">الأسئلة السهلة (8 أسئلة):</span>
+                            <span id="easy-stat" class="font-bold text-slate-800 mr-2">0 / 8</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-600">الأسئلة المتوسطة (12 سؤالاً):</span>
+                            <span id="medium-stat" class="font-bold text-slate-800 mr-2">0 / 12</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-600">الأسئلة الصعبة (8 أسئلة):</span>
+                            <span id="hard-stat" class="font-bold text-slate-800 mr-2">0 / 8</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-600">أسئلة التميز (سؤالان):</span>
+                            <span id="excel-stat" class="font-bold text-slate-800 mr-2">0 / 2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="reviewAnswers()" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-500/20 transition-all flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>مراجعة الأسئلة والشروح التفصيلية</span>
+                    </button>
+                    <button onclick="resetQuiz()" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>إعادة الاختبار</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-1">
+            <p>جميع الحقوق محفوظة © 2026 - مادة علوم الأرض والبيئة | المملكة الأردنية الهاشمية</p>
+            <p class="font-semibold text-slate-700">إعداد وتصميم المعلم: محمد ملكاوي</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Quiz Logic & Data -->
+    <script>
+        // Full Question Bank Array (30 Questions)
+        const questionsData = [
+            {
+                id: 1,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'الخريطة التي تُظهر تضاريس سطح الأرض في صورة مجسَّمة باستخدام خطوط الكُنتور تُسمّى:',
+                options: [
+                    'الخريطة الجيوفيزيائية',
+                    'الخريطة الكُنتورية',
+                    'الخريطة الجيوكيميائية',
+                    'خريطة تساوي القيم'
+                ],
+                correct: 1,
+                explanation: 'الخريطة الكُنتورية هي التي تُظهر التضاريس بصورة مجسّمة باستخدام خطوط الكُنتور. الجيوفيزيائية تظهر بيانات الخامات، والجيوكيميائية تعبر عن تراكيز العناصر.'
+            },
+            {
+                id: 2,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'الخط الوهمي الذي يصل بين مجموعة من النقاط ذات القيم المتساوية في الارتفاع يُسمّى:',
+                options: [
+                    'المضرب',
+                    'خط الكُنتور',
+                    'الفترة الكُنتورية',
+                    'مقياس الرسم'
+                ],
+                correct: 1,
+                explanation: 'هذا هو التعريف الحرفي لخط الكُنتور (Contour Line). المضرب يخص وضعية الطبقات الصخرية، والفترة الكُنتورية هي المسافة الرأسية بين خطين متتاليين.'
+            },
+            {
+                id: 3,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'المسافة الرأسية بين أي خطَّين كُنتوريَّين متتاليَين تُسمّى:',
+                options: [
+                    'مقياس الرسم',
+                    'الفترة الكُنتورية',
+                    'المضرب',
+                    'اتجاه الميل'
+                ],
+                correct: 1,
+                explanation: 'هذا هو التعريف الحرفي للفترة الكُنتورية (Contour Interval) وهي المسافة الرأسية الثابتة بين خطوط الارتفاع المتتالية.'
+            },
+            {
+                id: 4,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'عناصر الخريطة الجيولوجية الرئيسة التي يجب أن تحتويها هي:',
+                options: [
+                    'العنوان، ومقياس الرسم، ودليل الخريطة فقط',
+                    'الألوان فقط',
+                    'خطوط الكُنتور فقط دون أي عناصر أخرى',
+                    'المضرب فقط'
+                ],
+                correct: 0,
+                explanation: 'حدّد الدرس صراحة أن الخريطة الجيولوجية يجب أن تحتوي أساساً على: العنوان، ومقياس الرسم، ودليل الخريطة.'
+            },
+            {
+                id: 5,
+                difficulty: 'سهل',
+                bloom: 'فهم',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'الفرق الأساس بين الخريطة الكُنتورية والخريطة الطبوغرافية هو:',
+                options: [
+                    'لا يوجد فرق بينهما إطلاقًا',
+                    'الطبوغرافية تحتوي إضافة إلى خطوط الكُنتور على المظاهر الطبيعية والبشرية',
+                    'الكُنتورية أكثر تفصيلًا من الطبوغرافية',
+                    'الطبوغرافية لا تحتوي على أي خطوط كُنتور'
+                ],
+                correct: 1,
+                explanation: 'الخريطة الطبوغرافية تتضمن خطوط الكُنتور وتضيف إليها المعالم والتفاصيل الطبيعية والبشرية كالمباني والطرق والأنهار.'
+            },
+            {
+                id: 6,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'الجهاز الموجود ضمن البوصلة الجيولوجية والمستخدَم لقياس ميل الطبقة يُسمّى:',
+                options: [
+                    'GPS',
+                    'Clinometer',
+                    'Barometer',
+                    'Seismometer'
+                ],
+                correct: 1,
+                explanation: 'تحتوي البوصلة الجيولوجية على جهاز مقياس الميل (Clinometer) المخصص لقياس زاوية ميل الطبقات الصخرية.'
+            },
+            {
+                id: 7,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'يُعرَّف الميل (Dip) بأنه:',
+                options: [
+                    'أكبر زاوية يصنعها سطح الطبقة العلوي مع المستوى الأفقي',
+                    'خط تقاطع سطح الطبقة مع المستوى الأفقي',
+                    'الاتجاه الجغرافي لامتداد الطبقة',
+                    'المسافة الرأسية بين طبقتين'
+                ],
+                correct: 0,
+                explanation: 'الميل هو أقصى زاوية محصورة بين سطح الطبقة الصخرية والمستوى الأفقي.'
+            },
+            {
+                id: 8,
+                difficulty: 'سهل',
+                bloom: 'فهم',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'تكون الطبقة مائلة إذا كانت زاوية ميلها:',
+                options: [
+                    'تساوي 0° بالضبط',
+                    'أكبر من 0° وأقل من 90°',
+                    'تساوي 90° بالضبط',
+                    'أكبر من 180°'
+                ],
+                correct: 1,
+                explanation: 'تكون الطبقة مائلة إذا تراوحت زاوية ميلها بين أكبر من 0° (لأن 0° تعني أفقية) وأقل من 90° (لأن 90° تعني رأسية).'
+            },
+            {
+                id: 9,
+                difficulty: 'متوسط',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'إذا كانت قيمة اتجاه الميل لطبقة صخرية تساوي 160°، فإن قيمة مضرب الطبقة الصغرى تساوي:',
+                options: [
+                    '70°',
+                    '250°',
+                    '90°',
+                    '160°'
+                ],
+                correct: 0,
+                explanation: 'مضرب الطبقة الصغرى = اتجاه الميل - 90° = 160° - 90° = 70°.'
+            },
+            {
+                id: 10,
+                difficulty: 'متوسط',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'إذا كانت قيمة مضرب إحدى الطبقات الصغرى تساوي 30° واتجاه الميل جنوب شرق، فإن قيمة اتجاه الميل تساوي:',
+                options: [
+                    '30°',
+                    '120°',
+                    '210°',
+                    '300°'
+                ],
+                correct: 1,
+                explanation: 'اتجاه الميل = المضرب الصغرى + 90° = 30° + 90° = 120° (وتقع الزاوية 120° في الربع الجنوبي الشرقي).'
+            },
+            {
+                id: 11,
+                difficulty: 'متوسط',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'تحويل مقياس الرسم الكتابي (كل 1cm على الخريطة يساوي 5km في الطبيعة) إلى مقياس رسم نِسبي يعطي:',
+                options: [
+                    '1 : 5',
+                    '1 : 50000',
+                    '1 : 500000',
+                    '1 : 5000000'
+                ],
+                correct: 2,
+                explanation: '1cm = 5km = 5 × 100,000 cm = 500,000 cm، وبالتالي فإن المقياس النسبي هو 1 : 500,000.'
+            },
+            {
+                id: 12,
+                difficulty: 'متوسط',
+                bloom: 'تحليل',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'لوحظ في إحدى الخرائط الجيولوجية أن حدود إحدى الطبقات الصخرية موازية تمامًا لخطوط الكُنتور في كل مكان بالخريطة. أفضل استنتاج لوضعية هذه الطبقة هو أنها:',
+                options: [
+                    'طبقة رأسية',
+                    'طبقة مائلة بزاوية كبيرة',
+                    'طبقة أفقية',
+                    'طبقة غير موجودة أصلًا'
+                ],
+                correct: 2,
+                explanation: 'التوازي التام الدائم بين حدود الطبقة وخطوط الكنتور هو العلامة المميّزة والحصرية للطبقات الأفقية.'
+            },
+            {
+                id: 13,
+                difficulty: 'متوسط',
+                bloom: 'فهم',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'سبب استخدام ثلاثة أقمار صناعية على الأقل في نظام تحديد المواقع (GPS) هو:',
+                options: [
+                    'لزيادة سرعة الإشارة فقط',
+                    'لتحديد موقع جهاز الاستقبال بدقة اعتمادًا على زمن استقبال الإشارات وإرسالها من عدة مصادر',
+                    'لأن قمرًا واحدًا لا يمكنه إرسال أي إشارة',
+                    'لتقليل تكلفة النظام'
+                ],
+                correct: 1,
+                explanation: 'الحد الأدنى لثلاثة أقمار يتيح تقاطع ثلاث دوائر هندسية لحساب الموقع الجغرافي والارتفاع بدقة بناءً على فرق التوقيت.'
+            },
+            {
+                id: 14,
+                difficulty: 'متوسط',
+                bloom: 'تحليل',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'في خريطة كُنتورية، لوحظ أن خطوط الكُنتور متقاربة جدًا في منطقة (أ) ومتباعدة جدًا في منطقة (ب). أفضل تفسير لهذا الفرق هو:',
+                options: [
+                    'المنطقة (أ) أكثر انحدارًا (أشد ميلًا) من المنطقة (ب)',
+                    'المنطقة (ب) أكثر انحدارًا من المنطقة (أ)',
+                    'كلتا المنطقتين متساويتان تمامًا في شدّة الانحدار',
+                    'لا علاقة بين تقارب خطوط الكُنتور وشدّة الانحدار'
+                ],
+                correct: 0,
+                explanation: 'تقارب خطوط الكنتور يعبر دائماً عن انحدار شديد وقاسي، في حين يدل تباعدها على انحدار تدريجي بسيط.'
+            },
+            {
+                id: 15,
+                difficulty: 'متوسط',
+                bloom: 'تحليل',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'الفرق بين رمز الطبقة الأفقية ورمز الطبقة الرأسية في الخرائط الجيولوجية يعكس:',
+                options: [
+                    'عدم وجود أي فرق حقيقي بينهما',
+                    'اختلاف زاوية الميل الكلية بين الحالتين (0° مقابل 90°)، وهو فرق جوهري في وضعية الطبقة',
+                    'أن الطبقة الرأسية لا تُمثَّل على الخرائط الجيولوجية إطلاقًا',
+                    'أن الرمزين يُستخدَمان فقط للصخور الرسوبية دون غيرها'
+                ],
+                correct: 1,
+                explanation: 'اختلاف الرموز يمثل فرق الهندسة الفضائية للطبقة، فالطبقة الأفقية زاوية ميلها 0° بينما الرأسية زاوية ميلها 90°.'
+            },
+            {
+                id: 16,
+                difficulty: 'متوسط',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'إذا كانت المسافة الحقيقية بين نقطتين تساوي 15km ومقياس الرسم النِّسبي للخريطة 1 : 300000، فإن المسافة على الخريطة (بالسنتيمتر) تساوي:',
+                options: [
+                    '5 cm',
+                    '0.5 cm',
+                    '50 cm',
+                    '500 cm'
+                ],
+                correct: 0,
+                explanation: 'المسافة الحقيقية بالسنتيمتر = 15 × 100,000 = 1,500,000 cm. المسافة على الخريطة = 1,500,000 ÷ 300,000 = 5 cm.'
+            },
+            {
+                id: 17,
+                difficulty: 'متوسط',
+                bloom: 'فهم',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'عند رسم مقطع جيولوجي لطبقات أفقية، يجب مراعاة سُمك كل طبقة وعلاقتها بخطوط الكُنتور والسبب في ذلك هو:',
+                options: [
+                    'لضمان تمثيل الطبقات بأبعاد وارتفاعات صحيحة تعكس واقعها الفعلي في باطن الأرض بدقة',
+                    'لأن السُّمك لا علاقة له بدقة المقطع إطلاقًا',
+                    'لتجميل شكل المقطع فقط دون أي غرض علمي',
+                    'لأن خطوط الكُنتور لا تُستخدَم في رسم المقاطع الجيولوجية أصلًا'
+                ],
+                correct: 0,
+                explanation: 'مراعاة سمك الطبقات والارتفاعات التضاريسية يضمن رسم مقطع عرضي واقعي مطابق للواقع الجيولوجي الباطني.'
+            },
+            {
+                id: 18,
+                difficulty: 'متوسط',
+                bloom: 'تحليل',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'في مقطع عرضي جيولوجي يمثّل طبقات أفقية غير متصدّعة، أين تقع أحدث الطبقات عادةً بالنسبة لأقدمها؟',
+                options: [
+                    'أحدث الطبقات في الأسفل وأقدمها في الأعلى',
+                    'أحدث الطبقات في الأعلى (الأقرب لسطح الأرض) وأقدمها في الأسفل (الأعمق)',
+                    'لا يمكن تحديد ذلك من المقطع العرضي إطلاقًا',
+                    'تكون جميع الطبقات بالعمر نفسه دائمًا'
+                ],
+                correct: 1,
+                explanation: 'وفقاً لمبدأ التعاقب الطبقي، فإن الطبقات الأحدث تترسب دائماً فوق الطبقات الأقدم ما لم تتعرض لتشوهات أو تصدع.'
+            },
+            {
+                id: 19,
+                difficulty: 'متوسط',
+                bloom: 'تحليل',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'لماذا يُعدّ الميل واتجاه الميل والمضرب ثلاثة متغيرات ضرورية معًا لوصف "وضعية الطبقة" وصفًا كاملًا؟',
+                options: [
+                    'لأن كل متغيّر منها يصف بُعدًا مختلفًا من العلاقة الهندسية بين سطح الطبقة والمستوى الأفقي',
+                    'لأن الثلاثة متغيرات متطابقة تمامًا في معناها',
+                    'لأن الميل وحده كافٍ تمامًا لوصف وضعية الطبقة بالكامل',
+                    'لأنها مجرد أسماء مختلفة لنفس القياس دون أي فرق فعلي'
+                ],
+                correct: 0,
+                explanation: 'الميل يحدد مقدار الزاوية، واتجاه الميل يحدد اتجاه الانحدار الجغرافي، والمضرب يحدد امتداد الخط الأفقي للطبقة ثلاثية الأبعاد.'
+            },
+            {
+                id: 20,
+                difficulty: 'متوسط',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'طبقة صخرية قيمة مضربها الكبرى 310°، فإن قيمة مضربها الصغرى تساوي:',
+                options: [
+                    '130°',
+                    '220°',
+                    '400°',
+                    '40°'
+                ],
+                correct: 0,
+                explanation: 'الفرق بين المضربين يساوي دائمًا 180°، المضرب الصغرى = 310° - 180° = 130°.'
+            },
+            {
+                id: 21,
+                difficulty: 'صعب',
+                bloom: 'تحليل',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'خريطتان جيولوجيتان للمنطقة نفسها بمقياسين: الأولى 1 : 50000 والثانية 1 : 200000. أي العبارات صحيحة؟',
+                options: [
+                    'الخريطة الأولى (1 : 50000) أكثر تفصيلًا؛ لأن كل وحدة على الخريطة تمثّل مسافة حقيقية أصغر',
+                    'الخريطة الثانية (1 : 200000) أكثر تفصيلًا دائمًا',
+                    'كلتا الخريطتين متطابقتان تمامًا في مستوى التفصيل',
+                    'لا علاقة بين مقياس الرسم ومستوى التفصيل إطلاقًا'
+                ],
+                correct: 0,
+                explanation: 'كلما صغر مقام المقياس (1:50000)، كَبُر المقياس، وبالتالي أتاح إظهار تفاصيل دقيقة ومعالم أكثر وضوحاً.'
+            },
+            {
+                id: 22,
+                difficulty: 'صعب',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'إذا كانت قيمتا المضرب لطبقة هما (60° و 240°)، وعُلم أن الطبقة تميل نحو الشمال الغربي، فإن قيمة اتجاه الميل هي:',
+                options: [
+                    '150°',
+                    '330°',
+                    '60°',
+                    '240°'
+                ],
+                correct: 1,
+                explanation: 'اتجاه الميل يتعامد مع المضرب (+90°): 60° + 90° = 150° (جنوب شرق)، أو 240° + 90° = 330° (شمال غرب). إذن الإجابة 330°.'
+            },
+            {
+                id: 23,
+                difficulty: 'صعب',
+                bloom: 'تحليل',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'حدود طبقة صخرية تتقاطع مع خطوط الكُنتور بزاوية صغيرة جدًا تقترب من التوازي دون أن توازيها تمامًا. هذا يشير إلى أن الطبقة:',
+                options: [
+                    'طبقة أفقية تمامًا (زاوية ميل 0°)',
+                    'طبقة رأسية تمامًا (زاوية ميل 90°)',
+                    'طبقة مائلة بزاوية ميل صغيرة (قريبة من 0° لكن أكبر منها)',
+                    'لا يمكن أن تكون هذه الحالة موجودة في الطبيعة'
+                ],
+                correct: 2,
+                explanation: 'التقاطع القريب جدًا من التوازي يدل على وجود انحدار وميل طفيف جدًا في الطبقة وليس أفقية مطلقة.'
+            },
+            {
+                id: 24,
+                difficulty: 'صعب',
+                bloom: 'تحليل',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'إذا رسم طالب حدود الطبقات الأفقية في مقطع عرضي على شكل خطوط مائلة. ما الخطأ المنهجي هنا؟',
+                options: [
+                    'لم يخطئ؛ فكل المقاطع الجيولوجية تُرسَم بخطوط مائلة دائمًا',
+                    'أخطأ في تطبيق قاعدة رسم الطبقات الأفقية، التي يجب أن تُمثَّل بخطوط أفقية متوازية تعكس توازيها الفعلي مع الكنتور',
+                    'الخطأ لا تؤثّر في دقة المقطع النهائي إطلاقًا',
+                    'يجب أن يرسم خطوطًا عمودية بدلًا من ذلك'
+                ],
+                correct: 1,
+                explanation: 'الطبقات الأفقية يجب أن تظهر في المقطع العرضي كخطوط أفقية تمامًا متوازية تمثل استواءها الميداني.'
+            },
+            {
+                id: 25,
+                difficulty: 'صعب',
+                bloom: 'تطبيق',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'طبقتان متجاورتان: اتجاه ميل الأولى 70°، والثانية 250°. ماذا يعني الفرق بينهما (180°)؟',
+                options: [
+                    'الفرق 180° يوحي بأن الطبقتين على جناحَي طيّة جيولوجية (تراكيب متقابلة الاتجاه)',
+                    'الفرق 20° وهو فرق ضئيل لا دلالة له',
+                    'لا يوجد فرق فعلي بين الاتجاهين',
+                    'الفرق 360° أي أن الطبقتين متطابقتان تمامًا'
+                ],
+                correct: 0,
+                explanation: 'الفرق بمقدار 180° يعني أن الانحدارين متعاكسان تماماً، وهو المؤشر الهندسي الجيولوجي لوجود طية (طية مقعرة أو محدبة).'
+            },
+            {
+                id: 26,
+                difficulty: 'صعب',
+                bloom: 'تقويم',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'لتمثيل تفاصيل موقع تعدين صغير، ولمقارنتها بتمثيل إقليم واسع كامل، الخيار الأنسب على التوالي هو:',
+                options: [
+                    'مقياس رسم كبير (مقام صغير 1:10000) للموقع الصغير، ومقياس صغير (مقام كبير 1:500000) للإقليم الواسع',
+                    'مقياس رسم واحد يناسب كل الحالات بلا استثناء',
+                    'مقياس رسم صغير (مقام كبير) دائمًا هو الأنسب لكل الحالات',
+                    'مقياس رسم كبير (مقام صغير) دائمًا هو الأنسب لكل الحالات'
+                ],
+                correct: 0,
+                explanation: 'المناطق الصغرى تتطلب مقياساً كبيراً لبيان التفاصيل، بينما المساحات الشاسعة تتطلب مقياساً صغيراً لتستوعبها الخريطة.'
+            },
+            {
+                id: 27,
+                difficulty: 'صعب',
+                bloom: 'تحليل',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'عند حساب المضرب الصغرى لزاوية ميل 40° بواسطة القانون (40° - 90° = -50°)، كيف تصحح النتيجة القطبية السالبة؟',
+                options: [
+                    'تُترَك القيمة سالبة كما هي',
+                    'يُضاف 360° إلى القيمة السالبة الناتجة: -50° + 360° = 310°',
+                    'تُهمَل هذه الحالة ولا يمكن حساب المضرب',
+                    'تُضرَب القيمة السالبة في (-1) فقط لتصبح موجبة'
+                ],
+                correct: 1,
+                explanation: 'في النظام الدائري 0°-360°، يُضاف 360° للقيمة السالبة لتحديد الزاوية الفضائية الموجبة المكافئة (310°).'
+            },
+            {
+                id: 28,
+                difficulty: 'متميز',
+                bloom: 'تركيب/تقويم',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'خريطة مقياسها 1:250000، والمسافة بين نقطتين 8cm. إذا أريد تمثيل نفس المسافة بـ 4cm على خريطة جديدة، فما المقياس المطلوب؟',
+                options: [
+                    '1 : 500000',
+                    '1 : 125000',
+                    '1 : 1000000',
+                    '1 : 250000'
+                ],
+                correct: 0,
+                explanation: 'المسافة الحقيقية = 8cm × 250,000 = 2,000,000cm (20km). المقياس الجديد = 2,000,000 ÷ 4cm = 500,000، إذن المقياس 1 : 500,000.'
+            },
+            {
+                id: 29,
+                difficulty: 'متميز',
+                bloom: 'تقويم',
+                outcome: 'أرسم مقطعًا جيولوجيًا من الخريطة الجيولوجية تمثّل طبقات أفقية.',
+                question: 'ما هي العلاقة المنطقية المتكاملة بين قراءة خريطة جيولوجية ورسم المقطع العرضي الجيولوجي منها؟',
+                options: [
+                    'عمليتان منفصلتان تمامًا لا ترتبطان ببعضهما بأي شكل',
+                    'قراءة الخريطة هي الأساس المعلوماتي الذي يُبنى عليه رسم المقطع العرضي الدقيق الذي يجسّد البيانات في بُعد رأسي إضافي',
+                    'رسم المقطع العرضي لا يحتاج إلى أي معلومات من الخريطة الجيولوجية الأصلية',
+                    'الخرائط الكُنتورية لا علاقة لها بالخرائط الجيولوجية إطلاقًا'
+                ],
+                correct: 1,
+                explanation: 'قراءة واستخلاص معلومات الخريطة (الرموز، الكنتور، وضعية الطبقات) توفر القاعدة البيانية لرسم المقطع الباطني ثلاثي الأبعاد.'
+            },
+            {
+                id: 30,
+                difficulty: 'سهل',
+                bloom: 'تذكّر',
+                outcome: 'أقرأ خريطة جيولوجية لمنطقة ما باستخدام الرموز ومقياس الرسم.',
+                question: 'الخط الناتج من تقاطع سطح الطبقة المائلة مع المستوى الأفقي يُعرف بـ:',
+                options: [
+                    'زاوية الميل',
+                    'المضرب (Strike)',
+                    'اتجاه الميل',
+                    'الفاصل الرأسي'
+                ],
+                correct: 1,
+                explanation: 'هذا هو التعريف الحرفي والدقيق للمضرب (Strike) في الجيولوجيا التركيبية.'
+            }
+        ];
+
+        // State Variables
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questionsData.length).fill(null);
+        let timerInterval = null;
+        let timeRemaining = 45 * 60; // 45 minutes
+        let isReviewMode = false;
+
+        // Start Quiz Function
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            document.getElementById('quiz-screen').classList.add('grid');
+            
+            initQuestionsGrid();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        // Initialize Quick Questions Grid
+        function initQuestionsGrid() {
+            const gridContainer = document.getElementById('questions-grid');
+            gridContainer.innerHTML = '';
+
+            questionsData.forEach((q, index) => {
+                const btn = document.createElement('button');
+                btn.id = `grid-btn-${index}`;
+                btn.className = 'h-9 w-full rounded-lg font-bold text-xs transition-all flex items-center justify-center border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200';
+                btn.innerText = index + 1;
+                btn.onclick = () => jumpToQuestion(index);
+                gridContainer.appendChild(btn);
+            });
+        }
+
+        // Update Grid Buttons Styles
+        function updateGridStatus() {
+            questionsData.forEach((q, index) => {
+                const btn = document.getElementById(`grid-btn-${index}`);
+                if (!btn) return;
+
+                // Reset styles
+                btn.className = 'h-9 w-full rounded-lg font-bold text-xs transition-all flex items-center justify-center border ';
+
+                if (index === currentQuestionIndex) {
+                    btn.className += 'bg-amber-500 text-white border-amber-600 ring-2 ring-amber-300';
+                } else if (userAnswers[index] !== null) {
+                    if (isReviewMode) {
+                        if (userAnswers[index] === questionsData[index].correct) {
+                            btn.className += 'bg-emerald-600 text-white border-emerald-700';
+                        } else {
+                            btn.className += 'bg-rose-600 text-white border-rose-700';
+                        }
+                    } else {
+                        btn.className += 'bg-brand-600 text-white border-brand-700';
+                    }
+                } else {
+                    btn.className += 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200';
+                }
+            });
+
+            // Count answered
+            const answered = userAnswers.filter(a => a !== null).length;
+            document.getElementById('answered-count').innerText = answered;
+            document.getElementById('remaining-count').innerText = questionsData.length - answered;
+            
+            const percent = Math.round((answered / questionsData.length) * 100);
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+
+        // Load Question Data into DOM
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = questionsData[index];
+
+            document.getElementById('question-badge-num').innerText = `السؤال ${index + 1} من ${questionsData.length}`;
+            
+            // Difficulty color mapping
+            const diffBadge = document.getElementById('difficulty-badge');
+            diffBadge.innerText = q.difficulty;
+            if (q.difficulty === 'سهل') {
+                diffBadge.className = 'bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md';
+            } else if (q.difficulty === 'متوسط') {
+                diffBadge.className = 'bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-md';
+            } else if (q.difficulty === 'صعب') {
+                diffBadge.className = 'bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-md';
+            } else {
+                diffBadge.className = 'bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-1 rounded-md';
+            }
+
+            document.getElementById('bloom-badge').innerText = `بلوم: ${q.bloom}`;
+            document.getElementById('learning-outcome').innerText = `ناتج التعلم: ${q.outcome}`;
+            document.getElementById('question-text').innerText = q.question;
+
+            // Render Options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const optionPrefixes = ['أ', 'ب', 'جـ', 'د'];
+
+            q.options.forEach((optText, optIdx) => {
+                const optBtn = document.createElement('div');
+                optBtn.className = 'w-full p-4 rounded-xl border text-right font-medium transition-all cursor-pointer flex items-center justify-between ';
+
+                const isSelected = userAnswers[index] === optIdx;
+
+                if (isReviewMode) {
+                    if (optIdx === q.correct) {
+                        optBtn.className += 'bg-emerald-50 border-emerald-500 text-emerald-900 font-bold';
+                    } else if (isSelected && optIdx !== q.correct) {
+                        optBtn.className += 'bg-rose-50 border-rose-500 text-rose-900 font-bold';
+                    } else {
+                        optBtn.className += 'bg-slate-50 border-slate-200 text-slate-500 opacity-60';
+                    }
+                } else {
+                    if (isSelected) {
+                        optBtn.className += 'bg-brand-50 border-brand-500 text-brand-900 font-bold shadow-sm ring-1 ring-brand-500';
+                    } else {
+                        optBtn.className += 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300';
+                    }
+                }
+
+                if (!isReviewMode) {
+                    optBtn.onclick = () => selectOption(optIdx);
+                }
+
+                let iconHTML = '';
+                if (isReviewMode) {
+                    if (optIdx === q.correct) {
+                        iconHTML = '<i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>';
+                    } else if (isSelected) {
+                        iconHTML = '<i class="fa-solid fa-circle-xmark text-rose-600 text-lg"></i>';
+                    }
+                } else if (isSelected) {
+                    iconHTML = '<i class="fa-solid fa-circle-dot text-brand-600 text-lg"></i>';
+                } else {
+                    iconHTML = '<i class="fa-regular fa-circle text-slate-400 text-lg"></i>';
+                }
+
+                optBtn.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs shadow-xs">
+                            ${optionPrefixes[optIdx]}
+                        </span>
+                        <span class="text-sm sm:text-base">${optText}</span>
+                    </div>
+                    <div>${iconHTML}</div>
+                `;
+
+                optionsContainer.appendChild(optBtn);
+            });
+
+            // Explanation box
+            const expBox = document.getElementById('explanation-box');
+            if (isReviewMode || userAnswers[index] !== null) {
+                document.getElementById('explanation-text').innerText = q.explanation;
+                expBox.classList.remove('hidden');
+            } else {
+                expBox.classList.add('hidden');
+            }
+
+            // Buttons State
+            document.getElementById('prev-btn').disabled = (index === 0);
+            
+            const nextBtn = document.getElementById('next-btn');
+            if (index === questionsData.length - 1) {
+                nextBtn.innerHTML = '<span>إنهاء الاختبار</span> <i class="fa-solid fa-check-double"></i>';
+                nextBtn.onclick = confirmFinishQuiz;
+            } else {
+                nextBtn.innerHTML = '<span>التالي</span> <i class="fa-solid fa-chevron-left"></i>';
+                nextBtn.onclick = nextQuestion;
+            }
+
+            updateGridStatus();
+        }
+
+        // Option Selection
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        // Navigation
+        function nextQuestion() {
+            if (currentQuestionIndex < questionsData.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        function jumpToQuestion(index) {
+            loadQuestion(index);
+        }
+
+        // Timer Logic
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                document.getElementById('timer').innerText = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        // Confirm Finish
+        function confirmFinishQuiz() {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                if (confirm(`لديك ${unanswered} سؤالًا لم تجب عليها بعد. هل أنت تأكد من تسليم الاختبار؟`)) {
+                    finishQuiz();
+                }
+            } else {
+                if (confirm('هل أنت متأكد من تسليم الإجابات وإنهاء الاختبار؟')) {
+                    finishQuiz();
+                }
+            }
+        }
+
+        // Finish Quiz and Show Results
+        function finishQuiz() {
+            clearInterval(timerInterval);
+
+            let correctCount = 0;
+            let wrongCount = 0;
+            let unansweredCount = 0;
+
+            let easyCorrect = 0, easyTotal = 8;
+            let medCorrect = 0, medTotal = 12;
+            let hardCorrect = 0, hardTotal = 8;
+            let excelCorrect = 0, excelTotal = 2;
+
+            questionsData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns === null) {
+                    unansweredCount++;
+                } else if (userAns === q.correct) {
+                    correctCount++;
+                    if (q.difficulty === 'سهل') easyCorrect++;
+                    else if (q.difficulty === 'متوسط') medCorrect++;
+                    else if (q.difficulty === 'صعب') hardCorrect++;
+                    else if (q.difficulty === 'متميز') excelCorrect++;
+                } else {
+                    wrongCount++;
+                }
+            });
+
+            const scorePercent = Math.round((correctCount / questionsData.length) * 100);
+
+            // Time spent
+            const timeSpentSeconds = (45 * 60) - timeRemaining;
+            const spentMins = Math.floor(timeSpentSeconds / 60);
+            const spentSecs = timeSpentSeconds % 60;
+
+            // Render Results UI
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('grid');
+            document.getElementById('results-screen').classList.remove('hidden');
+
+            document.getElementById('score-percentage').innerText = `${scorePercent}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('wrong-count').innerText = wrongCount;
+            document.getElementById('unanswered-count').innerText = unansweredCount;
+            document.getElementById('time-spent').innerText = `${spentMins}:${spentSecs.toString().padStart(2, '0')}`;
+
+            document.getElementById('easy-stat').innerText = `${easyCorrect} / ${easyTotal}`;
+            document.getElementById('medium-stat').innerText = `${medCorrect} / ${medTotal}`;
+            document.getElementById('hard-stat').innerText = `${hardCorrect} / ${hardTotal}`;
+            document.getElementById('excel-stat').innerText = `${excelCorrect} / ${excelTotal}`;
+
+            // Title feedback
+            const titleEl = document.getElementById('result-title');
+            if (scorePercent >= 90) titleEl.innerText = 'أداء ممتاز ومبهر! أحسنت صنعاً 🌟';
+            else if (scorePercent >= 75) titleEl.innerText = 'أداء جيد جداً! واصل التميز 👍';
+            else if (scorePercent >= 50) titleEl.innerText = 'أداء جيد، يمكنك التحسين بمراجعة الشروح 📚';
+            else titleEl.innerText = 'تحتاج إلى إعادة دراسة الدرس والتركيز على المفاهيم 💡';
+        }
+
+        // Review Answers Function
+        function reviewAnswers() {
+            isReviewMode = true;
+            document.getElementById('results-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            document.getElementById('quiz-screen').classList.add('grid');
+            loadQuestion(0);
+        }
+
+        // Reset Quiz
+        function resetQuiz() {
+            userAnswers = new Array(questionsData.length).fill(null);
+            timeRemaining = 45 * 60;
+            isReviewMode = false;
+            document.getElementById('results-screen').classList.add('hidden');
+            startQuiz();
+        }
+
+        // Fullscreen Toggle
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {});
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
