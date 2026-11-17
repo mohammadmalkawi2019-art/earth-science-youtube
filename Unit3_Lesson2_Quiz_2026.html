@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الدرس الثاني الوحدة الثالثة 2026 | إعداد المعلم محمد ملكاوي</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        gold: {
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        .correct-pulse {
+            animation: correctAnim 0.4s ease-out;
+        }
+        @keyframes correctAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Branded Header -->
+    <header class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-2xl">
+                    <i class="fa-solid fa-mountain text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm sm:text-lg font-black text-slate-900 dark:text-white leading-tight flex items-center gap-2">
+                        اختبار الدرس الثاني الوحدة الثالثة 2026
+                        <span class="hidden sm:inline-block px-2.5 py-0.5 text-[10px] bg-gold-100 text-gold-600 rounded-full font-bold">إعداد وتصميم المعلم محمد ملكاوي</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">الجيولوجيا التركيبية: الصدوع وأجزاء الصدع وأنظمتها</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button id="theme-toggle" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all" title="تبديل المظهر">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+                </button>
+                <button id="reset-storage" class="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-all" title="إعادة تهيئة الإحصائيات">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col justify-center">
+        
+        <!-- Welcome Screen -->
+        <div id="welcome-view" class="space-y-8 max-w-5xl mx-auto w-full">
+            
+            <!-- Banner -->
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-6 md:p-8 shadow-md relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-3 text-center md:text-right">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-white/20 text-white uppercase tracking-wider">الوحدة الثالثة • الجيولوجيا التركيبية 2026</span>
+                        <h2 class="text-2xl md:text-3xl font-black">اختبار الدرس الثاني الوحدة الثالثة 2026</h2>
+                        <p class="text-emerald-50 max-w-xl text-sm leading-relaxed">
+                            منصة تقييمية تفاعلية شاملة لدرس (الصدوع)، تضم بنك الأسئلة الاحترافي واختبار نهاية الدرس مع التحليل العلمي الفوري لكافة البدائل وفق مستويات بلوم المعرفية.
+                        </p>
+                    </div>
+                    <!-- Teacher Badge Card -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 w-full md:w-auto min-w-[280px]">
+                        <div class="w-12 h-12 rounded-full bg-gold-100 text-gold-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-emerald-200">إعداد وتصميم المعلم</p>
+                            <p class="text-lg font-black text-white">محمد ملكاوي</p>
+                            <span class="text-[10px] text-white/80">علوم الأرض والبيئة • 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Dashboard Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-xl">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">أعلى نتيجة في بنك الأسئلة الاحترافي (25 سؤالاً)</p>
+                        <p class="text-lg font-black text-slate-800 dark:text-white" id="stat-pro-score">-</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-purple-100 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 rounded-xl">
+                        <i class="fa-solid fa-bolt text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">أعلى نتيجة في اختبار نهاية الدرس (20 سؤالاً)</p>
+                        <p class="text-lg font-black text-slate-800 dark:text-white" id="stat-lesson-score">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Selection Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1: Pro Bank -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-6 flex flex-col justify-between shadow-sm hover:shadow-lg group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">البنك الاحترافي الشامل</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-list-ol ml-1"></i> 25 سؤالاً</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">بنك الأسئلة الاحترافي — الصدوع</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            يغطي كافة مستويات بلوم المعرفية (التذكر، الفهم، التطبيق، التحليل، التركيب والتقويم) مع تحليل علمي مفصّل لسبب صحة الإجابة وسبب استبعاد كل بديل من البدائل الأخرى.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30">8 سهلة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 dark:bg-blue-950/30">9 متوسطة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-50 text-red-700 dark:bg-red-950/30">6 صعبة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 dark:bg-purple-950/30">2 متميزة</span>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz('pro')" class="mt-8 w-full bg-slate-900 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                        ابدأ بنك الأسئلة الاحترافي <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2: End of Lesson Quiz -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-6 flex flex-col justify-between shadow-sm hover:shadow-lg group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300">التقويم الختامي</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-list-ol ml-1"></i> 20 سؤالاً</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">اختبار نهاية الدرس — مراجعة مركّزة</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            اختبار تقويمي سريع يركّز على أجزاء الصدع، وأنواع الصدوع (العادي، العكسي، الجانبي)، والأمثلة الأردنية، وأنظمة الصدوع (الدرجية، الأحواض الخَسفية، الكُتل الاندفاعية).
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">مراجعة شاملة لمخرجات الدرس الثاني</span>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz('lesson')" class="mt-8 w-full bg-slate-900 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                        ابدأ اختبار نهاية الدرس <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Play View -->
+        <div id="quiz-view" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl w-full mx-auto">
+            
+            <!-- Questions Sidebar Grid -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col h-auto lg:h-[calc(100vh-12rem)] lg:sticky lg:top-24 shadow-sm">
+                <div class="mb-4">
+                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">جدول تتبع الأسئلة</h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">انقر للتبديل الفوري بين الأسئلة</p>
+                </div>
+                <div id="questions-grid" class="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-5 gap-2 overflow-y-auto custom-scrollbar flex-grow pr-1">
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md bg-emerald-500"></span> إجابة صحيحة
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md bg-red-500"></span> إجابة خاطئة
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md border border-amber-500 bg-amber-50 dark:bg-amber-950/30"></span> للمراجعة لاحقاً
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Workspace -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status Bar -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <button onclick="exitQuiz()" class="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-all" title="خروج للرئيسية">
+                            <i class="fa-solid fa-arrow-right-to-bracket rotate-180"></i>
+                        </button>
+                        <div>
+                            <span id="quiz-title-badge" class="font-black text-slate-800 dark:text-white text-sm sm:text-base">اختبار الدرس الثاني الوحدة الثالثة 2026</span>
+                            <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">إعداد وتصميم المعلم محمد ملكاوي</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold">
+                            السؤال <span id="current-question-num" class="text-emerald-600 dark:text-emerald-400 font-bold">1</span> من <span id="total-questions-num" class="font-bold">25</span>
+                        </div>
+                        <div id="timer-box" class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs sm:text-sm font-bold">
+                            <i class="fa-regular fa-clock"></i> <span id="timer-text">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Question Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="q-difficulty-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">سهل</span>
+                        <span id="q-bloom-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800">تذكر</span>
+                        <button id="bookmark-btn" onclick="toggleBookmark()" class="mr-auto p-2 text-slate-400 hover:text-amber-500 transition-all" title="مراجعة هذا السؤال لاحقاً">
+                            <i id="bookmark-icon" class="fa-regular fa-bookmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <h3 id="question-text" class="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-relaxed"></h3>
+
+                    <div id="learning-outcome-box" class="p-3.5 bg-emerald-50 dark:bg-emerald-950/20 border-r-4 border-emerald-500 rounded-l-xl text-xs text-emerald-800 dark:text-emerald-300">
+                        <span class="font-black block mb-1">ناتج التعلم المرتبط:</span>
+                        <p id="learning-outcome-text"></p>
+                    </div>
+
+                    <div id="options-container" class="grid grid-cols-1 gap-4 pt-2">
+                    </div>
+
+                    <!-- Feedback Drawer -->
+                    <div id="feedback-box" class="hidden p-5 rounded-2xl border-2 transition-all space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div id="feedback-icon-container" class="p-1.5 rounded-lg text-white"></div>
+                            <h4 id="feedback-title" class="font-bold"></h4>
+                        </div>
+                        <div id="feedback-explain-area" class="text-xs sm:text-sm space-y-2 leading-relaxed">
+                        </div>
+                        <div id="feedback-concept-box" class="pt-2 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+                            <strong>الفكرة التي يقيسها السؤال:</strong> <span id="feedback-concept-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controllers -->
+                <div class="flex items-center justify-between gap-4">
+                    <button id="prev-btn" onclick="prevQuestion()" class="flex items-center gap-2 bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 px-6 py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-50">
+                        <i class="fa-solid fa-arrow-right"></i> السابق
+                    </button>
+                    
+                    <button id="submit-quiz-btn" onclick="finishQuiz()" class="hidden bg-red-600 hover:bg-red-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        تسليم وإنهاء الاختبار <i class="fa-solid fa-square-check mr-1"></i>
+                    </button>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        التالي <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results View -->
+        <div id="results-view" class="hidden max-w-5xl mx-auto w-full space-y-8">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 shadow-lg text-center space-y-6">
+                <div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center text-4xl mx-auto">
+                    🏆
+                </div>
+                <div class="space-y-2">
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">أحسنت! أتممت اختبار الدرس الثاني الوحدة الثالثة 2026</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+                        إعداد وتصميم المعلم محمد ملكاوي — تحليل تشخيصي شامل لمستوى إتقانك لمفاهيم الصدوع وأنظمتها.
+                    </p>
+                </div>
+
+                <!-- Academic Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النتيجة الإجمالية</p>
+                        <p class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1" id="res-score">0/0</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النسبة المئوية</p>
+                        <p class="text-2xl font-black text-blue-600 dark:text-blue-400 mt-1" id="res-percent">0%</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">الزمن المستهلك</p>
+                        <p class="text-2xl font-black text-purple-600 dark:text-purple-400 mt-1" id="res-time">00:00</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">التقدير الأكاديمي</p>
+                        <p class="text-xl font-black text-amber-600 dark:text-amber-400 mt-1.5" id="res-rank">-</p>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Charts -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto text-right">
+                    <div class="bg-slate-50 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-800 p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-white"><i class="fa-solid fa-gauge-high text-emerald-500 ml-1"></i> دقة الأداء حسب درجات صعوبة الأسئلة</h4>
+                        <div class="space-y-2 text-xs" id="res-difficulty-bars">
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-800 p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-white"><i class="fa-solid fa-brain text-purple-500 ml-1"></i> تصنيف الأداء العلمي وفق هرم بلوم</h4>
+                        <div class="space-y-2 text-xs" id="res-bloom-bars">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="goToHome()" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-all">
+                        العودة للرئيسية <i class="fa-solid fa-house mr-1"></i>
+                    </button>
+                    <button id="retry-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-all shadow-md">
+                        إعادة الاختبار للتحسين <i class="fa-solid fa-rotate-right mr-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Answer Logs -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                <h3 class="text-xl font-black text-slate-900 dark:text-white text-right"><i class="fa-solid fa-list-check text-emerald-500 ml-2"></i> مراجعة تفصيلية للإجابات مع التفسير الأكاديمي</h3>
+                <div id="reviewed-answers-log" class="space-y-6">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Branded Footer -->
+    <footer class="bg-white dark:bg-slate-900 py-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 space-y-2">
+        <p class="font-black text-emerald-600 dark:text-emerald-400">اختبار الدرس الثاني الوحدة الثالثة 2026 • علوم الأرض والبيئة</p>
+        <p>إعداد وتصميم المعلم: محمد ملكاوي © 2026. كافة الحقوق العلمية محفوظة.</p>
+    </footer>
+
+    <!-- Web Audio Synthesizer -->
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playSynthSound(freqs, type = 'sine', duration = 0.15) {
+            try {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                freqs.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + (idx * 0.08));
+                    osc.stop(audioCtx.currentTime + (idx * 0.08) + duration);
+                });
+            } catch (e) {}
+        }
+        
+        function playCorrectSound() { playSynthSound([523.25, 659.25], 'triangle', 0.2); }
+        function playIncorrectSound() { playSynthSound([293.66, 220.00], 'sawtooth', 0.25); }
+        function playCompleteSound() { playSynthSound([523.25, 659.25, 783.99, 1046.50], 'triangle', 0.4); }
+    </script>
+
+    <script>
+        // 1. Professional Bank (25 Verified Questions from Document)
+        const proQuestions = [
+            {
+                text: "كسر يحدث في صخور القشرة الأرضية وينتج منه كتلتان صخريتان تتحرّكان بصورة موازية لسطح الكسر يُسمّى:",
+                options: [
+                    { text: "الطيّة", isCorrect: false, rationale: "الطيّة تنتج من الصخور اللدنة دون كسر." },
+                    { text: "الصدع", isCorrect: true, rationale: "هذا هو التعريف الحرفي للصدع (Fault)." },
+                    { text: "الإجهاد", isCorrect: false, rationale: "الإجهاد هو القوة المؤثرة وليس التركيب الناتج." },
+                    { text: "المطاوعة", isCorrect: false, rationale: "المطاوعة استجابة الصخر للإجهاد، وليست التركيب نفسه." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف الصدع.",
+                outcome: "أوضّح المقصود بالصدع."
+            },
+            {
+                text: "السطح الذي تتحرّك عليه الكتل الصخرية في الصدع يُسمّى:",
+                options: [
+                    { text: "الجدار المعلَّق", isCorrect: false, rationale: "الجدار المعلَّق كتلة صخرية فوق المستوى، وليس المستوى نفسه." },
+                    { text: "الجدار القدَم", isCorrect: false, rationale: "الجدار القدَم كتلة صخرية أسفل المستوى، وليس المستوى نفسه." },
+                    { text: "مستوى الصدع", isCorrect: true, rationale: "هذا هو التعريف الحرفي لمستوى الصدع (Fault Plane)." },
+                    { text: "المضرب", isCorrect: false, rationale: "المضرب مصطلح خاص بوضعية الطبقات وليس بالصدوع." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف مستوى الصدع.",
+                outcome: "أحدّد أجزاء الصدع على الرسم."
+            },
+            {
+                text: "الكتلة الصخرية التي تقع فوق مستوى الصدع المائل تُسمّى:",
+                options: [
+                    { text: "الجدار القدَم", isCorrect: false, rationale: "الجدار القدَم يقع أسفل المستوى وليس فوقه." },
+                    { text: "الجدار المعلَّق", isCorrect: true, rationale: "هذا هو التعريف الحرفي للجدار المعلَّق (Hanging Wall)." },
+                    { text: "مستوى الصدع", isCorrect: false, rationale: "مستوى الصدع هو السطح نفسه وليس كتلة صخرية." },
+                    { text: "الأخدود", isCorrect: false, rationale: "الأخدود مصطلح غير وارد في هذا السياق." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف الجدار المعلَّق.",
+                outcome: "أحدّد أجزاء الصدع على الرسم."
+            },
+            {
+                text: "الصدع الناتج من إجهاد الشدّ ويتحرّك فيه الجدار المعلَّق إلى الأسفل يُسمّى:",
+                options: [
+                    { text: "الصدع العكسي", isCorrect: false, rationale: "الصدع العكسي ينتج من إجهاد الضغط ويتحرّك فيه الجدار المعلَّق للأعلى." },
+                    { text: "الصدع العادي", isCorrect: true, rationale: "هذا هو تعريف الصدع العادي (Normal Fault) بدقة." },
+                    { text: "الصدع الجانبي", isCorrect: false, rationale: "الصدع الجانبي ينتج من إجهاد القصّ بحركة أفقية." },
+                    { text: "الصدع التحويلي", isCorrect: false, rationale: "الصدع التحويلي مصطلح مرتبط بحدود الصفائح وليس بهذا التصنيف تحديدًا." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف الصدع العادي وربطه بنوع الإجهاد.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "الصدع الناتج من إجهاد الضغط ويتحرّك فيه الجدار المعلَّق إلى الأعلى يُسمّى:",
+                options: [
+                    { text: "الصدع العادي", isCorrect: false, rationale: "الصدع العادي ينتج من إجهاد الشدّ ويتحرّك فيه الجدار المعلَّق للأسفل." },
+                    { text: "الصدع العكسي", isCorrect: true, rationale: "هذا هو تعريف الصدع العكسي (Reverse Fault) بدقة." },
+                    { text: "الصدع الجانبي", isCorrect: false, rationale: "الصدع الجانبي ينتج من إجهاد القصّ بحركة أفقية." },
+                    { text: "الحوض الخَسفي", isCorrect: false, rationale: "الحوض الخَسفي نظام صدوع مكوَّن من صدعين عاديين متقابلين، وليس نوعًا مفردًا من الصدوع." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف الصدع العكسي وربطه بنوع الإجهاد.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "الصدع الناتج من إجهاد القصّ بحركة أفقية للكتلتين الصخريتين يُسمّى:",
+                options: [
+                    { text: "الصدع العادي", isCorrect: false, rationale: "الصدع العادي حركته رأسية وليست أفقية." },
+                    { text: "الصدع العكسي", isCorrect: false, rationale: "الصدع العكسي حركته رأسية وليست أفقية." },
+                    { text: "الصدع الجانبي", isCorrect: true, rationale: "هذا هو تعريف الصدع الجانبي (Strike-Slip Fault) بدقة." },
+                    { text: "الحوض الخَسفي", isCorrect: false, rationale: "الحوض الخَسفي نظام صدوع وليس نوعًا مفردًا." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف الصدع الجانبي وربطه بنوع الإجهاد.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "مثال أردني على الصدوع الجانبية:",
+                options: [
+                    { text: "صدع البحر الميت التحويلي", isCorrect: true, rationale: "صدع البحر الميت التحويلي مثال صريح على الصدوع الجانبية في الأردن ورد في الدرس." },
+                    { text: "غور الأردن", isCorrect: false, rationale: "غور الأردن مثال على الأحواض الخَسفية." },
+                    { text: "وادي الموجب", isCorrect: false, rationale: "وادي الموجب مثال على الصدوع الدرجية." },
+                    { text: "خزان اليرموك", isCorrect: false, rationale: "خزان اليرموك غير مرتبط بأي نوع صدوع في هذا الدرس." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع مثال أردني محدَّد للصدوع الجانبية.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "مثال أردني على الأحواض الخَسفية:",
+                options: [
+                    { text: "صدع البحر الميت", isCorrect: false, rationale: "صدع البحر الميت مثال على الصدوع الجانبية." },
+                    { text: "وادي الموجب", isCorrect: false, rationale: "وادي الموجب مثال على الصدوع الدرجية." },
+                    { text: "غور الأردن", isCorrect: true, rationale: "ورد صراحة في الدرس أن غور الأردن يُعدّ مثالًا على الأحواض الخَسفية." },
+                    { text: "شارع الـ100", isCorrect: false, rationale: "شارع الـ100 مثال على صدع عكسي مفرد." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع مثال أردني محدَّد للأحواض الخَسفية.",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "الفرق الجوهري بين الصدع العادي والصدع العكسي من حيث نوع الإجهاد المسبِّب هو:",
+                options: [
+                    { text: "كلاهما ينتج من إجهاد الشدّ", isCorrect: false, rationale: "هذا يصف العادي فقط وليس العكسي." },
+                    { text: "العادي ينتج من الشدّ، والعكسي ينتج من الضغط", isCorrect: true, rationale: "وفق جدول (1)، ينتج الصدع العادي من إجهاد الشدّ، بينما ينتج الصدع العكسي من إجهاد الضغط." },
+                    { text: "العادي ينتج من الضغط، والعكسي ينتج من الشدّ", isCorrect: false, rationale: "هذا عكس الحقيقة تمامًا." },
+                    { text: "كلاهما ينتج من إجهاد القصّ", isCorrect: false, rationale: "إجهاد القصّ مرتبط بالصدوع الجانبية، وليس العادي أو العكسي." }
+                ],
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "التمييز الدقيق بين نوعَي الإجهاد المسبِّبين للصدعين العادي والعكسي.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "لوحظ في أحد الصدوع تكرار واضح للطبقات الصخرية رأسيًا مع زيادة العمق. أفضل تصنيف لهذا الصدع هو:",
+                options: [
+                    { text: "صدع عادي", isCorrect: false, rationale: "لا يحدث تكرار للطبقات في الصدع العادي وفق الجدول." },
+                    { text: "صدع عكسي", isCorrect: true, rationale: "وفق جدول (1)، فإن تكرار الطبقات الصخرية رأسيًا مع العمق سمة مميِّزة للصدع العكسي تحديدًا، دون العادي أو الجانبي." },
+                    { text: "صدع جانبي", isCorrect: false, rationale: "لا يحدث تكرار للطبقات في الصدع الجانبي وفق الجدول." },
+                    { text: "حوض خَسفي", isCorrect: false, rationale: "الحوض الخَسفي نظام مكوَّن من صدعين عاديين، وسمة تكرار الطبقات لا ترتبط به تحديدًا في هذا السياق." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "تطبيق معيار تكرار الطبقات لتصنيف نوع الصدع.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "منطقة تعرّضت لقوى شدّ ناتجة من حركة الصفائح التكتونية، فتشكّل فيها صدعان عاديان متقابلان اشتركا في الجدار المعلَّق، وهبطت الكتلة بينهما. هذا التركيب يُسمّى:",
+                options: [
+                    { text: "صدوع درجية", isCorrect: false, rationale: "الصدوع الدرجية تتكوّن من عدّة صدوع عادية متوازية (وليس متقابلة) تأخذ شكل الدرج." },
+                    { text: "حوض خَسفي", isCorrect: true, rationale: "هذا الوصف (صدعان عاديان متقابلان، اشتراك بالجدار المعلَّق، هبوط الكتلة الوسطى) يطابق تمامًا تعريف الحوض الخَسفي." },
+                    { text: "كتلة اندفاعية", isCorrect: false, rationale: "الكُتلة الاندفاعية تشترك بالجدار القدَم مع ارتفاع الكتلة الوسطى، وهذا عكس الوصف المعطى." },
+                    { text: "صدع جانبي مفرد", isCorrect: false, rationale: "الوصف يتضمّن صدعين وليس صدعًا مفردًا." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "تطبيق دقيق لتعريف الحوض الخَسفي والتمييز عن الأنظمة المشابهة.",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "منطقة أخرى تعرّضت لصدعين عاديين متقابلين اشتركا في الجدار القدَم، وارتفعت الكتلة الصخرية بينهما بينما هبطت الكتل المجاورة. هذا التركيب يُسمّى:",
+                options: [
+                    { text: "صدوع درجية", isCorrect: false, rationale: "الصدوع الدرجية تتكوّن من صدوع متوازية وليس متقابلة." },
+                    { text: "حوض خَسفي", isCorrect: false, rationale: "الحوض الخَسفي يشترك في الجدار المعلَّق مع هبوط الكتلة الوسطى، وهذا عكس الوصف." },
+                    { text: "كتلة اندفاعية", isCorrect: true, rationale: "هذا الوصف (اشتراك بالجدار القدَم، ارتفاع الكتلة الوسطى) يطابق تمامًا تعريف الكُتلة الاندفاعية." },
+                    { text: "صدع عكسي مفرد", isCorrect: false, rationale: "الوصف يتضمّن صدعين عاديين، وليس صدعًا عكسيًا مفردًا." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "تطبيق دقيق لتعريف الكُتلة الاندفاعية والتمييز عن الحوض الخَسفي.",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "بالمقارنة بين الحوض الخَسفي والكُتلة الاندفاعية، فإن أوجه التشابه بينهما تكمن في:",
+                options: [
+                    { text: "كلاهما ينتج من صدعين عاديين متقابلين بفعل إجهاد شدّ", isCorrect: true, rationale: "كلا النظامين ينتجان من إجهاد الشدّ نفسه ويتكوّنان من صدعين عاديين متقابلين، ويختلفان فقط في الجدار المشترك (معلَّق/قدَم) واتجاه حركة الكتلة الوسطى (هبوط/ارتفاع)." },
+                    { text: "كلاهما ينتج من صدع واحد فقط", isCorrect: false, rationale: "كلاهما يتضمّن صدعين وليس صدعًا واحدًا." },
+                    { text: "كلاهما ينتج من إجهاد ضغط", isCorrect: false, rationale: "كلاهما ينتج من إجهاد الشدّ وليس الضغط." },
+                    { text: "لا يوجد أي تشابه بينهما إطلاقًا", isCorrect: false, rationale: "يوجد تشابه جوهري بينهما في المصدر (إجهاد الشدّ) وعدد الصدوع (اثنان متقابلان)، رغم اختلاف النتيجة النهائية." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "التحليل المقارن لأوجه التشابه بين نظامَي الصدوع المتقاربَين (حوض خَسفي وكُتلة اندفاعية).",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "لوحظ في صدع معيّن أن مستوى الصدع يصنع زاوية 90° بالضبط مع المستوى الأفقي، وأن الحركة أفقية. هذا الصدع هو على الأرجح:",
+                options: [
+                    { text: "صدع عادي رأسي", isCorrect: false, rationale: "الصدع العادي حركته رأسية (للأعلى/الأسفل) وليست أفقية." },
+                    { text: "صدع عكسي رأسي", isCorrect: false, rationale: "الصدع العكسي حركته رأسية أيضًا وليست أفقية." },
+                    { text: "صدع جانبي بمستوى رأسي", isCorrect: true, rationale: "الصدوع الجانبية تحديدًا هي التي يكون مستوى الصدع فيها رأسيًا غالبًا (زاوية 90°) مع حركة أفقية، كما ورد صراحة في الدرس (مثال: صدع البحر الميت التحويلي)." },
+                    { text: "لا يمكن أن يوجد صدع بهذه المواصفات", isCorrect: false, rationale: "هذا المزيج (مستوى رأسي، حركة أفقية) موجود فعليًا ويطابق تعريف الصدوع الجانبية تمامًا." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق",
+                concept: "تطبيق دقيق للربط بين ميل المستوى ونوع الحركة لتحديد نوع الصدع الصحيح.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "لماذا تُعدّ كل من الصدوع العادية والعكسية 'صدوعًا مائلة' رغم اختلافهما في اتجاه الحركة؟",
+                options: [
+                    { text: "لأن مستوى الصدع في كليهما يصنع زاوية بين 0° و90° مع المستوى الأفقي (وليس 90° بالضبط)", isCorrect: true, rationale: "كلا النوعين (العادي والعكسي) لهما مستوى صدع مائل (زاوية بين 0° و90°)، وهذا ما يميّزهما معًا عن الصدوع الرأسية، رغم اختلافهما الجوهري في اتجاه حركة الجدار المعلَّق (لأسفل في العادي، لأعلى في العكسي) ونوع الإجهاد المسبِّب (شدّ/ضغط)." },
+                    { text: "لأنهما متطابقان تمامًا في كل شيء", isCorrect: false, rationale: "يختلفان في اتجاه الحركة ونوع الإجهاد، لكنهما يتشابهان في كون مستوى الصدع مائلًا في كليهما." },
+                    { text: "لأن كليهما ينتج من الإجهاد نفسه", isCorrect: false, rationale: "ينتج العادي من الشدّ والعكسي من الضغط، وهما إجهادان مختلفان تمامًا." },
+                    { text: "لا سبب علمي لذلك", isCorrect: false, rationale: "يوجد سبب علمي دقيق وواضح لتصنيفهما معًا كصدوع مائلة، وهو زاوية ميل مستوى الصدع بينهما." }
+                ],
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "الفهم الدقيق لمعيار 'الميل' كأساس تصنيفي مستقل عن معيار 'نوع الحركة/الإجهاد'.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "إذا لاحظ جيولوجي أن الجدار المعلَّق في أحد الصدوع تحرّك للأعلى نسبة إلى الجدار القدَم، فأي استنتاجين يمكنه استخلاصهما معًا بثقة؟",
+                options: [
+                    { text: "نوع الصدع عادي، ونوع الإجهاد شدّ", isCorrect: false, rationale: "الصدع العادي يتحرّك فيه الجدار المعلَّق للأسفل وليس للأعلى." },
+                    { text: "نوع الصدع عكسي، ونوع الإجهاد ضغط", isCorrect: true, rationale: "حركة الجدار المعلَّق للأعلى نسبة للجدار القدَم هي السمة المميِّزة حصرًا للصدع العكسي، الذي ينتج بدوره من إجهاد الضغط وفق جدول (1)؛ فمن ملاحظة واحدة (اتجاه حركة الجدار المعلَّق) يمكن استنتاج كل من نوع الصدع ونوع الإجهاد المسبِّب معًا بثقة." },
+                    { text: "نوع الصدع جانبي، ونوع الإجهاد قصّ", isCorrect: false, rationale: "الصدع الجانبي حركته أفقية وليست رأسية (لأعلى/لأسفل)." },
+                    { text: "لا يمكن استنتاج أي شيء من هذه الملاحظة وحدها", isCorrect: false, rationale: "يمكن استنتاج نوعَي الصدع والإجهاد معًا بثقة تامة من هذه الملاحظة الواحدة، بفضل الترابط المباشر الموضَّح في جدول (1)." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "التطبيق التكاملي لاستنتاج نوعين مترابطين من المعلومات (نوع الصدع ونوع الإجهاد) من ملاحظة ميدانية واحدة.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "أراد جيولوجي تحديد نوع صدع رصده ميدانيًا، فوجد أن الكتلتين الصخريتين تتحرّكان بصورة أفقية نسبة لبعضهما بعضًا، ولم يلاحظ أي تكرار رأسي للطبقات مع العمق. نوع الصدع الأرجح هو:",
+                options: [
+                    { text: "صدع عادي", isCorrect: false, rationale: "الصدع العادي حركته رأسية وليست أفقية." },
+                    { text: "صدع عكسي", isCorrect: false, rationale: "الصدع العكسي حركته رأسية، ويتميّز بتكرار الطبقات، بخلاف المعطيات هنا." },
+                    { text: "صدع جانبي", isCorrect: true, rationale: "الحركة الأفقية بين الكتلتين هي السمة الحصرية للصدع الجانبي، وغياب تكرار الطبقات رأسيًا يتوافق أيضًا مع الصدع الجانبي (وليس العكسي الذي يتميّز بتكرار الطبقات)." },
+                    { text: "حوض خَسفي", isCorrect: false, rationale: "الحوض الخَسفي نظام مكوَّن من صدعين عاديين رأسيَي الحركة، وليس صدعًا مفردًا أفقي الحركة." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق",
+                concept: "التطبيق المزدوج لمعيارين (نوع الحركة، وتكرار الطبقات) معًا لتحديد نوع الصدع بدقة.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "بالمقارنة بين نتائج التتابع الطبقي نفسه عند تعرّضه لإجهاد ضغط في منطقتين مختلفتين (الأولى قرب سطح الأرض حيث الصخر هشّ، والثانية في أعماق كبيرة حيث الصخر يسلك سلوكًا لدنًا)، أي وصف أدقّ للنتيجتين المتوقَّعتين؟",
+                options: [
+                    { text: "كلتا المنطقتين تنتجان صدعًا عكسيًا متطابقًا تمامًا", isCorrect: false, rationale: "نتيجة الصخر الهشّ (كسر/صدع) تختلف جوهريًا عن نتيجة الصخر اللدن (انثناء/طيّة)، فليستا متطابقتين." },
+                    { text: "المنطقة القريبة من السطح تنتج صدعًا عكسيًا (كسر في صخر هشّ)، بينما المنطقة العميقة تنتج طيّة (انثناء في صخر لدن)؛ لأن نوع الاستجابة يعتمد على سلوك الصخر (هشّ/لدن) وليس فقط نوع الإجهاد", isCorrect: true, rationale: "هذا يربط مباشرة بين مفاهيم الدرس الأول (سلوك الصخر يتغيّر من هشّ إلى لدن مع زيادة العمق بسبب الحرارة) والدرس الثاني (الضغط في الصخر الهشّ ينتج صدعًا عكسيًا، بينما الضغط في الصخر اللدن ينتج طيّة)؛ فنفس نوع الإجهاد (ضغط) ينتج تركيبين مختلفين تمامًا بحسب سلوك الصخر المرتبط بالعمق." },
+                    { text: "كلتا المنطقتين تنتجان طيّة متطابقة تمامًا", isCorrect: false, rationale: "الصخر القريب من السطح غالبًا هشّ، فينتج صدعًا وليس طيّة." },
+                    { text: "لا علاقة بين العمق ونوع التركيب الناتج من إجهاد الضغط", isCorrect: false, rationale: "العمق (عبر تأثيره في درجة الحرارة وسلوك الصخر) عامل حاسم في تحديد نوع التركيب الناتج من الإجهاد نفسه، كما وضّح سؤال المراجعة رقم 4 في الكتاب." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التكامل المعرفي رفيع المستوى بين درسَي 'تشوّه الصخور' و'الصدوع' لفهم كيف يختلف أثر الإجهاد نفسه بحسب العمق وسلوك الصخر.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "أي الاستنتاجات الآتية أدقّ فيما يخصّ العلاقة بين 'أنظمة الصدوع الثلاثة' (درجية، أحواض خَسفية، كُتل اندفاعية) من حيث المصدر المشترك؟",
+                options: [
+                    { text: "لكل نظام مصدر إجهاد مختلف تمامًا عن الآخر", isCorrect: false, rationale: "الأنظمة الثلاثة تشترك في المصدر نفسه (إجهاد الشدّ) وفق نص الدرس صراحة، وليس لكل منها مصدر مختلف." },
+                    { text: "الأنظمة الثلاثة تشترك جميعًا في نشوئها من إجهاد الشدّ المرتبط بحركة الصفائح التكتونية، لكنها تختلف في عدد الصدوع وترتيبها الهندسي (متوازية في الدرجية، متقابلة بأشكال مختلفة في الحوض والكُتلة)", isCorrect: true, rationale: "أوضح الدرس صراحة أن الأنظمة الثلاثة (الصدوع الدرجية، الأحواض الخَسفية، الكُتل الاندفاعية) تنشأ جميعًا عندما تتعرّض صخور القشرة الأرضية لقوى شدّ نتيجة حركة الصفائح التكتونية؛ فمصدرها الإجهادي واحد (الشدّ)، لكنها تختلف في عدد الصدوع العادية المكوِّنة لها وترتيبها الهندسي النسبي (متوازية بشكل درج، أو متقابلة بهبوط أو ارتفاع الكتلة الوسطى)." },
+                    { text: "الأنظمة الثلاثة لا علاقة لها بحركة الصفائح التكتونية إطلاقًا", isCorrect: false, rationale: "ورد صراحة في الدرس أن هذه الأنظمة تتشكّل نتيجة حركة الصفائح التكتونية." },
+                    { text: "الأنظمة الثلاثة تنتج جميعًا من إجهاد القصّ", isCorrect: false, rationale: "الأنظمة الثلاثة تنتج من إجهاد الشدّ (لأنها كلها مبنية على الصدوع العادية)، وليس إجهاد القصّ." }
+                ],
+                difficulty: "صعب", bloom: "تقويم",
+                concept: "التقييم النقدي الدقيق للعلاقة بين المصدر الإجهادي المشترك (الشدّ) والتنوّع الهندسي الناتج (ثلاثة أنظمة مختلفة الشكل).",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "لماذا تُعدّ ملاحظة 'تكرار الطبقات الصخرية رأسيًا مع العمق' دليلًا ميدانيًا قويًا ومحدَّدًا على وجود صدع عكسي تحديدًا (دون الحاجة لملاحظة اتجاه حركة الجدار المعلَّق مباشرة)؟",
+                options: [
+                    { text: "لأن هذه الظاهرة (تكرار الطبقات) لا ترتبط بأي نوع صدع آخر في جدول المقارنة، فهي علامة تشخيصية حصرية للصدع العكسي بين الأنواع الثلاثة المدروسة", isCorrect: true, rationale: "وفق جدول (1)، فإن الصدع العكسي هو النوع الوحيد بين الأنواع الثلاثة (عادي، عكسي، جانبي) الذي يظهر فيه تكرار للطبقات الصخرية رأسيًا مع العمق؛ فهذه الظاهرة الميدانية القابلة للملاحظة (بفحص الطبقات المتكشِّفة) تُعدّ دليلًا تشخيصيًا حصريًا وقويًا يغني الجيولوجي عن الحاجة لرصد الحركة الفعلية للجدارين مباشرة (وهي غالبًا أصعب ملاحظة مباشرة من فحص تسلسل الطبقات)." },
+                    { text: "لأن جميع أنواع الصدوع تُظهر هذا التكرار بالتساوي", isCorrect: false, rationale: "وفق الجدول، لا يحدث هذا التكرار في الصدعين العادي والجانبي؛ فهو علامة حصرية للعكسي فقط." },
+                    { text: "لأن هذه الظاهرة لا علاقة لها بأي نوع من أنواع الصدوع", isCorrect: false, rationale: "هذه الظاهرة موثَّقة بدقة في جدول (1) كسمة مميِّزة تحديدًا للصدع العكسي." },
+                    { text: "لأن الصدع العادي هو الذي يُظهر هذا التكرار وليس العكسي", isCorrect: false, rationale: "هذا عكس الحقيقة تمامًا؛ فالجدول ينصّ صراحة على عدم حدوث تكرار في الصدع العادي، وحدوثه في العكسي." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل الاستنتاجي العميق لقيمة دليل ميداني غير مباشر (تكرار الطبقات) كأداة تشخيصية عملية بديلة عن الملاحظة المباشرة لحركة الجدارين.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "منطقة تحتوي على ثلاثة صدوع عادية متوازية متتالية (وليس صدعين متقابلين فقط)، تأخذ الكتل الصخرية فيها شكلًا متدرِّجًا. هذا التركيب يختلف عن الحوض الخَسفي والكُتلة الاندفاعية في:",
+                options: [
+                    { text: "عدد الصدوع المكوِّنة له (أكثر من صدعين، وليس صدعين متقابلين فقط) وترتيبها المتوازي بدلًا من المتقابل", isCorrect: true, rationale: "الصدوع الدرجية (كما وُصفت في هذا السيناريو) تتكوّن من مجموعة صدوع عادية متوازية (عددها قد يكون أكثر من اثنين) تأخذ شكل الدرج، بخلاف الحوض الخَسفي والكُتلة الاندفاعية اللذين يتكوّنان تحديدًا من 'صدعين' عاديين 'متقابلين' (وليس متوازيين بترتيب متدرِّج)؛ فالفرق الجوهري هو العدد والترتيب الهندسي النسبي للصدوع المكوِّنة لكل نظام." },
+                    { text: "نوع الإجهاد المسبِّب (وهو مختلف تمامًا عن الشدّ)", isCorrect: false, rationale: "جميع الأنظمة الثلاثة (الدرجية، الحوض، الكُتلة) تنتج من إجهاد الشدّ نفسه؛ فهذا ليس نقطة الاختلاف." },
+                    { text: "كونه لا يحتوي على أي صدوع عادية إطلاقًا", isCorrect: false, rationale: "الصدوع الدرجية تتكوّن أساسًا من مجموعة من الصدوع العادية، فمن غير الصحيح أنها لا تحتوي على أي منها." },
+                    { text: "لا يوجد أي فرق حقيقي بينه وبين الحوض الخَسفي", isCorrect: false, rationale: "يوجد فرق حقيقي وجوهري بينهما من حيث عدد الصدوع وترتيبها الهندسي (متوازية متعددة مقابل متقابلة اثنتين فقط)." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل المقارن الدقيق بين الصدوع الدرجية وأنظمة الصدوع المتقابلة (الحوض والكُتلة) من حيث العدد والترتيب الهندسي، وليس فقط نوع الإجهاد المشترك.",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "إذا رُصد صدع مستواه رأسي تمامًا (90°) وحركته رأسية (وليست أفقية)، فما التناقض المنطقي في هذا الوصف بناءً على مفاهيم الدرس؟",
+                options: [
+                    { text: "لا يوجد أي تناقض؛ فهذا وصف طبيعي لأي صدع", isCorrect: false, rationale: "يوجد بالفعل عدم اتساق منطقي مع الأنماط التصنيفية المعتادة الموضَّحة بوضوح في الدرس." },
+                    { text: "يوجد تناقض؛ لأن الصدوع ذات المستوى الرأسي (90°) المرتبطة بحركة رأسية (عادية أو عكسية) تفقد معنى تمييز الجدارين (المعلَّق والقدَم) أصلًا، بينما الصدوع الجانبية (التي تكون رأسية غالبًا) هي المرتبطة عادة بحركة أفقية لا رأسية", isCorrect: true, rationale: "يوضّح الدرس أن الصدوع الرأسية (90°) عادة ما ترتبط بالصدوع الجانبية (حركة أفقية)، وأن مفهومَي الجدار المعلَّق والقدَم (المرتبطين بالحركة الرأسية في العادي والعكسي) يفقدان وضوحهما أصلًا عند الميل الرأسي التام؛ فوصف صدع بأنه 'رأسي المستوى بحركة رأسية' (عادي أو عكسي) يمثّل حالة غير معتادة ومثيرة للتساؤل منطقيًا وفق الأنماط التصنيفية القياسية الموضَّحة في الدرس، إذ الأكثر شيوعًا واتساقًا هو ربط الاستواء الرأسي بالحركة الأفقية (الصدع الجانبي)." },
+                    { text: "الصدوع الرأسية تمامًا لا يمكن أن توجد في الطبيعة إطلاقًا", isCorrect: false, rationale: "الصدوع الرأسية موجودة فعليًا في الطبيعة (كصدع البحر الميت التحويلي)، فليست مستحيلة الوجود." },
+                    { text: "كل الصدوع الرأسية يجب أن تكون بالضرورة عكسية", isCorrect: false, rationale: "لا يوجد ما يُلزم أن كل صدع رأسي يكون عكسيًا؛ فالصدوع الرأسية ترتبط أساسًا بالصدوع الجانبية وفق الدرس، وليس العكسية بالضرورة." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل النقدي المتقدّم لحالة وصفية غير معتادة (ميل رأسي + حركة رأسية معًا)، واختبار مدى اتساقها مع الأنماط القياسية للتصنيف التي بناها الدرس.",
+                outcome: "أميّز أنواع الصدوع المختلفة."
+            },
+            {
+                text: "شارع الـ100 في عمّان يحتوي على صدع عكسي معروف. لو افترضنا أن اتجاه الإجهاد المؤثر في هذه المنطقة انعكس تمامًا (أصبح شدًّا بدلًا من الضغط) دون أي تغيّر آخر، فما التركيب الجديد المتوقَّع؟",
+                options: [
+                    { text: "يبقى التركيب صدعًا عكسيًا كما هو", isCorrect: false, rationale: "نوع الصدع يعتمد مباشرة على نوع الإجهاد، فتغيّر الإجهاد يعني تغيّر النتيجة المتوقَّعة." },
+                    { text: "يتحوّل التركيب إلى صدع عادي", isCorrect: true, rationale: "وفق جدول (1)، فإن نوع الصدع يتحدّد مباشرة بنوع الإجهاد؛ فانعكاس الإجهاد من ضغط (المرتبط بالصدع العكسي) إلى شدّ (المرتبط بالصدع العادي) يعني منطقيًا -مع بقاء بقية العوامل ثابتة (نوع الصخر هشّ، والعمق سطحي)- أن التركيب المتوقَّع يتحوّل إلى صدع عادي." },
+                    { text: "يتحوّل التركيب إلى صدع جانبي", isCorrect: false, rationale: "الصدع الجانبي يرتبط بإجهاد القصّ تحديدًا، وليس الشدّ." },
+                    { text: "يتحوّل التركيب إلى طيّة بالضرورة", isCorrect: false, rationale: "الطيّة تحدث في الصخور اللدنة، ولا يوجد ما يشير في السؤال إلى تغيّر نوع الصخر أو العمق (وهما العاملان المرتبطان بتحوّل السلوك إلى لدن)." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التطبيق التحليلي لمبدأ 'العلاقة المباشرة بين نوع الإجهاد ونوع الصدع' على سيناريو افتراضي لتغيّر الإجهاد، مع تثبيت بقية العوامل.",
+                outcome: "أربط بين نوع الصدع ونوع الإجهاد المتسبِّب في نشأته."
+            },
+            {
+                text: "منطقة تعرّضت لتاريخ جيولوجي معقّد: أوّلًا إجهاد شدّ أنتج صدعين عاديين متقابلين شكّلا حوضًا خَسفيًا، ثم لاحقًا تعرّضت المنطقة نفسها لإجهاد ضغط أثّر في الصخور المتكوِّنة حديثًا فوق الحوض. أي وصف يمثّل بدقة أكبر التسلسل الجيولوجي المتوقَّع لهذه المنطقة؟",
+                options: [
+                    { text: "لا يمكن لمنطقة واحدة أن تتعرّض لأكثر من نوع إجهاد واحد عبر تاريخها الجيولوجي", isCorrect: false, rationale: "المناطق الجيولوجية الحقيقية (كالأردن نفسه، بأنظمة صدوعه المتعددة) تسجّل فعليًا تاريخًا معقّدًا من عدّة مراحل إجهاد مختلفة عبر ملايين السنين." },
+                    { text: "في المرحلة الأولى تشكّل حوض خَسفي (هبوط كتلة صخرية بين صدعين عاديين متقابلين نتيجة الشدّ)؛ وفي المرحلة الثانية، تأثّرت الطبقات الأحدث فوقه بإجهاد الضغط، ما قد يُنتج صدعًا عكسيًا أو طيّة إضافية (بحسب سلوك تلك الطبقات هشّ أم لدن)، فتسجّل المنطقة تاريخًا جيولوجيًا متعدد المراحل يعكس تعاقب الإجهادات المختلفة", isCorrect: true, rationale: "يعكس هذا الوصف فهمًا متكاملًا لمبدأ جيولوجي واقعي مهمّ: يمكن لمنطقة واحدة أن تسجّل تاريخًا متعدد المراحل من الإجهادات المختلفة عبر الزمن الجيولوجي، وكل مرحلة تُنتج تراكيبها الخاصة المتوافقة مع نوع الإجهاد السائد وقتها وسلوك الصخر المتأثّر به؛ فالمرحلة الأولى (شدّ) أنتجت الحوض الخَسفي كما وُصف، والمرحلة الثانية (ضغط) على طبقات جديدة قد تُنتج صدعًا عكسيًا (إن كانت هشّة) أو طيّة (إن كانت لدنة)، وهذا يعكس تكاملًا حقيقيًا بين مفاهيم درسَي 'تشوّه الصخور' و'الصدوع' معًا." },
+                    { text: "الإجهاد الثاني يُلغي تمامًا الحوض الخَسفي الذي تشكّل في المرحلة الأولى", isCorrect: false, rationale: "لا يوجد أساس علمي في الدرس يشير إلى أن إجهادًا لاحقًا 'يُلغي' تمامًا تركيبًا سابقًا؛ بل الأرجح تراكم أو تعديل التراكيب القائمة أو إضافة تراكيب جديدة فوقها." },
+                    { text: "كلا الإجهادين يُنتجان التركيب نفسه بالضبط بصرف النظر عن نوعهما", isCorrect: false, rationale: "نوع الإجهاد (شدّ مقابل ضغط) يُنتج نتائج مختلفة تمامًا (حوض خَسفي هابط مقابل صدع عكسي أو طيّة)، وليس التركيب نفسه بالضبط." }
+                ],
+                difficulty: "متميز", bloom: "تركيب/تقويم",
+                concept: "مسألة تركيبية متقدّمة جدًا تدمج مفاهيم من الدرسين الأول والثاني معًا (تشوّه الصخور، وأنظمة الصدوع) في سيناريو جيولوجي واقعي متعدد المراحل الزمنية — أعلى مستوى تفكير جيولوجي في هذا الدرس.",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            },
+            {
+                text: "بالنظر الشامل لدرس 'الصدوع' بأكمله، أي وصف يمثّل بدقة أكبر الإطار المفاهيمي المتكامل الذي يربط بين (نوع الإجهاد، أجزاء الصدع، تصنيف الصدوع، أنظمة الصدوع)؟",
+                options: [
+                    { text: "هذه المفاهيم منفصلة تمامًا ولا رابط منطقي بينها", isCorrect: false, rationale: "هذه المفاهيم مترابطة بعمق شديد في تسلسل سببي واضح طوال الدرس بأكمله، من الإجهاد وحتى الأنظمة المعقّدة." },
+                    { text: "نوع الإجهاد (شدّ/ضغط/قصّ) يحدِّد اتجاه حركة أجزاء الصدع (الجدار المعلَّق نسبة للجدار القدَم)، ما يحدِّد نوع الصدع المفرد (عادي/عكسي/جانبي)؛ وتكرار هذه الصدوع المفردة (خاصة العادية) بأنماط هندسية مختلفة (متوازية أو متقابلة) يُنتج أنظمة صدوع أكبر وأكثر تعقيدًا (درجية، أحواض خَسفية، كُتل اندفاعية) ترتبط جميعها بحركة الصفائح التكتونية", isCorrect: true, rationale: "يبني الدرس بأكمله سلسلة مفاهيمية متدرِّجة ومتكاملة: يبدأ من نوع الإجهاد (كأساس سببي)، يليه تعريف أجزاء الصدع المفرد وكيفية تحرّكها، ثم تصنيف الصدع المفرد بحسب هذا التحرّك (عادي/عكسي/جانبي)، وأخيرًا يوضّح كيف يمكن لتكرار الصدوع العادية بأنماط هندسية مختلفة (متوازية في الدرجية، متقابلة في الحوض والكُتلة) أن يُنتج أنظمة صدوع أكبر وأكثر تعقيدًا، وكل هذا مرتبط بمصدر جيوديناميكي واحد هو حركة الصفائح التكتونية المسبِّبة لإجهاد الشدّ الإقليمي." },
+                    { text: "أنظمة الصدوع لا علاقة لها بأنواع الصدوع المفردة إطلاقًا", isCorrect: false, rationale: "أنظمة الصدوع (كالحوض الخَسفي) هي في جوهرها تجميع منظَّم لعدّة صدوع مفردة (عادية تحديدًا)، فالعلاقة بينهما مباشرة وجوهرية." },
+                    { text: "تصنيف الصدوع لا علاقة له بنوع الإجهاد إطلاقًا", isCorrect: false, rationale: "تصنيف الصدوع (عادي/عكسي/جانبي) يعتمد بصورة أساسية ومباشرة على نوع الإجهاد المسبِّب كما فصّل جدول (1) بدقة تامة." }
+                ],
+                difficulty: "متميز", bloom: "تقويم",
+                concept: "أعلى مستوى تركيبي وتقييمي في الدرس بأكمله: استخلاص الإطار المفاهيمي الشامل الذي يربط جميع عناصر الدرس (الإجهاد، أجزاء الصدع، تصنيف الصدوع المفردة، أنظمة الصدوع المركَّبة) في سلسلة سببية هرمية واحدة متكاملة.",
+                outcome: "أوضّح المقصود بأنظمة الصدوع."
+            }
+        ];
+
+        // 2. End of Lesson Quiz (20 Verified Questions)
+        const lessonQuestions = [
+            {
+                text: "كسر يحدث في صخور القشرة الأرضية وينتج منه كتلتان صخريتان تتحرّكان بصورة موازية لسطح الكسر يُسمّى:",
+                options: [
+                    { text: "الطيّة", isCorrect: false, rationale: "الطيّة انثناء في الصخور اللدنة دون كسر." },
+                    { text: "الصدع", isCorrect: true, rationale: "هذا هو تعريف الصدع بدقة." },
+                    { text: "المضرب", isCorrect: false, rationale: "المضرب يصف اتجاه الطبقات المائلة." },
+                    { text: "الإجهاد", isCorrect: false, rationale: "الإجهاد هو القوة المؤثرة في وحدة المساحة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "السطح الذي تتحرّك عليه الكتل الصخرية في الصدع يُسمّى:",
+                options: [
+                    { text: "مستوى الصدع", isCorrect: true, rationale: "هذا هو تعريف مستوى الصدع." },
+                    { text: "الجدار المعلَّق", isCorrect: false, rationale: "الجدار المعلَّق هو الكتلة الواقعة فوق مستوى الصدع." },
+                    { text: "الجدار القدَم", isCorrect: false, rationale: "الجدار القدَم هو الكتلة الواقعة أسفل مستوى الصدع." },
+                    { text: "المضرب", isCorrect: false, rationale: "مصطلح خاص باتجاه الطبقات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الكتلة الصخرية الواقعة فوق مستوى الصدع المائل تُسمّى:",
+                options: [
+                    { text: "الجدار القدَم", isCorrect: false, rationale: "الجدار القدَم يقع أسفل مستوى الصدع." },
+                    { text: "الجدار المعلَّق", isCorrect: true, rationale: "هذا هو تعريف الجدار المعلَّق." },
+                    { text: "مستوى الصدع", isCorrect: false, rationale: "مستوى الصدع هو سطح الكسر نفسه." },
+                    { text: "الطيّة", isCorrect: false, rationale: "الطيّة تركيب ينتج من انثناء الطبقات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الكتلة الصخرية الواقعة أسفل مستوى الصدع المائل تُسمّى:",
+                options: [
+                    { text: "الجدار المعلَّق", isCorrect: false, rationale: "الجدار المعلَّق يقع فوق مستوى الصدع." },
+                    { text: "الجدار القدَم", isCorrect: true, rationale: "هذا هو تعريف الجدار القدَم." },
+                    { text: "مستوى الصدع", isCorrect: false, rationale: "مستوى الصدع هو السطح الفاصل." },
+                    { text: "الطيّة", isCorrect: false, rationale: "تركيب جيولوجي مختلف." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الصدع الناتج من إجهاد الشدّ يُسمّى:",
+                options: [
+                    { text: "الصدع العكسي", isCorrect: false, rationale: "ينتج من إجهاد الضغط." },
+                    { text: "الصدع العادي", isCorrect: true, rationale: "الصدع العادي ينتج من إجهاد الشدّ." },
+                    { text: "الصدع الجانبي", isCorrect: false, rationale: "ينتج من إجهاد القصّ." },
+                    { text: "الطيّة", isCorrect: false, rationale: "تنتج من الضغط في الصخور اللدنة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الصدع الناتج من إجهاد الضغط يُسمّى:",
+                options: [
+                    { text: "الصدع العادي", isCorrect: false, rationale: "ينتج من إجهاد الشدّ." },
+                    { text: "الصدع العكسي", isCorrect: true, rationale: "الصدع العكسي ينتج من إجهاد الضغط." },
+                    { text: "الصدع الجانبي", isCorrect: false, rationale: "ينتج من إجهاد القصّ." },
+                    { text: "الطيّة", isCorrect: false, rationale: "تركيب لدن وليس صدعًا." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الصدع الناتج من إجهاد القصّ يُسمّى:",
+                options: [
+                    { text: "الصدع العادي", isCorrect: false, rationale: "ينتج من إجهاد الشدّ." },
+                    { text: "الصدع العكسي", isCorrect: false, rationale: "ينتج من إجهاد الضغط." },
+                    { text: "الصدع الجانبي", isCorrect: true, rationale: "الصدع الجانبي ينتج من إجهاد القصّ." },
+                    { text: "الحوض الخَسفي", isCorrect: false, rationale: "نظام صدوع ناتج من الشدّ." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "في الصدع العادي، يتحرّك الجدار المعلَّق:",
+                options: [
+                    { text: "إلى الأسفل نسبة إلى الجدار القدَم", isCorrect: true, rationale: "هذه السمة المميِّزة للصدع العادي." },
+                    { text: "إلى الأعلى نسبة إلى الجدار القدَم", isCorrect: false, rationale: "هذه سمة الصدع العكسي." },
+                    { text: "أفقيًا فقط", isCorrect: false, rationale: "هذه سمة الصدع الجانبي." },
+                    { text: "لا يتحرّك إطلاقًا", isCorrect: false, rationale: "تحدث حركة نسبية على طول مستوى الصدع." }
+                ],
+                difficulty: "سهل", bloom: "فهم"
+            },
+            {
+                text: "في الصدع العكسي، يتحرّك الجدار المعلَّق:",
+                options: [
+                    { text: "إلى الأسفل نسبة إلى الجدار القدَم", isCorrect: false, rationale: "هذه سمة الصدع العادي." },
+                    { text: "إلى الأعلى نسبة إلى الجدار القدَم", isCorrect: true, rationale: "هذه السمة المميِّزة للصدع العكسي." },
+                    { text: "أفقيًا فقط", isCorrect: false, rationale: "هذه سمة الصدع الجانبي." },
+                    { text: "لا يتحرّك إطلاقًا", isCorrect: false, rationale: "يتحرّك للأعلى بفعل الضغط." }
+                ],
+                difficulty: "سهل", bloom: "فهم"
+            },
+            {
+                text: "تتكرّر الطبقات الصخرية رأسيًا مع العمق في:",
+                options: [
+                    { text: "الصدع العادي", isCorrect: false, rationale: "لا يحدث تكرار للطبقات في الصدع العادي." },
+                    { text: "الصدع العكسي", isCorrect: true, rationale: "هذه سمة مميِّزة للصدع العكسي دون غيره." },
+                    { text: "الصدع الجانبي", isCorrect: false, rationale: "الحركة فيه أفقية ولا تسبب تكرارًا رأسيًا." },
+                    { text: "لا يحدث تكرار في أي نوع", isCorrect: false, rationale: "يحدث في الصدع العكسي." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "مثال أردني على الصدوع الجانبية:",
+                options: [
+                    { text: "غور الأردن", isCorrect: false, rationale: "غور الأردن مثال على الأحواض الخَسفية." },
+                    { text: "صدع البحر الميت التحويلي", isCorrect: true, rationale: "صدع البحر الميت التحويلي مثال على الصدوع الجانبية." },
+                    { text: "وادي الموجب", isCorrect: false, rationale: "وادي الموجب مثال على الصدوع الدرجية." },
+                    { text: "شارع الـ100", isCorrect: false, rationale: "شارع الـ100 مثال على صدع عكسي." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "مثال أردني على الأحواض الخَسفية:",
+                options: [
+                    { text: "صدع البحر الميت", isCorrect: false, rationale: "صدع جانبي." },
+                    { text: "وادي الموجب", isCorrect: false, rationale: "صدوع درجية." },
+                    { text: "غور الأردن", isCorrect: true, rationale: "غور الأردن مثال صريح على الأحواض الخَسفية." },
+                    { text: "شارع الـ100", isCorrect: false, rationale: "صدع عكسي." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "مثال أردني على الصدوع الدرجية:",
+                options: [
+                    { text: "الصدوع العادية المتوازية في وادي الموجب", isCorrect: true, rationale: "الصدوع العادية المتوازية في وادي الموجب مثال على الصدوع الدرجية." },
+                    { text: "صدع البحر الميت", isCorrect: false, rationale: "مثال على الصدوع الجانبية." },
+                    { text: "غور الأردن", isCorrect: false, rationale: "مثال على الأحواض الخَسفية." },
+                    { text: "شارع الـ100", isCorrect: false, rationale: "مثال على الصدوع العكسية." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الأحواض الخَسفية تتشكّل من صدعين عاديين متقابلين يشتركان في:",
+                options: [
+                    { text: "الجدار القدَم", isCorrect: false, rationale: "الاشتراك في الجدار القدَم يكوّن الكتلة الاندفاعية." },
+                    { text: "الجدار المعلَّق", isCorrect: true, rationale: "الأحواض الخَسفية تشترك في الجدار المعلَّق مع هبوط الكتلة الوسطى." },
+                    { text: "مستوى الصدع فقط", isCorrect: false, rationale: "لكل صدع مستواه الخاص." },
+                    { text: "لا يشتركان في شيء", isCorrect: false, rationale: "يشتركان في الجدار المعلَّق." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "الكُتل الاندفاعية تتشكّل من صدعين عاديين متقابلين يشتركان في:",
+                options: [
+                    { text: "الجدار المعلَّق", isCorrect: false, rationale: "الاشتراك في الجدار المعلَّق يكوّن الحوض الخَسفي." },
+                    { text: "الجدار القدَم", isCorrect: true, rationale: "الكُتل الاندفاعية تشترك في الجدار القدَم مع ارتفاع الكتلة الوسطى." },
+                    { text: "مستوى الصدع فقط", isCorrect: false, rationale: "لكل صدع مستواه الخاص." },
+                    { text: "لا يشتركان في شيء", isCorrect: false, rationale: "يشتركان في الجدار القدَم." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "تتشكّل أنظمة الصدوع عندما تتعرّض صخور القشرة الأرضية لقوى:",
+                options: [
+                    { text: "شدّ نتيجة حركة الصفائح التكتونية", isCorrect: true, rationale: "تتشكّل أنظمة الصدوع من قوى شدّ مرتبطة بحركة الصفائح التكتونية." },
+                    { text: "ضغط فقط", isCorrect: false, rationale: "الأنظمة الثلاثة تتكون من صدوع عادية ناتجة عن الشدّ." },
+                    { text: "قصّ فقط", isCorrect: false, rationale: "القصّ يكوّن صدوعًا جانبية." },
+                    { text: "لا علاقة لها بحركة الصفائح", isCorrect: false, rationale: "حركة الصفائح هي المحرك الرئيس لهذه القوى." }
+                ],
+                difficulty: "متوسط", bloom: "تذكّر"
+            },
+            {
+                text: "لا يمكن تمييز الجدار المعلَّق عن الجدار القدَم بوضوح في الصدوع:",
+                options: [
+                    { text: "المائلة", isCorrect: false, rationale: "في الصدوع المائلة يسهل تحديد الكتلة التي فوق المستوى والتي تحته." },
+                    { text: "الرأسية", isCorrect: true, rationale: "في الصدوع الرأسية (90°) يفقد مفهوما 'فوق' و'أسفل' معناهما." },
+                    { text: "العادية فقط", isCorrect: false, rationale: "الصدوع العادية مائلة ويميز فيها الجداران بوضوح." },
+                    { text: "العكسية فقط", isCorrect: false, rationale: "الصدوع العكسية مائلة ويميز فيها الجداران بوضوح." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "زاوية ميل مستوى الصدع في الصدع الرأسي تساوي:",
+                options: [
+                    { text: "$0^\circ$", isCorrect: false, rationale: "هذا يمثل مستوى أفقيًا." },
+                    { text: "$45^\circ$", isCorrect: false, rationale: "هذا يمثل صدعًا مائلًا." },
+                    { text: "$90^\circ$", isCorrect: true, rationale: "الصدع الرأسي زاوية ميل مستواه $90^\circ$ بالضبط." },
+                    { text: "$180^\circ$", isCorrect: false, rationale: "زاوية مستقيمة أفقية." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الصدوع الدرجية تتكوّن من:",
+                options: [
+                    { text: "صدع عكسي واحد", isCorrect: false, rationale: "تتكون من عدة صدوع عادية." },
+                    { text: "مجموعة من الصدوع العادية المتوازية", isCorrect: true, rationale: "الصدوع الدرجية مجموعة من الصدوع العادية المتوازية تأخذ شكل الدرج." },
+                    { text: "صدع جانبي واحد", isCorrect: false, rationale: "ليست صدعًا جانبيًا." },
+                    { text: "طيّة واحدة", isCorrect: false, rationale: "ليست طيّة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "ماذا ينتج عن تعرّض صخر هشّ لإجهاد ضغط قرب سطح الأرض؟",
+                options: [
+                    { text: "صدع عادي", isCorrect: false, rationale: "الصدع العادي ينتج من إجهاد الشدّ." },
+                    { text: "صدع عكسي", isCorrect: true, rationale: "الضغط على صخر هشّ ينتج صدعًا عكسيًا، بخلاف الضغط على صخر لدن الذي ينتج طيّة." },
+                    { text: "طيّة", isCorrect: false, rationale: "الطيّة تتكوّن في الصخور اللدنة." },
+                    { text: "لا يحدث أي تغيّر", isCorrect: false, rationale: "ينكسر الصخر الهشّ مكونًا صدعًا عكسيًا." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق"
+            }
+        ];
+
+        let activeQuizType = 'pro'; 
+        let activeQuestions = [];
+        let currentQuestionIdx = 0;
+        let userAnswers = {}; 
+        let bookmarkedQuestions = new Set();
+        let timerInterval = null;
+        let secondsElapsed = 0;
+
+        window.addEventListener('load', () => {
+            initializeStats();
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('reset-storage').addEventListener('click', clearStatsData);
+            
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        function initializeStats() {
+            const proScore = localStorage.getItem('u3_l2_pro_score_malkawi');
+            const proTotal = localStorage.getItem('u3_l2_pro_total_malkawi');
+            const lessonScore = localStorage.getItem('u3_l2_lesson_score_malkawi');
+            const lessonTotal = localStorage.getItem('u3_l2_lesson_total_malkawi');
+
+            document.getElementById('stat-pro-score').innerText = proScore ? `${proScore}/${proTotal}` : 'لم يُجتز بعد';
+            document.getElementById('stat-lesson-score').innerText = lessonScore ? `${lessonScore}/${lessonTotal}` : 'لم يُجتز بعد';
+        }
+
+        function clearStatsData() {
+            localStorage.removeItem('u3_l2_pro_score_malkawi');
+            localStorage.removeItem('u3_l2_pro_total_malkawi');
+            localStorage.removeItem('u3_l2_lesson_score_malkawi');
+            localStorage.removeItem('u3_l2_lesson_total_malkawi');
+            initializeStats();
+            showStatusToast("تمت إعادة تعيين جميع الإحصائيات بنجاح.", "success");
+        }
+
+        function showStatusToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-5 left-5 px-6 py-3.5 rounded-2xl shadow-xl text-white font-bold text-sm z-50 transition-all transform translate-y-10 opacity-0 ${type === 'success' ? 'bg-emerald-600' : 'bg-slate-800'}`;
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-10', 'opacity-0'), 50);
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function startQuiz(type) {
+            activeQuizType = type;
+            if (type === 'pro') {
+                activeQuestions = proQuestions;
+                document.getElementById('quiz-title-badge').innerText = "اختبار الدرس الثاني الوحدة الثالثة 2026 — البنك الاحترافي (25 سؤالاً)";
+            } else {
+                activeQuestions = lessonQuestions;
+                document.getElementById('quiz-title-badge').innerText = "اختبار الدرس الثاني الوحدة الثالثة 2026 — نهاية الدرس (20 سؤالاً)";
+            }
+
+            currentQuestionIdx = 0;
+            userAnswers = {};
+            bookmarkedQuestions.clear();
+            secondsElapsed = 0;
+
+            document.getElementById('total-questions-num').innerText = activeQuestions.length;
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+
+            buildSidebarGrid();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            secondsElapsed = 0;
+            document.getElementById('timer-text').innerText = "00:00";
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer-text').innerText = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function buildSidebarGrid() {
+            const grid = document.getElementById('questions-grid');
+            grid.innerHTML = '';
+            activeQuestions.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.id = `side-btn-${idx}`;
+                btn.className = "w-full h-10 rounded-xl font-bold border text-xs flex items-center justify-center transition-all bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-500";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
+
+        function loadQuestion(idx) {
+            currentQuestionIdx = idx;
+            const q = activeQuestions[idx];
+
+            document.getElementById('current-question-num').innerText = idx + 1;
+            document.getElementById('question-text').innerHTML = q.text;
+
+            const diffBadge = document.getElementById('q-difficulty-badge');
+            diffBadge.innerText = q.difficulty || "متوسط";
+            diffBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${getDifficultyBadgeStyles(q.difficulty)}`;
+
+            const bloomBadge = document.getElementById('q-bloom-badge');
+            bloomBadge.innerText = q.bloom || "فهم";
+            bloomBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${getBloomBadgeStyles(q.bloom)}`;
+
+            const bookmarkIcon = document.getElementById('bookmark-icon');
+            bookmarkIcon.className = bookmarkedQuestions.has(idx) 
+                ? "fa-solid fa-bookmark text-amber-500 text-lg" 
+                : "fa-regular fa-bookmark text-slate-400 text-lg";
+
+            const outcomeBox = document.getElementById('learning-outcome-box');
+            if (q.outcome) {
+                outcomeBox.classList.remove('hidden');
+                document.getElementById('learning-outcome-text').innerText = q.outcome;
+            } else {
+                outcomeBox.classList.add('hidden');
+            }
+
+            renderOptions(q, idx);
+            updateFeedbackBoxAndButtons(q, idx);
+
+            activeQuestions.forEach((_, gridIdx) => {
+                const b = document.getElementById(`side-btn-${gridIdx}`);
+                if (gridIdx === idx) {
+                    b.classList.add('ring-2', 'ring-emerald-500', 'border-transparent');
+                } else {
+                    b.classList.remove('ring-2', 'ring-emerald-500', 'border-transparent');
+                }
+            });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function getDifficultyBadgeStyles(difficulty) {
+            switch(difficulty) {
+                case 'سهل': return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300';
+                case 'متوسط': return 'bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300';
+                case 'صعب': return 'bg-red-100 text-red-800 dark:bg-red-950/40 dark:text-red-300';
+                case 'متميز': return 'bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300';
+                default: return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+            }
+        }
+
+        function getBloomBadgeStyles(bloom) {
+            switch(bloom) {
+                case 'تذكر':
+                case 'تذكّر': return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950/40 dark:text-indigo-300';
+                case 'فهم': return 'bg-sky-100 text-sky-800 dark:bg-sky-950/40 dark:text-sky-300';
+                case 'تطبيق': return 'bg-teal-100 text-teal-800 dark:bg-teal-950/40 dark:text-teal-300';
+                case 'تحليل': return 'bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300';
+                case 'تركيب/تقويم':
+                case 'تقويم': return 'bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300';
+                default: return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+            }
+        }
+
+        function renderOptions(q, qIdx) {
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const alphaMapping = ['أ', 'ب', 'جـ', 'د'];
+            const alreadyAnswered = userAnswers.hasOwnProperty(qIdx);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-right p-4 border rounded-2xl flex items-start gap-3 transition-all duration-200 outline-none ";
+                
+                if (!alreadyAnswered) {
+                    btn.className += "bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-slate-700/50";
+                } else {
+                    btn.disabled = true;
+                    const isSelected = userAnswers[qIdx] === optIdx;
+                    if (opt.isCorrect) {
+                        btn.className += "bg-emerald-100 dark:bg-emerald-950/40 border-emerald-500 text-emerald-900 dark:text-emerald-300 font-semibold correct-pulse";
+                    } else if (isSelected && !opt.isCorrect) {
+                        btn.className += "bg-red-100 dark:bg-red-950/40 border-red-500 text-red-900 dark:text-red-300 font-semibold";
+                    } else {
+                        btn.className += "bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 opacity-60";
+                    }
+                }
+
+                const bullet = document.createElement('span');
+                bullet.className = "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300";
+                bullet.innerText = alphaMapping[optIdx];
+                btn.appendChild(bullet);
+
+                const text = document.createElement('span');
+                text.className = "pt-0.5 leading-relaxed text-xs sm:text-sm md:text-base";
+                text.innerHTML = opt.text;
+                btn.appendChild(text);
+
+                if (!alreadyAnswered) {
+                    btn.onclick = () => selectOption(qIdx, optIdx);
+                }
+
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(qIdx, optIdx) {
+            if (userAnswers.hasOwnProperty(qIdx)) return; 
+            
+            userAnswers[qIdx] = optIdx;
+            const q = activeQuestions[qIdx];
+            const isCorrect = q.options[optIdx].isCorrect;
+
+            const sideBtn = document.getElementById(`side-btn-${qIdx}`);
+            if (isCorrect) {
+                playCorrectSound();
+                sideBtn.className += " !bg-emerald-500 !text-white !border-transparent";
+            } else {
+                playIncorrectSound();
+                sideBtn.className += " !bg-red-500 !text-white !border-transparent";
+            }
+
+            renderOptions(q, qIdx);
+            updateFeedbackBoxAndButtons(q, qIdx);
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function updateFeedbackBoxAndButtons(q, qIdx) {
+            const hasAnswered = userAnswers.hasOwnProperty(qIdx);
+            const feedbackBox = document.getElementById('feedback-box');
+
+            if (hasAnswered) {
+                const selectedOptIdx = userAnswers[qIdx];
+                const selectedOpt = q.options[selectedOptIdx];
+                const correctOpt = q.options.find(o => o.isCorrect);
+
+                feedbackBox.classList.remove('hidden');
+                
+                const iconContainer = document.getElementById('feedback-icon-container');
+                const titleText = document.getElementById('feedback-title');
+                const explainArea = document.getElementById('feedback-explain-area');
+
+                if (selectedOpt.isCorrect) {
+                    feedbackBox.className = "p-5 rounded-3xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-300 space-y-3";
+                    iconContainer.className = "p-1.5 rounded-lg bg-emerald-600 text-white";
+                    iconContainer.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                    titleText.innerText = "إجابة صحيحة! أحسنت.";
+                    explainArea.innerHTML = `<p><strong>سبب صحة الإجابة:</strong> ${selectedOpt.rationale}</p>`;
+                } else {
+                    feedbackBox.className = "p-5 rounded-3xl border-2 border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-300 space-y-3";
+                    iconContainer.className = "p-1.5 rounded-lg bg-red-600 text-white";
+                    iconContainer.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                    titleText.innerText = "إجابة غير صحيحة.";
+
+                    let reasonHTML = `<p class="mb-2"><strong>سبب خطأ البديل المُختار:</strong> ${selectedOpt.rationale}</p>`;
+                    reasonHTML += `<p class="text-emerald-700 dark:text-emerald-400 font-medium"><strong>الإجابة الصحيحة وتعليلها:</strong> ${correctOpt.rationale}</p>`;
+                    explainArea.innerHTML = reasonHTML;
+                }
+
+                if (q.concept) {
+                    document.getElementById('feedback-concept-box').classList.remove('hidden');
+                    document.getElementById('feedback-concept-text').innerText = q.concept;
+                } else {
+                    document.getElementById('feedback-concept-box').classList.add('hidden');
+                }
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            document.getElementById('prev-btn').disabled = qIdx === 0;
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-quiz-btn');
+
+            if (qIdx === activeQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        function toggleBookmark() {
+            const qIdx = currentQuestionIdx;
+            const bIcon = document.getElementById('bookmark-icon');
+            const sideBtn = document.getElementById(`side-btn-${qIdx}`);
+
+            if (bookmarkedQuestions.has(qIdx)) {
+                bookmarkedQuestions.delete(qIdx);
+                bIcon.className = "fa-regular fa-bookmark text-slate-400 text-lg";
+                if (!userAnswers.hasOwnProperty(qIdx)) {
+                    sideBtn.className = sideBtn.className.replace(' !border-amber-500 !bg-amber-50 dark:!bg-amber-950/30', '');
+                }
+            } else {
+                bookmarkedQuestions.add(qIdx);
+                bIcon.className = "fa-solid fa-bookmark text-amber-500 text-lg";
+                if (!userAnswers.hasOwnProperty(qIdx)) {
+                    sideBtn.className += " !border-amber-500 !bg-amber-50 dark:!bg-amber-950/30";
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIdx < activeQuestions.length - 1) loadQuestion(currentQuestionIdx + 1);
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIdx > 0) loadQuestion(currentQuestionIdx - 1);
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            initializeStats();
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            playCompleteSound();
+
+            const totalQ = activeQuestions.length;
+            let correctCount = 0;
+
+            activeQuestions.forEach((q, idx) => {
+                if (userAnswers.hasOwnProperty(idx) && q.options[userAnswers[idx]].isCorrect) {
+                    correctCount++;
+                }
+            });
+
+            const percent = Math.round((correctCount / totalQ) * 100);
+            const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+            const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+            const timeStr = `${mins}:${secs}`;
+
+            if (activeQuizType === 'pro') {
+                const prevHigh = parseInt(localStorage.getItem('u3_l2_pro_score_malkawi') || '0');
+                if (correctCount > prevHigh) {
+                    localStorage.setItem('u3_l2_pro_score_malkawi', correctCount);
+                    localStorage.setItem('u3_l2_pro_total_malkawi', totalQ);
+                }
+            } else {
+                const prevHigh = parseInt(localStorage.getItem('u3_l2_lesson_score_malkawi') || '0');
+                if (correctCount > prevHigh) {
+                    localStorage.setItem('u3_l2_lesson_score_malkawi', correctCount);
+                    localStorage.setItem('u3_l2_lesson_total_malkawi', totalQ);
+                }
+            }
+
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+
+            document.getElementById('res-score').innerText = `${correctCount}/${totalQ}`;
+            document.getElementById('res-percent').innerText = `${percent}%`;
+            document.getElementById('res-time').innerText = timeStr;
+            document.getElementById('res-rank').innerText = getAcademicRank(percent);
+            document.getElementById('res-rank').className = `text-xl sm:text-2xl font-black mt-2 ${getRankColorStyle(percent)}`;
+
+            buildDetailedResultsDashboard();
+            buildReviewedAnswersLog();
+
+            document.getElementById('retry-btn').onclick = () => startQuiz(activeQuizType);
+        }
+
+        function getAcademicRank(percent) {
+            if (percent >= 90) return "متميز جداً 🌟";
+            if (percent >= 75) return "جيد جداً 👍";
+            if (percent >= 50) return "مقبول";
+            return "بحاجة لمراجعة الدرس 📚";
+        }
+
+        function getRankColorStyle(percent) {
+            if (percent >= 90) return "text-emerald-600 dark:text-emerald-400";
+            if (percent >= 75) return "text-blue-600 dark:text-blue-400";
+            if (percent >= 50) return "text-amber-600 dark:text-amber-400";
+            return "text-red-600 dark:text-red-400";
+        }
+
+        function buildDetailedResultsDashboard() {
+            const diffStats = {}; 
+            const bloomStats = {}; 
+
+            activeQuestions.forEach((q, idx) => {
+                const diff = q.difficulty || 'متوسط';
+                const bloom = q.bloom || 'فهم';
+                const isCorrect = userAnswers.hasOwnProperty(idx) && q.options[userAnswers[idx]].isCorrect;
+
+                if (!diffStats[diff]) diffStats[diff] = { correct: 0, total: 0 };
+                if (!bloomStats[bloom]) bloomStats[bloom] = { correct: 0, total: 0 };
+
+                diffStats[diff].total++;
+                bloomStats[bloom].total++;
+
+                if (isCorrect) {
+                    diffStats[diff].correct++;
+                    bloomStats[bloom].correct++;
+                }
+            });
+
+            const diffContainer = document.getElementById('res-difficulty-bars');
+            diffContainer.innerHTML = '';
+            for (const [diffName, val] of Object.entries(diffStats)) {
+                const pct = Math.round((val.correct / val.total) * 100);
+                diffContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold">${diffName}</span>
+                            <span>${val.correct} من ${val.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const bloomContainer = document.getElementById('res-bloom-bars');
+            bloomContainer.innerHTML = '';
+            for (const [bloomName, val] of Object.entries(bloomStats)) {
+                const pct = Math.round((val.correct / val.total) * 100);
+                bloomContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold">${bloomName}</span>
+                            <span>${val.correct} من ${val.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function buildReviewedAnswersLog() {
+            const container = document.getElementById('reviewed-answers-log');
+            container.innerHTML = '';
+
+            activeQuestions.forEach((q, idx) => {
+                const userSelIdx = userAnswers[idx];
+                const hasAnswered = userAnswers.hasOwnProperty(idx);
+                const selectedOpt = hasAnswered ? q.options[userSelIdx] : null;
+                const correctOpt = q.options.find(o => o.isCorrect);
+                const isCorrect = selectedOpt && selectedOpt.isCorrect;
+
+                const card = document.createElement('div');
+                card.className = `p-6 rounded-2xl border-2 text-right space-y-4 ${isCorrect ? 'border-emerald-100 bg-emerald-50/20 dark:border-emerald-950/20' : 'border-red-100 bg-red-50/20 dark:border-red-950/20'}`;
+
+                let badgeHTML = `
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-bold">سؤال ${idx + 1}</span>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${getDifficultyBadgeStyles(q.difficulty)}">${q.difficulty || 'متوسط'}</span>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${getBloomBadgeStyles(q.bloom)}">${q.bloom || 'تحليل'}</span>
+                `;
+
+                if (isCorrect) {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-white"><i class="fa-solid fa-check"></i> صحيح</span>`;
+                } else if (hasAnswered) {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-500 text-white"><i class="fa-solid fa-xmark"></i> خطأ</span>`;
+                } else {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-500 text-white"><i class="fa-regular fa-eye-slash"></i> غير مجاب</span>`;
+                }
+
+                badgeHTML += `</div>`;
+
+                card.innerHTML = `
+                    ${badgeHTML}
+                    <h4 class="font-bold text-slate-900 dark:text-white leading-relaxed text-sm sm:text-base">${q.text}</h4>
+                    <div class="space-y-2 text-xs sm:text-sm pt-2 border-t border-slate-200/50 dark:border-slate-800">
+                        <p class="text-slate-600 dark:text-slate-400">
+                            <strong class="text-slate-800 dark:text-white">إجابتك المسجلة:</strong> 
+                            ${hasAnswered ? selectedOpt.text : '<span class="text-red-500">متروك دون خيار</span>'}
+                        </p>
+                        ${!isCorrect ? `<p class="text-emerald-700 dark:text-emerald-400"><strong>الإجابة الصحيحة:</strong> ${correctOpt.text}</p>` : ''}
+                        
+                        <div class="p-3.5 bg-white dark:bg-slate-900/50 rounded-xl text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                            <p class="font-black text-slate-700 dark:text-slate-300">سبب صحة الإجابة والتعليل العلمي:</p>
+                            <p class="leading-relaxed">${correctOpt.rationale}</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function goToHome() {
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            initializeStats();
+        }
+    </script>
+</body>
+</html>
