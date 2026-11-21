@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الدرس الثالث الوحدة الثالثة 2026 | إعداد وتصميم المعلم محمد ملكاوي</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        gold: {
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        .correct-pulse {
+            animation: correctAnim 0.4s ease-out;
+        }
+        @keyframes correctAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Branded Header -->
+    <header class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-2xl">
+                    <i class="fa-solid fa-water text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm sm:text-lg font-black text-slate-900 dark:text-white leading-tight flex items-center gap-2">
+                        اختبار الدرس الثالث الوحدة الثالثة 2026
+                        <span class="hidden sm:inline-block px-2.5 py-0.5 text-[10px] bg-gold-100 text-gold-600 rounded-full font-bold">إعداد وتصميم المعلم محمد ملكاوي</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">الجيولوجيا التركيبية: الطيّات (أجزاؤها، أنواعها، القباب والأحواض)</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button id="theme-toggle" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all" title="تبديل المظهر">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+                </button>
+                <button id="reset-storage" class="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-all" title="إعادة تهيئة الإحصائيات">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col justify-center">
+        
+        <!-- Welcome Screen -->
+        <div id="welcome-view" class="space-y-8 max-w-5xl mx-auto w-full">
+            
+            <!-- Banner -->
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-6 md:p-8 shadow-md relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-3 text-center md:text-right">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-white/20 text-white uppercase tracking-wider">الوحدة الثالثة • الجيولوجيا التركيبية 2026</span>
+                        <h2 class="text-2xl md:text-3xl font-black">اختبار الدرس الثالث الوحدة الثالثة 2026</h2>
+                        <p class="text-emerald-50 max-w-xl text-sm leading-relaxed">
+                            منصة تقييمية تفاعلية شاملة لدرس (الطيّات)، تضم بنك الأسئلة الاحترافي واختبار نهاية الدرس مع التحليل العلمي الفوري لكافة البدائل وفق مستويات بلوم المعرفية.
+                        </p>
+                    </div>
+                    <!-- Teacher Badge Card -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 w-full md:w-auto min-w-[280px]">
+                        <div class="w-12 h-12 rounded-full bg-gold-100 text-gold-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-emerald-200">إعداد وتصميم المعلم</p>
+                            <p class="text-lg font-black text-white">محمد ملكاوي</p>
+                            <span class="text-[10px] text-white/80">علوم الأرض والبيئة • 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Dashboard Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-xl">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">أعلى نتيجة في بنك الأسئلة الاحترافي (30 سؤالاً)</p>
+                        <p class="text-lg font-black text-slate-800 dark:text-white" id="stat-pro-score">-</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3 bg-purple-100 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 rounded-xl">
+                        <i class="fa-solid fa-bolt text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">أعلى نتيجة في اختبار نهاية الدرس (20 سؤالاً)</p>
+                        <p class="text-lg font-black text-slate-800 dark:text-white" id="stat-lesson-score">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Selection Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1: Pro Bank -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-6 flex flex-col justify-between shadow-sm hover:shadow-lg group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">البنك الاحترافي الشامل</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-list-ol ml-1"></i> 30 سؤالاً</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">بنك الأسئلة الاحترافي — الطيّات</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            يغطي كافة مستويات بلوم المعرفية (التذكر، الفهم، التطبيق، التحليل، التركيب والتقويم) مع تحليل علمي مفصّل لسبب صحة الإجابة وسبب استبعاد كل بديل من البدائل الأخرى.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30">8 سهلة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 dark:bg-blue-950/30">12 متوسطة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-50 text-red-700 dark:bg-red-950/30">8 صعبة</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 dark:bg-purple-950/30">2 متميزة</span>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz('pro')" class="mt-8 w-full bg-slate-900 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                        ابدأ بنك الأسئلة الاحترافي <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2: End of Lesson Quiz -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 hover:border-emerald-500 dark:border-slate-800 dark:hover:border-emerald-500 transition-all duration-300 p-6 flex flex-col justify-between shadow-sm hover:shadow-lg group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300">التقويم الختامي</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-list-ol ml-1"></i> 20 سؤالاً</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">اختبار نهاية الدرس — مراجعة مركّزة</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            اختبار تقويمي سريع يركّز على أجزاء الطيّة، أنواعها (محدبة، مقعرة، مقلوبة، مضطجعة)، القباب والأحواض، وأمثلة الأردن.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">مراجعة شاملة لمخرجات الدرس الثالث</span>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz('lesson')" class="mt-8 w-full bg-slate-900 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                        ابدأ اختبار نهاية الدرس <i class="fa-solid fa-circle-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Play View -->
+        <div id="quiz-view" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl w-full mx-auto">
+            
+            <!-- Questions Sidebar Grid -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col h-auto lg:h-[calc(100vh-12rem)] lg:sticky lg:top-24 shadow-sm">
+                <div class="mb-4">
+                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">جدول تتبع الأسئلة</h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">انقر للتبديل الفوري بين الأسئلة</p>
+                </div>
+                <div id="questions-grid" class="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-5 gap-2 overflow-y-auto custom-scrollbar flex-grow pr-1">
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md bg-emerald-500"></span> إجابة صحيحة
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md bg-red-500"></span> إجابة خاطئة
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="w-3.5 h-3.5 rounded-md border border-amber-500 bg-amber-50 dark:bg-amber-950/30"></span> للمراجعة لاحقاً
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Workspace -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status Bar -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <button onclick="exitQuiz()" class="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-all" title="خروج للرئيسية">
+                            <i class="fa-solid fa-arrow-right-to-bracket rotate-180"></i>
+                        </button>
+                        <div>
+                            <span id="quiz-title-badge" class="font-black text-slate-800 dark:text-white text-sm sm:text-base">اختبار الدرس الثالث الوحدة الثالثة 2026</span>
+                            <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">إعداد وتصميم المعلم محمد ملكاوي</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold">
+                            السؤال <span id="current-question-num" class="text-emerald-600 dark:text-emerald-400 font-bold">1</span> من <span id="total-questions-num" class="font-bold">30</span>
+                        </div>
+                        <div id="timer-box" class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs sm:text-sm font-bold">
+                            <i class="fa-regular fa-clock"></i> <span id="timer-text">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Question Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="q-difficulty-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">سهل</span>
+                        <span id="q-bloom-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800">تذكر</span>
+                        <button id="bookmark-btn" onclick="toggleBookmark()" class="mr-auto p-2 text-slate-400 hover:text-amber-500 transition-all" title="مراجعة هذا السؤال لاحقاً">
+                            <i id="bookmark-icon" class="fa-regular fa-bookmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <h3 id="question-text" class="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-relaxed"></h3>
+
+                    <div id="learning-outcome-box" class="p-3.5 bg-emerald-50 dark:bg-emerald-950/20 border-r-4 border-emerald-500 rounded-l-xl text-xs text-emerald-800 dark:text-emerald-300">
+                        <span class="font-black block mb-1">ناتج التعلم المرتبط:</span>
+                        <p id="learning-outcome-text"></p>
+                    </div>
+
+                    <div id="options-container" class="grid grid-cols-1 gap-4 pt-2">
+                    </div>
+
+                    <!-- Feedback Drawer -->
+                    <div id="feedback-box" class="hidden p-5 rounded-2xl border-2 transition-all space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div id="feedback-icon-container" class="p-1.5 rounded-lg text-white"></div>
+                            <h4 id="feedback-title" class="font-bold"></h4>
+                        </div>
+                        <div id="feedback-explain-area" class="text-xs sm:text-sm space-y-2 leading-relaxed">
+                        </div>
+                        <div id="feedback-concept-box" class="pt-2 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+                            <strong>الفكرة التي يقيسها السؤال:</strong> <span id="feedback-concept-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controllers -->
+                <div class="flex items-center justify-between gap-4">
+                    <button id="prev-btn" onclick="prevQuestion()" class="flex items-center gap-2 bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 px-6 py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-50">
+                        <i class="fa-solid fa-arrow-right"></i> السابق
+                    </button>
+                    
+                    <button id="submit-quiz-btn" onclick="finishQuiz()" class="hidden bg-red-600 hover:bg-red-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        تسليم وإنهاء الاختبار <i class="fa-solid fa-square-check mr-1"></i>
+                    </button>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-md">
+                        التالي <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results View -->
+        <div id="results-view" class="hidden max-w-5xl mx-auto w-full space-y-8">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 shadow-lg text-center space-y-6">
+                <div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center text-4xl mx-auto">
+                    🏆
+                </div>
+                <div class="space-y-2">
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">أحسنت! أتممت اختبار الدرس الثالث الوحدة الثالثة 2026</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+                        إعداد وتصميم المعلم محمد ملكاوي — تحليل تشخيصي شامل لمستوى إتقانك لمفاهيم الطيّات وأجزائها وأنظمتها.
+                    </p>
+                </div>
+
+                <!-- Academic Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النتيجة الإجمالية</p>
+                        <p class="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1" id="res-score">0/0</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">النسبة المئوية</p>
+                        <p class="text-2xl font-black text-blue-600 dark:text-blue-400 mt-1" id="res-percent">0%</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">الزمن المستهلك</p>
+                        <p class="text-2xl font-black text-purple-600 dark:text-purple-400 mt-1" id="res-time">00:00</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+                        <p class="text-xs text-slate-500 dark:text-slate-400">التقدير الأكاديمي</p>
+                        <p class="text-xl font-black text-amber-600 dark:text-amber-400 mt-1.5" id="res-rank">-</p>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Charts -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto text-right">
+                    <div class="bg-slate-50 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-800 p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-white"><i class="fa-solid fa-gauge-high text-emerald-500 ml-1"></i> دقة الأداء حسب درجات صعوبة الأسئلة</h4>
+                        <div class="space-y-2 text-xs" id="res-difficulty-bars">
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-800 p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-white"><i class="fa-solid fa-brain text-purple-500 ml-1"></i> تصنيف الأداء العلمي وفق هرم بلوم</h4>
+                        <div class="space-y-2 text-xs" id="res-bloom-bars">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <button onclick="goToHome()" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-all">
+                        العودة للرئيسية <i class="fa-solid fa-house mr-1"></i>
+                    </button>
+                    <button id="retry-btn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-all shadow-md">
+                        إعادة الاختبار للتحسين <i class="fa-solid fa-rotate-right mr-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Answer Logs -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+                <h3 class="text-xl font-black text-slate-900 dark:text-white text-right"><i class="fa-solid fa-list-check text-emerald-500 ml-2"></i> مراجعة تفصيلية للإجابات مع التفسير الأكاديمي</h3>
+                <div id="reviewed-answers-log" class="space-y-6">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Branded Footer -->
+    <footer class="bg-white dark:bg-slate-900 py-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 space-y-2">
+        <p class="font-black text-emerald-600 dark:text-emerald-400">اختبار الدرس الثالث الوحدة الثالثة 2026 • علوم الأرض والبيئة</p>
+        <p>إعداد وتصميم المعلم: محمد ملكاوي © 2026. كافة الحقوق العلمية محفوظة.</p>
+    </footer>
+
+    <!-- Web Audio Synthesizer -->
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playSynthSound(freqs, type = 'sine', duration = 0.15) {
+            try {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                freqs.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + (idx * 0.08));
+                    osc.stop(audioCtx.currentTime + (idx * 0.08) + duration);
+                });
+            } catch (e) {}
+        }
+        
+        function playCorrectSound() { playSynthSound([523.25, 659.25], 'triangle', 0.2); }
+        function playIncorrectSound() { playSynthSound([293.66, 220.00], 'sawtooth', 0.25); }
+        function playCompleteSound() { playSynthSound([523.25, 659.25, 783.99, 1046.50], 'triangle', 0.4); }
+    </script>
+
+    <script>
+        // 1. Professional Bank (30 Verified Questions from Document)
+        const proQuestions = [
+            {
+                text: "تُعرَف الطيّات بأنها تركيب جيولوجي ينشأ في:",
+                options: [
+                    { text: "الصخور اللدنة، أو الهشّة الساخنة في الأعماق", isCorrect: true, rationale: "هذا هو التعريف الدقيق لمصدر نشوء الطيّات." },
+                    { text: "الصخور الهشّة قرب السطح فقط", isCorrect: false, rationale: "الصخور الهشّة قرب السطح تنكسر (صدوع) ولا تنثني." },
+                    { text: "المياه الجوفية", isCorrect: false, rationale: "لا علاقة للمياه الجوفية بنشأة الطيّات." },
+                    { text: "الرواسب السطحية فقط", isCorrect: false, rationale: "الرواسب السطحية غير مرتبطة بهذا التعريف." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع مصدر نشوء الطيّات.",
+                outcome: "أوضّح المقصود بالطيّة."
+            },
+            {
+                text: "تنتج الطيّات من تعرّض الطبقات الصخرية لإجهاد:",
+                options: [
+                    { text: "الشدّ", isCorrect: false, rationale: "الشدّ ينتج الصدوع العادية." },
+                    { text: "الضغط", isCorrect: true, rationale: "الطيّات تنتج حصرًا من إجهاد الضغط." },
+                    { text: "القصّ", isCorrect: false, rationale: "القصّ ينتج الصدوع الجانبية." },
+                    { text: "لا علاقة لها بأي إجهاد", isCorrect: false, rationale: "الطيّات نتاج مباشر لإجهاد محدَّد هو الضغط." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "ربط الطيّات بنوع الإجهاد المسبِّب.",
+                outcome: "أوضّح المقصود بالطيّة."
+            },
+            {
+                text: "أحد جانبَي الطيّة المكوَّن من طبقات مائلة يلتقيان عند المحور يُسمّى:",
+                options: [
+                    { text: "مفصل الطيّة", isCorrect: false, rationale: "مفصل الطيّة خطّ نقاط أقصى الانحناء وليس الجناح." },
+                    { text: "جناح الطيّة", isCorrect: true, rationale: "هذا هو تعريف جناح الطيّة." },
+                    { text: "المستوى المحوري", isCorrect: false, rationale: "المستوى المحوري مستوى وهمي يقسم الطيّة." },
+                    { text: "الصدع", isCorrect: false, rationale: "الصدع تركيب مختلف تمامًا." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف جناح الطيّة.",
+                outcome: "أحدّد أجزاء الطيّة على الرسم."
+            },
+            {
+                text: "الخطّ الوهمي الذي يصل بين النقاط التي تقع على أقصى تكوّر للطيّة يُسمّى:",
+                options: [
+                    { text: "جناح الطيّة", isCorrect: false, rationale: "جناح الطيّة طبقة مائلة وليس خطًّا لأقصى الانحناء." },
+                    { text: "مفصل الطيّة", isCorrect: true, rationale: "هذا هو تعريف مفصل الطيّة (Fold Hinge)." },
+                    { text: "محور الطيّة", isCorrect: false, rationale: "محور الطيّة خطّ من المستوى المحوري، مفهوم مختلف قليلًا." },
+                    { text: "مستوى الصدع", isCorrect: false, rationale: "مستوى الصدع مصطلح خاص بالصدوع وليس الطيّات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف مفصل الطيّة.",
+                outcome: "أحدّد أجزاء الطيّة على الرسم."
+            },
+            {
+                text: "المستوى الوهمي الذي يمرّ في محور الطيّة ويقسمها قسمين يُسمّى:",
+                options: [
+                    { text: "جناح الطيّة", isCorrect: false, rationale: "جناح الطيّة طبقة مائلة." },
+                    { text: "مفصل الطيّة", isCorrect: false, rationale: "مفصل الطيّة خطّ نقاط." },
+                    { text: "المستوى المحوري", isCorrect: true, rationale: "هذا هو تعريف المستوى المحوري (Axial Plane)." },
+                    { text: "مستوى الصدع", isCorrect: false, rationale: "مستوى الصدع مفهوم من درس آخر." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف المستوى المحوري.",
+                outcome: "أحدّد أجزاء الطيّة على الرسم."
+            },
+            {
+                text: "الطيّات التي تتقوّس فيها الطبقات الصخرية نحو الأعلى تُسمّى:",
+                options: [
+                    { text: "طيّات مقعَّرة", isCorrect: false, rationale: "المقعَّرة تتقوّس للأسفل وليس الأعلى." },
+                    { text: "طيّات محدَّبة", isCorrect: true, rationale: "هذا تعريف الطيّات المحدَّبة (Anticlines)." },
+                    { text: "طيّات مقلوبة", isCorrect: false, rationale: "المقلوبة والمضطَجعة تصنيفان مختلفان يعتمدان على زاوية المستوى المحوري." },
+                    { text: "طيّات مضطَجعة", isCorrect: false, rationale: "تصنيف متقدّم يعتمد على زاوية المستوى المحوري." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "استرجاع تعريف الطيّات المحدَّبة.",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "في الطيّة المحدَّبة، تقع الطبقات الأقدم في:",
+                options: [
+                    { text: "الأطراف", isCorrect: false, rationale: "الأطراف تحتوي الطبقات الأحدث وليس الأقدم." },
+                    { text: "الوسط", isCorrect: true, rationale: "الطبقات الأقدم تقع في وسط الطيّة المحدَّبة." },
+                    { text: "خارج الطيّة تمامًا", isCorrect: false, rationale: "لا معنى لموقع خارج الطيّة في هذا السياق." },
+                    { text: "لا يمكن تحديد ذلك", isCorrect: false, rationale: "يمكن تحديد ذلك بدقة وفق تعريف الطيّة المحدَّبة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "ربط نوع الطيّة بموقع الطبقات الأقدم.",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "التركيب الجيولوجي الناتج من طيّة محدَّبة متماثلة تميل جميع طبقاتها بالدرجة نفسها في كل الاتجاهات يُسمّى:",
+                options: [
+                    { text: "الحوض", isCorrect: false, rationale: "الحوض ينتج من طيّة مقعَّرة وليس محدَّبة." },
+                    { text: "القبّة", isCorrect: true, rationale: "هذا هو تعريف القبّة (Dome)." },
+                    { text: "الصدع", isCorrect: false, rationale: "الصدع تركيب مختلف تمامًا (كسر)." },
+                    { text: "الأخدود", isCorrect: false, rationale: "الأخدود مصطلح غير وارد في هذا السياق." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر",
+                concept: "ربط القبّة بنوع الطيّة الأصلية.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "الفرق الجوهري بين الطيّة المتماثلة وغير المتماثلة هو:",
+                options: [
+                    { text: "نوع الإجهاد المسبِّب لكل منهما مختلف كليًا", isCorrect: false, rationale: "كلاهما ينتج من إجهاد الضغط نفسه، لكن بدرجة تساوي مختلفة على الجانبين." },
+                    { text: "تساوي زاوية ميل الجناحين في المتماثلة، واختلافها في غير المتماثلة", isCorrect: true, rationale: "الفرق الأساس هو تساوي زوايا الميل بين الجناحين (متماثلة) أو اختلافها (غير متماثلة)." },
+                    { text: "المتماثلة تحدث فقط في الطيّات المقعَّرة", isCorrect: false, rationale: "المتماثلة يمكن أن تكون محدَّبة أو مقعَّرة معًا." },
+                    { text: "لا فرق حقيقي بينهما", isCorrect: false, rationale: "يوجد فرق واضح ومحدَّد بينهما في زاوية الميل والمستوى المحوري." }
+                ],
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "التمييز الدقيق بين المتماثلة وغير المتماثلة.",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "لوحظت طيّة يميل جناحاها بالاتجاه نفسه، وتبلغ زاوية ميل أحد الجناحين 110° (أكبر من 90°). هذه الطيّة تُصنَّف:",
+                options: [
+                    { text: "متماثلة", isCorrect: false, rationale: "المتماثلة تتطلّب تساوي الزاويتين، وهذا غير متحقّق هنا." },
+                    { text: "غير متماثلة", isCorrect: false, rationale: "غير المتماثلة تصنيف أعمّ، لكن تجاوز 90° تحديدًا يشير للمقلوبة تخصيصًا." },
+                    { text: "مقلوبة", isCorrect: true, rationale: "تجاوز زاوية ميل أحد الجناحين 90° مع كون الجناحين بالاتجاه نفسه هو المعيار الدقيق لتصنيف الطيّة المقلوبة." },
+                    { text: "محدَّبة فقط دون أي تصنيف إضافي", isCorrect: false, rationale: "التصنيف حسب زاوية المستوى المحوري ضروري إضافة لاتجاه التقوّس." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "تطبيق المعيار الرقمي الدقيق (تجاوز 90°) لتصنيف الطيّة المقلوبة.",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "قُورن حوض جيولوجي بقبّة مجاورة له من حيث موقع الطبقات الأحدث عمرًا. أفضل استنتاج هو:",
+                options: [
+                    { text: "الطبقات الأحدث في وسط الحوض ووسط القبّة معًا", isCorrect: false, rationale: "النمطان متعاكسان تمامًا، وليسا متطابقين." },
+                    { text: "الطبقات الأحدث في وسط الحوض، وعلى أطراف القبّة", isCorrect: true, rationale: "في الحوض تكون الطبقات الأحدث في الوسط، بينما في القبّة تكون الطبقات الأحدث على الأطراف." },
+                    { text: "الطبقات الأحدث على أطراف الحوض، وفي وسط القبّة", isCorrect: false, rationale: "هذا يعكس الحقيقة بالنسبة للحوض لكنه غير دقيق للقبّة." },
+                    { text: "لا يمكن تحديد ذلك دون معلومات إضافية", isCorrect: false, rationale: "يمكن تحديد ذلك بثقة تامة من التعريفات القياسية للقبّة والحوض." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "التحليل المقارن الدقيق لموقع الطبقات الأحدث بين تركيبين متعاكسين (حوض وقبّة).",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "أُجريت دراسة ميدانية على تلّ صخري دائري الشكل، فوُجد أن الطبقات المتكشِّفة في مركزه أقدم من تلك الموجودة على أطرافه، وأن الطبقات تميل بعيدًا عن المركز في جميع الاتجاهات. هذا التركيب هو:",
+                options: [
+                    { text: "حوض", isCorrect: false, rationale: "الحوض يتميّز بالأحدث في المركز، عكس الوصف المعطى." },
+                    { text: "قبّة", isCorrect: true, rationale: "الوصف (الأقدم في المركز، ميل الطبقات بعيدًا عن المركز في كل الاتجاهات) يطابق تمامًا تعريف القبّة." },
+                    { text: "صدع عادي", isCorrect: false, rationale: "لا علاقة لهذا الوصف بالصدوع." },
+                    { text: "طيّة مقعَّرة فقط", isCorrect: false, rationale: "الطيّة المقعَّرة تعطي أحدث في المركز." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق",
+                concept: "التطبيق الميداني لتعريف القبّة من وصف ملاحظات حقلية واقعية.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "سبب ظهور الطبقات المتكشِّفة في القباب والأحواض على شكل دائري أو إهليليجي هو:",
+                options: [
+                    { text: "تعرّض الجزء العلوي من الطبقات لعمليات الحتّ والتعرية بعد تكوّن التركيب المتماثل ثلاثي الأبعاد", isCorrect: true, rationale: "ورد صراحة في الدرس أن التعرّض لعمليات الحتّ والتعرية بعد تكوّن القبّة أو الحوض هو ما يكشف الطبقات على شكل دائري أو إهليليجي." },
+                    { text: "أن الطبقات تتكوّن أصلًا بشكل دائري", isCorrect: false, rationale: "الطبقات تتكوّن أفقية أصلًا، والشكل الدائري ينتج لاحقًا من التعرية." },
+                    { text: "لا علاقة للتعرية بهذا الشكل إطلاقًا", isCorrect: false, rationale: "التعرية هي السبب المباشر المذكور صراحة في الدرس." },
+                    { text: "أن القباب والأحواض تتشكّل فقط في مناطق دائرية الشكل جغرافيًا", isCorrect: false, rationale: "الشكل ناتج من طبيعة التركيب الجيولوجي وليس من الموقع الجغرافي." }
+                ],
+                difficulty: "متوسط", bloom: "فهم",
+                concept: "فهم الآلية العلمية لظهور النمط الدائري/الإهليليجي المميَّز للقباب والأحواض بعد التعرية.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "بالمقارنة بين معدَّل تعرية القباب والأحواض، أي وصف أدقّ؟",
+                options: [
+                    { text: "القباب تتآكل بسرعة أكبر من الأحواض؛ لأنها ترتفع أولًا على هيئة جبال معرَّضة مباشرة لعمليات التجوية والحتّ", isCorrect: true, rationale: "أوضح الدرس أن القباب (المرتفعة كجبال) تتعرّض لتجوية وحتّ أسرع من الأحواض المنخفضة." },
+                    { text: "الأحواض تتآكل دائمًا بسرعة أكبر من القباب", isCorrect: false, rationale: "هذا عكس ما ورد صراحة في الدرس." },
+                    { text: "يتساوى معدَّل التعرية بينهما تمامًا دائمًا", isCorrect: false, rationale: "الدرس يوضّح فرقًا واضحًا وليس تساويًا." },
+                    { text: "لا علاقة بين الارتفاع النسبي للتركيب ومعدَّل تعريته", isCorrect: false, rationale: "الارتفاع النسبي عامل حاسم في تعرّض السطح المباشر لعوامل التجوية." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "فهم العلاقة بين الارتفاع النسبي للتركيب الجيولوجي ومعدَّل تعرّضه للتعرية.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "أي تسلسل من الآتي يمثّل الترتيب الصحيح لدرجة تزايد 'عدم التماثل' بين أنواع الطيّات الأربعة؟",
+                options: [
+                    { text: "مضطَجعة ← مقلوبة ← غير متماثلة ← متماثلة", isCorrect: false, rationale: "هذا الترتيب معكوس تمامًا." },
+                    { text: "متماثلة ← غير متماثلة ← مقلوبة ← مضطَجعة", isCorrect: true, rationale: "يمثّل هذا الترتيب تدرّجًا منطقيًا في زيادة عدم تساوي الضغط المؤثر." },
+                    { text: "غير متماثلة ← متماثلة ← مضطَجعة ← مقلوبة", isCorrect: false, rationale: "ترتيب غير متّسق منطقيًا." },
+                    { text: "لا يوجد تسلسل منطقي بين هذه الأنواع", isCorrect: false, rationale: "يوجد تسلسل منطقي واضح بناءً على زاوية ميل المستوى المحوري." }
+                ],
+                difficulty: "متوسط", bloom: "تحليل",
+                concept: "بناء تسلسل منطقي متدرِّج من أربعة أنواع من الطيّات بناءً على معيار كمي مشترك (درجة عدم التماثل).",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "أُجريت دراسة على طيّة فوُجد أن مستواها المحوري أفقي تقريبًا وأن جناحيها يميلان بالاتجاه نفسه بصورة أفقية تقريبًا. هذه الطيّة هي:",
+                options: [
+                    { text: "متماثلة", isCorrect: false, rationale: "المتماثلة مستواها المحوري عمودي." },
+                    { text: "غير متماثلة", isCorrect: false, rationale: "غير المتماثلة مستواها المحوري مائل بزاوية أقلّ من 90°." },
+                    { text: "مقلوبة", isCorrect: false, rationale: "المقلوبة مستواها المحوري مائل بدرجة كبيرة وليس أفقيًا بالضرورة." },
+                    { text: "مضطَجعة", isCorrect: true, rationale: "هذا الوصف (مستوى محوري أفقي تقريبًا، جناحان أفقيان بالاتجاه نفسه) يطابق تمامًا تعريف الطيّة المضطَجعة." }
+                ],
+                difficulty: "متوسط", bloom: "تطبيق",
+                concept: "تطبيق التعريف الدقيق للطيّة المضطَجعة على وصف ميداني.",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "بالربط بين درس 'تشوّه الصخور' ودرس 'الطيّات'، أي تفسير أدقّ لسبب عدم وجود 'طيّات هشّة' في تصنيف الطيّات؟",
+                options: [
+                    { text: "لان الصخور الهشّة تنكسر (تُنتج صدوعًا) بدلًا من أن تنثني عند تجاوز حدّ المرونة، بخلاف الصخور اللدنة التي تنثني، فمصطلح 'طيّة' مرتبط أصلًا بالانثناء دون كسر", isCorrect: true, rationale: "الصخور الهشّة تستجيب للإجهاد بالكسر (المؤدي للصدوع)، بينما الصخور اللدنة تستجيب بالانثناء دون كسر (المؤدي للطيّات)." },
+                    { text: "لان الصخور الهشّة لا تتأثّر بأي إجهاد إطلاقًا", isCorrect: false, rationale: "الصخور الهشّة تتأثّر بالإجهاد لكنها تستجيب بالكسر." },
+                    { text: "لان الضغط لا يؤثّر في الصخور الهشّة إطلاقًا", isCorrect: false, rationale: "الضغط يؤثّر في الصخور الهشّة لكنه يُنتج صدعًا عكسيًا." },
+                    { text: "لا علاقة بين نوع الصخر ونوع التركيب الناتج", isCorrect: false, rationale: "يوجد ربط مباشر بين نوع الصخر ونوع التركيب الناتج." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل التكاملي رفيع المستوى الذي يربط بين مفاهيم درسَي التشوّه والطيّات لتفسير غياب مفهوم 'الطيّة الهشّة' منطقيًا.",
+                outcome: "أوضّح المقصود بالطيّة."
+            },
+            {
+                text: "أي الاستنتاجات الآتية أدقّ فيما يخصّ العلاقة بين درجة تفاوت الضغط على جانبَي الطيّة ودرجة تعقيد التركيب الناتج؟",
+                options: [
+                    { text: "كلما زاد تفاوت الضغط بين الجانبين، زاد تعقيد وعدم تماثل التركيب الناتج (من متماثلة إلى غير متماثلة إلى مقلوبة وربما مضطَجعة)", isCorrect: true, rationale: "يوضّح تسلسل تعريفات الأنواع الأربعة في الدرس علاقة تدريجية واضحة: كلما زاد عدم تساوي الضغط على الجانبين، ازداد عدم تماثل الطيّة." },
+                    { text: "درجة تفاوت الضغط لا علاقة لها بتعقيد التركيب الناتج", isCorrect: false, rationale: "يوجد ربط مباشر بين درجة تفاوت الضغط ودرجة تعقيد التركيب." },
+                    { text: "زيادة تفاوت الضغط تُنتج دائمًا طيّة متماثلة", isCorrect: false, rationale: "زيادة تفاوت الضغط تُنتج طيّة غير متماثلة أو مقلوبة وليس متماثلة." },
+                    { text: "تفاوت الضغط يُنتج صدعًا وليس طيّة دائمًا", isCorrect: false, rationale: "الطيّة تنتج من الضغط في الصخر اللدن، والصدع العكسي في الصخر الهشّ." }
+                ],
+                difficulty: "صعب", bloom: "تقويم",
+                concept: "التقييم النقدي لبناء علاقة كمية تدريجية بين متغيّر مستقل (تفاوت الضغط) ومتغيّر تابع (تعقيد التركيب).",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "منطقة تحتوي على قبّة قديمة جدًا تعرّضت لتعرية شديدة استمرت ملايين السنين. أفضل توقّع لمظهرها الحالي (مقارنة بحوض مجاور بالعمر نفسه تقريبًا) هو:",
+                options: [
+                    { text: "ستبقى القبّة مرتفعة تمامًا كما كانت دون أي تغيّر", isCorrect: false, rationale: "هذا يتجاهل تمامًا مبدأ التعرية المتسارعة للقباب المرتفعة." },
+                    { text: "من المرجَّح أن تكون القبّة قد تحوّلت جزئيًا أو كليًا إلى منطقة منخفضة نسبيًا بفعل التعرية المتسارعة، بينما يبقى الحوض المجاور أقلّ تأثرًا نسبيًا", isCorrect: true, rationale: "استنادًا للدرس، القباب المرتفعة تتآكل أسرع من الأحواض المنخفضة، ومع الزمن قد تحوّل لمنخفض شبيه بالحوض (كما في حوض البقعة)." },
+                    { text: "سيتحوّل الحوض إلى قبّة والعكس صحيح", isCorrect: false, rationale: "لا يوجد في الدرس ما يشير لتحوّل الحوض إلى قبّة." },
+                    { text: "لا علاقة بين عمر التركيب ومظهره الحالي", isCorrect: false, rationale: "يوجد ربط مباشر بين عمر التركيب ومدّة التعرّض للتعرية." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التنبؤ التحليلي طويل المدى بمصير تركيب جيولوجي (قبّة) بناءً على مبدأ التعرية التفاضلية.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "لماذا يُعدّ حوض البقعة في الأردن مثالًا تعليميًا قويًا لفهم العلاقة بين القباب والأحواض معًا (وليس مجرد مثال على الحوض فقط)؟",
+                options: [
+                    { text: "لأنه يوضّح عمليًا أن الحوض والقبّة ليسا بالضرورة تركيبين ثابتين منفصلين، بل يمكن أن يمثّل الحوض مرحلة لاحقة في تطوّر قبّة تعرّضت لتعرية شديدة عبر الزمن", isCorrect: true, rationale: "يجسّد مثال حوض البقعة (الذي كان في الأصل قبّة) الترابط الديناميكي، فهو دليل عملي على أن الحوض قد يكون نتيجة تطوّر لاحق لقبّة سابقة تعرّضت لتعرية متسارعة." },
+                    { text: "لأنه ليس له أي علاقة بمفهوم القبّة إطلاقًا", isCorrect: false, rationale: "المثال يربط بشكل مباشر بين مفهومي القبّة والحوض." },
+                    { text: "لأنه يثبت أن الأحواض لا تتكوّن أبدًا من قباب سابقة", isCorrect: false, rationale: "المثال يثبت العكس تمامًا." },
+                    { text: "لأنه مثال معزول لا يمكن تعميمه على أي حالة أخرى", isCorrect: false, rationale: "يمكن تعميم المبدأ العام على حالات مشابهة." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التقييم النقدي لأهمية المثال التطبيقي (حوض البقعة) في تعميق الفهم المفاهيمي للعلاقة الديناميكية بين القبّة والحوض.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "إذا وُجدت طيّة يميل أحد جناحيها بزاوية 40° والآخر بزاوية 85° (كلاهما بالاتجاه نفسه تقريبًا)، فأفضل تصنيف لهذه الطيّة هو:",
+                options: [
+                    { text: "متماثلة؛ لأن كلا الجناحين يميلان بالاتجاه نفسه تقريبًا", isCorrect: false, rationale: "معيار التماثل هو تساوي الزاويتين تحديدًا." },
+                    { text: "غير متماثلة؛ لأن زاويتَي الميل مختلفتان (40° و85°) رغم أن كليهما أقلّ من 90°", isCorrect: true, rationale: "معيار التصنيف بين متماثلة وغير متماثلة هو تساوي أو اختلاف زاويتَي الميل؛ فالزاويتان مختلفتان وكلتاهما أقل من 90°." },
+                    { text: "مقلوبة؛ لأن إحدى الزاويتين كبيرة نسبيًا (85°)", isCorrect: false, rationale: "المقلوبة تتطلّب تجاوز إحدى الزاويتين 90° بالضبط." },
+                    { text: "لا يمكن تصنيفها بأي شكل", isCorrect: false, rationale: "يمكن تصنيفها بدقة تامة باستخدام معيار زاوية ميل الجناحين." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التطبيق الدقيق والمركَّب للمعيار الرقمي (تساوي الزوايا مقابل عدم تساويها، ومقارنتها بحدّ 90°).",
+                outcome: "أميّز أنواع الطيّات المختلفة."
+            },
+            {
+                text: "لماذا يُعدّ ذكر 'اندفاع الماغما وتبريدها أسفل سطح الأرض' كسبب شائع لتكوّن القباب معلومة مهمّة تربط هذا الدرس بموضوعات جيولوجية أخرى (كالصخور النارية)؟",
+                options: [
+                    { text: "لأنها تُظهر أن نشوء التراكيب الجيولوجية (كالقباب) قد يرتبط بعمليات جيولوجية من فروع مختلفة (هنا: النشاط الناري/الماغماتي) وليس فقط بالإجهادات التكتونية المباشرة", isCorrect: true, rationale: "يوضّح ذكر اندفاع الماغما أن التراكيب الجيولوجية قد تنشأ من عمليات فروع مختلفة (كالصخور النارية) وليس فقط التكتونيات المباشرة." },
+                    { text: "لأن الماغما لا علاقة لها بأي تركيب جيولوجي آخر", isCorrect: false, rationale: "الماغما ترتبط بتكوّن القباب." },
+                    { text: "لأن كل القباب تتكوّن حصرًا بفعل الماغما دون أي استثناء", isCorrect: false, rationale: "استخدم الدرس عبارة 'غالبًا ما تتكوّن' وليس 'حصرًا'." },
+                    { text: "لأن هذه المعلومة غير مذكورة في الدرس إطلاقًا", isCorrect: false, rationale: "المعلومة مذكورة صراحة في نص الدرس." }
+                ],
+                difficulty: "صعب", bloom: "تحليل",
+                concept: "التحليل النقدي لأهمية ربط مصادر متعددة (تكتونية وماغماتية) لتفسير نشوء التركيب الجيولوجي نفسه (القبّة).",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "منطقة خضعت لتاريخ جيولوجي معقّد: أوّلًا تكوَّنت قبّة بفعل اندفاع ماغما، ثم تعرّضت لملايين السنين من التعرية حوّلتها جزئيًا إلى منخفض يشبه الحوض، ثم تعرّضت المنطقة لاحقًا لإجهاد ضغط إضافي أثّر في الطبقات المتبقية غير المتكشِّفة بعد، منتجًا طيّة جديدة غير متماثلة فوق البنية القديمة. أي وصف يمثّل بدقة أكبر هذا السيناريو المتعدد المراحل؟",
+                options: [
+                    { text: "لا يمكن لمنطقة واحدة أن تمرّ بهذا العدد من المراحل الجيولوجية المختلفة", isCorrect: false, rationale: "المناطق الجيولوجية الحقيقية تُظهر فعليًا تاريخًا معقدًا متعدد المراحل." },
+                    { text: "يمثّل هذا السيناريو تراكمًا واقعيًا لعدّة عمليات جيولوجية متعاقبة عبر الزمن، وهذا يعكس المبدأ الجيولوجي العام بأن التراكيب السطحية الحالية غالبًا ما تكون نتاج تاريخ معقّد متعدد المراحل", isCorrect: true, rationale: "يجمع السيناريو بين آليات متعددة ويعكس المبدأ الجيولوجي بأن التراكيب نتاج تاريخ تراكمي متعاقب عبر ملايين السنين." },
+                    { text: "المرحلة الأخيرة (الإجهاد الجديد) تُلغي بالضرورة كل الآثار السابقة للقبّة والتعرية", isCorrect: false, rationale: "لا يوجد أساس علمي يشير إلى أن إجهادًا جديدًا يلغي بالضرورة كل الآثار السابقة." },
+                    { text: "هذا السيناريو مستحيل علميًا لأن القباب لا تتحوّل أبدًا إلى أي شكل آخر", isCorrect: false, rationale: "أثبت الدرس أن القباب يمكن أن تتحوّل تدريجيًا بفعل التعرية." }
+                ],
+                difficulty: "متميز", bloom: "تركيب/تقويم",
+                concept: "مسألة تركيبية متقدّمة جدًا تدمج عدّة مفاهيم من الدرس في سيناريو جيولوجي واقعي متعدد المراحل الزمنية.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            },
+            {
+                text: "بالنظر الشامل لدرس 'الطيّات' بأكمله، أي وصف يمثّل بدقة أكبر الإطار المفاهيمي المتكامل الذي يربط بين (أجزاء الطيّة، تصنيفها بمعيارين، والقبّة/الحوض كنتاج نهائي لها)؟",
+                options: [
+                    { text: "هذه المفاهيم منفصلة تمامًا ولا رابط منطقي بينها", isCorrect: false, rationale: "المفاهيم مترابطة بعمق شديد في تسلسل هرمي واضح طوال الدرس." },
+                    { text: "تبدأ دراسة الطيّة بتحديد أجزائها الأساسية، ثم تُصنَّف بمعيارين مستقلَّين، وأخيرًا يمكن أن تتطوّر الطيّات المتماثلة إلى تراكيب إقليمية أكبر ثلاثية الأبعاد (القبّة والحوض) قد تتحوّل إحداهما للأخرى عبر التعرية", isCorrect: true, rationale: "يبني الدرس تسلسلًا معرفيًا متكاملًا من التفصيل الدقيق (أجزاء الطيّة) إلى التصنيف متعدد المعايير وصولًا للمستوى الإقليمي الأوسع (القبّة والحوض)." },
+                    { text: "أجزاء الطيّة لا علاقة لها بتصنيفها إطلاقًا", isCorrect: false, rationale: "معرفة أجزاء الطيّة ضرورية لفهم معيار التصنيف الثاني." },
+                    { text: "القبّة والحوض لا علاقة لهما بمفهوم الطيّة الأساسي إطلاقًا", isCorrect: false, rationale: "القبّة والحوض هما الطيّة المحدبة والمقعرة المتماثلة في بُعدهما الإقليمي ثلاثي الأبعاد." }
+                ],
+                difficulty: "متميز", bloom: "تقويم",
+                concept: "استخلاص الإطار المفاهيمي الشامل الذي يربط جميع عناصر الدرس في نسق معرفي هرمي واحد متكامل.",
+                outcome: "أقارن بين القبّة والحوض من حيث موقع الصخور الأقدم والأحدث."
+            }
+        ];
+
+        // 2. End of Lesson Quiz (20 Verified Questions)
+        const lessonQuestions = [
+            {
+                text: "تنشأ الطيّات في:",
+                options: [
+                    { text: "الصخور اللدنة، أو الهشّة الساخنة في الأعماق", isCorrect: true, rationale: "هذا هو مصدر نشوء الطيّات كما ورد في الدرس." },
+                    { text: "الصخور الهشّة قرب السطح فقط", isCorrect: false, rationale: "الصخور الهشّة قرب السطح تنكسر مكونة صدوعًا." },
+                    { text: "المياه فقط", isCorrect: false, rationale: "الطيّات تراكيب صخرية صلبة." },
+                    { text: "الغازات الجوفية", isCorrect: false, rationale: "ليس للغازات علاقة مباشرة بتكوين الطيّات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "تنتج الطيّات من إجهاد:",
+                options: [
+                    { text: "الشدّ", isCorrect: false, rationale: "الشدّ ينتج الصدوع العادية." },
+                    { text: "الضغط", isCorrect: true, rationale: "الطيّات تنتج حصرًا من إجهاد الضغط." },
+                    { text: "القصّ", isCorrect: false, rationale: "القصّ ينتج الصدوع الجانبية." },
+                    { text: "لا علاقة لها بأي إجهاد", isCorrect: false, rationale: "الطيّات تراكيب ناتجة عن إجهاد الضغط." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "أحد جانبَي الطيّة يُسمّى:",
+                options: [
+                    { text: "مفصل الطيّة", isCorrect: false, rationale: "مفصل الطيّة خطّ أقصى الانحناء." },
+                    { text: "جناح الطيّة", isCorrect: true, rationale: "هذا تعريف جناح الطيّة." },
+                    { text: "المستوى المحوري", isCorrect: false, rationale: "المستوى المحوري يقسم الطيّة قسمين." },
+                    { text: "محور الطيّة", isCorrect: false, rationale: "خط وهمي في المستوى المحوري." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الخطّ الذي يصل بين نقاط أقصى انحناء في الطيّة يُسمّى:",
+                options: [
+                    { text: "جناح الطيّة", isCorrect: false, rationale: "جناح الطيّة طبقة مائلة." },
+                    { text: "مفصل الطيّة", isCorrect: true, rationale: "هذا تعريف مفصل الطيّة." },
+                    { text: "محور الطيّة", isCorrect: false, rationale: "مفهوم مختلف قليلًا داخل المستوى المحوري." },
+                    { text: "مستوى الصدع", isCorrect: false, rationale: "مصطلح خاص بالصدوع." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "المستوى الوهمي الذي يقسم الطيّة قسمين يُسمّى:",
+                options: [
+                    { text: "جناح الطيّة", isCorrect: false, rationale: "جناح الطيّة طبقة مائلة." },
+                    { text: "مفصل الطيّة", isCorrect: false, rationale: "خط نقاط أقصى انحناء." },
+                    { text: "المستوى المحوري", isCorrect: true, rationale: "هذا تعريف المستوى المحوري." },
+                    { text: "الصدع", isCorrect: false, rationale: "تركيب تكسري مختلف." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الطيّات التي تتقوّس نحو الأعلى تُسمّى:",
+                options: [
+                    { text: "مقعَّرة", isCorrect: false, rationale: "المقعرة تتقوس للأسفل." },
+                    { text: "محدَّبة", isCorrect: true, rationale: "هذا تعريف الطيّات المحدّبة." },
+                    { text: "مقلوبة", isCorrect: false, rationale: "تصنيف يعتمد على زاوية المستوى المحوري." },
+                    { text: "مضطَجعة", isCorrect: false, rationale: "تصنيف متقدم." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الطيّات التي تتقوّس نحو الأسفل تُسمّى:",
+                options: [
+                    { text: "مقعَّرة", isCorrect: true, rationale: "هذا تعريف الطيّات المقعّرة." },
+                    { text: "محدَّبة", isCorrect: false, rationale: "المحدبة تتقوس للأعلى." },
+                    { text: "متماثلة فقط", isCorrect: false, rationale: "التماثل صفة مستقلة." },
+                    { text: "غير متماثلة فقط", isCorrect: false, rationale: "عدم التماثل صفة مستقلة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "في الطيّة المقعَّرة، تقع الطبقات الأحدث في:",
+                options: [
+                    { text: "الأطراف", isCorrect: false, rationale: "الأطراف تحتوي الطبقات الأقدم." },
+                    { text: "الوسط", isCorrect: true, rationale: "الطبقات الأحدث تقع في وسط الطيّة المقعّرة." },
+                    { text: "خارج الطيّة", isCorrect: false, rationale: "خارج الطيّة ليس موقعًا تعريفيًا داخليًا." },
+                    { text: "لا يمكن تحديد ذلك", isCorrect: false, rationale: "يمكن تحديد ذلك بدقة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "الطيّة التي يميل جناحاها بزاوية متساوية ومستواها المحوري عمودي تُسمّى:",
+                options: [
+                    { text: "متماثلة", isCorrect: true, rationale: "هذا تعريف الطيّة المتماثلة." },
+                    { text: "غير متماثلة", isCorrect: false, rationale: "غير المتماثلة تختلف فيها زوايا الميل." },
+                    { text: "مقلوبة", isCorrect: false, rationale: "المقلوبة تتجاوز فيها إحدى الزوايا 90°." },
+                    { text: "مضطَجعة", isCorrect: false, rationale: "المضطجعة مستواها المحوري أفقي تقريبًا." }
+                ],
+                difficulty: "سهل", bloom: "فهم"
+            },
+            {
+                text: "الطيّة التي يميل كل جناح بزاوية مختلفة ومستواها المحوري مائل بأقل من 90° تُسمّى:",
+                options: [
+                    { text: "متماثلة", isCorrect: false, rationale: "المتماثلة تتساوى فيها زاويتا الميل." },
+                    { text: "غير متماثلة", isCorrect: true, rationale: "هذا تعريف الطيّة غير المتماثلة." },
+                    { text: "مقلوبة", isCorrect: false, rationale: "المقلوبة تتجاوز فيها الزاوية 90°." },
+                    { text: "مضطَجعة", isCorrect: false, rationale: "المضطجعة مستواها أفقي تقريبًا." }
+                ],
+                difficulty: "سهل", bloom: "فهم"
+            },
+            {
+                text: "الطيّة التي تتجاوز زاوية ميل أحد جناحيها 90° تُسمّى:",
+                options: [
+                    { text: "متماثلة", isCorrect: false, rationale: "زواياها متساوية وأقل من 90°." },
+                    { text: "غير متماثلة", isCorrect: false, rationale: "زواياها أقل من 90°." },
+                    { text: "مقلوبة", isCorrect: true, rationale: "هذا تعريف الطيّة المقلوبة." },
+                    { text: "لا شيء مما سبق", isCorrect: false, rationale: "الخيار الصحيح موجود." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "الطيّة التي مستواها المحوري أفقي تقريبًا وجناحاها أفقيان بالاتجاه نفسه تُسمّى:",
+                options: [
+                    { text: "متماثلة", isCorrect: false, rationale: "مستواها عمودي." },
+                    { text: "مقلوبة", isCorrect: false, rationale: "مستواها مائل وليست أفقية تمامًا." },
+                    { text: "مضطَجعة", isCorrect: true, rationale: "هذا تعريف الطيّة المضطَجعة." },
+                    { text: "مقعَّرة فقط", isCorrect: false, rationale: "وصف شكلي ناقص." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "التركيب الجيولوجي الناتج من طيّة محدَّبة متماثلة يُسمّى:",
+                options: [
+                    { text: "الحوض", isCorrect: false, rationale: "الحوض ينتج من طيّة مقعّرة." },
+                    { text: "القبّة", isCorrect: true, rationale: "القبّة تنتج من طيّة محدبّة متماثلة." },
+                    { text: "الصدع", isCorrect: false, rationale: "الصدع كسر صخري." },
+                    { text: "المضرب", isCorrect: false, rationale: "اتجاه الطبقات." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "التركيب الجيولوجي الناتج من طيّة مقعَّرة متماثلة يُسمّى:",
+                options: [
+                    { text: "الحوض", isCorrect: true, rationale: "الحوض ينتج من طيّة مقعّرة متماثلة." },
+                    { text: "القبّة", isCorrect: false, rationale: "القبّة تنتج من طيّة محدبة." },
+                    { text: "الصدع", isCorrect: false, rationale: "تركيب تكسري." },
+                    { text: "المضرب", isCorrect: false, rationale: "مصطلح وضعي." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "في القبّة، تقع الطبقات الأقدم في:",
+                options: [
+                    { text: "الأطراف", isCorrect: false, rationale: "الأطراف تحتوي الطبقات الأحدث." },
+                    { text: "الوسط", isCorrect: true, rationale: "الطبقات الأقدم تقع في وسط القبّة." },
+                    { text: "خارج القبّة", isCorrect: false, rationale: "خارج النطاق." },
+                    { text: "لا يمكن تحديد ذلك", isCorrect: false, rationale: "يمكن تحديد ذلك بدقة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "في الحوض، تقع الطبقات الأحدث في:",
+                options: [
+                    { text: "الأطراف", isCorrect: false, rationale: "الأطراف تحتوي الطبقات الأقدم." },
+                    { text: "الوسط", isCorrect: true, rationale: "الطبقات الأحدث تقع في وسط الحوض." },
+                    { text: "خارج الحوض", isCorrect: false, rationale: "خارج النطاق." },
+                    { text: "لا يمكن تحديد ذلك", isCorrect: false, rationale: "يمكن تحديد ذلك بدقة." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "غالبًا ما تتكوّن القباب بفعل:",
+                options: [
+                    { text: "اندفاع الماغما وتبريدها أسفل سطح الأرض", isCorrect: true, rationale: "اندفاع الماغما من أهم أسباب تكوّن القباب." },
+                    { text: "هطول الأمطار الغزيرة فقط", isCorrect: false, rationale: "الأمطار لا تبني القباب التكتونية." },
+                    { text: "الرياح فقط", isCorrect: false, rationale: "الرياح عامل تعرية وليس بناء." },
+                    { text: "المد والجزر", isCorrect: false, rationale: "ظاهرة ساحلية." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "ينتج الحوض من هبوط القشرة الأرضية بسبب:",
+                options: [
+                    { text: "ثقل الرواسب المتراكمة", isCorrect: true, rationale: "يهبط الحوض بفعل ثقل الرواسب المتراكمة." },
+                    { text: "ارتفاع درجة الحرارة فقط", isCorrect: false, rationale: "الحرارة وحدها لا تفسر الهبوط الإقليمي." },
+                    { text: "الرياح", isCorrect: false, rationale: "عامل سطحي." },
+                    { text: "لا سبب محدَّد", isCorrect: false, rationale: "للأحواض أسباب جيولوجية واضحة." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            },
+            {
+                text: "مثال أردني على تحوّل قبّة إلى حوض بفعل التعرية:",
+                options: [
+                    { text: "حوض البقعة", isCorrect: true, rationale: "حوض البقعة كان في الأصل قبّة تحوّلت بفعل التعرية." },
+                    { text: "غور الأردن", isCorrect: false, rationale: "أخدود خَسفي." },
+                    { text: "وادي الموجب", isCorrect: false, rationale: "صدوع درجية." },
+                    { text: "صدع البحر الميت", isCorrect: false, rationale: "صدع جانبي." }
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                text: "القبباب تتآكل بمعدَّل أسرع من الأحواض؛ لأنها:",
+                options: [
+                    { text: "ترتفع أولًا على هيئة جبال معرَّضة مباشرة للتجوية والحتّ", isCorrect: true, rationale: "ارتفاع القباب يعرّضها مباشرة لعمليات التجوية والحتّ." },
+                    { text: "أقلّ عرضة للتجوية من الأحواض", isCorrect: false, rationale: "العكس صحيح تمامًا." },
+                    { text: "لا تتأثّر بالتعرية إطلاقًا", isCorrect: false, rationale: "كل الصخور المعرضة تتأثر بالتعرية." },
+                    { text: "أعمق من الأحواض دائمًا", isCorrect: false, rationale: "القباب مرتفعة وليست منخفضة." }
+                ],
+                difficulty: "متوسط", bloom: "فهم"
+            }
+        ];
+
+        let activeQuizType = 'pro'; 
+        let activeQuestions = [];
+        let currentQuestionIdx = 0;
+        let userAnswers = {}; 
+        let bookmarkedQuestions = new Set();
+        let timerInterval = null;
+        let secondsElapsed = 0;
+
+        window.addEventListener('load', () => {
+            initializeStats();
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('reset-storage').addEventListener('click', clearStatsData);
+            
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        function initializeStats() {
+            const proScore = localStorage.getItem('u3_l3_pro_score_malkawi');
+            const proTotal = localStorage.getItem('u3_l3_pro_total_malkawi');
+            const lessonScore = localStorage.getItem('u3_l3_lesson_score_malkawi');
+            const lessonTotal = localStorage.getItem('u3_l3_lesson_total_malkawi');
+
+            document.getElementById('stat-pro-score').innerText = proScore ? `${proScore}/${proTotal}` : 'لم يُجتز بعد';
+            document.getElementById('stat-lesson-score').innerText = lessonScore ? `${lessonScore}/${lessonTotal}` : 'لم يُجتز بعد';
+        }
+
+        function clearStatsData() {
+            localStorage.removeItem('u3_l3_pro_score_malkawi');
+            localStorage.removeItem('u3_l3_pro_total_malkawi');
+            localStorage.removeItem('u3_l3_lesson_score_malkawi');
+            localStorage.removeItem('u3_l3_lesson_total_malkawi');
+            initializeStats();
+            showStatusToast("تمت إعادة تعيين جميع الإحصائيات بنجاح.", "success");
+        }
+
+        function showStatusToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-5 left-5 px-6 py-3.5 rounded-2xl shadow-xl text-white font-bold text-sm z-50 transition-all transform translate-y-10 opacity-0 ${type === 'success' ? 'bg-emerald-600' : 'bg-slate-800'}`;
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-10', 'opacity-0'), 50);
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function startQuiz(type) {
+            activeQuizType = type;
+            if (type === 'pro') {
+                activeQuestions = proQuestions;
+                document.getElementById('quiz-title-badge').innerText = "اختبار الدرس الثالث الوحدة الثالثة 2026 — البنك الاحترافي (30 سؤالاً)";
+            } else {
+                activeQuestions = lessonQuestions;
+                document.getElementById('quiz-title-badge').innerText = "اختبار الدرس الثالث الوحدة الثالثة 2026 — نهاية الدرس (20 سؤالاً)";
+            }
+
+            currentQuestionIdx = 0;
+            userAnswers = {};
+            bookmarkedQuestions.clear();
+            secondsElapsed = 0;
+
+            document.getElementById('total-questions-num').innerText = activeQuestions.length;
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+
+            buildSidebarGrid();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            secondsElapsed = 0;
+            document.getElementById('timer-text').innerText = "00:00";
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer-text').innerText = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function buildSidebarGrid() {
+            const grid = document.getElementById('questions-grid');
+            grid.innerHTML = '';
+            activeQuestions.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.id = `side-btn-${idx}`;
+                btn.className = "w-full h-10 rounded-xl font-bold border text-xs flex items-center justify-center transition-all bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-500";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
+
+        function loadQuestion(idx) {
+            currentQuestionIdx = idx;
+            const q = activeQuestions[idx];
+
+            document.getElementById('current-question-num').innerText = idx + 1;
+            document.getElementById('question-text').innerHTML = q.text;
+
+            const diffBadge = document.getElementById('q-difficulty-badge');
+            diffBadge.innerText = q.difficulty || "متوسط";
+            diffBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${getDifficultyBadgeStyles(q.difficulty)}`;
+
+            const bloomBadge = document.getElementById('q-bloom-badge');
+            bloomBadge.innerText = q.bloom || "فهم";
+            bloomBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${getBloomBadgeStyles(q.bloom)}`;
+
+            const bookmarkIcon = document.getElementById('bookmark-icon');
+            bookmarkIcon.className = bookmarkedQuestions.has(idx) 
+                ? "fa-solid fa-bookmark text-amber-500 text-lg" 
+                : "fa-regular fa-bookmark text-slate-400 text-lg";
+
+            const outcomeBox = document.getElementById('learning-outcome-box');
+            if (q.outcome) {
+                outcomeBox.classList.remove('hidden');
+                document.getElementById('learning-outcome-text').innerText = q.outcome;
+            } else {
+                outcomeBox.classList.add('hidden');
+            }
+
+            renderOptions(q, idx);
+            updateFeedbackBoxAndButtons(q, idx);
+
+            activeQuestions.forEach((_, gridIdx) => {
+                const b = document.getElementById(`side-btn-${gridIdx}`);
+                if (gridIdx === idx) {
+                    b.classList.add('ring-2', 'ring-emerald-500', 'border-transparent');
+                } else {
+                    b.classList.remove('ring-2', 'ring-emerald-500', 'border-transparent');
+                }
+            });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function getDifficultyBadgeStyles(difficulty) {
+            switch(difficulty) {
+                case 'سهل': return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300';
+                case 'متوسط': return 'bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-300';
+                case 'صعب': return 'bg-red-100 text-red-800 dark:bg-red-950/40 dark:text-red-300';
+                case 'متميز': return 'bg-purple-100 text-purple-800 dark:bg-purple-950/40 dark:text-purple-300';
+                default: return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+            }
+        }
+
+        function getBloomBadgeStyles(bloom) {
+            switch(bloom) {
+                case 'تذكر':
+                case 'تذكّر': return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950/40 dark:text-indigo-300';
+                case 'فهم': return 'bg-sky-100 text-sky-800 dark:bg-sky-950/40 dark:text-sky-300';
+                case 'تطبيق': return 'bg-teal-100 text-teal-800 dark:bg-teal-950/40 dark:text-teal-300';
+                case 'تحليل': return 'bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300';
+                case 'تركيب/تقويم':
+                case 'تقويم': return 'bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300';
+                default: return 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300';
+            }
+        }
+
+        function renderOptions(q, qIdx) {
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const alphaMapping = ['أ', 'ب', 'جـ', 'د'];
+            const alreadyAnswered = userAnswers.hasOwnProperty(qIdx);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-right p-4 border rounded-2xl flex items-start gap-3 transition-all duration-200 outline-none ";
+                
+                if (!alreadyAnswered) {
+                    btn.className += "bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-slate-700/50";
+                } else {
+                    btn.disabled = true;
+                    const isSelected = userAnswers[qIdx] === optIdx;
+                    if (opt.isCorrect) {
+                        btn.className += "bg-emerald-100 dark:bg-emerald-950/40 border-emerald-500 text-emerald-900 dark:text-emerald-300 font-semibold correct-pulse";
+                    } else if (isSelected && !opt.isCorrect) {
+                        btn.className += "bg-red-100 dark:bg-red-950/40 border-red-500 text-red-900 dark:text-red-300 font-semibold";
+                    } else {
+                        btn.className += "bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 opacity-60";
+                    }
+                }
+
+                const bullet = document.createElement('span');
+                bullet.className = "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300";
+                bullet.innerText = alphaMapping[optIdx];
+                btn.appendChild(bullet);
+
+                const text = document.createElement('span');
+                text.className = "pt-0.5 leading-relaxed text-xs sm:text-sm md:text-base";
+                text.innerHTML = opt.text;
+                btn.appendChild(text);
+
+                if (!alreadyAnswered) {
+                    btn.onclick = () => selectOption(qIdx, optIdx);
+                }
+
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(qIdx, optIdx) {
+            if (userAnswers.hasOwnProperty(qIdx)) return; 
+            
+            userAnswers[qIdx] = optIdx;
+            const q = activeQuestions[qIdx];
+            const isCorrect = q.options[optIdx].isCorrect;
+
+            const sideBtn = document.getElementById(`side-btn-${qIdx}`);
+            if (isCorrect) {
+                playCorrectSound();
+                sideBtn.className += " !bg-emerald-500 !text-white !border-transparent";
+            } else {
+                playIncorrectSound();
+                sideBtn.className += " !bg-red-500 !text-white !border-transparent";
+            }
+
+            renderOptions(q, qIdx);
+            updateFeedbackBoxAndButtons(q, qIdx);
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function updateFeedbackBoxAndButtons(q, qIdx) {
+            const hasAnswered = userAnswers.hasOwnProperty(qIdx);
+            const feedbackBox = document.getElementById('feedback-box');
+
+            if (hasAnswered) {
+                const selectedOptIdx = userAnswers[qIdx];
+                const selectedOpt = q.options[selectedOptIdx];
+                const correctOpt = q.options.find(o => o.isCorrect);
+
+                feedbackBox.classList.remove('hidden');
+                
+                const iconContainer = document.getElementById('feedback-icon-container');
+                const titleText = document.getElementById('feedback-title');
+                const explainArea = document.getElementById('feedback-explain-area');
+
+                if (selectedOpt.isCorrect) {
+                    feedbackBox.className = "p-5 rounded-3xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-300 space-y-3";
+                    iconContainer.className = "p-1.5 rounded-lg bg-emerald-600 text-white";
+                    iconContainer.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                    titleText.innerText = "إجابة صحيحة! أحسنت.";
+                    explainArea.innerHTML = `<p><strong>سبب صحة الإجابة:</strong> ${selectedOpt.rationale}</p>`;
+                } else {
+                    feedbackBox.className = "p-5 rounded-3xl border-2 border-red-500 bg-red-50 dark:bg-red-950/20 text-red-900 dark:text-red-300 space-y-3";
+                    iconContainer.className = "p-1.5 rounded-lg bg-red-600 text-white";
+                    iconContainer.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                    titleText.innerText = "إجابة غير صحيحة.";
+
+                    let reasonHTML = `<p class="mb-2"><strong>سبب خطأ البديل المُختار:</strong> ${selectedOpt.rationale}</p>`;
+                    reasonHTML += `<p class="text-emerald-700 dark:text-emerald-400 font-medium"><strong>الإجابة الصحيحة وتعليلها:</strong> ${correctOpt.rationale}</p>`;
+                    explainArea.innerHTML = reasonHTML;
+                }
+
+                if (q.concept) {
+                    document.getElementById('feedback-concept-box').classList.remove('hidden');
+                    document.getElementById('feedback-concept-text').innerText = q.concept;
+                } else {
+                    document.getElementById('feedback-concept-box').classList.add('hidden');
+                }
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            document.getElementById('prev-btn').disabled = qIdx === 0;
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-quiz-btn');
+
+            if (qIdx === activeQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        function toggleBookmark() {
+            const qIdx = currentQuestionIdx;
+            const bIcon = document.getElementById('bookmark-icon');
+            const sideBtn = document.getElementById(`side-btn-${qIdx}`);
+
+            if (bookmarkedQuestions.has(qIdx)) {
+                bookmarkedQuestions.delete(qIdx);
+                bIcon.className = "fa-regular fa-bookmark text-slate-400 text-lg";
+                if (!userAnswers.hasOwnProperty(qIdx)) {
+                    sideBtn.className = sideBtn.className.replace(' !border-amber-500 !bg-amber-50 dark:!bg-amber-950/30', '');
+                }
+            } else {
+                bookmarkedQuestions.add(qIdx);
+                bIcon.className = "fa-solid fa-bookmark text-amber-500 text-lg";
+                if (!userAnswers.hasOwnProperty(qIdx)) {
+                    sideBtn.className += " !border-amber-500 !bg-amber-50 dark:!bg-amber-950/30";
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIdx < activeQuestions.length - 1) loadQuestion(currentQuestionIdx + 1);
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIdx > 0) loadQuestion(currentQuestionIdx - 1);
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            initializeStats();
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            playCompleteSound();
+
+            const totalQ = activeQuestions.length;
+            let correctCount = 0;
+
+            activeQuestions.forEach((q, idx) => {
+                if (userAnswers.hasOwnProperty(idx) && q.options[userAnswers[idx]].isCorrect) {
+                    correctCount++;
+                }
+            });
+
+            const percent = Math.round((correctCount / totalQ) * 100);
+            const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+            const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+            const timeStr = `${mins}:${secs}`;
+
+            if (activeQuizType === 'pro') {
+                const prevHigh = parseInt(localStorage.getItem('u3_l3_pro_score_malkawi') || '0');
+                if (correctCount > prevHigh) {
+                    localStorage.setItem('u3_l3_pro_score_malkawi', correctCount);
+                    localStorage.setItem('u3_l3_pro_total_malkawi', totalQ);
+                }
+            } else {
+                const prevHigh = parseInt(localStorage.getItem('u3_l3_lesson_score_malkawi') || '0');
+                if (correctCount > prevHigh) {
+                    localStorage.setItem('u3_l3_lesson_score_malkawi', correctCount);
+                    localStorage.setItem('u3_l3_lesson_total_malkawi', totalQ);
+                }
+            }
+
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+
+            document.getElementById('res-score').innerText = `${correctCount}/${totalQ}`;
+            document.getElementById('res-percent').innerText = `${percent}%`;
+            document.getElementById('res-time').innerText = timeStr;
+            document.getElementById('res-rank').innerText = getAcademicRank(percent);
+            document.getElementById('res-rank').className = `text-xl sm:text-2xl font-black mt-2 ${getRankColorStyle(percent)}`;
+
+            buildDetailedResultsDashboard();
+            buildReviewedAnswersLog();
+
+            document.getElementById('retry-btn').onclick = () => startQuiz(activeQuizType);
+        }
+
+        function getAcademicRank(percent) {
+            if (percent >= 90) return "متميز جداً 🌟";
+            if (percent >= 75) return "جيد جداً 👍";
+            if (percent >= 50) return "مقبول";
+            return "بحاجة لمراجعة الدرس 📚";
+        }
+
+        function getRankColorStyle(percent) {
+            if (percent >= 90) return "text-emerald-600 dark:text-emerald-400";
+            if (percent >= 75) return "text-blue-600 dark:text-blue-400";
+            if (percent >= 50) return "text-amber-600 dark:text-amber-400";
+            return "text-red-600 dark:text-red-400";
+        }
+
+        function buildDetailedResultsDashboard() {
+            const diffStats = {}; 
+            const bloomStats = {}; 
+
+            activeQuestions.forEach((q, idx) => {
+                const diff = q.difficulty || 'متوسط';
+                const bloom = q.bloom || 'فهم';
+                const isCorrect = userAnswers.hasOwnProperty(idx) && q.options[userAnswers[idx]].isCorrect;
+
+                if (!diffStats[diff]) diffStats[diff] = { correct: 0, total: 0 };
+                if (!bloomStats[bloom]) bloomStats[bloom] = { correct: 0, total: 0 };
+
+                diffStats[diff].total++;
+                bloomStats[bloom].total++;
+
+                if (isCorrect) {
+                    diffStats[diff].correct++;
+                    bloomStats[bloom].correct++;
+                }
+            });
+
+            const diffContainer = document.getElementById('res-difficulty-bars');
+            diffContainer.innerHTML = '';
+            for (const [diffName, val] of Object.entries(diffStats)) {
+                const pct = Math.round((val.correct / val.total) * 100);
+                diffContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold">${diffName}</span>
+                            <span>${val.correct} من ${val.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const bloomContainer = document.getElementById('res-bloom-bars');
+            bloomContainer.innerHTML = '';
+            for (const [bloomName, val] of Object.entries(bloomStats)) {
+                const pct = Math.round((val.correct / val.total) * 100);
+                bloomContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1">
+                            <span class="font-bold">${bloomName}</span>
+                            <span>${val.correct} من ${val.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function buildReviewedAnswersLog() {
+            const container = document.getElementById('reviewed-answers-log');
+            container.innerHTML = '';
+
+            activeQuestions.forEach((q, idx) => {
+                const userSelIdx = userAnswers[idx];
+                const hasAnswered = userAnswers.hasOwnProperty(idx);
+                const selectedOpt = hasAnswered ? q.options[userSelIdx] : null;
+                const correctOpt = q.options.find(o => o.isCorrect);
+                const isCorrect = selectedOpt && selectedOpt.isCorrect;
+
+                const card = document.createElement('div');
+                card.className = `p-6 rounded-2xl border-2 text-right space-y-4 ${isCorrect ? 'border-emerald-100 bg-emerald-50/20 dark:border-emerald-950/20' : 'border-red-100 bg-red-50/20 dark:border-red-950/20'}`;
+
+                let badgeHTML = `
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-bold">سؤال ${idx + 1}</span>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${getDifficultyBadgeStyles(q.difficulty)}">${q.difficulty || 'متوسط'}</span>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold ${getBloomBadgeStyles(q.bloom)}">${q.bloom || 'تحليل'}</span>
+                `;
+
+                if (isCorrect) {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-white"><i class="fa-solid fa-check"></i> صحيح</span>`;
+                } else if (hasAnswered) {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-500 text-white"><i class="fa-solid fa-xmark"></i> خطأ</span>`;
+                } else {
+                    badgeHTML += `<span class="mr-auto px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-500 text-white"><i class="fa-regular fa-eye-slash"></i> غير مجاب</span>`;
+                }
+
+                badgeHTML += `</div>`;
+
+                card.innerHTML = `
+                    ${badgeHTML}
+                    <h4 class="font-bold text-slate-900 dark:text-white leading-relaxed text-sm sm:text-base">${q.text}</h4>
+                    <div class="space-y-2 text-xs sm:text-sm pt-2 border-t border-slate-200/50 dark:border-slate-800">
+                        <p class="text-slate-600 dark:text-slate-400">
+                            <strong class="text-slate-800 dark:text-white">إجابتك المسجلة:</strong> 
+                            ${hasAnswered ? selectedOpt.text : '<span class="text-red-500">متروك دون خيار</span>'}
+                        </p>
+                        ${!isCorrect ? `<p class="text-emerald-700 dark:text-emerald-400"><strong>الإجابة الصحيحة:</strong> ${correctOpt.text}</p>` : ''}
+                        
+                        <div class="p-3.5 bg-white dark:bg-slate-900/50 rounded-xl text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                            <p class="font-black text-slate-700 dark:text-slate-300">سبب صحة الإجابة والتعليل العلمي:</p>
+                            <p class="leading-relaxed">${correctOpt.rationale}</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function goToHome() {
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            initializeStats();
+        }
+    </script>
+</body>
+</html>
