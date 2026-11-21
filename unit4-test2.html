@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار توسّع قاع المحيط 2026 | المعلم محمد ملكاوي</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal & Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bae6fd;
+            border-radius: 4px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1e293b;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white !important; color: black !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="no-print bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-gradient-to-tr from-ocean-600 to-cyan-500 text-white rounded-xl shadow-md">
+                    <i class="fa-solid fa-water text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg md:text-xl font-black text-slate-900 dark:text-white leading-tight">اختبار فرضية توسّع قاع المحيط (2026)</h1>
+                    <p class="text-xs sm:text-sm text-ocean-600 dark:text-ocean-400 font-bold mt-0.5">إعداد وتصميم المعلم محمد ملكاوي</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTheme()" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all" title="تبديل المظهر الليلي/النهاري">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+                <button onclick="resetStats()" class="p-2.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition-all" title="مسح السجل والإحصائيات">
+                    <i class="fa-solid fa-trash-can text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col justify-center">
+        
+        <!-- 1. WELCOME VIEW -->
+        <div id="welcome-view" class="space-y-6 max-w-4xl mx-auto w-full my-auto">
+            <div class="text-center space-y-3">
+                <span class="px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-ocean-100 text-ocean-800 dark:bg-ocean-900/50 dark:text-ocean-300 inline-block shadow-sm">
+                    علوم الأرض والبيئة • الوحدة الثانية
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">بنك الأسئلة الاحترافي: توسّع قاع المحيط</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+                    اختبار تفاعلي شامل يتضمن بنك الأسئلة الاحترافي وأسئلة تقويم الدرس موزعة وفق مستويات بلوم المعرفية، مع تفسير علمي مفصّل لكل بديل من البدائل.
+                </p>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3.5 bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 rounded-xl shrink-0">
+                        <i class="fa-solid fa-trophy text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">أعلى نتيجة محققة</p>
+                        <p class="text-xl font-black text-slate-800 dark:text-white mt-0.5" id="stat-best-score">-</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3.5 bg-ocean-100 dark:bg-ocean-950/50 text-ocean-600 dark:text-ocean-400 rounded-xl shrink-0">
+                        <i class="fa-solid fa-layer-group text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">عدد الأسئلة المتاحة</p>
+                        <p class="text-xl font-black text-slate-800 dark:text-white mt-0.5" id="stat-total-q">28 سؤالاً</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+                    <div class="p-3.5 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-xl shrink-0">
+                        <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">عدد المحاولات</p>
+                        <p class="text-xl font-black text-slate-800 dark:text-white mt-0.5" id="stat-attempts">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration & Student Info Box -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-md space-y-6">
+                
+                <!-- Student Details -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">اسم الطالب / الطالبة (لإصدار الشهادة):</label>
+                        <input type="text" id="student-name" placeholder="أدخل اسمك الثلاثي..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-ocean-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">المدرسة / الشعبة (اختياري):</label>
+                        <input type="text" id="student-school" placeholder="مثال: مدرسة الملك عبدالله الثاني..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-ocean-500 transition">
+                    </div>
+                </div>
+
+                <!-- Quiz Mode Selector -->
+                <div class="space-y-2.5">
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300">اختر نطاق الاختبار:</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <button onclick="selectMode('all')" id="mode-all" class="mode-card p-4 rounded-2xl border-2 border-ocean-500 bg-ocean-50/60 dark:bg-ocean-950/40 text-right transition-all">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">الاختبار الشامل</span>
+                                <span class="text-xs font-black text-ocean-600 dark:text-ocean-400 bg-ocean-100 dark:bg-ocean-900 px-2 py-0.5 rounded-md">28 سؤالاً</span>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">يشمل بنك الأسئلة الاحترافي وأسئلة تقويم الدرس معاً.</p>
+                        </button>
+
+                        <button onclick="selectMode('pro')" id="mode-pro" class="mode-card p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-ocean-400 text-right transition-all">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">بنك الأسئلة الاحترافي</span>
+                                <span class="text-xs font-black text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/50 px-2 py-0.5 rounded-md">22 سؤالاً</span>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">أسئلة التحليل والتقويم العميقة ومستويات بلوم العليا.</p>
+                        </button>
+
+                        <button onclick="selectMode('lesson')" id="mode-lesson" class="mode-card p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-ocean-400 text-right transition-all">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">أسئلة تقويم الدرس</span>
+                                <span class="text-xs font-black text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/50 px-2 py-0.5 rounded-md">6 أسئلة</span>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">مراجعة سريعة للمفاهيم والأرقام الأساسية في الدرس.</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Start Button -->
+                <div class="pt-2">
+                    <button onclick="startQuiz()" class="w-full sm:w-2/3 md:w-1/2 bg-gradient-to-r from-ocean-600 to-cyan-600 hover:from-ocean-500 hover:to-cyan-500 text-white font-bold py-4 rounded-2xl transition-all shadow-lg hover:shadow-ocean-500/25 flex items-center justify-center gap-2 mx-auto text-lg">
+                        <span>ابدأ الاختبار التفاعلي</span>
+                        <i class="fa-solid fa-arrow-left text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. QUIZ VIEW -->
+        <div id="quiz-view" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl w-full mx-auto">
+            
+            <!-- Sidebar Navigation -->
+            <div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col max-h-[380px] lg:h-[calc(100vh-8.5rem)] lg:max-h-none sticky top-24 shadow-sm">
+                <div class="mb-3 flex items-center justify-between">
+                    <div>
+                        <h4 class="font-bold text-slate-800 dark:text-white text-base">خريطة الأسئلة</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">انقر للانتقال السريع</p>
+                    </div>
+                    <span id="answered-count-badge" class="px-2.5 py-1 bg-ocean-50 dark:bg-ocean-950 text-ocean-700 dark:text-ocean-300 font-bold text-xs rounded-lg border border-ocean-200 dark:border-ocean-800">0 / 28</span>
+                </div>
+                <div id="questions-grid" class="grid grid-cols-5 gap-2 overflow-y-auto custom-scrollbar flex-grow pr-1">
+                    <!-- Dynamic buttons -->
+                </div>
+                <div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 gap-2 text-xs text-slate-500 dark:text-slate-400 font-semibold">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3 h-3 rounded-md bg-emerald-500 shrink-0"></span> صحيحة
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3 h-3 rounded-md bg-rose-500 shrink-0"></span> خاطئة
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Workspace -->
+            <div class="lg:col-span-3 space-y-4">
+                
+                <!-- Top Progress & Timer Bar -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <button onclick="confirmExit()" class="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-lg transition-all" title="العودة للرئيسية">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </button>
+                            <span class="font-bold text-slate-800 dark:text-white text-sm sm:text-base truncate">درس توسّع قاع المحيط</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold">
+                                السؤال <span id="current-question-num" class="text-ocean-600 dark:text-ocean-400 font-extrabold">1</span> من <span id="total-questions-num" class="font-bold">28</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs sm:text-sm font-black border border-slate-200 dark:border-slate-700">
+                                <i class="fa-regular fa-clock text-ocean-500"></i> <span id="timer-text">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-gradient-to-r from-ocean-500 to-cyan-400 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 sm:p-7 shadow-sm space-y-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span id="q-difficulty-badge" class="px-3 py-1 rounded-full text-xs font-extrabold">سهل</span>
+                            <span id="q-bloom-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300">تذكّر</span>
+                        </div>
+                        <span id="q-source-badge" class="text-xs text-slate-400 font-bold">بنك الأسئلة الاحترافي</span>
+                    </div>
+
+                    <!-- Question Text -->
+                    <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-relaxed"></h3>
+
+                    <!-- Learning Outcome (if available) -->
+                    <div id="learning-outcome-box" class="hidden p-3.5 bg-ocean-50/80 dark:bg-ocean-950/30 border-r-4 border-ocean-500 rounded-l-2xl text-xs sm:text-sm text-ocean-900 dark:text-ocean-200">
+                        <span class="font-black text-ocean-700 dark:text-ocean-300 block mb-0.5">🎯 ناتج التعلم المرتبط:</span>
+                        <p id="learning-outcome-text" class="leading-relaxed"></p>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3 pt-1">
+                        <!-- Options injected here -->
+                    </div>
+
+                    <!-- Detailed Feedback Box -->
+                    <div id="feedback-box" class="hidden p-5 rounded-2xl border-2 transition-all space-y-3">
+                        <div class="flex items-center gap-2.5">
+                            <div id="feedback-icon-container" class="p-2 rounded-lg text-white shrink-0"></div>
+                            <h4 id="feedback-title" class="font-bold text-base"></h4>
+                        </div>
+                        <div id="feedback-explain-area" class="text-xs sm:text-sm space-y-2 leading-relaxed"></div>
+                        <div id="feedback-concept-box" class="hidden pt-2.5 border-t border-slate-200/80 dark:border-slate-700/80 text-xs text-slate-600 dark:text-slate-400">
+                            <strong>💡 الفكرة التي يقيسها السؤال:</strong> <span id="feedback-concept-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex items-center justify-between gap-3 pt-2">
+                    <button id="prev-btn" onclick="prevQuestion()" class="flex items-center gap-2 bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 px-5 py-3 rounded-xl font-bold transition-all text-sm disabled:opacity-40">
+                        <i class="fa-solid fa-arrow-right"></i> السابق
+                    </button>
+                    
+                    <button id="submit-quiz-btn" onclick="requestFinishQuiz()" class="bg-rose-600 hover:bg-rose-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-md text-sm flex items-center gap-2">
+                        إنهاء وتسليم الإجابات <i class="fa-solid fa-check-double"></i>
+                    </button>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="flex items-center gap-2 bg-ocean-600 hover:bg-ocean-500 text-white px-5 py-3 rounded-xl font-bold transition-all shadow-md text-sm">
+                        التالي <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. RESULTS & CERTIFICATE VIEW -->
+        <div id="results-view" class="hidden max-w-5xl mx-auto w-full space-y-8 my-auto">
+            <div class="no-print bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg text-center space-y-6">
+                <div class="w-20 h-20 bg-amber-100 dark:bg-amber-950/40 text-amber-500 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                    🏆
+                </div>
+                <div class="space-y-1">
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">أحسنت! أتممت الاختبار بنجاح</h2>
+                    <p id="res-student-subtitle" class="text-slate-500 dark:text-slate-400 text-sm font-semibold">تقرير النتيجة النهائية والتحليل الأكاديمي لأدائك</p>
+                </div>
+
+                <!-- Summary Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">النتيجة النهائية</p>
+                        <p class="text-2xl sm:text-3xl font-black text-ocean-600 dark:text-ocean-400 mt-1" id="res-score">0/28</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">النسبة المئوية</p>
+                        <p class="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-1" id="res-percent">0%</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">الوقت المستغرق</p>
+                        <p class="text-2xl sm:text-3xl font-black text-purple-600 dark:text-purple-400 mt-1" id="res-time">00:00</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-bold">التقدير</p>
+                        <p class="text-lg sm:text-xl font-black text-amber-600 dark:text-amber-400 mt-2" id="res-rank">-</p>
+                    </div>
+                </div>
+
+                <!-- Bloom Breakdown -->
+                <div class="max-w-3xl mx-auto text-right bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200/70 dark:border-slate-800">
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-ocean-500"></i> تحليل الأداء وفق مستويات بلوم المعرفية:
+                    </h4>
+                    <div id="bloom-stats-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+                        <!-- Dynamic Bloom Cards -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <button onclick="printCertificate()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-2xl transition-all shadow-md text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-award"></i> طباعة شهادة الإنجاز
+                    </button>
+                    <button onclick="startQuiz()" class="bg-ocean-600 hover:bg-ocean-500 text-white font-bold px-6 py-3 rounded-2xl transition-all shadow-md text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> إعادة الاختبار
+                    </button>
+                    <button onclick="goToHome()" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold px-6 py-3 rounded-2xl transition-all text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i> الرئيسية
+                    </button>
+                </div>
+            </div>
+
+            <!-- Printable Certificate Area -->
+            <div id="certificate-area" class="hidden print-only bg-white text-slate-900 p-8 rounded-2xl border-8 border-double border-ocean-700 max-w-4xl mx-auto my-6">
+                <div class="text-center space-y-4">
+                    <div class="flex justify-between items-center border-b-2 pb-4 border-ocean-200">
+                        <div class="text-right">
+                            <h3 class="font-bold text-base text-ocean-900">المملكة الأردنية الهاشمية</h3>
+                            <p class="text-xs text-slate-600">مادة علوم الأرض والبيئة (2026)</p>
+                        </div>
+                        <div class="text-2xl font-black text-ocean-700">
+                            <i class="fa-solid fa-water"></i> EARTH SCIENCE
+                        </div>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-600">التاريخ: <span id="cert-date"></span></p>
+                            <p class="text-xs font-bold text-ocean-900">المعلم محمد ملكاوي</p>
+                        </div>
+                    </div>
+
+                    <div class="py-6 space-y-3">
+                        <h1 class="text-3xl font-black text-slate-900">شهادة تقدير واجتياز</h1>
+                        <p class="text-sm text-slate-600">تشهد منصة الاختبارات التفاعلية لعلوم الأرض والبيئة بأن الطالب/ة:</p>
+                        <h2 id="cert-student-name" class="text-2xl font-black text-ocean-700 underline decoration-ocean-400 underline-offset-8"></h2>
+                        <p id="cert-student-school" class="text-sm text-slate-600 font-semibold"></p>
+                        <p class="text-sm text-slate-700 max-w-lg mx-auto pt-2 leading-relaxed">
+                            قد اجتاز بنجاح الاختبار الإلكتروني التفاعلي لدرس <strong class="text-ocean-900">"فرضية توسّع قاع المحيط"</strong> محققاً النتائج التالية:
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 max-w-md mx-auto my-4 bg-ocean-50 p-4 rounded-xl border border-ocean-200">
+                        <div>
+                            <span class="block text-xs text-slate-500">الدرجة</span>
+                            <span id="cert-score" class="font-black text-lg text-ocean-900"></span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-500">النسبة</span>
+                            <span id="cert-percent" class="font-black text-lg text-emerald-700"></span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-500">التقدير</span>
+                            <span id="cert-grade" class="font-black text-lg text-ocean-900"></span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-end pt-8 border-t border-ocean-200 text-xs text-slate-600">
+                        <div class="text-center">
+                            <p class="font-bold text-slate-800">الاعتماد الإلكتروني</p>
+                            <div class="w-16 h-16 border-2 border-ocean-600 rounded-full mx-auto my-1 flex items-center justify-center text-ocean-700 font-bold">
+                                معتمد
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-bold text-slate-800">إعداد وتصميم المعلم</p>
+                            <p class="text-base font-black text-ocean-900 mt-1">أ. محمد ملكاوي</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Review Log -->
+            <div class="no-print bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
+                <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                    <h3 class="text-xl font-black text-slate-900 dark:text-white">
+                        <i class="fa-solid fa-clipboard-check text-ocean-500 ml-2"></i> مراجعة جميع الأسئلة والتفاسير العلمية
+                    </h3>
+                </div>
+                <div id="reviewed-answers-log" class="space-y-4"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Modal Dialog (Replaces alert() and confirm()) -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 text-center">
+            <div id="modal-icon" class="w-14 h-14 rounded-full bg-amber-100 dark:bg-amber-950/50 text-amber-500 flex items-center justify-center text-2xl mx-auto">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <h3 id="modal-title" class="text-lg font-black text-slate-900 dark:text-white">تنبيه</h3>
+            <p id="modal-message" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+            <div id="modal-actions" class="flex items-center justify-center gap-3 pt-2">
+                <!-- Buttons injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="no-print bg-white dark:bg-slate-900 py-5 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 space-y-1 mt-auto">
+        <p class="font-bold text-slate-700 dark:text-slate-300">منصة الاختبارات التفاعلية • درس توسّع قاع المحيط (2026)</p>
+        <p>© 2026 إعداد وتصميم المعلم محمد ملكاوي - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- Web Audio Sound Effects -->
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playTone(freqs, type = 'sine', duration = 0.15) {
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                freqs.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.setValueAtTime(0.06, audioCtx.currentTime + (idx * 0.08));
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + (idx * 0.08));
+                    osc.stop(audioCtx.currentTime + (idx * 0.08) + duration);
+                });
+            } catch (e) {}
+        }
+        function playCorrectSound() { playTone([523.25, 659.25], 'triangle', 0.22); }
+        function playIncorrectSound() { playTone([293.66, 220.00], 'sawtooth', 0.28); }
+        function playCompleteSound() { playTone([523.25, 659.25, 783.99, 1046.50], 'triangle', 0.45); }
+    </script>
+
+    <!-- Quiz Engine & Question Data -->
+    <script>
+        // 1. Professional Questions Bank (22 Questions)
+        const proQuestions = [
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "وضع فرضية توسّع قاع المحيط العالِم:",
+                options: [
+                    {"text": "ألفرد فغنر", "isCorrect": false, "rationale": "ألفرد فغنر صاحب فرضية انجراف القارات، وهي فرضية سابقة مختلفة."},
+                    {"text": "هاري هس", "isCorrect": true, "rationale": "هاري هس هو صاحب فرضية توسّع قاع المحيط."},
+                    {"text": "نيوتن", "isCorrect": false, "rationale": "نيوتن عالِم فيزياء لا علاقة له."},
+                    {"text": "داروين", "isCorrect": false, "rationale": "داروين عالِم أحياء لا علاقة له."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع اسم صاحب فرضية توسّع قاع المحيط.",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "السلسلة الجبلية الضخمة المتصلة الممتدة في جميع المحيطات تُسمّى:",
+                options: [
+                    {"text": "الأخاديد البحرية", "isCorrect": false, "rationale": "الأخاديد البحرية وديان عميقة ضيقة، وليست سلسلة جبلية."},
+                    {"text": "ظهر المحيط", "isCorrect": true, "rationale": "هذا هو تعريف ظهر المحيط (Ocean Ridge)."},
+                    {"text": "الوادي المتصدِّع", "isCorrect": false, "rationale": "الوادي المتصدِّع جزء من ظهر المحيط (في وسطه)، وليس السلسلة الجبلية نفسها."},
+                    {"text": "القارة", "isCorrect": false, "rationale": "القارة مفهوم مختلف تمامًا."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع تعريف ظهر المحيط.",
+                outcome: "أربط توسّع قاع المحيط بنشوء قشرة محيطية جديدة."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "الوادي العميق الضيق الموجود في وسط ظهر المحيط يُسمّى:",
+                options: [
+                    {"text": "الأخدود البحري", "isCorrect": false, "rationale": "الأخدود البحري تركيب مختلف يقع عند أطراف المحيط وليس وسط ظهر المحيط."},
+                    {"text": "الوادي المتصدِّع", "isCorrect": true, "rationale": "هذا هو تعريف الوادي المتصدِّع (Rift Valley)."},
+                    {"text": "الحوض", "isCorrect": false, "rationale": "الحوض والقبّة تركيبان جيولوجيان من درس آخر (الطيّات)."},
+                    {"text": "القبّة", "isCorrect": false, "rationale": "الحوض والقبّة تركيبان جيولوجيان من درس آخر (الطيّات)."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع تعريف الوادي المتصدِّع.",
+                outcome: "أربط توسّع قاع المحيط بنشوء قشرة محيطية جديدة."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "أعمق الأخاديد البحرية في العالم هو أخدود:",
+                options: [
+                    {"text": "ماريانا في المحيط الهادي", "isCorrect": true, "rationale": "أخدود ماريانا في المحيط الهادي هو أعمق الأخاديد البحرية (أكثر من 11 km)."},
+                    {"text": "الأطلسي", "isCorrect": false, "rationale": "الأطلسي والهندي محيطات وليست أخاديد محددة."},
+                    {"text": "الهندي", "isCorrect": false, "rationale": "الأطلسي والهندي محيطات وليست أخاديد محددة."},
+                    {"text": "القطب الشمالي", "isCorrect": false, "rationale": "القطب الشمالي منطقة جغرافية وليست أخدودًا بحريًا."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع مثال أعمق أخدود بحري.",
+                outcome: "أربط توسّع قاع المحيط بنشوء قشرة محيطية جديدة."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "نصّ فرضية توسّع قاع المحيط هو:",
+                options: [
+                    {"text": "تُبنى القشرة المحيطية الجديدة عند ظهور المحيطات، وتُستهلَك القشرة الأقدم عند الأخاديد البحرية", "isCorrect": true, "rationale": "هذا هو النصّ الدقيق لفرضية هس."},
+                    {"text": "تُبنى القشرة المحيطية الجديدة عند الأخاديد البحرية فقط", "isCorrect": false, "rationale": "عكس الحقيقة؛ فالبناء يحدث عند ظهور المحيطات وليس الأخاديد."},
+                    {"text": "لا تتغيَّر القشرة المحيطية إطلاقًا", "isCorrect": false, "rationale": "الفرضية تصف تغيُّرًا مستمرًا وليس ثباتًا."},
+                    {"text": "تُستهلَك كل القشرة المحيطية عند ظهر المحيط", "isCorrect": false, "rationale": "الاستهلاك يحدث عند الأخاديد البحرية وليس ظهر المحيط."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع النصّ الدقيق للفرضية.",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "استُخدمت سفينة (غلومار شالنجر) لجمع عيِّنات صخرية من قاع المحيط منذ عام:",
+                options: [
+                    {"text": "1912م", "isCorrect": false, "rationale": "1912م عام اقتراح فرضية انجراف القارات، وليس هذا السياق."},
+                    {"text": "1964م", "isCorrect": false, "rationale": "1964م عام بدء استخدام غواصة ألفين وليس سفينة غلومار شالنجر."},
+                    {"text": "1968م", "isCorrect": true, "rationale": "استُخدمت هذه السفينة منذ عام 1968م."},
+                    {"text": "2000م", "isCorrect": false, "rationale": "2000م تاريخ غير وارد في الدرس."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع تاريخ استخدام سفينة غلومار شالنجر.",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "استُخدمت غواصة (ألفين) لدراسة قيعان المحيطات منذ عام:",
+                options: [
+                    {"text": "1912م", "isCorrect": false, "rationale": "1912م عام اقتراح فرضية انجراف القارات."},
+                    {"text": "1964م", "isCorrect": true, "rationale": "بدأت غواصة ألفين رحلاتها الاستكشافية منذ عام 1964م."},
+                    {"text": "1968م", "isCorrect": false, "rationale": "1968م عام استخدام سفينة غلومار شالنجر وليس غواصة ألفين."},
+                    {"text": "1990م", "isCorrect": false, "rationale": "1990م تاريخ غير وارد في الدرس."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع تاريخ استخدام غواصة ألفين.",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "أقدم عمر لصخور القشرة المحيطية لا يزيد على:",
+                options: [
+                    {"text": "18 m.y", "isCorrect": false, "rationale": "18 m.y أقل بكثير من الرقم الصحيح."},
+                    {"text": "180 m.y", "isCorrect": true, "rationale": "أكَّدت الدراسات أن أقدم عمر لصخور القشرة المحيطية لا يزيد على 180 m.y تقريبًا."},
+                    {"text": "1800 m.y", "isCorrect": false, "rationale": "1800 m.y أكبر بكثير من الرقم الصحيح."},
+                    {"text": "4.4 b.y", "isCorrect": false, "rationale": "4.4 b.y هو أقدم عمر لصخور القشرة القارية، وليس المحيطية."}
+                ],
+                difficulty: "سهل",
+                bloom: "تذكّر",
+                concept: "استرجاع الرقم الدقيق لأقدم عمر لصخور القشرة المحيطية.",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "الفرق الجوهري بين تفسير فغنر وتفسير هس لحركة القارات هو:",
+                options: [
+                    {"text": "فغنر افترض انزلاق القارات فوق قاع ثابت، وهس افترض أن القاع نفسه يتوسَّع فتتحرَّك القارات معه", "isCorrect": true, "rationale": "هذا هو الفرق الجوهري الذي أوضحه الدرس صراحة: بدلًا من افتراض حركة القارات فوق قاع ثابت (فغنر)، افترض هس أن القاع نفسه يتوسَّع (فتتحرَّك القارات نتيجة لذلك)."},
+                    {"text": "لا فرق بينهما؛ فكلاهما نفس التفسير تمامًا", "isCorrect": false, "rationale": "يوجد فرق جوهري وواضح بين التفسيرين كما فصَّل الدرس."},
+                    {"text": "فغنر افترض توسّع القاع، وهس افترض انزلاق القارات", "isCorrect": false, "rationale": "هذا عكس الحقيقة تمامًا."},
+                    {"text": "لم يقدِّم أيّ منهما أي تفسير للحركة", "isCorrect": false, "rationale": "قدَّم كلاهما تفسيرًا، لكن تفسير هس كان أكثر إقناعًا لأنه فسَّر الآلية بدقة أكبر."}
+                ],
+                difficulty: "متوسط",
+                bloom: "فهم",
+                concept: "التمييز الدقيق بين فرضيتَي فغنر وهس من حيث آلية تفسير حركة القارات.",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "عيِّنتان صخريتان من قاع المحيط، الأولى على بُعد 50 km من ظهر المحيط، والثانية على بُعد 500 km. أفضل توقُّع للفرق بينهما هو:",
+                options: [
+                    {"text": "العيِّنة الأولى (الأقرب) أقدم عمرًا من الثانية", "isCorrect": false, "rationale": "هذا عكس العلاقة الصحيحة تمامًا."},
+                    {"text": "العيِّنة الثانية (الأبعد) أقدم عمرًا من الأولى", "isCorrect": true, "rationale": "وفق دليل عمر صخور قاع المحيط، يزداد العمر كلما ابتعدنا عن وسط ظهر المحيط؛ فالعيِّنة الأبعد (500 km) أقدم من الأقرب (50 km)."},
+                    {"text": "كلتاهما بالعمر نفسه تمامًا", "isCorrect": false, "rationale": "توجد علاقة مباشرة بين المسافة والعمر، فلا يمكن أن يتساويا عند مسافتَين مختلفتَين."},
+                    {"text": "لا علاقة بين المسافة والعمر", "isCorrect": false, "rationale": "توجد علاقة طردية واضحة وموثَّقة بين المسافة عن ظهر المحيط والعمر."}
+                ],
+                difficulty: "متوسط",
+                bloom: "تحليل",
+                concept: "تطبيق دليل عمر صخور قاع المحيط على مقارنة عددية بين موقعَين.",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "وُجد شريطان مغناطيسيان على جانبَي ظهر المحيط، لهما العمر والعرض نفساهما لكن الشدّة المغناطيسية مختلفة تمامًا. هذا يخالف النمط المتوقَّع؛ فماذا يجب أن نستنتج؟",
+                options: [
+                    {"text": "هذا يتوافق تمامًا مع فرضية توسّع قاع المحيط", "isCorrect": false, "rationale": "هذا يخالف النمط المتوقَّع تحديدًا؛ فالتطابق الثلاثي هو المتوقَّع لا الاختلاف الجزئي."},
+                    {"text": "هذا يخالف نمط التماثل المتوقَّع (نفس الشدّة والعمر والعرض معًا)، ويستدعي مزيدًا من التحقُّق أو تفسيرًا إضافيًا", "isCorrect": true, "rationale": "النمط المتوقَّع (كما وضَّح الدرس) هو تطابق ثلاثي: الشدّة والعمر والعرض معًا؛ فإذا اختلفت الشدّة رغم تطابق العمر والعرض، فهذا استثناء يستدعي التحقُّق أو البحث عن تفسير إضافي (كخطأ قياس أو عامل محلي مؤثِّر)، وليس بالضرورة إثباتًا فوريًا لخطأ الفرضية ككل."},
+                    {"text": "هذا يثبت خطأ فرضية توسّع قاع المحيط بالكامل ويجب رفضها فورًا", "isCorrect": false, "rationale": "استثناء واحد لا يُبطل فرضية مدعومة بأدلّة كثيرة ومتنوعة؛ العلم يتعامل مع الاستثناءات بالتحقُّق لا بالرفض الفوري."},
+                    {"text": "الشدّة المغناطيسية لا علاقة لها بهذا الموضوع إطلاقًا", "isCorrect": false, "rationale": "الشدّة المغناطيسية هي بالضبط أحد الأبعاد الثلاثة الأساسية لدليل الأشرطة المغناطيسية."}
+                ],
+                difficulty: "متوسط",
+                bloom: "تحليل",
+                concept: "التفكير النقدي حول كيفية التعامل مع بيانات لا تطابق النمط المتوقَّع تمامًا ضمن إطار فرضية علمية مدعومة بأدلّة واسعة.",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "لماذا يُعدّ وجود اللبّة الوسائدية (Pillow Lava) تحديدًا (وليس أي شكل آخر من أشكال الصخور البركانية) دليلًا قويًا على اندفاع الماغما تحت الماء؟",
+                options: [
+                    {"text": "لأن هذا الشكل الخاص ينتج فقط من التصلُّب السريع للماغما عند ملامستها المباشرة للماء البارد", "isCorrect": true, "rationale": "فسَّر العلماء أن هذا الشكل المميَّز (الوسائدي) ينتج تحديدًا من التصلُّب السريع للماغما بسبب ملامستها المباشرة للماء، ما يجعله دليلًا مباشرًا وقويًا على أن الاندفاع حدث تحت الماء وليس في بيئة جافة."},
+                    {"text": "لأن هذا الشكل يظهر فقط على اليابسة الجافة", "isCorrect": false, "rationale": "هذا الشكل يرتبط تحديدًا بالبيئة المائية (قيعان المحيطات) وليس اليابسة الجافة."},
+                    {"text": "لا علاقة بين شكل اللبّة الوسائدية وطريقة تكوُّنها", "isCorrect": false, "rationale": "يوجد ارتباط علمي مباشر ومباشر جدًا بين شكل اللبّة الوسائدية وآلية تكوُّنها السريعة تحت الماء."},
+                    {"text": "تتشكَّل اللبّة الوسائدية ببطء شديد على مدى ملايين السنين دون أي ماء", "isCorrect": false, "rationale": "يتشكَّل هذا الشكل بسرعة (وليس ببطء) بسبب التصلُّب السريع، وهذا هو جوهر التفسير العلمي له."}
+                ],
+                difficulty: "متوسط",
+                bloom: "فهم",
+                concept: "الفهم العلمي الدقيق للعلاقة السببية بين الشكل الفيزيائي المميَّز للصخر (وسائدي) وبيئة تكوُّنه (تحت الماء بتصلُّب سريع).",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "لماذا يُعدّ توحُّد نوع صخور قاع المحيط عالميًا (بازلتي دائمًا) دليلًا غير مباشر لكنه مهمّ لفرضية توسّع قاع المحيط؟",
+                options: [
+                    {"text": "لأنه يثبت أن جميع قيعان المحيطات في العالم تتشكَّل بالآلية نفسها من المصدر نفسه (ماغما الستار)، ما يدعم فكرة عملية موحَّدة ومستمرة عالميًا وليست أحداثًا منعزلة عشوائية", "isCorrect": true, "rationale": "توحُّد التركيب (بازلتي) في كل قيعان المحيطات حول العالم يشير إلى مصدر موحَّد (ماغما الستار) وآلية موحَّدة (اندفاع وتصلُّب سريع عند ظهر المحيط)، ما يدعم أن توسّع قاع المحيط عملية عالمية منهجية وليست حوادث معزولة مختلفة في كل منطقة."},
+                    {"text": "لأن البازلت هو الصخر الوحيد الموجود على سطح الأرض بأكملها", "isCorrect": false, "rationale": "البازلت ليس الصخر الوحيد على الأرض؛ فتوجد صخور أخرى كثيرة على اليابسة (كالغرانيت في القشرة القارية)."},
+                    {"text": "لا علاقة بين توحُّد نوع الصخر وأي فرضية جيولوجية", "isCorrect": false, "rationale": "يوجد ارتباط علمي واضح بين توحُّد نوع الصخر ودعم فكرة آلية موحَّدة عالميًا لتشكُّل قيعان المحيطات."},
+                    {"text": "لأن البازلت يتشكَّل فقط على اليابسة", "isCorrect": false, "rationale": "يتشكَّل البازلت في هذا السياق تحديدًا تحت الماء (كما في اللبّة الوسائدية)، وليس فقط على اليابسة."}
+                ],
+                difficulty: "متوسط",
+                bloom: "تحليل",
+                concept: "الفهم التحليلي لكيفية أن ملاحظة بسيطة (توحُّد نوع الصخر) تدعم استنتاجًا أوسع (عالمية آلية توسّع القاع).",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "إذا وُجدت طبقة رسوبية سميكة جدًا فوق صخور بازلتية في موقع بعيد عن ظهر المحيط، بينما لا توجد أي طبقة رسوبية عند مركز ظهر المحيط نفسه، فأفضل تفسير لهذا التدرُّج هو:",
+                options: [
+                    {"text": "الرسوبيات تتراكم تدريجيًا بمرور الوقت، فالمناطق الأبعد (الأقدم) عن ظهر المحيط أتيح لها وقت أطول لتراكم الرسوبيات فوقها", "isCorrect": true, "rationale": "بما أن الصخور البازلتية الأقدم (الأبعد عن ظهر المحيط) كانت موجودة مدة أطول، فقد أُتيح للرسوبيات وقت أكبر للتراكم فوقها تدريجيًا؛ بينما الصخور حديثة التكوُّن عند مركز ظهر المحيط لم يمرّ عليها وقت كافٍ لتراكم أي رسوبيات، ما يفسِّر اختفاء الطبقة الرسوبية عند المركز وازدياد سُمكها تدريجيًا كلما ابتعدنا عنه."},
+                    {"text": "لا علاقة بين المسافة عن ظهر المحيط وسُمك الطبقة الرسوبية", "isCorrect": false, "rationale": "توجد علاقة طردية واضحة بين المسافة (والعمر المرتبط بها) وسُمك الطبقة الرسوبية، كما وصف الدرس صراحة."},
+                    {"text": "الرسوبيات تتشكَّل فقط عند ظهر المحيط مباشرة", "isCorrect": false, "rationale": "الرسوبيات تتراكم بمرور الوقت في كل مكان، لكنها تحتاج وقتًا كافيًا؛ ولذلك تختفي عند المركز (الأحدث) وتتراكم بعيدًا عنه (الأقدم)."},
+                    {"text": "هذا التدرُّج عشوائي تمامًا بلا أي تفسير منطقي", "isCorrect": false, "rationale": "يوجد تفسير منطقي وعلمي واضح لهذا التدرُّج مرتبط مباشرة بعمر الصخور ودورة توسُّع القاع."}
+                ],
+                difficulty: "متوسط",
+                bloom: "تطبيق",
+                concept: "تطبيق مبدأ ازدياد العمر مع المسافة عن ظهر المحيط لتفسير ظاهرة إضافية (سُمك الطبقة الرسوبية المتدرِّج) لم تُذكر رقميًا لكنها مذكورة وصفيًا في الدرس.",
+                outcome: "أربط توسّع قاع المحيط بنشوء قشرة محيطية جديدة عند ظهور المحيطات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "لماذا واجهت فرضية هس اعتراضات من العلماء رغم أنها فسَّرت آلية حركة القارات بنجاح أكبر من فرضية فغنر؟",
+                options: [
+                    {"text": "لأن هس لم يستطع توضيح سبب توسّع قاع المحيط نفسه (القوة المحرِّكة الأصلية)", "isCorrect": true, "rationale": "ورد صراحة في الدرس أن هس لم يستطع توضيح 'سبب' توسّع قاع المحيط، وهذا هو نقطة الضعف المتبقِّية في فرضيته رغم نجاحها في وصف الآلية والنتيجة بدقة أكبر من فغنر."},
+                    {"text": "لأن هس لم يقدِّم أي وصف لآلية توسّع القاع إطلاقًا", "isCorrect": false, "rationale": "على العكس، قدَّم هس وصفًا تفصيليًا ومقنعًا لآلية التوسُّع (اندفاع الماغما، التصلُّب، الحركة)."},
+                    {"text": "لأن العلماء رفضوا استخدام السونار", "isCorrect": false, "rationale": "السونار أداة استكشافية مقبولة علميًا استُخدمت لجمع البيانات الأساسية التي بُنيت عليها الفرضية."},
+                    {"text": "لأن هس لم يدرس تضاريس قيعان المحيطات إطلاقًا", "isCorrect": false, "rationale": "استند هس أصلًا إلى بيانات تضاريس قيعان المحيطات المكتشفة عبر السونار في بناء فرضيته."}
+                ],
+                difficulty: "متوسط",
+                bloom: "فهم",
+                concept: "فهم النقطة الدقيقة المتبقِّية من الضعف في فرضية هس (السبب وليس الآلية أو الوصف).",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "بالمقارنة بين إخفاق فغنر (لم يفسِّر السبب ولا الآلية) وإخفاق هس الجزئي (فسَّر الآلية لكن ليس السبب)، أيّ استنتاج أدقّ يمكن استخلاصه حول تطوُّر الفهم العلمي لحركة القارات؟",
+                options: [
+                    {"text": "لم يتقدَّم الفهم العلمي إطلاقًا بين فغنر وهس", "isCorrect": false, "rationale": "حدث تقدُّم علمي حقيقي وملموس بين الفرضيتَين، وخاصة في تفسير الآلية."},
+                    {"text": "تقدَّم الفهم العلمي بشكل تراكمي: فغنر قدَّم الملاحظة الأساسية والأدلّة الوصفية، وهس أضاف تفسيرًا آليًا مقنعًا جزئيًا (وإن ظلّ 'السبب' الأعمق مجهولًا)، ما يمثِّل خطوة وسيطة مهمّة نحو الفهم الكامل اللاحق (حركة الصفائح التكتونية)", "isCorrect": true, "rationale": "يعكس هذا الاستنتاج طبيعة تراكمية التقدُّم العلمي: كل عالِم يبني على إنجازات سابقه ويحلّ جزءًا من الإشكالية المتبقِّية؛ ففغنر قدَّم الملاحظة والأدلّة، وهس حلّ جزءًا كبيرًا من مشكلة الآلية (تاركًا مشكلة 'السبب/القوة المحرِّكة' لتُحلّ لاحقًا)."},
+                    {"text": "كان هس مخطئًا تمامًا في كل ما قدَّمه", "isCorrect": false, "rationale": "لم يكن هس مخطئًا بالكامل؛ فقد قدَّم تفسيرًا آليًا مقنعًا حظي بدعم أدلّة قوية ومتعدِّدة."},
+                    {"text": "كان فغنر مصيبًا تمامًا في كل ما قدَّمه دون أي نقص", "isCorrect": false, "rationale": "كان فغنر ناقصًا في تفسير السبب والآلية معًا، كما وضَّح الدرس السابق بالتفصيل، فلم يكن مصيبًا تمامًا."}
+                ],
+                difficulty: "صعب",
+                bloom: "تحليل",
+                concept: "التحليل الفلسفي/التاريخي لطبيعة التقدُّم العلمي التراكمي عبر مقارنة إخفاقَي فغنر وهس المختلفَين في الدرجة والنوع.",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "لو افترضنا أن دراسة جديدة أظهرت أن أعمار صخور قاع المحيط لا تتماثل على جانبَي ظهر المحيط (بل أحد الجانبَين أقدم بكثير من الآخر عند المسافة نفسها)، فما الأثر المتوقَّع لهذا الاكتشاف على فرضية توسّع قاع المحيط بصيغتها الحالية؟",
+                options: [
+                    {"text": "لن يكون له أي أثر إطلاقًا", "isCorrect": false, "rationale": "التماثل مفهوم مركزي في الفرضية كما وصفها الدرس ('توسّع متماثل ودائم')، فكسره سيكون له أثر حقيقي."},
+                    {"text": "سيتطلَّب تعديلًا جوهريًا في فهم آلية التوسُّع؛ إذ إن 'التماثل' في المعدَّل والعمر على الجانبَين هو افتراض أساسي في الفرضية الحالية (توسُّع متماثل ودائم)، وأي كسر لهذا التماثل يستدعي تفسيرًا إضافيًا (كاختلاف معدَّلات الحركة أو عوامل جيولوجية محلية)", "isCorrect": true, "rationale": "التماثل في العمر (والشدّة المغناطيسية والعرض) على جانبَي ظهر المحيط جزء أساسي من الدليل والوصف الحالي لفرضية توسّع قاع المحيط ('توسّع متماثل ودائم')؛ فأي انحراف حقيقي عن هذا النمط يستدعي تفسيرًا إضافيًا (وليس بالضرورة إبطال الفرضية بالكامل، لكنه يتطلَّب تفصيلًا أدق)."},
+                    {"text": "سيؤكِّد الفرضية الحالية بصورة أقوى", "isCorrect": false, "rationale": "هذا يعاكس المنطق العلمي؛ فاكتشاف يخالف افتراضًا أساسيًا في الفرضية لا يمكن أن 'يؤكِّدها بصورة أقوى'."},
+                    {"text": "لا علاقة للتماثل بأي جزء من الفرضية", "isCorrect": false, "rationale": "التماثل جزء جوهري وموثَّق من أدلّة الفرضية (كما في تماثل الأشرطة المغناطيسية)، وليس غير ذي علاقة."}
+                ],
+                difficulty: "صعب",
+                bloom: "تقويم",
+                concept: "التفكير النقدي الافتراضي (Counterfactual Thinking) حول أثر بيانات مخالفة لأحد الافتراضات الأساسية (التماثل) على متانة الفرضية العلمية القائمة.",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "بالربط بين درس انجراف القارات ودرس توسّع قاع المحيط، كيف يفسِّر توسّع قاع المحيط تحديدًا دليل 'تشابه الصخور والتراكيب الجيولوجية' (جبال الأباالش والكالدونية) الذي قدَّمه فغنر؟",
+                options: [
+                    {"text": "لا علاقة بين توسّع قاع المحيط وهذا الدليل إطلاقًا", "isCorrect": false, "rationale": "يوجد ارتباط مباشر وقوي؛ فتوسّع قاع المحيط هو الآلية التي تفسِّر كيف انفصلت القارات التي أثبت فغنر أنها كانت متصلة."},
+                    {"text": "إذا كانت القارتان (أمريكا الشمالية وأوروبا) متَّصلتَين أصلًا ثم انفصلتا بفعل توسُّع قاع جديد بينهما (كما يحدث في المحيط الأطلسي)، فإن هذا التوسُّع يُفسِّر آليًا كيف انفصلت السلسلة الجبلية الواحدة الأصلية (المكوَّنة من الأباالش والكالدونية معًا) إلى قسمَين متباعدَين حاليًا", "isCorrect": true, "rationale": "يقدِّم توسّع قاع المحيط الآلية المفقودة التي فسَّرت كيف يمكن لقارتَين كانتا متصلتَين (كما أثبت دليل فغنر بتطابق السلاسل الجبلية) أن تنفصلا فعليًا: بنشوء ظهر محيط جديد (كظهر المحيط الأطلسي منتصف الطريق) يدفع القارتَين بعيدًا عن بعضهما تدريجيًا، حاملًا كل نصف من السلسلة الجبلية الأصلية معه إلى قارته."},
+                    {"text": "توسّع قاع المحيط يثبت أن القارتَين لم تكونا متصلتَين أبدًا", "isCorrect": false, "rationale": "على العكس، يدعم توسّع قاع المحيط فكرة أن القارتَين كانتا متصلتَين ثم انفصلتا بفعل نشوء محيط جديد بينهما."},
+                    {"text": "لا علاقة بين ظهر المحيط وأي سلاسل جبلية على اليابسة", "isCorrect": false, "rationale": "ظهر المحيط هو بالضبط الآلية التي تشرح كيفية انفصال اليابسة (والسلاسل الجبلية عليها) عبر الزمن الجيولوجي."}
+                ],
+                difficulty: "صعب",
+                bloom: "تحليل",
+                concept: "التكامل المعرفي رفيع المستوى بين درسَي انجراف القارات وتوسّع قاع المحيط، لفهم كيف أكملت الفرضية الثانية تفسير دليل من الفرضية الأولى.",
+                outcome: "أربط توسّع قاع المحيط بنشوء قشرة محيطية جديدة عند ظهور المحيطات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "لماذا تُعدّ ملاحظة 'عدم زيادة عمر أي صخرة في قاع المحيط عن 180 m.y' نفسها دليلًا غير مباشر على وجود عملية 'استهلاك' (وليس فقط عملية 'بناء') للقشرة المحيطية؟",
+                options: [
+                    {"text": "لأنه لو كانت هناك عملية بناء فقط دون أي استهلاك، لكانت بعض الصخور في قاع المحيط أقدم بكثير (مساوية على الأقل لعمر القشرة القارية، أو حتى عمر الأرض نفسها)، بينما وجود حدّ أقصى ثابت للعمر (180 m.y) يعني أن هناك آلية تزيل الصخور الأقدم من هذا الحدّ باستمرار", "isCorrect": true, "rationale": "المنطق الاستنتاجي هنا دقيق: بما أن ظهر المحيط ينتج قشرة جديدة باستمرار منذ مليارات السنين (عمر الأرض)، فلو لم تكن هناك عملية موازية 'تستهلك' هذه القشرة (عند الأخاديد البحرية)، لتراكمت صخور بأعمار متزايدة باستمرار حتى تقترب من عمر الأرض؛ لكن وجود حدّ أقصى ثابت (180 m.y فقط) يشير بقوة إلى أن هناك آلية إزالة/استهلاك مستمرة تمنع أي صخرة من البقاء أطول من هذه المدة."},
+                    {"text": "لأن هذا الرقم عشوائي تمامًا ولا دلالة له", "isCorrect": false, "rationale": "الرقم 180 m.y محدَّد بدقة من الدراسات العلمية وليس عشوائيًا، وله دلالة استنتاجية قوية كما وضَّح التحليل."},
+                    {"text": "لأن جميع صخور الأرض بلا استثناء لا يتجاوز عمرها 180 m.y", "isCorrect": false, "rationale": "صخور القشرة القارية (على عكس المحيطية) يمكن أن يزيد عمرها على 4.4 b.y كما ورد صراحة في الدرس، فليس كل صخور الأرض محدودة بهذا العمر."},
+                    {"text": "لا علاقة بين وجود حدّ أقصى للعمر وأي عملية استهلاك", "isCorrect": false, "rationale": "يوجد ارتباط استنتاجي منطقي قوي وموثَّق علميًا بين وجود حدّ أقصى ثابت للعمر ووجود عملية استهلاك موازية للبناء المستمر."}
+                ],
+                difficulty: "صعب",
+                bloom: "تحليل",
+                concept: "التحليل الاستدلالي العميق (Inference) الذي يربط ملاحظة عددية بسيطة (الحدّ الأقصى للعمر) باستنتاج آلية كاملة غير مُلاحَظة مباشرة (الاستهلاك عند الأخاديد)، وهو تفكير علمي من الدرجة العليا.",
+                outcome: "أربط توسّع قاع المحيط بنشوء قشرة محيطية جديدة عند ظهور المحيطات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "أيّ الأدلّة الثلاثة لفرضية توسّع قاع المحيط (عمر الصخور، الأشرطة المغناطيسية، تركيب الصخور) يُعدّ الأكثر دقّة كمّيًا (رقميًا) في تحديد معدَّل سرعة توسُّع القاع الفعلي، ولماذا؟",
+                options: [
+                    {"text": "تركيب الصخور؛ لأنه يصف نوع الصخر فقط", "isCorrect": false, "rationale": "تركيب الصخور دليل نوعي (وصفي) بطبيعته، ولا يرتبط مباشرة بحساب سرعة رقمية."},
+                    {"text": "الأشرطة المغناطيسية؛ لأن معرفة تاريخ الانقلابات المغناطيسية (متى حدث كل انقلاب عالميًا) مع قياس المسافة الفعلية لكل شريط من ظهر المحيط يسمح بحساب دقيق لمعدَّل سرعة التوسُّع (مسافة/زمن) بخلاف عمر الصخور وحده الذي يعطي فقط تسلسلًا نسبيًا", "isCorrect": true, "rationale": "دليل الأشرطة المغناطيسية هو الأكثر قابلية للاستخدام الكمّي الدقيق؛ لأن تسلسل الانقلابات المغناطيسية معروف زمنيًا (مؤرَّخ عالميًا من مصادر أخرى)، فقياس عرض/مسافة كل شريط من ظهر المحيط وربطه بتاريخ الانقلاب المقابل له يعطي حسابًا دقيقًا لسرعة التوسُّع."},
+                    {"text": "عمر الصخور؛ لأنه لا يرتبط بأي قياس للمسافة", "isCorrect": false, "rationale": "عمر الصخور مرتبط أصلًا بالمسافة (كلما ابتعدنا زاد العمر)، لكن الأشرطة المغناطيسية توفِّر معايرة زمنية أدق (تواريخ الانقلابات المعروفة) لحساب السرعة بدقة أكبر."},
+                    {"text": "لا يمكن لأيّ من هذه الأدلّة حساب معدَّل السرعة", "isCorrect": false, "rationale": "يمكن فعليًا حساب معدَّل السرعة من الأدلّة الكمّية (كالأشرطة المغناطيسية وعمر الصخور معًا)، كما يُستخدَم هذا المبدأ في مسائل حسابية مشابهة في مناهج أخرى."}
+                ],
+                difficulty: "صعب",
+                bloom: "تقويم",
+                concept: "التقييم النقدي المقارن لقوة الأدلّة الثلاثة من الناحية الكمّية (الحسابية) وليس فقط الوصفية، بربط هذا بمفاهيم حساب معدَّل الحركة المألوفة من دروس سابقة (كصدع البحر الميت).",
+                outcome: "أحدّد الأدلّة الداعمة لفرضية توسّع قاع المحيط."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "بالربط الشامل بين كل عناصر هذا الدرس (ظهر المحيط، الأخاديد، الأدلّة الثلاثة، فشل هس في تفسير السبب)، أيّ سؤال بحثي يمثِّل بدقة أكبر 'الفجوة العلمية' التي ستحتاج لأن تُحلّ في الدرس التالي من هذه الوحدة (حدود الصفائح)؟",
+                options: [
+                    {"text": "ما هي أسماء المحيطات المختلفة في العالم؟", "isCorrect": false, "rationale": "أسماء المحيطات معلومة جغرافية بسيطة لا علاقة لها بالفجوة العلمية المطروحة في نهاية الدرس."},
+                    {"text": "ما القوة أو الآلية الفيزيائية الأساسية (كتيارات الحمل الحراري في الستار مثلًا) التي تدفع الماغما للاندفاع باستمرار عند ظهر المحيط وتسبِّب توسُّع القاع أصلًا؟", "isCorrect": true, "rationale": "بما أن الدرس ينتهي بالإشارة الصريحة إلى أن هس 'لم يستطع توضيح سبب توسّع قاع المحيط'، فإن السؤال البحثي المنطقي التالي هو: ما القوة الفيزيائية الأساسية المحرِّكة لهذه العملية بأكملها؟ وهذا بالضبط ما ستُجيب عنه مفاهيم لاحقة كتيارات الحمل الحراري وحركة الصفائح التكتونية (موضوع الدرس التالي)."},
+                    {"text": "كم عدد أنواع الصخور الموجودة على سطح الأرض؟", "isCorrect": false, "rationale": "عدد أنواع الصخور سؤال تصنيفي عام لا يمثِّل الفجوة العلمية المحدَّدة (السبب) التي تركها هذا الدرس مفتوحة تحديدًا."},
+                    {"text": "ما لون الماغما المندفعة؟", "isCorrect": false, "rationale": "لون الماغما تفصيل وصفي غير مرتبط بجوهر المشكلة العلمية (تفسير القوة المحرِّكة) التي أنهى بها الدرس نقاشه."}
+                ],
+                difficulty: "متميز",
+                bloom: "تركيب/تقويم",
+                concept: "أعلى مستوى تركيبي وتقييمي: تحديد السؤال البحثي الدقيق الذي يمثِّل الفجوة العلمية المتبقِّية في نهاية هذا الدرس، بما يمهِّد منطقيًا ومباشرة للدرس التالي في تسلسل الوحدة (حدود الصفائح وتيارات الحمل).",
+                outcome: "أناقش سبب ثبات حجم الأرض وكتلتها على الرغم من توسّع قيعان المحيطات."
+            },
+            {
+                source: "بنك الأسئلة الاحترافي",
+                text: "بالنظر الشامل لدرس 'توسّع قاع المحيط' بأكمله، أيّ وصف يمثِّل بدقة أكبر القيمة العلمية المضافة لهذا الدرس مقارنة بدرس 'انجراف القارات' السابق؟",
+                options: [
+                    {"text": "لا قيمة إضافية؛ فهو يكرِّر المعلومات نفسها تمامًا", "isCorrect": false, "rationale": "الدرسان مختلفان جوهريًا في المحتوى والمنهجية والأدلّة كما فصَّل التحليل الشامل أعلاه."},
+                    {"text": "أضاف هذا الدرس ثلاثة عناصر جوهرية جديدة: (1) آلية فيزيائية مقنعة لحركة القارات (توسُّع القاع بدلًا من الانزلاق فوقه)، (2) أدلّة كمّية ورقمية دقيقة (أعمار، شدّة مغناطيسية، تواريخ) تتفوَّق على الأدلّة الوصفية البحتة لفغنر، و(3) تفسيرًا لدورة كاملة من البناء والاستهلاك تشرح ثبات حجم الأرض رغم استمرار التوسُّع", "isCorrect": true, "rationale": "يمثِّل هذا الوصف التلخيص الأدق والأشمل للقيمة العلمية المضافة: آلية فيزيائية جديدة (حلّ مشكلة فغنر الأساسية)، أدلّة كمّية أدق (تعزيز منهجي)، وتفسير لدورة متكاملة (بناء واستهلاك) تحلّ لغزًا إضافيًا (ثبات حجم الأرض) لم يُطرَح أصلًا في درس فغنر."},
+                    {"text": "لم يضِف هذا الدرس أي جديد يُذكر", "isCorrect": false, "rationale": "أضاف هذا الدرس قيمة علمية هائلة وواضحة كما يوضِّح محتواه بالكامل (آلية جديدة، أدلّة كمّية، تفسير الاستهلاك)."},
+                    {"text": "استبدل هذا الدرس فرضية فغنر بالكامل ونفى كل أدلّتها", "isCorrect": false, "rationale": "لم ينفِ هذا الدرس فرضية فغنر أو أدلّتها؛ بل بنى عليها وأكملها (كما وضَّح كيف فسَّر توسّع القاع سبب حركة القارات التي أثبت فغنر حدوثها بأدلّته الأصلية)."}
+                ],
+                difficulty: "متميز",
+                bloom: "تقويم",
+                concept: "أعلى مستوى تركيبي وتقييمي في الدرس بأكمله: تقييم شامل ومقارن للقيمة العلمية المضافة لدرس توسّع قاع المحيط ضمن السياق الأوسع لتطوُّر فهم حركة القارات عبر الدرسَين المتتاليَين في الوحدة.",
+                outcome: "أناقش فرضية توسّع قاع المحيط بديلًا عن فرضية انجراف القارات."
+            }
+        ];
+
+        // 2. Lesson Review Questions (6 Questions)
+        const lessonQuestions = [
+            {
+                source: "أسئلة تقويم الدرس",
+                text: "وضع فرضية توسّع قاع المحيط العالِم:",
+                options: [
+                    {"text": "ألفرد فغنر", "isCorrect": false, "rationale": "ألفرد فغنر صاحب فرضية انجراف القارات."},
+                    {"text": "هاري هس", "isCorrect": true, "rationale": "هاري هس هو صاحب هذه الفرضية."},
+                    {"text": "نيوتن", "isCorrect": false, "rationale": "نيوتن عالِم فيزياء لا علاقة له بعلوم الأرض."},
+                    {"text": "أينشتاين", "isCorrect": false, "rationale": "أينشتاين عالِم فيزياء لا علاقة له بفرضية توسّع قاع المحيط."}
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                source: "أسئلة تقويم الدرس",
+                text: "السلسلة الجبلية الضخمة المتصلة الممتدة في جميع المحيطات:",
+                options: [
+                    {"text": "الأخدود البحري", "isCorrect": false, "rationale": "الأخدود البحري وادٍ عميق وضيق عند أطراف المحيط."},
+                    {"text": "ظهر المحيط", "isCorrect": true, "rationale": "هذا تعريف ظهر المحيط."},
+                    {"text": "الوادي المتصدِّع", "isCorrect": false, "rationale": "الوادي المتصدِّع يقع في وسط ظهر المحيط نفسه."},
+                    {"text": "القارة", "isCorrect": false, "rationale": "القارة هي الكتلة اليابسة المرتفعة فوق مستوى سطح البحر."}
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                source: "أسئلة تقويم الدرس",
+                text: "الوادي العميق الضيق في وسط ظهر المحيط يُسمّى:",
+                options: [
+                    {"text": "الأخدود البحري", "isCorrect": false, "rationale": "الأخدود البحري يقع عند أطراف المحيطات حيث تُستهلَك القشرة."},
+                    {"text": "الوادي المتصدِّع", "isCorrect": true, "rationale": "هذا تعريف الوادي المتصدِّع."},
+                    {"text": "الحوض", "isCorrect": false, "rationale": "الحوض تركيب جيولوجي يتبع الطيّات."},
+                    {"text": "القبّة", "isCorrect": false, "rationale": "القبّة تركيب جيولوجي يتبع الطيّات."}
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                source: "أسئلة تقويم الدرس",
+                text: "أعمق الأخاديد البحرية في العالم هو أخدود:",
+                options: [
+                    {"text": "ماريانا", "isCorrect": true, "rationale": "أخدود ماريانا في المحيط الهادي أعمق الأخاديد البحرية."},
+                    {"text": "الأطلسي", "isCorrect": false, "rationale": "الأطلسي اسم محيط وليس أخدودًا بحريًا."},
+                    {"text": "الهندي", "isCorrect": false, "rationale": "الهندي اسم محيط وليس أخدودًا بحريًا."},
+                    {"text": "المتوسط", "isCorrect": false, "rationale": "المتوسط بحر وليس أعمق أخدود بحري."}
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                source: "أسئلة تقويم الدرس",
+                text: "عمق أخدود ماريانا يبلغ أكثر من:",
+                options: [
+                    {"text": "1 km", "isCorrect": false, "rationale": "أقل بكثير من العمق الحقيقي لأخدود ماريانا."},
+                    {"text": "11 km", "isCorrect": true, "rationale": "يبلغ عمقه أكثر من 11 km."},
+                    {"text": "50 km", "isCorrect": false, "rationale": "رقم مبالغ فيه يتجاوز سُمك القشرة الأرضية نفسه."},
+                    {"text": "100 km", "isCorrect": false, "rationale": "رقم غير صحيح علميًا."}
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            },
+            {
+                source: "أسئلة تقويم الدرس",
+                text: "يستخدم جهاز السونار:",
+                options: [
+                    {"text": "الموجات الصوتية لتحديد أعماق المحيطات", "isCorrect": true, "rationale": "يعتمد السونار على الموجات الصوتية وزمن ارتدادها."},
+                    {"text": "الضوء فقط", "isCorrect": false, "rationale": "الضوء يتشتّت ولا يصل لأعماق المحيط السحيقة."},
+                    {"text": "الروائح", "isCorrect": false, "rationale": "خيار غير منطقي علميًا."},
+                    {"text": "درجة الحرارة فقط", "isCorrect": false, "rationale": "درجة الحرارة لا تقيس تضاريس وأعماق قاع المحيط بدقة السونار."}
+                ],
+                difficulty: "سهل", bloom: "تذكّر"
+            }
+        ];
+
+        const allQuestions = [...proQuestions, ...lessonQuestions];
+
+        // App State
+        let activeQuestions = [];
+        let currentMode = 'all';
+        let currentQIndex = 0;
+        let userAnswers = [];
+        let timerInterval = null;
+        let secondsElapsed = 0;
+
+        // Custom Modal Helper (Strictly avoiding alert() and confirm())
+        function showModal(title, message, buttons) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-message').textContent = message;
+            const actionsContainer = document.getElementById('modal-actions');
+            actionsContainer.innerHTML = '';
+
+            buttons.forEach(btn => {
+                const buttonEl = document.createElement('button');
+                buttonEl.textContent = btn.text;
+                buttonEl.className = btn.className;
+                buttonEl.onclick = () => {
+                    closeModal();
+                    if (btn.onClick) btn.onClick();
+                };
+                actionsContainer.appendChild(buttonEl);
+            });
+
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        // Theme Management
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('seafloor_quiz_theme', isDark ? 'dark' : 'light');
+        }
+
+        if (localStorage.getItem('seafloor_quiz_theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // LocalStorage Stats
+        function loadStats() {
+            const best = localStorage.getItem('seafloor_quiz_best');
+            const attempts = localStorage.getItem('seafloor_quiz_attempts') || '0';
+            document.getElementById('stat-best-score').textContent = best ? best : '-';
+            document.getElementById('stat-attempts').textContent = attempts;
+            document.getElementById('stat-total-q').textContent = `${allQuestions.length} سؤالاً`;
+        }
+
+        function resetStats() {
+            showModal(
+                'إعادة تهيئة السجل',
+                'هل أنت متأكد من مسح أعلى نتيجة وعدد المحاولات المحفوظة؟',
+                [
+                    {
+                        text: 'نعم، امسح السجل',
+                        className: 'px-5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl text-sm transition',
+                        onClick: () => {
+                            localStorage.removeItem('seafloor_quiz_best');
+                            localStorage.removeItem('seafloor_quiz_attempts');
+                            loadStats();
+                        }
+                    },
+                    {
+                        text: 'إلغاء',
+                        className: 'px-5 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-sm transition'
+                    }
+                ]
+            );
+        }
+
+        // Mode Selection
+        function selectMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-card').forEach(card => {
+                card.classList.remove('border-ocean-500', 'bg-ocean-50/60', 'dark:bg-ocean-950/40');
+                card.classList.add('border-slate-200', 'dark:border-slate-800');
+            });
+            const selected = document.getElementById(`mode-${mode}`);
+            if (selected) {
+                selected.classList.remove('border-slate-200', 'dark:border-slate-800');
+                selected.classList.add('border-ocean-500', 'bg-ocean-50/60', 'dark:bg-ocean-950/40');
+            }
+        }
+
+        // Start Quiz
+        function startQuiz() {
+            if (currentMode === 'pro') {
+                activeQuestions = [...proQuestions];
+            } else if (currentMode === 'lesson') {
+                activeQuestions = [...lessonQuestions];
+            } else {
+                activeQuestions = [...allQuestions];
+            }
+
+            currentQIndex = 0;
+            userAnswers = new Array(activeQuestions.length).fill(null);
+            secondsElapsed = 0;
+
+            let attempts = parseInt(localStorage.getItem('seafloor_quiz_attempts') || '0');
+            localStorage.setItem('seafloor_quiz_attempts', (attempts + 1).toString());
+            loadStats();
+
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('certificate-area').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+
+            buildQuestionsGrid();
+            renderQuestion();
+
+            clearInterval(timerInterval);
+            document.getElementById('timer-text').textContent = '00:00';
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.getElementById('timer-text').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function buildQuestionsGrid() {
+            const grid = document.getElementById('questions-grid');
+            grid.innerHTML = '';
+            activeQuestions.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.id = `grid-btn-${idx}`;
+                btn.onclick = () => {
+                    currentQIndex = idx;
+                    renderQuestion();
+                };
+                btn.className = 'w-full aspect-square rounded-xl text-xs font-black border transition-all flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-ocean-500';
+                btn.textContent = idx + 1;
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateGridStatus() {
+            let answeredCount = 0;
+            activeQuestions.forEach((q, idx) => {
+                const btn = document.getElementById(`grid-btn-${idx}`);
+                if (!btn) return;
+
+                btn.className = 'w-full aspect-square rounded-xl text-xs font-black border transition-all flex items-center justify-center ';
+
+                if (idx === currentQIndex) {
+                    btn.className += 'ring-2 ring-ocean-500 ring-offset-2 dark:ring-offset-slate-900 ';
+                }
+
+                if (userAnswers[idx] !== null) {
+                    answeredCount++;
+                    const isRight = q.options[userAnswers[idx]].isCorrect;
+                    if (isRight) {
+                        btn.className += 'bg-emerald-500 text-white border-emerald-600 shadow-sm';
+                    } else {
+                        btn.className += 'bg-rose-500 text-white border-rose-600 shadow-sm';
+                    }
+                } else {
+                    btn.className += 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700';
+                }
+            });
+
+            document.getElementById('answered-count-badge').textContent = `${answeredCount} / ${activeQuestions.length}`;
+            const fillPercent = (answeredCount / activeQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${fillPercent}%`;
+        }
+
+        function renderQuestion() {
+            const q = activeQuestions[currentQIndex];
+            
+            document.getElementById('current-question-num').textContent = currentQIndex + 1;
+            document.getElementById('total-questions-num').textContent = activeQuestions.length;
+            document.getElementById('q-source-badge').textContent = q.source || 'بنك الأسئلة';
+
+            // Difficulty & Bloom badges
+            const diffBadge = document.getElementById('q-difficulty-badge');
+            diffBadge.textContent = q.difficulty;
+            if (q.difficulty === 'سهل') diffBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300";
+            else if (q.difficulty === 'متوسط') diffBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300";
+            else if (q.difficulty === 'صعب') diffBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300";
+            else diffBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold bg-rose-100 text-rose-800 dark:bg-rose-950/50 dark:text-rose-300";
+
+            document.getElementById('q-bloom-badge').textContent = q.bloom;
+            document.getElementById('question-text').textContent = q.text;
+
+            // Outcome Banner
+            const outcomeBox = document.getElementById('learning-outcome-box');
+            if (q.outcome) {
+                outcomeBox.classList.remove('hidden');
+                document.getElementById('learning-outcome-text').textContent = q.outcome;
+            } else {
+                outcomeBox.classList.add('hidden');
+            }
+
+            // Options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const isAnswered = userAnswers[currentQIndex] !== null;
+            const arabicLetters = ['أ', 'ب', 'جـ', 'د'];
+
+            q.options.forEach((opt, idx) => {
+                const optBtn = document.createElement('button');
+                optBtn.onclick = () => selectOption(idx);
+                optBtn.disabled = isAnswered;
+
+                let stateClasses = "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/40 dark:hover:bg-slate-800 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200";
+
+                if (isAnswered) {
+                    if (opt.isCorrect) {
+                        stateClasses = "bg-emerald-100/80 dark:bg-emerald-950/60 border-emerald-500 text-emerald-950 dark:text-emerald-200 font-bold";
+                    } else if (idx === userAnswers[currentQIndex]) {
+                        stateClasses = "bg-rose-100/80 dark:bg-rose-950/60 border-rose-500 text-rose-950 dark:text-rose-200 font-bold";
+                    } else {
+                        stateClasses = "opacity-45 bg-slate-50 dark:bg-slate-800/20 border-slate-200 dark:border-slate-800 text-slate-500";
+                    }
+                }
+
+                optBtn.className = `w-full text-right p-3.5 sm:p-4 rounded-2xl border-2 transition-all flex items-center justify-between gap-3 ${stateClasses}`;
+                
+                optBtn.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center font-black text-xs sm:text-sm shrink-0 shadow-sm">${arabicLetters[idx]}</span>
+                        <span class="text-sm sm:text-base leading-relaxed">${opt.text}</span>
+                    </div>
+                    ${isAnswered && opt.isCorrect ? '<i class="fa-solid fa-circle-check text-emerald-600 text-lg shrink-0"></i>' : ''}
+                    ${isAnswered && idx === userAnswers[currentQIndex] && !opt.isCorrect ? '<i class="fa-solid fa-circle-xmark text-rose-600 text-lg shrink-0"></i>' : ''}
+                `;
+
+                optionsContainer.appendChild(optBtn);
+            });
+
+            // Feedback Explanation Box
+            const feedbackBox = document.getElementById('feedback-box');
+            if (isAnswered) {
+                feedbackBox.classList.remove('hidden');
+                const selectedOpt = q.options[userAnswers[currentQIndex]];
+                const isCorrect = selectedOpt.isCorrect;
+
+                if (isCorrect) {
+                    feedbackBox.className = "p-4 sm:p-5 rounded-2xl border-2 bg-emerald-50/90 dark:bg-emerald-950/30 border-emerald-500 text-emerald-950 dark:text-emerald-200 space-y-2.5";
+                    document.getElementById('feedback-icon-container').className = "p-2 rounded-lg bg-emerald-500 text-white shrink-0";
+                    document.getElementById('feedback-icon-container').innerHTML = '<i class="fa-solid fa-check"></i>';
+                    document.getElementById('feedback-title').textContent = 'إجابة صحيحة! أحسنت.';
+                } else {
+                    feedbackBox.className = "p-4 sm:p-5 rounded-2xl border-2 bg-rose-50/90 dark:bg-rose-950/30 border-rose-500 text-rose-950 dark:text-rose-200 space-y-2.5";
+                    document.getElementById('feedback-icon-container').className = "p-2 rounded-lg bg-rose-500 text-white shrink-0";
+                    document.getElementById('feedback-icon-container').innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    document.getElementById('feedback-title').textContent = 'إجابة خاطئة! راجع التفسير العلمي أدناه:';
+                }
+
+                let explainHTML = `<p class="font-bold text-xs sm:text-sm mb-1.5">تحليل البدائل والتفسير العلمي:</p><ul class="space-y-1.5 text-xs sm:text-sm">`;
+                q.options.forEach((opt, i) => {
+                    const icon = opt.isCorrect ? '✅' : '❌';
+                    explainHTML += `<li class="p-2 rounded-xl bg-white/60 dark:bg-slate-900/50"><span>${icon}</span> <strong>(${arabicLetters[i]}) ${opt.text}:</strong> ${opt.rationale}</li>`;
+                });
+                explainHTML += `</ul>`;
+                document.getElementById('feedback-explain-area').innerHTML = explainHTML;
+
+                const conceptBox = document.getElementById('feedback-concept-box');
+                if (q.concept) {
+                    conceptBox.classList.remove('hidden');
+                    document.getElementById('feedback-concept-text').textContent = q.concept;
+                } else {
+                    conceptBox.classList.add('hidden');
+                }
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            // Navigation Buttons State
+            document.getElementById('prev-btn').disabled = currentQIndex === 0;
+            if (currentQIndex === activeQuestions.length - 1) {
+                document.getElementById('next-btn').classList.add('hidden');
+                document.getElementById('submit-quiz-btn').classList.remove('hidden');
+            } else {
+                document.getElementById('next-btn').classList.remove('hidden');
+                document.getElementById('submit-quiz-btn').classList.add('hidden');
+            }
+
+            updateGridStatus();
+        }
+
+        function selectOption(idx) {
+            if (userAnswers[currentQIndex] !== null) return;
+            userAnswers[currentQIndex] = idx;
+
+            if (activeQuestions[currentQIndex].options[idx].isCorrect) {
+                playCorrectSound();
+            } else {
+                playIncorrectSound();
+            }
+
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < activeQuestions.length - 1) {
+                currentQIndex++;
+                renderQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderQuestion();
+            }
+        }
+
+        function confirmExit() {
+            showModal(
+                'الخروج من الاختبار',
+                'هل ترغب في العودة للصفحة الرئيسية؟ سيتم فقدان تقدمك في المحاولة الحالية.',
+                [
+                    {
+                        text: 'نعم، اخرج',
+                        className: 'px-5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl text-sm transition',
+                        onClick: () => {
+                            clearInterval(timerInterval);
+                            goToHome();
+                        }
+                    },
+                    {
+                        text: 'متابعة الاختبار',
+                        className: 'px-5 py-2.5 bg-ocean-600 hover:bg-ocean-500 text-white font-bold rounded-xl text-sm transition'
+                    }
+                ]
+            );
+        }
+
+        function goToHome() {
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('certificate-area').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            loadStats();
+        }
+
+        function requestFinishQuiz() {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                showModal(
+                    'أسئلة غير مجابة',
+                    `لا يزال لديك (${unanswered}) سؤالاً لم تقم بالإجابة عليه بعد. هل ترغب في تسليم الاختبار على أية حال؟`,
+                    [
+                        {
+                            text: 'نعم، سلّم الإجابات',
+                            className: 'px-5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl text-sm transition',
+                            onClick: finalizeResults
+                        },
+                        {
+                            text: 'العودة لإكمال الأسئلة',
+                            className: 'px-5 py-2.5 bg-ocean-600 hover:bg-ocean-500 text-white font-bold rounded-xl text-sm transition'
+                        }
+                    ]
+                );
+            } else {
+                finalizeResults();
+            }
+        }
+
+        function finalizeResults() {
+            clearInterval(timerInterval);
+            playCompleteSound();
+
+            let score = 0;
+            const bloomStats = {};
+
+            activeQuestions.forEach((q, idx) => {
+                const ansIdx = userAnswers[idx];
+                const isCorrect = ansIdx !== null && q.options[ansIdx].isCorrect;
+                if (isCorrect) score++;
+
+                const bKey = q.bloom || 'تذكّر';
+                if (!bloomStats[bKey]) bloomStats[bKey] = { total: 0, correct: 0 };
+                bloomStats[bKey].total++;
+                if (isCorrect) bloomStats[bKey].correct++;
+            });
+
+            const total = activeQuestions.length;
+            const percent = Math.round((score / total) * 100);
+
+            // Save Best Score if full quiz or higher percentage
+            if (currentMode === 'all') {
+                const prevBestStr = localStorage.getItem('seafloor_quiz_best');
+                const prevBestNum = prevBestStr ? parseInt(prevBestStr.split('/')[0]) : 0;
+                if (score >= prevBestNum) {
+                    localStorage.setItem('seafloor_quiz_best', `${score} / ${total}`);
+                }
+            }
+
+            // Rank
+            let rank = 'يحتاج مراجعة';
+            if (percent >= 90) rank = 'ممتاز 🌟';
+            else if (percent >= 80) rank = 'جيد جداً 👍';
+            else if (percent >= 70) rank = 'جيد 👌';
+            else if (percent >= 50) rank = 'مقبول 🎯';
+
+            // Student Info
+            const sName = document.getElementById('student-name').value.trim() || 'طالب علوم الأرض المتميز';
+            const sSchool = document.getElementById('student-school').value.trim() || 'المملكة الأردنية الهاشمية';
+
+            document.getElementById('res-student-subtitle').textContent = `الطالب/ة: ${sName} • ${sSchool}`;
+            document.getElementById('res-score').textContent = `${score}/${total}`;
+            document.getElementById('res-percent').textContent = `${percent}%`;
+            document.getElementById('res-rank').textContent = rank;
+
+            const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+            const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+            document.getElementById('res-time').textContent = `${mins}:${secs}`;
+
+            // Certificate Data
+            document.getElementById('cert-student-name').textContent = sName;
+            document.getElementById('cert-student-school').textContent = sSchool;
+            document.getElementById('cert-score').textContent = `${score} من ${total}`;
+            document.getElementById('cert-percent').textContent = `${percent}%`;
+            document.getElementById('cert-grade').textContent = rank;
+            document.getElementById('cert-date').textContent = new Date().toLocaleDateString('ar-JO');
+
+            // Render Bloom Stats
+            const bloomGrid = document.getElementById('bloom-stats-grid');
+            bloomGrid.innerHTML = '';
+            Object.keys(bloomStats).forEach(key => {
+                const item = bloomStats[key];
+                const bPct = Math.round((item.correct / item.total) * 100);
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700 text-center shadow-sm';
+                card.innerHTML = `
+                    <span class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">${key}</span>
+                    <span class="text-base font-black text-ocean-600 dark:text-ocean-400">${item.correct} / ${item.total}</span>
+                    <span class="block text-[11px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">${bPct}%</span>
+                `;
+                bloomGrid.appendChild(card);
+            });
+
+            // Build Detailed Review Log
+            const logContainer = document.getElementById('reviewed-answers-log');
+            logContainer.innerHTML = '';
+            const arabicLetters = ['أ', 'ب', 'جـ', 'د'];
+
+            activeQuestions.forEach((q, idx) => {
+                const ansIdx = userAnswers[idx];
+                const isCorrect = ansIdx !== null && q.options[ansIdx].isCorrect;
+                const correctOptIndex = q.options.findIndex(o => o.isCorrect);
+
+                const item = document.createElement('div');
+                item.className = `p-5 rounded-2xl border ${isCorrect ? 'border-emerald-200 bg-emerald-50/40 dark:border-emerald-900/40 dark:bg-emerald-950/20' : 'border-rose-200 bg-rose-50/40 dark:border-rose-900/40 dark:bg-rose-950/20'} space-y-3 text-right`;
+
+                const userChoiceText = ansIdx !== null ? `(${arabicLetters[ansIdx]}) ${q.options[ansIdx].text}` : 'لم تتم الإجابة';
+                const correctChoiceText = `(${arabicLetters[correctOptIndex]}) ${q.options[correctOptIndex].text}`;
+
+                item.innerHTML = `
+                    <div class="flex items-start justify-between gap-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-black ${isCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'} shrink-0">
+                            سؤال ${idx + 1}
+                        </span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base leading-relaxed flex-grow">${q.text}</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                        <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <span class="text-xs text-slate-400 block mb-0.5">إجابتك المختارة:</span>
+                            <span class="font-bold ${isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}">${userChoiceText}</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <span class="text-xs text-slate-400 block mb-0.5">الإجابة الصحيحة المعتمدة:</span>
+                            <span class="font-bold text-emerald-600 dark:text-emerald-400">${correctChoiceText}</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-slate-700 dark:text-slate-300 bg-white/70 dark:bg-slate-900/70 p-3.5 rounded-xl space-y-1.5 border border-slate-100 dark:border-slate-800">
+                        <p><strong>💡 التفسير العلمي:</strong> ${q.options[correctOptIndex].rationale}</p>
+                        ${q.concept ? `<p class="text-slate-500 dark:text-slate-400"><strong>🎯 الفكرة المقاسة:</strong> ${q.concept}</p>` : ''}
+                    </div>
+                `;
+                logContainer.appendChild(item);
+            });
+
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+        }
+
+        function printCertificate() {
+            document.getElementById('certificate-area').classList.remove('hidden');
+            window.print();
+        }
+
+        // Init
+        loadStats();
+    </script>
+</body>
+</html>
